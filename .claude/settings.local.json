@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh pr:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh run:*)",
+      "Bash(go mod tidy:*)",
+      "Bash(go build:*)",
+      "Bash(./wp-cli:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "shiiman-plugin@shiiman-claude-code-plugins": true,
+    "shiiman-claude@shiiman-claude-code-plugins": true,
+    "shiiman-git@shiiman-claude-code-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "shiiman-claude-code-plugins": {
+      "source": {
+        "source": "git",
+        "url": "git@github.com:shiiman/claude-code-plugins.git"
+      }
+    }
+  }
+}

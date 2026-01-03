@@ -145,6 +145,17 @@ func (c *Client) UpdatePost(id int, req *types.UpdatePostRequest) (*types.Post, 
 	return &post, nil
 }
 
+// DeletePost は投稿を削除する
+func (c *Client) DeletePost(id int, force bool) error {
+	endpoint := fmt.Sprintf("/posts/%d", id)
+	if force {
+		endpoint += "?force=true"
+	}
+
+	_, err := c.doRequest("DELETE", endpoint, nil)
+	return err
+}
+
 // GetPages は固定ページ一覧を取得する
 func (c *Client) GetPages(page, perPage int, status string) ([]types.Page, error) {
 	endpoint := fmt.Sprintf("/pages?page=%d&per_page=%d&_embed", page, perPage)

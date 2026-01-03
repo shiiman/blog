@@ -160,20 +160,21 @@ func moveToPublished(filePath string, post *types.Post) {
 		return
 	}
 
+	// 移動前に記事をパースして検証
+	article, err := converter.ParseArticle(filePath)
+	if err != nil {
+		color.Yellow("  フロントマター読み込みに失敗: %v", err)
+		return
+	}
+
 	// ディレクトリを移動
 	if err := os.Rename(srcDir, destDir); err != nil {
-		color.Yellow("  記事の移動に失敗: %v", err)
+		color.Yellow("  記事の移動に失敗 (%s -> %s): %v", srcDir, destDir, err)
 		return
 	}
 
 	// フロントマターを更新（IDとstatusを反映）
 	articlePath := filepath.Join(destDir, filepath.Base(filePath))
-	article, err := converter.ParseArticle(articlePath)
-	if err != nil {
-		color.Yellow("  フロントマター更新に失敗: %v", err)
-		return
-	}
-
 	article.FrontMatter.ID = post.ID
 	article.FrontMatter.Status = "publish"
 	article.FrontMatter.Date = post.Date.Time.Format("2006-01-02T15:04:05")
@@ -184,7 +185,7 @@ func moveToPublished(filePath string, post *types.Post) {
 		return
 	}
 
-	if err := os.WriteFile(articlePath, []byte(content), 0644); err != nil {
+	if err := os.WriteFile(articlePath, []byte(content), 0600); err != nil {
 		color.Yellow("  記事ファイル保存に失敗: %v", err)
 		return
 	}

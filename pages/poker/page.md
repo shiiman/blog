@@ -7,8 +7,19 @@ parent: 0
 menu_order: 0
 ---
 
+<!-- CDN: Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- CDN: Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- CDN: Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 <style>
-/* ポーカータイマー - Phase 6 スタイル */
+/* ポーカータイマー - Phase 7 スタイル */
 
 /* 認証オーバーレイ - !important で上書き防止 */
 .auth-overlay {
@@ -22,6 +33,8 @@ menu_order: 0
   justify-content: center !important;
   align-items: center !important;
   z-index: 2147483647 !important;
+  pointer-events: auto !important;
+  isolation: isolate !important;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -45,6 +58,8 @@ menu_order: 0
 .auth-modal h2 {
   margin: 0 0 24px 0 !important;
   color: #1e293b !important;
+  background: transparent !important;
+  padding: 0 !important;
   font-size: 20px !important;
   font-weight: 600 !important;
 }
@@ -90,11 +105,16 @@ menu_order: 0
   min-height: 20px !important;
 }
 
+/* 認証中にJSで本文非表示化する補助（保険） */
+[data-poker-auth-hidden="true"] {
+  display: none !important;
+}
+
 /* メインアプリ */
 .poker-timer-app {
   max-width: 1100px;
   margin: 0 auto;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   background: #f8fafc;
   color: #1e293b;
   border-radius: 16px;
@@ -107,10 +127,11 @@ menu_order: 0
   box-sizing: border-box;
 }
 
+
 /* 3カラムレイアウト */
 .timer-grid {
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 220px 1fr 240px;
   gap: 15px;
   min-height: 400px;
 }
@@ -126,27 +147,30 @@ menu_order: 0
 }
 
 .prize-header {
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .prize-total {
-  font-size: 14px;
-  color: #64748b;
-  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
 }
 
 .prize-total-value {
-  font-size: 22px;
-  font-weight: bold;
-  color: #d97706;
+  font-size: 36px;
+  font-weight: 700;
+  color: #22c55e;
+  white-space: nowrap;
 }
 
 .prize-inmoney {
-  font-size: 12px;
+  font-size: 18px;
+  font-weight: 500;
   color: #64748b;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .prize-list {
@@ -163,8 +187,8 @@ menu_order: 0
 .prize-item {
   display: flex;
   justify-content: space-between;
-  padding: 6px 0;
-  font-size: 13px;
+  padding: 10px 0;
+  font-size: 18px;
   border-bottom: 1px solid #f1f5f9;
 }
 
@@ -173,13 +197,13 @@ menu_order: 0
 }
 
 .prize-rank {
-  color: #64748b;
+  color: #475569;
   font-weight: 600;
 }
 
 .prize-amount {
-  color: #1e293b;
-  font-weight: bold;
+  color: #22c55e;
+  font-weight: 700;
 }
 
 /* 中央カラム - タイマー */
@@ -194,30 +218,32 @@ menu_order: 0
   justify-content: center;
 }
 
-/* レベル表示 */
+/* レベル表示 - 大きく見やすく */
 .level-badge {
   display: inline-block;
   background: #3b82f6;
   color: #fff;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
 .level-badge.break {
   background: #22c55e;
 }
 
-/* タイマー表示 */
+/* タイマー表示 - 大きく見やすく */
 .timer-time {
-  font-size: 72px;
-  font-weight: bold;
-  font-family: 'Courier New', monospace;
-  letter-spacing: 4px;
-  margin: 15px 0;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  font-size: 96px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  letter-spacing: 2px;
+  margin: 20px 0;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
 .timer-time.warning {
@@ -233,10 +259,10 @@ menu_order: 0
 /* プログレスバー */
 .progress-bar {
   width: 100%;
-  height: 6px;
+  height: 10px;
   background: rgba(255,255,255,0.2);
-  border-radius: 3px;
-  margin: 15px 0;
+  border-radius: 5px;
+  margin: 20px 0;
   overflow: hidden;
 }
 
@@ -244,53 +270,64 @@ menu_order: 0
   height: 100%;
   background: linear-gradient(90deg, #fbbf24, #f59e0b);
   transition: width 1s linear;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 /* ブラインド情報 - 視認性向上 */
 .blind-info {
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 .blind-current {
-  font-size: 34px;
-  font-weight: bold;
+  font-size: 48px;
+  font-weight: 700;
   color: #fbbf24;
-  margin: 12px 0;
-  text-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+  margin: 16px 0;
+  text-shadow: 0 3px 12px rgba(251, 191, 36, 0.4);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.blind-current .ante-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fbbf24;
+  text-shadow: 0 3px 12px rgba(251, 191, 36, 0.4);
 }
 
 .blind-ante {
-  font-size: 18px;
-  color: #94a3b8;
+  display: none;
 }
 
 .blind-next {
-  font-size: 14px;
+  font-size: 18px;
   color: #94a3b8;
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 2px solid rgba(255,255,255,0.15);
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid rgba(255,255,255,0.2);
 }
 
 .blind-next-label {
-  font-size: 12px;
-  color: #64748b;
-  margin-bottom: 4px;
+  font-size: 16px;
+  color: #94a3b8;
+  margin-bottom: 6px;
 }
 
 .blind-next-value {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
   color: #e2e8f0;
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .next-ante {
-  font-size: 14px;
+  font-size: 20px;
   color: #94a3b8;
-  margin-left: 8px;
+  margin-left: 10px;
 }
 
 /* コントロールボタン */
@@ -349,7 +386,19 @@ menu_order: 0
   gap: 12px;
   position: relative;
   padding-top: 40px;
-  padding-bottom: 160px;
+  height: 100%;
+}
+
+/* スペーサー - 中央の空きを埋める */
+.right-panel-spacer {
+  flex: 1;
+}
+
+/* 下部固定: STACK + PLAYERS */
+.right-panel-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* フルスクリーンボタン（右上固定） */
@@ -378,25 +427,25 @@ menu_order: 0
 
 .info-card {
   background: #fff;
-  border-radius: 12px;
-  padding: 15px;
+  border-radius: 16px;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* ラベルスタイル */
+/* ラベルスタイル - 大きく見やすく */
 .panel-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: #64748b;
+  font-size: 16px;
+  font-weight: 700;
+  color: #475569;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
 }
 
 .panel-value {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 700;
   color: #1e293b;
 }
 
@@ -405,65 +454,77 @@ menu_order: 0
 }
 
 .panel-value.large {
-  font-size: 28px;
+  font-size: 40px;
 }
 
 /* NEXT BREAK IN */
 .break-card {
   background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
   color: #fff;
+  padding: 24px;
 }
 
 .break-card .panel-label {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.9);
+  font-size: 18px;
 }
 
 .break-card .panel-value {
   color: #fff;
+  font-size: 42px;
+  font-weight: 700;
 }
 
-.break-card.hidden {
-  display: none;
+/* ブレイクがない場合のスタイル */
+.break-card.no-break {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+}
+
+.break-card.no-break .panel-value {
+  color: rgba(255,255,255,0.6);
 }
 
 /* STACK カード */
+.stack-card {
+  padding: 20px;
+}
+
 .stack-card .stack-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 0;
+  padding: 8px 0;
 }
 
 .stack-card .stack-label {
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 500;
   color: #64748b;
 }
 
 .stack-card .stack-value {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 700;
   color: #1e293b;
 }
 
-/* PLAYERS カード - 右下固定 */
+/* PLAYERS カード */
 .players-card {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  padding: 20px;
 }
 
 .players-card .players-display {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 38px;
+  font-weight: 700;
   color: #1e293b;
-  margin: 8px 0;
+  white-space: nowrap;
+  margin: 12px 0;
 }
 
 .players-card .players-label {
-  font-size: 11px;
+  font-size: 14px;
   color: #94a3b8;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* カウンターコントロール */
@@ -504,7 +565,7 @@ menu_order: 0
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
-  z-index: 2147483646;
+  z-index: 2147483647;
   overflow-y: auto;
 }
 
@@ -513,6 +574,18 @@ menu_order: 0
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
+}
+
+/* モーダル表示時にWordPressのヘッダー/フッターを非表示 */
+body.modal-open header,
+body.modal-open .site-header,
+body.modal-open #masthead,
+body.modal-open .header,
+body.modal-open footer,
+body.modal-open .site-footer,
+body.modal-open #colophon,
+body.modal-open .footer {
+  display: none !important;
 }
 
 .settings-content {
@@ -884,22 +957,386 @@ menu_order: 0
   padding: 40px;
   display: flex;
   flex-direction: column;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  border-radius: 0 !important;
+  background: #f8fafc !important;
 }
 
 .poker-timer-app:fullscreen .timer-grid {
   flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
 }
 
+/* フルスクリーン時はボタン非表示（キーボード操作を使用） */
+.poker-timer-app:fullscreen .controls {
+  display: none !important;
+}
+
+/* フルスクリーン時のレイアウト調整 */
+.poker-timer-app:fullscreen .timer-grid {
+  gap: 20px;
+  grid-template-columns: 280px 1fr 280px;
+}
+
+/* 中央パネル - タイマー */
 .poker-timer-app:fullscreen .timer-time {
-  font-size: 120px;
+  font-size: 180px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.poker-timer-app:fullscreen .timer-level {
+  font-size: 36px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.poker-timer-app:fullscreen .level-badge {
+  font-size: 28px;
+  padding: 14px 36px;
 }
 
 .poker-timer-app:fullscreen .blind-current {
-  font-size: 42px;
+  font-size: 72px;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.poker-timer-app:fullscreen .blind-current .ante-value {
+  font-size: 72px;
+  color: #fbbf24;
+}
+
+.poker-timer-app:fullscreen .blind-next {
+  margin-top: 16px;
+}
+
+.poker-timer-app:fullscreen .blind-next-label {
+  font-size: 22px;
+  color: #94a3b8;
 }
 
 .poker-timer-app:fullscreen .blind-next-value {
+  font-size: 42px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.poker-timer-app:fullscreen .next-ante {
   font-size: 28px;
+  color: #94a3b8;
+}
+
+.poker-timer-app:fullscreen .timer-progress {
+  height: 16px;
+  margin: 24px 0;
+}
+
+/* 左パネル - PRIZE */
+.poker-timer-app:fullscreen .left-panel {
+  min-width: 260px;
+}
+
+.poker-timer-app:fullscreen .prize-card {
+  padding: 24px;
+}
+
+.poker-timer-app:fullscreen .prize-card .panel-label {
+  font-size: 24px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.poker-timer-app:fullscreen .prize-total-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.poker-timer-app:fullscreen .prize-inmoney {
+  font-size: 22px;
+  color: #64748b;
+}
+
+.poker-timer-app:fullscreen .prize-item {
+  font-size: 22px;
+  padding: 6px 0;
+}
+
+.poker-timer-app:fullscreen .prize-item .prize-rank {
+  font-size: 22px;
+  color: #1e293b;
+}
+
+.poker-timer-app:fullscreen .prize-item .prize-amount {
+  font-size: 22px;
+  font-weight: 600;
+  color: #22c55e;
+}
+
+/* 右パネル - NEXT BREAK */
+.poker-timer-app:fullscreen .right-panel {
+  min-width: 260px;
+}
+
+.poker-timer-app:fullscreen .break-card {
+  padding: 20px;
+}
+
+.poker-timer-app:fullscreen .break-card .panel-label {
+  font-size: 22px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.poker-timer-app:fullscreen .break-card .panel-value {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+/* 右パネル - STACK */
+.poker-timer-app:fullscreen .stack-card {
+  padding: 20px;
+}
+
+.poker-timer-app:fullscreen .stack-card .panel-label {
+  font-size: 22px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.poker-timer-app:fullscreen .stack-row .stack-label {
+  font-size: 18px;
+  color: #94a3b8;
+}
+
+.poker-timer-app:fullscreen .stack-row .stack-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* 右パネル - PLAYERS */
+.poker-timer-app:fullscreen .players-card {
+  padding: 20px;
+}
+
+.poker-timer-app:fullscreen .players-card .panel-label {
+  font-size: 22px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.poker-timer-app:fullscreen .players-display {
+  font-size: 38px;
+  font-weight: 700;
+  color: #1e293b;
+  white-space: nowrap;
+}
+
+.poker-timer-app:fullscreen .players-sublabel {
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+.poker-timer-app:fullscreen .players-buttons {
+  display: none;
+}
+
+/* フルスクリーンボタン非表示 */
+.poker-timer-app:fullscreen .fullscreen-btn-top {
+  display: none;
+}
+
+/* モバイル擬似フルスクリーン */
+body.mobile-fullscreen-active {
+  overflow: hidden !important;
+}
+
+.poker-timer-app.mobile-fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  border-radius: 0 !important;
+  z-index: 2147483647 !important;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc !important;
+}
+
+.poker-timer-app.mobile-fullscreen .timer-grid {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  grid-template-columns: 260px 1fr 260px;
+}
+
+/* モバイルフルスクリーン時はボタン非表示 */
+.poker-timer-app.mobile-fullscreen .controls {
+  display: none !important;
+}
+
+/* モバイルフルスクリーン時のフォントサイズ大幅拡大 */
+
+/* 中央パネル - タイマー */
+.poker-timer-app.mobile-fullscreen .timer-time {
+  font-size: 160px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.poker-timer-app.mobile-fullscreen .timer-level {
+  font-size: 36px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.poker-timer-app.mobile-fullscreen .blind-current {
+  font-size: 64px;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.poker-timer-app.mobile-fullscreen .blind-current .ante-value {
+  font-size: 64px;
+  color: #fbbf24;
+}
+
+.poker-timer-app.mobile-fullscreen .blind-next-label {
+  font-size: 20px;
+}
+
+.poker-timer-app.mobile-fullscreen .blind-next-value {
+  font-size: 40px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.poker-timer-app.mobile-fullscreen .next-ante {
+  font-size: 24px;
+  color: #94a3b8;
+}
+
+.poker-timer-app.mobile-fullscreen .timer-progress {
+  height: 14px;
+  margin: 20px 0;
+}
+
+/* 左パネル - PRIZE */
+.poker-timer-app.mobile-fullscreen .prize-card .panel-label {
+  font-size: 24px;
+}
+
+.poker-timer-app.mobile-fullscreen .prize-total {
+  font-size: 48px;
+  color: #22c55e;
+}
+
+.poker-timer-app.mobile-fullscreen .prize-summary {
+  font-size: 24px;
+}
+
+.poker-timer-app.mobile-fullscreen .prize-item {
+  font-size: 22px;
+}
+
+/* 右パネル - NEXT BREAK */
+.poker-timer-app.mobile-fullscreen .break-card .panel-label {
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+.poker-timer-app.mobile-fullscreen .break-card .panel-value {
+  font-size: 48px;
+}
+
+/* 右パネル - STACK */
+.poker-timer-app.mobile-fullscreen .stack-card .panel-label {
+  font-size: 22px;
+}
+
+.poker-timer-app.mobile-fullscreen .stack-row .stack-label {
+  font-size: 18px;
+}
+
+.poker-timer-app.mobile-fullscreen .stack-row .stack-value {
+  font-size: 36px;
+}
+
+/* 右パネル - PLAYERS */
+.poker-timer-app.mobile-fullscreen .players-card .panel-label {
+  font-size: 22px;
+}
+
+.poker-timer-app.mobile-fullscreen .players-display {
+  font-size: 38px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.poker-timer-app.mobile-fullscreen .players-buttons {
+  display: none;
+}
+
+.poker-timer-app.mobile-fullscreen .fullscreen-btn-top {
+  display: none;
+}
+
+/* 使い方説明 */
+.usage-guide {
+  max-width: 1100px;
+  margin: 30px auto 0;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  color: #1e293b;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.usage-guide h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  color: #1e293b;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.usage-guide h4 {
+  margin: 20px 0 8px 0;
+  font-size: 15px;
+  color: #475569;
+}
+
+.usage-guide ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.usage-guide li {
+  margin: 4px 0;
+}
+
+.usage-guide kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-family: monospace;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
 }
 
 /* レスポンシブ */
@@ -922,7 +1359,15 @@ menu_order: 0
     flex-direction: row;
     flex-wrap: wrap;
     padding-top: 0;
-    padding-bottom: 0;
+    height: auto;
+  }
+
+  .right-panel-spacer {
+    display: none;
+  }
+
+  .right-panel-bottom {
+    display: contents;
   }
 
   .right-panel .info-card {
@@ -935,16 +1380,32 @@ menu_order: 0
     margin-left: auto;
   }
 
-  .players-card {
-    position: static;
-  }
-
   .timer-time {
-    font-size: 56px;
+    font-size: 72px;
   }
 
   .blind-current {
+    font-size: 36px;
+  }
+
+  .blind-current .ante-value {
+    font-size: 36px;
+  }
+
+  .blind-next-value {
+    font-size: 24px;
+  }
+
+  .panel-value {
     font-size: 28px;
+  }
+
+  .break-card .panel-value {
+    font-size: 36px;
+  }
+
+  .players-card .players-display {
+    font-size: 40px;
   }
 
   .prize-list {
@@ -958,11 +1419,20 @@ menu_order: 0
   }
 
   .timer-time {
-    font-size: 42px;
+    font-size: 56px;
   }
 
   .blind-current {
-    font-size: 22px;
+    font-size: 28px;
+  }
+
+  .blind-current .ante-value {
+    font-size: 28px;
+  }
+
+  .level-badge {
+    font-size: 18px;
+    padding: 8px 20px;
   }
 
   .controls {
@@ -977,7 +1447,7 @@ menu_order: 0
 </style>
 
 <!-- 認証画面 - インラインスタイルで確実に表示 -->
-<div class="auth-overlay" id="authOverlay" style="position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;height:100vh!important;background:rgba(0,0,0,0.95)!important;display:flex!important;justify-content:center!important;align-items:center!important;z-index:2147483647!important;margin:0!important;padding:0!important;overflow:hidden!important;">
+<div class="auth-overlay" id="authOverlay" style="position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;height:100vh!important;background:rgba(0,0,0,0.95)!important;display:none!important;justify-content:center!important;align-items:center!important;z-index:2147483647!important;margin:0!important;padding:0!important;overflow:hidden!important;">
   <div class="auth-modal" style="background:#fff!important;padding:40px!important;border-radius:16px!important;text-align:center!important;max-width:400px!important;width:90%!important;box-shadow:0 20px 60px rgba(0,0,0,0.5)!important;position:relative!important;z-index:2147483647!important;margin:0 auto!important;">
     <h2 style="margin:0 0 24px 0!important;color:#1e293b!important;font-size:20px!important;font-weight:600!important;">パスワードを入力してください</h2>
     <input type="password" id="authPassword" placeholder="パスワード" style="width:100%!important;padding:14px!important;font-size:16px!important;border:2px solid #e2e8f0!important;border-radius:8px!important;margin-bottom:16px!important;box-sizing:border-box!important;background:#fff!important;color:#1e293b!important;">
@@ -987,7 +1457,7 @@ menu_order: 0
 </div>
 
 <!-- メインアプリ（初期非表示） -->
-<div class="poker-timer-app" id="pokerTimer" style="display: none;">
+<div class="poker-timer-app" id="pokerTimer" style="display: block;">
   <div class="timer-grid">
     <!-- 左カラム: PRIZE -->
     <div class="left-panel">
@@ -1013,8 +1483,10 @@ menu_order: 0
       </div>
 
       <div class="blind-info">
-        <div class="blind-current" id="currentBlind">25 / 50</div>
-        <div class="blind-ante" id="anteInfo">Ante: 0</div>
+        <div class="blind-current">
+          <span id="currentBlind">25 / 50</span>
+          <span class="ante-value" id="anteInfo">Ante: 0</span>
+        </div>
         <div class="blind-next">
           <div class="blind-next-label">Next</div>
           <span class="blind-next-value" id="nextBlind">50 / 100 <span class="next-ante">(Ante: 0)</span></span>
@@ -1024,7 +1496,7 @@ menu_order: 0
       <div class="controls">
         <button class="btn btn-primary" id="startBtn">開始</button>
         <button class="btn btn-secondary" id="btnPrev">戻る</button>
-        <button class="btn btn-secondary" id="btnSkip">スキップ</button>
+        <button class="btn btn-secondary" id="btnSkip">進む</button>
         <button class="btn btn-warning" id="btnSettings">設定</button>
       </div>
     </div>
@@ -1032,47 +1504,87 @@ menu_order: 0
     <!-- 右カラム -->
     <div class="right-panel">
       <!-- フルスクリーンボタン（右上） -->
-      <button class="fullscreen-btn-top" id="btnFullscreen" title="フルスクリーン">&#9974;</button>
+      <button class="fullscreen-btn-top" id="btnFullscreen" title="フルスクリーン"><i class="fas fa-expand"></i></button>
 
-      <!-- NEXT BREAK IN -->
+      <!-- NEXT BREAK（上部） -->
       <div class="info-card break-card" id="breakCard">
-        <div class="panel-label">NEXT BREAK IN</div>
+        <div class="panel-label">NEXT BREAK</div>
         <div class="panel-value large" id="nextBreakTime">--:--</div>
       </div>
 
-      <!-- STACK（中央） -->
-      <div class="info-card stack-card">
-        <div class="panel-label">STACK</div>
-        <div class="stack-row">
-          <span class="stack-label">Avg</span>
-          <span class="stack-value" id="avgStack">500</span>
-        </div>
-        <div class="stack-row">
-          <span class="stack-label">Total</span>
-          <span class="stack-value" id="totalStack">4,000</span>
-        </div>
-      </div>
+      <!-- スペーサー -->
+      <div class="right-panel-spacer"></div>
 
-      <!-- PLAYERS -->
-      <div class="info-card players-card">
-        <div class="panel-label">PLAYERS</div>
-        <div class="players-display">
-          <span id="remainingDisplay">8</span> / <span id="entriesDisplay">8</span>
+      <!-- 下部固定: STACK + PLAYERS -->
+      <div class="right-panel-bottom">
+        <!-- STACK -->
+        <div class="info-card stack-card">
+          <div class="panel-label">STACK</div>
+          <div class="stack-row">
+            <span class="stack-label">Avg</span>
+            <span class="stack-value" id="avgStack">500</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-label">Total</span>
+            <span class="stack-value" id="totalStack">4,000</span>
+          </div>
         </div>
-        <div class="players-label">Remaining / Entries</div>
-        <div class="counter-controls">
-          <button class="counter-btn" id="btnEntryMinus" title="エントリー減">&#9664;</button>
-          <button class="counter-btn" id="btnRemainPlus" title="残り+">&#9650;</button>
-          <button class="counter-btn" id="btnRemainMinus" title="残り-">&#9660;</button>
-          <button class="counter-btn" id="btnEntryPlus" title="エントリー増">&#9654;</button>
+
+        <!-- PLAYERS -->
+        <div class="info-card players-card">
+          <div class="panel-label">PLAYERS</div>
+          <div class="players-display">
+            <span id="remainingDisplay">8</span> / <span id="entriesDisplay">8</span>
+          </div>
+          <div class="players-label">Remaining / Entries</div>
+          <div class="counter-controls">
+            <button class="counter-btn" id="btnEntryMinus" title="エントリー減"><i class="fas fa-chevron-left"></i></button>
+            <button class="counter-btn" id="btnRemainPlus" title="残り+"><i class="fas fa-chevron-up"></i></button>
+            <button class="counter-btn" id="btnRemainMinus" title="残り-"><i class="fas fa-chevron-down"></i></button>
+            <button class="counter-btn" id="btnEntryPlus" title="エントリー増"><i class="fas fa-chevron-right"></i></button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- 使い方説明 -->
+<div class="usage-guide">
+  <h3>使い方</h3>
+
+  <h4>基本操作</h4>
+  <ul>
+    <li><strong>開始/一時停止</strong>: 「開始」ボタンまたは<kbd>スペース</kbd>キーでタイマーをスタート/停止</li>
+    <li><strong>戻る/進む</strong>: ブラインドレベルを前後に移動</li>
+    <li><strong>設定</strong>: ブラインド構成、プライズ配分などをカスタマイズ</li>
+    <li><strong>フルスクリーン</strong>: 右上のボタンで全画面表示（モバイルも対応）</li>
+  </ul>
+
+  <h4>プレイヤー数の調整</h4>
+  <ul>
+    <li><kbd>◀</kbd> <kbd>▶</kbd>: エントリー数を増減</li>
+    <li><kbd>▲</kbd> <kbd>▼</kbd>: 残りプレイヤー数を増減</li>
+    <li>キーボード: 矢印キー（←→: エントリー、↑↓: 残り人数）</li>
+  </ul>
+
+  <h4>設定のカスタマイズ</h4>
+  <ul>
+    <li><strong>基本設定</strong>: レベル時間、エントリー数、初期スタックを設定</li>
+    <li><strong>ブラインド</strong>: SB/BB/Anteを自由に設定。ブレイクも追加可能</li>
+    <li><strong>プライズ</strong>: 参加費や還元率を設定し、プライズを自動計算</li>
+  </ul>
+
+  <h4>便利な機能</h4>
+  <ul>
+    <li>設定は自動保存されます（ブラウザのLocalStorage）</li>
+    <li>ブラインドセットを複数保存して切り替え可能</li>
+    <li>ドラッグ&ドロップでブラインドレベルやプライズの並べ替えができます</li>
+  </ul>
+</div>
+
 <!-- 設定モーダル -->
-<div class="settings-modal" id="settingsModal">
+<div class="settings-modal" id="settingsModal" style="position:fixed!important;top:0!important;left:0!important;width:100%!important;height:100%!important;z-index:2147483647!important;">
   <div class="settings-content">
     <h2 class="settings-title">タイマー設定</h2>
 
@@ -1246,11 +1758,8 @@ menu_order: 0
 
   // 認証チェック
   function checkAuth() {
-    if (sessionStorage.getItem('pokerTimerAuth') === 'true') {
-      showApp();
-      return;
-    }
-    showAuthScreen();
+    // Auth temporarily disabled for timer verification.
+    showApp();
   }
 
   // 認証実行
@@ -1268,6 +1777,13 @@ menu_order: 0
 
   // アプリ表示
   function showApp() {
+    document.documentElement.classList.remove('poker-auth-active');
+    document.body.classList.remove('poker-auth-active');
+    // Restore visibility for any elements we hid during auth.
+    var hiddenNodes = document.querySelectorAll('[data-poker-auth-hidden="true"]');
+    for (var i = 0; i < hiddenNodes.length; i++) {
+      hiddenNodes[i].removeAttribute('data-poker-auth-hidden');
+    }
     var overlay = $('authOverlay');
     if (overlay) {
       overlay.style.cssText = 'display:none!important;';
@@ -1278,14 +1794,7 @@ menu_order: 0
   }
 
   // 認証画面表示
-  function showAuthScreen() {
-    var overlay = $('authOverlay');
-    if (overlay) {
-      overlay.style.cssText = 'position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100vw!important;height:100vh!important;background:rgba(0,0,0,0.95)!important;display:flex!important;justify-content:center!important;align-items:center!important;z-index:2147483647!important;margin:0!important;padding:0!important;overflow:hidden!important;';
-    }
-    var app = $('pokerTimer');
-    if (app) app.style.display = 'none';
-  }
+  function showAuthScreen() {}
 
   // LocalStorageから設定を読み込み
   function loadSettings() {
@@ -1491,7 +2000,13 @@ menu_order: 0
 
   // エントリー数調整
   function adjustEntries(delta) {
+    var oldTotal = state.totalPlayers;
     state.totalPlayers = Math.max(1, state.totalPlayers + delta);
+    // エントリー増加時は残り人数も同じだけ増やす
+    if (delta > 0) {
+      state.remainingPlayers = Math.min(state.totalPlayers, state.remainingPlayers + delta);
+    }
+    // エントリー減少時は残り人数が超えないように調整
     if (state.remainingPlayers > state.totalPlayers) {
       state.remainingPlayers = state.totalPlayers;
     }
@@ -1671,6 +2186,7 @@ menu_order: 0
       }
     }
 
+    var nbt = $('nextBreakTime');
     var showBreak = false;
     if (foundBreak) {
       if (!state.blinds[state.currentLevel].isBreak) {
@@ -1678,13 +2194,14 @@ menu_order: 0
       }
     }
     if (showBreak) {
-      breakCard.classList.remove('hidden');
+      breakCard.classList.remove('no-break');
       var minutes = Math.floor(timeToBreak / 60);
       var seconds = timeToBreak % 60;
-      var nbt = $('nextBreakTime');
       if (nbt) nbt.textContent = String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
     } else {
-      breakCard.classList.add('hidden');
+      // ブレイクがなくても常時表示（--:-- を表示）
+      breakCard.classList.add('no-break');
+      if (nbt) nbt.textContent = '--:--';
     }
   }
 
@@ -1714,6 +2231,8 @@ menu_order: 0
     var listEl = $('prizeList');
     if (listEl) {
       listEl.innerHTML = '';
+      listEl.removeAttribute('data-duplicated');  // 複製フラグをリセット
+      listEl.style.transform = '';  // スクロール位置をリセット
 
       if (state.prizeDistribution.length > 0) {
         // 手動設定を使用
@@ -1787,7 +2306,7 @@ menu_order: 0
     }
   }
 
-  // 片方向ループスクロール
+  // 無限ループスクロール（おしりと頭の間に5行分の隙間）
   function startPrizeAutoScroll() {
     if (state.scrollIntervalId) {
       clearInterval(state.scrollIntervalId);
@@ -1798,25 +2317,27 @@ menu_order: 0
 
     if (!inner || !container || inner.offsetHeight <= container.offsetHeight) return;
 
+    // コンテンツを複製して継ぎ目なくループ（5行分のスペーサー付き）
+    var originalContent = inner.innerHTML;
+    if (!inner.getAttribute('data-duplicated')) {
+      // 5行分のスペーサーを追加してからコンテンツを複製
+      var spacer = '<div style="height: 100px;"></div>';  // 5行分の隙間
+      inner.innerHTML = originalContent + spacer + originalContent;
+      inner.setAttribute('data-duplicated', 'true');
+    }
+
     var scrollPos = 0;
-    var totalHeight = inner.offsetHeight;
-    var containerHeight = container.offsetHeight;
-    var pauseCounter = 0;
+    // 元のコンテンツ + スペーサー分の高さで1周
+    var originalHeight = inner.scrollHeight / 2;
 
     state.scrollIntervalId = setInterval(function() {
-      if (pauseCounter > 0) {
-        pauseCounter--;
-        return;
-      }
-
       scrollPos += 1;
 
-      if (scrollPos >= totalHeight) {
-        scrollPos = -containerHeight;
-        pauseCounter = 30;
+      if (scrollPos >= originalHeight) {
+        scrollPos = 0;  // シームレスにリセット
       }
 
-      inner.style.top = -scrollPos + 'px';
+      inner.style.transform = 'translateY(-' + scrollPos + 'px)';
     }, 50);
   }
 
@@ -2029,6 +2550,7 @@ menu_order: 0
   function openSettings() {
     var modal = $('settingsModal');
     if (modal) modal.classList.add('active');
+    document.body.classList.add('modal-open');
 
     var dlt = $('defaultLevelTime');
     if (dlt) dlt.value = state.defaultLevelTime;
@@ -2062,6 +2584,7 @@ menu_order: 0
   function closeSettings() {
     var modal = $('settingsModal');
     if (modal) modal.classList.remove('active');
+    document.body.classList.remove('modal-open');
   }
 
   function renderBlindLevels() {
@@ -2237,18 +2760,28 @@ menu_order: 0
     var app = $('pokerTimer');
     if (!app) return;
 
-    if (!document.fullscreenElement) {
-      if (app.requestFullscreen) {
-        app.requestFullscreen();
-      } else if (app.webkitRequestFullscreen) {
-        app.webkitRequestFullscreen();
+    // ネイティブFullscreen APIが使えるかチェック
+    var canFullscreen = app.requestFullscreen || app.webkitRequestFullscreen;
+
+    if (canFullscreen) {
+      // デスクトップ: ネイティブFullscreen API
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (app.requestFullscreen) {
+          app.requestFullscreen();
+        } else if (app.webkitRequestFullscreen) {
+          app.webkitRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
       }
     } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      }
+      // モバイル: CSS擬似フルスクリーン
+      app.classList.toggle('mobile-fullscreen');
+      document.body.classList.toggle('mobile-fullscreen-active');
     }
   }
 

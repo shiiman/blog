@@ -95,6 +95,20 @@ type Tag struct {
 	Slug        string `json:"slug"`
 }
 
+// Media はWordPressメディアを表す
+type Media struct {
+	ID        int    `json:"id"`
+	Date      WPTime `json:"date"`
+	Slug      string `json:"slug"`
+	Status    string `json:"status"`
+	Title     Rendered `json:"title"`
+	Author    int    `json:"author"`
+	MediaType string `json:"media_type"`
+	MimeType  string `json:"mime_type"`
+	SourceURL string `json:"source_url"`
+	Link      string `json:"link"`
+}
+
 // CreatePostRequest は投稿作成リクエストを表す
 type CreatePostRequest struct {
 	Title         string `json:"title"`

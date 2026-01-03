@@ -116,7 +116,7 @@ func importPosts(client *wp.Client) {
 		}
 
 		// ディレクトリ名: YYYY-MM-DD_slug
-		dirName := fullPost.Date.Format("2006-01-02") + "_" + fullPost.Slug
+		dirName := fullPost.Date.Time.Format("2006-01-02") + "_" + fullPost.Slug
 		dirPath := filepath.Join(outputDir, dirName)
 
 		if err := saveArticle(dirPath, "article.md", article); err != nil {
@@ -152,7 +152,7 @@ func importPost(client *wp.Client, id int) {
 	}
 
 	// ディレクトリ名: YYYY-MM-DD_slug
-	dirName := post.Date.Format("2006-01-02") + "_" + post.Slug
+	dirName := post.Date.Time.Format("2006-01-02") + "_" + post.Slug
 	dirPath := filepath.Join(outputDir, dirName)
 
 	if err := saveArticle(dirPath, "article.md", article); err != nil {

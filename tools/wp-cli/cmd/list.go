@@ -74,7 +74,7 @@ func listPosts(client *wp.Client) {
 
 	for _, post := range posts {
 		status := formatStatus(post.Status)
-		date := post.Date.Format("2006-01-02")
+		date := post.Date.Time.Format("2006-01-02")
 		title := truncate(post.Title.Rendered, 40)
 		fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%s\n", post.ID, title, status, post.Slug, date)
 	}

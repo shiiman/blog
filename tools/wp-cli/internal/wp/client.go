@@ -254,3 +254,39 @@ func (c *Client) GetTags() ([]types.Tag, error) {
 
 	return tags, nil
 }
+
+// UploadMedia はメディアをアップロードする
+func (c *Client) UploadMedia(filename string, data []byte, mimeType string) (*types.Media, error) {
+	url := c.baseURL + "/media"
+
+	req, err := http.NewRequest("POST", url, bytes.NewReader(data))
+	if err != nil {
+		return nil, fmt.Errorf("リクエストの作成に失敗: %w", err)
+	}
+
+	req.Header.Set("Authorization", c.getAuthHeader())
+	req.Header.Set("Content-Type", mimeType)
+	req.Header.Set("Content-Disposition", fmt.Sprintf(`attachment; filename="%s"`, filename))
+
+	resp, err := c.httpClient.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("リクエストの実行に失敗: %w", err)
+	}
+	defer resp.Body.Close()
+
+	respBody, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("レスポンスの読み取りに失敗: %w", err)
+	}
+
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+		return nil, fmt.Errorf("APIエラー (status %d): %s", resp.StatusCode, string(respBody))
+	}
+
+	var media types.Media
+	if err := json.Unmarshal(respBody, &media); err != nil {
+		return nil, fmt.Errorf("メディアのパースに失敗: %w", err)
+	}
+
+	return &media, nil
+}

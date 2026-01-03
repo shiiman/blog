@@ -68,3 +68,9 @@ categories: [1]  # Category IDs
 tags: [10, 20]   # Tag IDs
 ---
 ```
+
+## Git Commit Guidelines
+
+- Write commit messages in Japanese, concise and descriptive in **one line**
+- Format: `<変更内容の要約> #<Issue番号>`
+- Example: `updateコマンドにアイキャッチ自動アップロード機能を追加 #10`

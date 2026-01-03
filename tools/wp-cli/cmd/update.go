@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"os"
+	"path/filepath"
 
 	"github.com/fatih/color"
 	"github.com/shiimanblog/wp-cli/internal/config"
@@ -97,14 +98,43 @@ func runUpdate(cmd *cobra.Command, args []string) {
 
 	client := wp.NewClient(cfg)
 
+	// アイキャッチ画像のアップロード（投稿の場合のみ）
+	featuredMediaID := article.FrontMatter.FeaturedMedia
+	if !updatePage {
+		articleDir := filepath.Dir(filePath)
+		eyecatchPath := filepath.Join(articleDir, "assets", eyecatchFilename)
+
+		if _, err := os.Stat(eyecatchPath); err == nil && featuredMediaID == 0 {
+			// アイキャッチ画像が存在し、まだ設定されていない場合
+			color.Cyan("アイキャッチ画像をアップロード中...")
+
+			imageData, err := os.ReadFile(eyecatchPath)
+			if err != nil {
+				color.Red("アイキャッチ画像の読み込みに失敗: %v", err)
+				os.Exit(1)
+			}
+
+			media, err := client.UploadMedia(eyecatchFilename, imageData, "image/png")
+			if err != nil {
+				color.Red("アイキャッチ画像のアップロードに失敗: %v", err)
+				os.Exit(1)
+			}
+
+			featuredMediaID = media.ID
+			color.Green("アイキャッチ画像をアップロードしました！")
+			color.White("  メディアID: %d", media.ID)
+			color.White("  URL: %s", media.SourceURL)
+		}
+	}
+
 	if updatePage {
 		updatePageContent(client, id, article, htmlContent, status)
 	} else {
-		updatePostContent(client, id, article, htmlContent, status)
+		updatePostContent(client, id, article, htmlContent, status, featuredMediaID)
 	}
 }
 
-func updatePostContent(client *wp.Client, id int, article *types.Article, htmlContent, status string) {
+func updatePostContent(client *wp.Client, id int, article *types.Article, htmlContent, status string, featuredMediaID int) {
 	req := &types.UpdatePostRequest{
 		Title:         article.FrontMatter.Title,
 		Content:       htmlContent,
@@ -112,7 +142,7 @@ func updatePostContent(client *wp.Client, id int, article *types.Article, htmlCo
 		Excerpt:       article.FrontMatter.Excerpt,
 		Categories:    article.FrontMatter.Categories,
 		Tags:          article.FrontMatter.Tags,
-		FeaturedMedia: article.FrontMatter.FeaturedMedia,
+		FeaturedMedia: featuredMediaID,
 	}
 	if status != "" {
 		req.Status = status

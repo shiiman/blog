@@ -57,7 +57,9 @@ WordPressでブログを運営していると、こんな悩みはありませ�
 blog/
 ├── posts/           # インポート済み投稿
 │   └── YYYY-MM-DD_slug/
-│       └── article.md
+│       ├── article.md
+│       └── assets/
+│           └── eyecatch.png  # アイキャッチ画像
 ├── pages/           # 固定ページ
 ├── drafts/          # 下書き
 ├── tools/wp-cli/    # Go製CLIツール
@@ -123,6 +125,17 @@ mdContent, err := converter.ConvertString(htmlContent)
 ```
 
 投稿時は逆にMarkdownをHTMLに変換してAPIに送信します。
+
+### アイキャッチ画像のアップロード
+
+記事ディレクトリの`assets/eyecatch.png`に画像を配置すると、投稿時に自動でWordPressにアップロードしてアイキャッチに設定します。
+
+```bash
+# アイキャッチ付きで投稿（画像は自動アップロード）
+./wp-cli post drafts/2026-01-03_my-article/article.md --publish
+```
+
+アイキャッチ画像は[Gemini](https://gemini.google.com/)などの画像生成AIで作成し、手動で配置できます。
 
 ## Claude Codeとの連携
 
@@ -248,9 +261,7 @@ Claude: 投稿しました！
 
 ### 今後の展望
 
-- 画像の自動ダウンロード・アップロード対応
 - 予約投稿機能の追加
-- 複数ブログサイトへの対応
 
 ## まとめ
 

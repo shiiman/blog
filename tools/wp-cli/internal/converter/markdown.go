@@ -100,8 +100,8 @@ func PostToArticle(post *types.Post) (*types.Article, error) {
 		Categories:    post.Categories,
 		Tags:          post.Tags,
 		FeaturedMedia: post.FeaturedMedia,
-		Date:          post.Date.Format("2006-01-02T15:04:05"),
-		Modified:      post.Modified.Format("2006-01-02T15:04:05"),
+		Date:          post.Date.Time.Format("2006-01-02T15:04:05"),
+		Modified:      post.Modified.Time.Format("2006-01-02T15:04:05"),
 	}
 
 	// Excerptがある場合はHTMLタグを除去
@@ -131,8 +131,8 @@ func PageToArticle(page *types.Page) (*types.Article, error) {
 		Status:    page.Status,
 		Parent:    page.Parent,
 		MenuOrder: page.MenuOrder,
-		Date:      page.Date.Format("2006-01-02T15:04:05"),
-		Modified:  page.Modified.Format("2006-01-02T15:04:05"),
+		Date:      page.Date.Time.Format("2006-01-02T15:04:05"),
+		Modified:  page.Modified.Time.Format("2006-01-02T15:04:05"),
 	}
 
 	// Excerptがある場合はHTMLタグを除去

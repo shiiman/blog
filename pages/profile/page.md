@@ -1,0 +1,208 @@
+---
+id: 36
+title: プロフィール
+slug: profile
+status: publish
+excerpt: このブログにご訪問いただききありがとうございます。 サイト運営者のしーまんと申します。 このブログは 2021年 8月30日に開設致しました。 まだ始めたばかりですが、これから少しずつコンテンツを増やしていきたいと思って \[…\]
+date: 2021-08-31T02:29:25
+modified: 2024-09-06T12:05:22
+---
+
+このブログにご訪問いただききありがとうございます。
+
+サイト運営者のしーまんと申します。
+
+このブログは **2021年 8月30日** に開設致しました。
+
+まだ始めたばかりですが、これから少しずつコンテンツを増やしていきたいと思っています。
+
+不慣れな部分も多いですがよろしくお願いします。
+
+## ブログ開設理由
+
+私がブログ開設に至った理由は大きく分けて3つあります。
+
+1. FIREを目指して行く道のりの過程や苦悩などを共有・記録したかったから
+2. エンジニアとして個人で自由な情報発信の場が欲しかったから
+3. 書く / 伝える / 継続する スキルを伸ばしたかったから
+
+それぞれ詳しく説明します。
+
+### FIREを目指して行く道のりの過程や苦悩などを共有・記録したかったから
+
+![covid](https://shiimanblog.com/wp-content/uploads/2021/09/covid-800x450.jpg)
+
+私は現在30代のエンジニアです。去年コロナウイルスという大厄災に見舞われ世界は大混乱しました。
+
+そんな中で働き方を変えざるを得ない人々で溢れかえりました。
+
+私の会社ではそこまで大きな影響を受けなかった印象ですが、それはたまたま運がよかっただけだと思っています。またそれでもリモートワークが主流になったり、チャットやzoomでのやり取りが増えたりと少なからず影響を受けています。
+
+そんな世の中の流れから私は日々淡々と過ぎていく日常を変えなくてはいけないのではないかと思うようになりました。
+
+そこで出会った考え方の一つがFIREです。
+
+FIREについてはまた後ほど記事を書こうと思っておりますが、私もFIREを目指そうとコロナを通して思い始めました。
+
+しかし、FIREについて書籍を読んだりyoutubeで調べたりしていくうちに、やろうとしていることはとてつもなく大変だなと感じるようになりました。1人でやっていくのは結構しんどいぞ！と。
+
+そこで私がFIREを目指すうえでどのように考え、どのように行動したのかをこのブログを通して皆様に少しでも共感だったり、ご意見だったりをもらえるようになればいいなぁという考えに至りました。
+
+よろしければFIREを目指している皆様に少しでも有意義な情報を提供できたり、お互いの頑張りに共感できたりする場になればと思っています。
+
+### エンジニアとして個人で自由な情報発信の場が欲しかったから
+
+![conference](https://shiimanblog.com/wp-content/uploads/2021/09/conference-800x533.jpg)
+
+もう一つの主な理由が技術のアウトプットを出来る場が欲しかったという理由があります。
+
+私はweb, ゲーム業界で10年近くエンジニアをやっており、それなりに皆様に提供出来るだけのノウハウは溜まってきたのかなと考えています。
+
+またこの業界では「困ったらググる」のが常識ですが、ググっても検索に出ないだとか、必要な情報が見つけづらいといったものも多いのかなと思っています。エンジニアとしての情報はニッチになればなるほどそのような現象が起こり、また技術の進歩も早いので直ぐに新しい情報に上書きされます。古い誤った情報に惑わされることも日常茶飯事です。
+
+また社内でも同じように情報共有・蓄積の大事さはどこの会社でも謳われていると思いますが、私は日々クローズドな場所での情報発信にはとても抵抗があります。なぜこの情報を社内に向けてのみ発信するのだろうか。もっと同じようなところで躓いている方はいっぱいいるだろうにと。
+
+そう考えてしまうと社内の情報共有・蓄積はモチベーションがどうしても上がりません。そこで今回オープンな場で自由に情報の発信が出来るブログは丁度いいなと思い始めることにしました。
+
+もちろん**機密情報とか社内のみの情報・ノウハウとかは社内****に****のみ****共有するのが当たり前**ですが、それ以外の技術的なものに関してはこちらでアウトプットしていき、社内でもこのブログを共有するという形を取れればwin-winなのではないかと思っております。
+
+そう考えると面倒だった情報の共有や蓄積もモチベーションが上がってきます！！
+
+### 書く / 伝える / 継続する スキルを伸ばしたかったから
+
+![communication](https://shiimanblog.com/wp-content/uploads/2021/09/communication-800x420.jpg)
+
+最後の理由としては3つのスキルを磨きたいなと思ったからです。
+
+3つのスキルとは以下の3つです。
+
+1. ライティングスキル
+2. 伝えるスキル
+3. 継続するスキル
+
+全てビジネスを成功させたり、プライベートが充実している人はこの3つのスキルがずば抜けているなと感じています。エンジニアの僕としては結構そのスキルを磨かずにきてしまったので、自分自身かなり弱いなと思っています。
+
+それぞれのスキルの大切さはまた別の記事で書こうと思っていますが、3つのスキルを伸ばすにはどうしたらいいかと考えた時に、ブログはうってつけだな思いました。
+
+なんといってもブログは文章を書く行為ですから、日常的に文章を書けばライティングスキルが身につきます。また相手にどうしたら伝わるか・分かりやすいかを考えて記事を書くのですから伝えるスキルも自ずと身につくでしょう。更にそれを継続して続けることで継続スキルも身に付きます。
+
+まさに一石三鳥だなと思いました。
+
+なのでこれから頑張ってそれらのスキルを少しずつ磨いていきたいと思います。
+
+## 略歴
+
+![経歴](https://shiimanblog.com/wp-content/uploads/2021/09/engineer-800x533.jpg)
+
+- 2012年 工業大学 大学院卒業後 サーバエンジニアとしてゲーム開発会社へ就職
+- 2017年 サーバエンジニアからSREエンジニアに役職を変更
+- 2020年6月 証券口座を開設し資産運用開始
+- 2021年2月 副業開始
+- 2021年8月 ブログ開設
+
+## 保有資格
+
+・基本情報処理技術者(2008年頃)
+
+・Certified Kubernetes Administrator(2018年03月)
+
+・Google Cloud Certified Associate Cloud Engineer(2019年09月)
+
+・Google Cloud Certified Professional Cloud Architect(2019年12月)
+
+・AWS Certified Cloud Practitioner(2019年10月)
+
+・AWS Certified Cloud Solution Architect Associate(2020年07月)
+
+・AWS Certified Cloud Developer Associate(2020年07月)
+
+・AWS Certified Sysops Admin Associate(2020年08月)
+
+・Google Cloud Certified Professional Data Engineer(2021年07月)
+
+・Google Cloud Certified Professional Cloud Developer(2021年12月)
+
+・AWS Certified Security – Specialty(2022年07月)
+
+・AWS Certified Advanced Networking – Specialty(2022年07月)
+
+・AWS Certified Database – Specialty(2023年04月)
+
+・AWS Certified DevOps Engineer – Professional(2023年07月)
+
+・Microsoft Certified: Azure Fundamentals(2024年09月)
+
+カッコ内の年月は取得時期になります
+
+[![Associate Cloud Engineer](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/13695702)](https://www.credential.net/eeff28c8-6442-4a5e-b7df-2d0ddc6306ec)
+
+[![Professional Cloud Architect](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/14383672)](https://www.credential.net/b5a6fe48-235d-46ec-969d-59f5af51bf10)
+
+[![Professional Cloud Data Engineer](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/35346807)](https://www.credential.net/1a21f53e-94e3-47e1-9d8a-3dc338d2d1ba)
+
+[![Professional Cloud Cloud Developer](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/43664224)](https://www.credential.net/cdb1e67c-6f45-4f8f-99f4-496f4f553478)
+
+[![Hands-On Essentials: Data Warehousing Workshop](https://shiimanblog.com/wp-content/uploads/2024/09/6cbc6584-c8e1-48e0-bb02-ae92b224a7ff.png)](https://www.credential.net/a99aab8a-dedb-4b65-9103-6906fd4c0103#gs.a9jk7y)
+
+[![Microsoft Certified: Azure Fundamentals](https://shiimanblog.com/wp-content/uploads/2024/09/microsoft-certified-fundamentals-badge-2.png)](https://learn.microsoft.com/api/credentials/share/ja-jp/26859940/7CBF449E4CA603A2?sharingId=F2010920F7860B79)
+
+## テクニカルスキル
+
+![テクニカルスキル](https://shiimanblog.com/wp-content/uploads/2021/09/programing-800x533.jpg)
+
+・OS：Windows(2012〜)、Mac(2017〜)、linux(2012〜)
+
+・開発言語：PHP(2012〜)、 C#(1年)、 nodeJS(1年)、 Go(2020〜)、 python、 javascript、 html、 css
+
+・DB：Mysql(2012〜)、cassandra(1年)
+
+・Cache: redis、memcache
+
+・監視ツール等: datadog(2017〜)、 mackarel、newrelic、snowflake
+
+・負荷試験ツール: jmater、vageta、locust
+
+・プラットフォーム: GCP(2017〜)、AWS(2017〜)
+
+・チャットツール: chatwork、slack
+
+・その他: terraform(2017〜)、ansible(2017〜)、docker、gitlab、github、wrike、notion
+
+カッコ内の年月は継続的によく使用するものは(\[年\]〜)で
+
+単年で使用していたものは(\[数字\]年)で
+
+その他普段遣いのものや、触ったことがあるものは()無しで記載しております。
+
+## 趣味
+
+![](https://shiimanblog.com/wp-content/uploads/2021/09/boardgame-edited.jpg)
+
+私は副業以外にも色々していて、趣味が多いほうだと思います。体を動かすのも好きですし、頭を使うもの好きです。モットーとしてやったことないものは偏見を持たず、1度体験をしてみてから好き嫌いを判断するようにしています。そうするとドンドン新しい趣味ができてしまい、やることに追われています(笑)
+
+ここではリストと概要だけ載せて、詳しくは記事を追加していければと思っています。
+
+改めてリストにしてみるとほんとに色々ありますね。
+
+### 体動かす系
+
+- 野球 : 6年ほど部活でやっていました。
+- 卓球 : 社会人2年目くらいに社会人サークルに入ってから始めました。
+- テニス : 2019年くらいに半年ほどテニススクールに通っていました。
+- ダンス : 2018年から2年ほどダンススクールに通っていました。
+- ゴルフ : 数回程度ですが、学生時代からやっています。
+- ストレッチ : 2018年から隔週で [ドクターストレッチ](https://doctorstretch.com/) というところに通っています。
+- バイクツーリング : 2017年にバイクの中型免許を取りました。
+- サイクリング : 2019年にクロスバイクを購入しました。
+- スノーボード : 学生時代から割と毎年滑りに行っています。
+
+### 頭使う系
+
+- ボードゲーム : 隔週くらいでボードゲーム会に参加しています。
+- 人狼ゲーム : 2019年から1年間くらい毎月人狼ゲーム会に参加していました。
+- 脱出ゲーム : たまに友人と脱出ゲームに参加します。
+- 麻雀 : 学生時代からたまに無性にやりたくなります。
+- 読書 : 毎月2冊程度本を読む習慣があります。
+- テレビ鑑賞 : 昔から根っからのテレビっ子です。
+- youtube鑑賞 : 2020年から投資や税金系などのチャンネルを見るようになりました。
+- 旅行 : 47都道府県中46都道府県を制覇(車で通っただけを含む)

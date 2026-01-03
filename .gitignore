@@ -10,6 +10,9 @@
 *.so
 *.dylib
 
+# ビルド成果物
+tools/wp-cli/wp-cli
+
 # OS
 .DS_Store
 Thumbs.db

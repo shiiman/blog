@@ -1,42 +1,71 @@
 package types
 
-import "time"
+import (
+	"strings"
+	"time"
+)
+
+// WPTime はWordPress REST APIの日付形式をパースするカスタム型
+type WPTime struct {
+	time.Time
+}
+
+// UnmarshalJSON はWordPressの日付形式をパースする
+func (t *WPTime) UnmarshalJSON(data []byte) error {
+	// 引用符を除去
+	s := strings.Trim(string(data), `"`)
+	if s == "" || s == "null" {
+		return nil
+	}
+
+	// WordPress REST APIの日付形式: "2023-01-05T19:30:00"
+	parsed, err := time.Parse("2006-01-02T15:04:05", s)
+	if err != nil {
+		// RFC3339形式も試す
+		parsed, err = time.Parse(time.RFC3339, s)
+		if err != nil {
+			return err
+		}
+	}
+	t.Time = parsed
+	return nil
+}
 
 // Post はWordPress投稿を表す
 type Post struct {
-	ID            int       `json:"id"`
-	Date          time.Time `json:"date"`
-	DateGMT       time.Time `json:"date_gmt"`
-	Modified      time.Time `json:"modified"`
-	ModifiedGMT   time.Time `json:"modified_gmt"`
-	Slug          string    `json:"slug"`
-	Status        string    `json:"status"`
-	Title         Rendered  `json:"title"`
-	Content       Rendered  `json:"content"`
-	Excerpt       Rendered  `json:"excerpt"`
-	Author        int       `json:"author"`
-	FeaturedMedia int       `json:"featured_media"`
-	Categories    []int     `json:"categories"`
-	Tags          []int     `json:"tags"`
-	Link          string    `json:"link"`
+	ID            int      `json:"id"`
+	Date          WPTime   `json:"date"`
+	DateGMT       WPTime   `json:"date_gmt"`
+	Modified      WPTime   `json:"modified"`
+	ModifiedGMT   WPTime   `json:"modified_gmt"`
+	Slug          string   `json:"slug"`
+	Status        string   `json:"status"`
+	Title         Rendered `json:"title"`
+	Content       Rendered `json:"content"`
+	Excerpt       Rendered `json:"excerpt"`
+	Author        int      `json:"author"`
+	FeaturedMedia int      `json:"featured_media"`
+	Categories    []int    `json:"categories"`
+	Tags          []int    `json:"tags"`
+	Link          string   `json:"link"`
 }
 
 // Page はWordPress固定ページを表す
 type Page struct {
-	ID          int       `json:"id"`
-	Date        time.Time `json:"date"`
-	DateGMT     time.Time `json:"date_gmt"`
-	Modified    time.Time `json:"modified"`
-	ModifiedGMT time.Time `json:"modified_gmt"`
-	Slug        string    `json:"slug"`
-	Status      string    `json:"status"`
-	Title       Rendered  `json:"title"`
-	Content     Rendered  `json:"content"`
-	Excerpt     Rendered  `json:"excerpt"`
-	Author      int       `json:"author"`
-	Parent      int       `json:"parent"`
-	MenuOrder   int       `json:"menu_order"`
-	Link        string    `json:"link"`
+	ID          int      `json:"id"`
+	Date        WPTime   `json:"date"`
+	DateGMT     WPTime   `json:"date_gmt"`
+	Modified    WPTime   `json:"modified"`
+	ModifiedGMT WPTime   `json:"modified_gmt"`
+	Slug        string   `json:"slug"`
+	Status      string   `json:"status"`
+	Title       Rendered `json:"title"`
+	Content     Rendered `json:"content"`
+	Excerpt     Rendered `json:"excerpt"`
+	Author      int      `json:"author"`
+	Parent      int      `json:"parent"`
+	MenuOrder   int      `json:"menu_order"`
+	Link        string   `json:"link"`
 }
 
 // Rendered はWordPressのレンダリング済みコンテンツを表す

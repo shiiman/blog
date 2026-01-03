@@ -1,0 +1,136 @@
+package types
+
+import "time"
+
+// Post はWordPress投稿を表す
+type Post struct {
+	ID            int       `json:"id"`
+	Date          time.Time `json:"date"`
+	DateGMT       time.Time `json:"date_gmt"`
+	Modified      time.Time `json:"modified"`
+	ModifiedGMT   time.Time `json:"modified_gmt"`
+	Slug          string    `json:"slug"`
+	Status        string    `json:"status"`
+	Title         Rendered  `json:"title"`
+	Content       Rendered  `json:"content"`
+	Excerpt       Rendered  `json:"excerpt"`
+	Author        int       `json:"author"`
+	FeaturedMedia int       `json:"featured_media"`
+	Categories    []int     `json:"categories"`
+	Tags          []int     `json:"tags"`
+	Link          string    `json:"link"`
+}
+
+// Page はWordPress固定ページを表す
+type Page struct {
+	ID          int       `json:"id"`
+	Date        time.Time `json:"date"`
+	DateGMT     time.Time `json:"date_gmt"`
+	Modified    time.Time `json:"modified"`
+	ModifiedGMT time.Time `json:"modified_gmt"`
+	Slug        string    `json:"slug"`
+	Status      string    `json:"status"`
+	Title       Rendered  `json:"title"`
+	Content     Rendered  `json:"content"`
+	Excerpt     Rendered  `json:"excerpt"`
+	Author      int       `json:"author"`
+	Parent      int       `json:"parent"`
+	MenuOrder   int       `json:"menu_order"`
+	Link        string    `json:"link"`
+}
+
+// Rendered はWordPressのレンダリング済みコンテンツを表す
+type Rendered struct {
+	Rendered string `json:"rendered"`
+	Raw      string `json:"raw,omitempty"`
+}
+
+// Category はWordPressカテゴリを表す
+type Category struct {
+	ID          int    `json:"id"`
+	Count       int    `json:"count"`
+	Description string `json:"description"`
+	Link        string `json:"link"`
+	Name        string `json:"name"`
+	Slug        string `json:"slug"`
+	Parent      int    `json:"parent"`
+}
+
+// Tag はWordPressタグを表す
+type Tag struct {
+	ID          int    `json:"id"`
+	Count       int    `json:"count"`
+	Description string `json:"description"`
+	Link        string `json:"link"`
+	Name        string `json:"name"`
+	Slug        string `json:"slug"`
+}
+
+// CreatePostRequest は投稿作成リクエストを表す
+type CreatePostRequest struct {
+	Title         string `json:"title"`
+	Content       string `json:"content"`
+	Status        string `json:"status,omitempty"`
+	Slug          string `json:"slug,omitempty"`
+	Excerpt       string `json:"excerpt,omitempty"`
+	Categories    []int  `json:"categories,omitempty"`
+	Tags          []int  `json:"tags,omitempty"`
+	FeaturedMedia int    `json:"featured_media,omitempty"`
+}
+
+// UpdatePostRequest は投稿更新リクエストを表す
+type UpdatePostRequest struct {
+	Title         string `json:"title,omitempty"`
+	Content       string `json:"content,omitempty"`
+	Status        string `json:"status,omitempty"`
+	Slug          string `json:"slug,omitempty"`
+	Excerpt       string `json:"excerpt,omitempty"`
+	Categories    []int  `json:"categories,omitempty"`
+	Tags          []int  `json:"tags,omitempty"`
+	FeaturedMedia int    `json:"featured_media,omitempty"`
+}
+
+// CreatePageRequest は固定ページ作成リクエストを表す
+type CreatePageRequest struct {
+	Title     string `json:"title"`
+	Content   string `json:"content"`
+	Status    string `json:"status,omitempty"`
+	Slug      string `json:"slug,omitempty"`
+	Excerpt   string `json:"excerpt,omitempty"`
+	Parent    int    `json:"parent,omitempty"`
+	MenuOrder int    `json:"menu_order,omitempty"`
+}
+
+// UpdatePageRequest は固定ページ更新リクエストを表す
+type UpdatePageRequest struct {
+	Title     string `json:"title,omitempty"`
+	Content   string `json:"content,omitempty"`
+	Status    string `json:"status,omitempty"`
+	Slug      string `json:"slug,omitempty"`
+	Excerpt   string `json:"excerpt,omitempty"`
+	Parent    int    `json:"parent,omitempty"`
+	MenuOrder int    `json:"menu_order,omitempty"`
+}
+
+// FrontMatter はMarkdownファイルのフロントマターを表す
+type FrontMatter struct {
+	ID            int      `yaml:"id,omitempty"`
+	Title         string   `yaml:"title"`
+	Slug          string   `yaml:"slug,omitempty"`
+	Status        string   `yaml:"status,omitempty"`
+	Excerpt       string   `yaml:"excerpt,omitempty"`
+	Categories    []int    `yaml:"categories,omitempty"`
+	Tags          []int    `yaml:"tags,omitempty"`
+	FeaturedMedia int      `yaml:"featured_media,omitempty"`
+	Date          string   `yaml:"date,omitempty"`
+	Modified      string   `yaml:"modified,omitempty"`
+	Parent        int      `yaml:"parent,omitempty"`
+	MenuOrder     int      `yaml:"menu_order,omitempty"`
+}
+
+// Article はMarkdown記事を表す
+type Article struct {
+	FrontMatter FrontMatter
+	Content     string
+	FilePath    string
+}

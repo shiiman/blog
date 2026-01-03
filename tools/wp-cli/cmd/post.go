@@ -14,6 +14,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+const eyecatchFilename = "eyecatch.png"
+
 var postCmd = &cobra.Command{
 	Use:   "post <file>",
 	Short: "投稿を作成または更新",
@@ -86,6 +88,33 @@ func runPost(cmd *cobra.Command, args []string) {
 
 	client := wp.NewClient(cfg)
 
+	// アイキャッチ画像のアップロード
+	featuredMediaID := article.FrontMatter.FeaturedMedia
+	articleDir := filepath.Dir(filePath)
+	eyecatchPath := filepath.Join(articleDir, "assets", eyecatchFilename)
+
+	if _, err := os.Stat(eyecatchPath); err == nil && featuredMediaID == 0 {
+		// アイキャッチ画像が存在し、まだ設定されていない場合
+		color.Cyan("アイキャッチ画像をアップロード中...")
+
+		imageData, err := os.ReadFile(eyecatchPath)
+		if err != nil {
+			color.Red("アイキャッチ画像の読み込みに失敗: %v", err)
+			os.Exit(1)
+		}
+
+		media, err := client.UploadMedia(eyecatchFilename, imageData, "image/png")
+		if err != nil {
+			color.Red("アイキャッチ画像のアップロードに失敗: %v", err)
+			os.Exit(1)
+		}
+
+		featuredMediaID = media.ID
+		color.Green("アイキャッチ画像をアップロードしました！")
+		color.White("  メディアID: %d", media.ID)
+		color.White("  URL: %s", media.SourceURL)
+	}
+
 	var post *types.Post
 
 	// IDがある場合は更新、ない場合は新規作成
@@ -99,7 +128,7 @@ func runPost(cmd *cobra.Command, args []string) {
 			Excerpt:       article.FrontMatter.Excerpt,
 			Categories:    article.FrontMatter.Categories,
 			Tags:          article.FrontMatter.Tags,
-			FeaturedMedia: article.FrontMatter.FeaturedMedia,
+			FeaturedMedia: featuredMediaID,
 		}
 
 		color.Cyan("投稿 %d を更新中...", article.FrontMatter.ID)
@@ -121,7 +150,7 @@ func runPost(cmd *cobra.Command, args []string) {
 			Excerpt:       article.FrontMatter.Excerpt,
 			Categories:    article.FrontMatter.Categories,
 			Tags:          article.FrontMatter.Tags,
-			FeaturedMedia: article.FrontMatter.FeaturedMedia,
+			FeaturedMedia: featuredMediaID,
 		}
 
 		color.Cyan("投稿を作成中...")
@@ -173,11 +202,12 @@ func moveToPublished(filePath string, post *types.Post) {
 		return
 	}
 
-	// フロントマターを更新（IDとstatusを反映）
+	// フロントマターを更新（ID、status、featured_mediaを反映）
 	articlePath := filepath.Join(destDir, filepath.Base(filePath))
 	article.FrontMatter.ID = post.ID
 	article.FrontMatter.Status = "publish"
 	article.FrontMatter.Date = post.Date.Time.Format("2006-01-02T15:04:05")
+	article.FrontMatter.FeaturedMedia = post.FeaturedMedia
 
 	content, err := converter.GenerateArticleFile(article)
 	if err != nil {

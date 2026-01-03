@@ -9,6 +9,7 @@ ConoHa上で運営するWordPress技術ブログ（<https://shiimanblog.com>）�
 - 📥 **記事インポート** - WordPressから既存記事をMarkdownとして取得
 - ✏️ **記事更新** - ローカルで編集した記事をWordPressに反映
 - 📄 **固定ページ管理** - 投稿と同様に固定ページも操作可能
+- 🎨 **アイキャッチ対応** - assets/eyecatch.png を配置すると投稿時に自動アップロード
 
 ## セットアップ
 
@@ -89,6 +90,10 @@ go build -o wp-cli .
 ```
 blog/
 ├── posts/                  # インポート済み投稿（YYYY-MM-DD_slug/）
+│   └── 2025-01-03_slug/
+│       ├── article.md
+│       └── assets/         # 記事用アセット
+│           └── eyecatch.png
 ├── pages/                  # インポート済み固定ページ（slug/）
 ├── drafts/                 # 新規下書き記事
 ├── templates/              # 記事テンプレート
@@ -113,6 +118,7 @@ status: draft              # draft | publish
 excerpt: "記事の要約"
 categories: [1, 5]         # カテゴリID
 tags: [10, 20]             # タグID
+featured_media: 456        # アイキャッチ画像のメディアID
 ---
 ```
 
@@ -128,6 +134,25 @@ parent: 0
 menu_order: 0
 ---
 ```
+
+## アイキャッチ画像
+
+記事ディレクトリの `assets/eyecatch.png` に画像を配置すると、投稿時に自動でWordPressにアップロードしてアイキャッチに設定します。
+
+### ワークフロー
+
+```bash
+# 1. 記事を作成
+/blog-write
+
+# 2. アイキャッチ画像を配置
+# drafts/2026-01-03_my-article/assets/eyecatch.png
+
+# 3. 投稿（アイキャッチは自動でアップロード・設定）
+./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md --publish
+```
+
+> **Tip**: アイキャッチ画像は [Gemini](https://gemini.google.com/) などの画像生成AIで作成し、手動で配置できます。
 
 ## ライセンス
 

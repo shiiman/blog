@@ -287,6 +287,14 @@ menu_order: 0
   transition: all 0.2s;
 }
 
+.label-desktop {
+  display: inline;
+}
+
+.label-mobile {
+  display: none;
+}
+
 .btn:hover {
   transform: translateY(-2px);
 }
@@ -722,7 +730,7 @@ body.modal-open .footer {
 }
 
 .blind-level-item input {
-  width: 96px;
+  width: 84px;
   padding: 4px;
   border: 1px solid #e2e8f0;
   border-radius: 4px;
@@ -744,7 +752,7 @@ body.modal-open .footer {
 .blind-level-item input.sb-input,
 .blind-level-item input.bb-input,
 .blind-level-item input.ante-input {
-  width: 96px;
+  width: 84px;
 }
 
 .blind-level-item .drag-handle {
@@ -780,6 +788,27 @@ body.modal-open .footer {
   cursor: pointer;
   font-size: 14px;
   margin-left: auto;
+}
+
+.move-controls {
+  display: none;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.move-btn {
+  background: #e2e8f0;
+  color: #1e293b;
+  border: none;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.move-btn:active {
+  transform: translateY(1px);
 }
 
 .blind-level-item .time-label {
@@ -2080,6 +2109,218 @@ body.mobile-fullscreen-active {
     padding: 10px 14px;
     font-size: 13px;
   }
+
+  /* 設定: モバイルは2行レイアウト */
+  .label-desktop {
+    display: none;
+  }
+
+  .label-mobile {
+    display: inline;
+  }
+
+  .blind-level-item {
+    display: grid;
+    grid-template-columns: 36px 24px 1fr 1fr 14px 32px;
+    grid-template-rows: auto auto;
+    row-gap: 4px;
+    column-gap: 4px;
+    align-items: center;
+    position: relative;
+    padding-right: 36px;
+  }
+
+  .blind-level-item .drag-handle {
+    display: none;
+  }
+
+  .blind-level-item .move-controls {
+    display: flex;
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    justify-content: flex-start;
+    margin-right: -2px;
+  }
+
+  .blind-level-item .level-num {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: center;
+    min-width: 24px;
+  }
+
+  .blind-level-item .time-input {
+    grid-row: 2;
+    grid-column: 4;
+    width: 100%;
+  }
+
+  .blind-level-item .time-label {
+    display: inline;
+  }
+
+  .blind-level-item .sb-label,
+  .blind-level-item .bb-label,
+  .blind-level-item .ante-label {
+    display: none;
+  }
+
+  .blind-level-item .time-label {
+    display: none;
+  }
+
+  .blind-level-item .sb-input {
+    grid-row: 1;
+    grid-column: 3;
+    width: 100%;
+  }
+
+  .blind-level-item .bb-input {
+    grid-row: 1;
+    grid-column: 4;
+    width: 100%;
+  }
+
+  .blind-level-item .ante-input {
+    grid-row: 2;
+    grid-column: 3;
+    width: 100%;
+  }
+
+  .blind-level-item input {
+    min-width: 40px;
+    margin-right: 2px;
+  }
+
+  .blind-level-item .delete-level {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+
+  .blind-level-item span:not(.level-num):not(.break-label):not(.break-unit) {
+    display: none;
+  }
+
+  .blind-level-item.break-item {
+    display: grid;
+    grid-template-columns: 36px 24px 1fr 1fr 14px 32px;
+    grid-template-rows: auto auto;
+    gap: 6px;
+    align-items: center;
+    position: relative;
+    padding-right: 36px;
+  }
+
+  .blind-level-item.break-item .drag-handle {
+    display: none;
+  }
+
+  .blind-level-item.break-item .move-controls {
+    display: flex;
+    grid-column: 1;
+  }
+
+  .blind-level-item.break-item .break-label {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
+  .blind-level-item.break-item .break-time-input {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+    width: 100% !important;
+    max-width: 64px;
+    margin-right: 4px;
+  }
+
+  .blind-level-item.break-item .break-unit {
+    grid-column: 5;
+    grid-row: 1 / span 2;
+    margin-left: 2px;
+    align-self: center;
+    line-height: 1;
+    justify-self: start;
+    position: relative;
+    top: 2px;
+  }
+
+  .blind-level-item.break-item .delete-level {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .prize-edit-item {
+    display: grid;
+    grid-template-columns: 60px 1fr 24px 1fr 24px 32px;
+    grid-template-rows: auto auto;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .prize-edit-item .drag-handle {
+    display: none;
+  }
+
+  .prize-edit-item .move-controls {
+    display: flex;
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+
+  .prize-edit-item input.rank-input {
+    grid-row: 1;
+    width: 100%;
+  }
+
+  .prize-edit-item input.rank-start {
+    grid-column: 2;
+  }
+
+  .prize-edit-item input.rank-end {
+    grid-column: 4;
+  }
+
+  .prize-edit-item span {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .prize-edit-item span:nth-of-type(2) {
+    grid-row: 1;
+    grid-column: 3;
+    justify-self: center;
+  }
+
+  .prize-edit-item span:nth-of-type(3) {
+    grid-row: 1;
+    grid-column: 5;
+    justify-self: center;
+  }
+
+  .prize-edit-item input.amount-input {
+    grid-row: 2;
+    grid-column: 2 / span 3;
+    width: 100%;
+  }
+
+  .prize-edit-item span:nth-of-type(4) {
+    grid-row: 2;
+    grid-column: 5;
+    justify-self: start;
+  }
+
+  .prize-edit-item .delete-prize {
+    grid-row: 1 / span 2;
+    grid-column: 6;
+  }
 }
 </style>
 
@@ -2270,7 +2511,9 @@ body.mobile-fullscreen-active {
       </div>
 
       <div class="setting-group">
-        <label class="setting-label">ブラインドレベル (ドラッグで並べ替え可能)</label>
+        <label class="setting-label">
+          ブラインドレベル <span class="label-desktop">(ドラッグで並べ替え可能)</span><span class="label-mobile">(ボタンで並べ替え可能)</span>
+        </label>
         <div class="blind-levels" id="blindLevels"></div>
         <div class="level-actions">
           <button class="btn-add-level" id="btnAddLevel">+ レベル追加</button>
@@ -2308,7 +2551,9 @@ body.mobile-fullscreen-active {
       </div>
 
       <div class="setting-group">
-        <label class="setting-label">プライズ配分 (ドラッグで並べ替え可能)</label>
+        <label class="setting-label">
+          プライズ配分 <span class="label-desktop">(ドラッグで並べ替え可能)</span><span class="label-mobile">(ボタンで並べ替え可能)</span>
+        </label>
         <div class="prize-calc-row">
           <button class="btn-calc" id="btnCalcPrize">計算して反映</button>
           <small style="color: #64748b; font-size: 11px;">計算結果は下で編集可能</small>
@@ -3015,6 +3260,10 @@ body.mobile-fullscreen-active {
       item.setAttribute('data-index', i);
       item.setAttribute('draggable', 'true');
       item.innerHTML =
+        '<div class="move-controls">' +
+          '<button class="move-btn move-up" title="上へ">▲</button>' +
+          '<button class="move-btn move-down" title="下へ">▼</button>' +
+        '</div>' +
         '<span class="drag-handle">☰</span>' +
         '<input type="number" class="rank-input rank-start" value="' + p.startRank + '" min="1">' +
         '<span>位 〜</span>' +
@@ -3027,7 +3276,52 @@ body.mobile-fullscreen-active {
     }
 
     setupPrizeDragAndDrop();
+    setupPrizeMoveButtons();
     setupPrizeDeleteButtons();
+  }
+
+  function setupPrizeMoveButtons() {
+    var container = $('prizeEditList');
+    if (!container) return;
+    var moveUpButtons = container.querySelectorAll('.move-up');
+    for (var i = 0; i < moveUpButtons.length; i++) {
+      moveUpButtons[i].addEventListener('click', function(e) {
+        var idx = parseInt(e.target.closest('.prize-edit-item').getAttribute('data-index'));
+        syncPrizeDistributionFromInputs();
+        if (idx > 0) {
+          var temp = state.prizeDistribution[idx - 1];
+          state.prizeDistribution[idx - 1] = state.prizeDistribution[idx];
+          state.prizeDistribution[idx] = temp;
+          renderPrizeEditList(state.prizeDistribution);
+        }
+      });
+    }
+    var moveDownButtons = container.querySelectorAll('.move-down');
+    for (var j = 0; j < moveDownButtons.length; j++) {
+      moveDownButtons[j].addEventListener('click', function(e) {
+        var idx = parseInt(e.target.closest('.prize-edit-item').getAttribute('data-index'));
+        syncPrizeDistributionFromInputs();
+        if (idx < state.prizeDistribution.length - 1) {
+          var temp = state.prizeDistribution[idx + 1];
+          state.prizeDistribution[idx + 1] = state.prizeDistribution[idx];
+          state.prizeDistribution[idx] = temp;
+          renderPrizeEditList(state.prizeDistribution);
+        }
+      });
+    }
+  }
+
+  function syncPrizeDistributionFromInputs() {
+    var items = document.querySelectorAll('.prize-edit-item');
+    var prizeDistribution = [];
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var startRank = parseInt(item.querySelector('.rank-start').value) || 1;
+      var endRank = parseInt(item.querySelector('.rank-end').value) || startRank;
+      var amount = parseInt(item.querySelector('.amount-input').value) || 0;
+      prizeDistribution.push({ startRank: startRank, endRank: endRank, amount: amount });
+    }
+    state.prizeDistribution = prizeDistribution;
   }
 
   function setupPrizeDeleteButtons() {
@@ -3126,12 +3420,18 @@ body.mobile-fullscreen-active {
       nextRank = lastEnd + 1;
     }
 
+    state.prizeDistribution.push({ startRank: nextRank, endRank: nextRank, amount: 0 });
+
     var newIndex = items.length;
     var item = document.createElement('div');
     item.className = 'prize-edit-item';
     item.setAttribute('data-index', newIndex);
     item.setAttribute('draggable', 'true');
     item.innerHTML =
+      '<div class="move-controls">' +
+        '<button class="move-btn move-up" title="上へ">▲</button>' +
+        '<button class="move-btn move-down" title="下へ">▼</button>' +
+      '</div>' +
       '<span class="drag-handle">☰</span>' +
       '<input type="number" class="rank-input rank-start" value="' + nextRank + '" min="1">' +
       '<span>位 〜</span>' +
@@ -3226,9 +3526,13 @@ body.mobile-fullscreen-active {
         item.setAttribute('data-index', index);
         item.setAttribute('draggable', 'true');
         item.innerHTML =
+          '<div class="move-controls">' +
+            '<button class="move-btn move-up" title="上へ">▲</button>' +
+            '<button class="move-btn move-down" title="下へ">▼</button>' +
+          '</div>' +
           '<span class="drag-handle">☰</span>' +
           '<span class="break-label">BREAK</span>' +
-          '<input type="number" class="break-time-input" value="' + (blind.breakTime || 5) + '" min="1" style="width: 50px;"> 分' +
+          '<input type="number" class="break-time-input" value="' + (blind.breakTime || 5) + '" min="1" style="width: 50px;"> <span class="break-unit">分</span>' +
           '<button class="delete-level">×</button>';
       } else {
         levelNum++;
@@ -3236,22 +3540,57 @@ body.mobile-fullscreen-active {
         item.setAttribute('data-index', index);
         item.setAttribute('draggable', 'true');
         item.innerHTML =
+          '<div class="move-controls">' +
+            '<button class="move-btn move-up" title="上へ">▲</button>' +
+            '<button class="move-btn move-down" title="下へ">▼</button>' +
+          '</div>' +
           '<span class="drag-handle">☰</span>' +
           '<span class="level-num">' + levelNum + '</span>' +
-          '<input type="number" class="time-input" value="' + (blind.levelTime || state.defaultLevelTime) + '" min="1" title="時間(分)">' +
+          '<input type="number" class="time-input" value="' + (blind.levelTime || state.defaultLevelTime) + '" min="1" title="時間(分)" placeholder="時間">' +
           '<span class="time-label">分</span>' +
           '<input type="number" class="sb-input" value="' + blind.sb + '" placeholder="SB">' +
-          '<span>/</span>' +
+          '<span class="sb-label">SB</span>' +
           '<input type="number" class="bb-input" value="' + blind.bb + '" placeholder="BB">' +
-          '<span>/</span>' +
+          '<span class="bb-label">BB</span>' +
           '<input type="number" class="ante-input" value="' + blind.ante + '" placeholder="Ante">' +
+          '<span class="ante-label">Ante</span>' +
           '<button class="delete-level">×</button>';
       }
       container.appendChild(item);
     }
 
     setupBlindDragAndDrop();
+    setupBlindMoveButtons();
     setupBlindDeleteButtons();
+  }
+
+  function setupBlindMoveButtons() {
+    var container = $('blindLevels');
+    if (!container) return;
+    var moveUpButtons = container.querySelectorAll('.move-up');
+    for (var i = 0; i < moveUpButtons.length; i++) {
+      moveUpButtons[i].addEventListener('click', function(e) {
+        var idx = parseInt(e.target.closest('.blind-level-item').getAttribute('data-index'));
+        if (idx > 0) {
+          var temp = state.blinds[idx - 1];
+          state.blinds[idx - 1] = state.blinds[idx];
+          state.blinds[idx] = temp;
+          renderBlindLevels();
+        }
+      });
+    }
+    var moveDownButtons = container.querySelectorAll('.move-down');
+    for (var j = 0; j < moveDownButtons.length; j++) {
+      moveDownButtons[j].addEventListener('click', function(e) {
+        var idx = parseInt(e.target.closest('.blind-level-item').getAttribute('data-index'));
+        if (idx < state.blinds.length - 1) {
+          var temp = state.blinds[idx + 1];
+          state.blinds[idx + 1] = state.blinds[idx];
+          state.blinds[idx] = temp;
+          renderBlindLevels();
+        }
+      });
+    }
   }
 
   function setupBlindDeleteButtons() {

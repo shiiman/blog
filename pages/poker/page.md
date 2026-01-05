@@ -128,14 +128,14 @@ menu_order: 0
 }
 
 /* 画像領域（プライズ下に固定表示） */
-.qr-code-area {
+.mascot-area {
   display: block;
   margin-top: auto;  /* 下に固定 */
   padding-top: 12px;
   text-align: center;
 }
 
-.qr-code-img {
+.mascot-img {
   width: 180px;
   height: auto;
   border-radius: 12px;
@@ -415,6 +415,8 @@ menu_order: 0
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  min-width: 0;
 }
 
 /* ラベルスタイル - 大きく見やすく */
@@ -431,6 +433,9 @@ menu_order: 0
   font-size: 32px;
   font-weight: 700;
   color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .panel-value.gold {
@@ -489,6 +494,9 @@ menu_order: 0
   font-size: 32px;
   font-weight: 700;
   color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* PLAYERS カード */
@@ -501,6 +509,8 @@ menu_order: 0
   font-weight: 700;
   color: #1e293b;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin: 12px 0;
 }
 
@@ -767,10 +777,11 @@ body.modal-open .footer {
 }
 
 .blind-level-item .level-num {
-  width: 20px;
+  min-width: 24px;
   font-weight: bold;
   color: #3b82f6;
   font-size: 13px;
+  text-align: center;
 }
 
 .blind-level-item .break-label {
@@ -1180,7 +1191,7 @@ body.modal-open .footer {
 }
 
 /* フルスクリーン時の画像拡大 */
-.poker-timer-app:fullscreen .qr-code-img {
+.poker-timer-app:fullscreen .mascot-img {
   width: 280px;
   height: auto;
 }
@@ -1190,13 +1201,32 @@ body.mobile-fullscreen-active {
   overflow: hidden !important;
 }
 
+/* フルスクリーン時にWordPressのヘッダー/フッターを非表示 */
+body.mobile-fullscreen-active header,
+body.mobile-fullscreen-active #masthead,
+body.mobile-fullscreen-active .site-header,
+body.mobile-fullscreen-active .header,
+body.mobile-fullscreen-active nav,
+body.mobile-fullscreen-active .navigation,
+body.mobile-fullscreen-active .main-navigation,
+body.mobile-fullscreen-active footer,
+body.mobile-fullscreen-active #colophon,
+body.mobile-fullscreen-active .site-footer,
+body.mobile-fullscreen-active .footer,
+body.mobile-fullscreen-active .sidebar,
+body.mobile-fullscreen-active aside {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 .poker-timer-app.mobile-fullscreen {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
-  width: 100vw !important;
+  right: 0 !important;
+  width: auto !important;
   /* heightはJavaScriptでwindow.innerHeightを設定 */
-  max-width: none !important;
+  max-width: 100% !important;
   border-radius: 0 !important;
   z-index: 2147483647 !important;
   padding: 8px;
@@ -1207,13 +1237,14 @@ body.mobile-fullscreen-active {
   display: flex;
   flex-direction: column;
   background: #f8fafc !important;
-  box-sizing: border-box;
-  overflow: hidden;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
 }
 
 .poker-timer-app.mobile-fullscreen .timer-grid {
   flex: 1;
   width: 100%;
+  max-width: 100%;
   min-height: 0;
   display: grid;
   /* デフォルトは1カラム（iPhone向け） */
@@ -1223,13 +1254,195 @@ body.mobile-fullscreen-active {
   gap: 4px;
   box-sizing: border-box;
   align-items: stretch;
+  overflow: hidden;
 }
 
-/* iPad以上（横幅600px以上）では3カラム */
-@media (min-width: 600px) {
+/* iPad以上（横幅901px以上）では3カラム - Flexboxで実装 */
+/* CSS VERSION: 2026-01-05-v3 - iPad Safari fix, iPhone横画面を除外 */
+@media (min-width: 901px) {
+  /* グリッドではなくFlexboxで3カラムを実現（iPad Safari対応） */
   .poker-timer-app.mobile-fullscreen .timer-grid {
-    grid-template-columns: minmax(80px, 1fr) 2fr minmax(80px, 1fr);
-    grid-template-rows: 1fr;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+    padding: 8px !important;
+    overflow: hidden !important;
+  }
+
+  /* gapの代わりにmarginを使用（Safari互換性向上） */
+  .poker-timer-app.mobile-fullscreen .left-panel {
+    flex: 0 0 calc(25% - 6px) !important;
+    width: calc(25% - 6px) !important;
+    max-width: calc(25% - 6px) !important;
+    min-width: 0 !important;
+    margin-right: 8px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .center-panel {
+    flex: 0 0 calc(50% - 4px) !important;
+    width: calc(50% - 4px) !important;
+    max-width: calc(50% - 4px) !important;
+    min-width: 0 !important;
+    margin-right: 8px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .right-panel {
+    flex: 0 0 calc(25% - 6px) !important;
+    width: calc(25% - 6px) !important;
+    max-width: calc(25% - 6px) !important;
+    min-width: 0 !important;
+    margin-right: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;  /* 下揃え */
+    gap: 12px !important;  /* 項目間のスペース */
+  }
+
+  /* すべての子要素に対してオーバーフロー制御 */
+  .poker-timer-app.mobile-fullscreen .timer-grid *,
+  .poker-timer-app.mobile-fullscreen .timer-grid *::before,
+  .poker-timer-app.mobile-fullscreen .timer-grid *::after {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .info-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 右パネル内の要素も幅制限 */
+  .poker-timer-app.mobile-fullscreen .right-panel .info-card,
+  .poker-timer-app.mobile-fullscreen .right-panel .panel-value,
+  .poker-timer-app.mobile-fullscreen .right-panel .stack-row,
+  .poker-timer-app.mobile-fullscreen .right-panel .players-display {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* 右パネル内のカード間のスペース */
+  .poker-timer-app.mobile-fullscreen .right-panel .info-card {
+    margin-bottom: 10px !important;
+  }
+  .poker-timer-app.mobile-fullscreen .right-panel .info-card:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* テキストのオーバーフロー対策 */
+  .poker-timer-app.mobile-fullscreen .panel-value,
+  .poker-timer-app.mobile-fullscreen .stack-value,
+  .poker-timer-app.mobile-fullscreen .players-display {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* iPad用: timer-gridの高さを確実に100%に */
+  .poker-timer-app.mobile-fullscreen .timer-grid {
+    flex: 1 1 auto !important;
+    height: calc(100% - 16px) !important;
+    max-height: calc(100% - 16px) !important;
+    min-height: 0 !important;
+  }
+
+  /* iPad用: 左パネルのprize-item表示 */
+  .poker-timer-app.mobile-fullscreen .prize-list {
+    flex: 1 !important;
+    overflow: hidden !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-list-inner {
+    position: relative !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    font-size: 20px !important;
+    padding: 4px 0 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-item .prize-rank,
+  .poker-timer-app.mobile-fullscreen .prize-item .prize-amount {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* iPad用: プライズヘッダーのフォントサイズ */
+  .poker-timer-app.mobile-fullscreen .prize-header .panel-label {
+    font-size: 20px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-inmoney {
+    font-size: 16px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-inmoney-value {
+    font-size: 20px !important;
+  }
+
+  /* iPad用: 中央パネルのフォントサイズ拡大 */
+  .poker-timer-app.mobile-fullscreen .timer-time {
+    font-size: 130px !important;
+    line-height: 1 !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .timer-level {
+    font-size: 28px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .level-badge {
+    font-size: 24px !important;
+    padding: 8px 20px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .blind-current {
+    font-size: 52px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
+    font-size: 52px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .blind-next-label {
+    font-size: 20px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .blind-next-value {
+    font-size: 32px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .next-ante {
+    font-size: 20px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .timer-progress {
+    height: 10px !important;
+    margin: 8px 0 !important;
+  }
+
+  /* iPad用: QRコード画像の表示とサイズ */
+  .poker-timer-app.mobile-fullscreen .mascot-area {
+    display: block !important;
+    margin-top: auto !important;
+    padding-top: 8px !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .mascot-img {
+    width: 240px !important;
+    height: auto !important;
   }
 }
 
@@ -1242,10 +1455,13 @@ body.mobile-fullscreen-active {
 
 /* 中央パネル */
 .poker-timer-app.mobile-fullscreen .center-panel {
+  min-width: 0;
+  max-width: 100%;
   min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;  /* 縦方向中央揃え */
+  overflow: hidden;
 }
 
 .poker-timer-app.mobile-fullscreen .timer-card {
@@ -1311,8 +1527,10 @@ body.mobile-fullscreen-active {
 /* 左パネル - PRIZE */
 .poker-timer-app.mobile-fullscreen .left-panel {
   min-width: 0;
+  max-width: 100%;
   min-height: 0;
   height: 100%;
+  overflow: hidden;
 }
 
 .poker-timer-app.mobile-fullscreen .left-panel .panel-label {
@@ -1336,11 +1554,13 @@ body.mobile-fullscreen-active {
 /* 右パネル */
 .poker-timer-app.mobile-fullscreen .right-panel {
   min-width: 0;
+  max-width: 100%;
   min-height: 0;
   gap: 2px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;  /* 上から順に詰める */
+  overflow: hidden;
 }
 
 /* 右パネル - NEXT BREAK */
@@ -1572,8 +1792,8 @@ body.mobile-fullscreen-active {
   }
 }
 
-/* スマートフォン向けモバイルフルスクリーン（横画面） */
-@media (max-height: 500px) and (orientation: landscape) {
+/* スマートフォン向けモバイルフルスクリーン（横画面）- iPhone専用（幅900px以下かつ横画面） */
+@media (max-width: 900px) and (orientation: landscape) {
   .poker-timer-app.mobile-fullscreen {
     /* safe-areaを確保（iPhoneのノッチ・ホームインジケーター対応） */
     padding: 4px;
@@ -1636,14 +1856,14 @@ body.mobile-fullscreen-active {
   }
 
   /* 横画面フルスクリーン時にQRコードを表示 */
-  .poker-timer-app.mobile-fullscreen .qr-code-area {
+  .poker-timer-app.mobile-fullscreen .mascot-area {
     display: block;
     margin-top: auto;
     padding-top: 4px;
   }
 
-  .poker-timer-app.mobile-fullscreen .qr-code-img {
-    width: 100px;
+  .poker-timer-app.mobile-fullscreen .mascot-img {
+    width: 180px;
     height: auto;
   }
 
@@ -1758,6 +1978,136 @@ body.mobile-fullscreen-active {
   }
 }
 
+/* iPad用モバイルフルスクリーン（幅901px以上1024px以下、横画面） */
+@media (min-width: 901px) and (max-width: 1024px) and (orientation: landscape) {
+  .poker-timer-app.mobile-fullscreen .timer-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    padding: 8px !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* iPad: Flexboxで各パネルの幅を明示的に指定（marginでgap代替） */
+  .poker-timer-app.mobile-fullscreen .left-panel {
+    flex: 0 0 calc(25% - 6px) !important;
+    width: calc(25% - 6px) !important;
+    max-width: calc(25% - 6px) !important;
+    min-width: 0 !important;
+    margin-right: 8px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .center-panel {
+    flex: 0 0 calc(50% - 4px) !important;
+    width: calc(50% - 4px) !important;
+    max-width: calc(50% - 4px) !important;
+    min-width: 0 !important;
+    margin-right: 8px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .poker-timer-app.mobile-fullscreen .right-panel {
+    flex: 0 0 calc(25% - 6px) !important;
+    width: calc(25% - 6px) !important;
+    max-width: calc(25% - 6px) !important;
+    min-width: 0 !important;
+    margin-right: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* iPad: 中央パネル */
+  .poker-timer-app.mobile-fullscreen .timer-time {
+    font-size: 80px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .level-badge {
+    font-size: 16px;
+    padding: 6px 14px;
+    margin-bottom: 8px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .blind-current {
+    font-size: 32px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
+    font-size: 32px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .blind-next-value {
+    font-size: 18px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .next-ante {
+    font-size: 14px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .timer-progress {
+    height: 6px;
+    margin: 6px 0;
+  }
+
+  /* iPad: 左パネル（PRIZE） */
+  .poker-timer-app.mobile-fullscreen .left-panel .panel-label {
+    font-size: 14px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-inmoney {
+    font-size: 14px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-inmoney-value {
+    font-size: 18px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-item {
+    font-size: 16px;
+    padding: 2px 0;
+  }
+
+  /* iPad: 右パネル */
+  .poker-timer-app.mobile-fullscreen .right-panel {
+    gap: 6px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .break-card,
+  .poker-timer-app.mobile-fullscreen .stack-card,
+  .poker-timer-app.mobile-fullscreen .players-card {
+    padding: 6px 10px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .break-card .panel-label,
+  .poker-timer-app.mobile-fullscreen .stack-card .panel-label,
+  .poker-timer-app.mobile-fullscreen .players-card .panel-label {
+    font-size: 14px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .break-card .panel-value {
+    font-size: 24px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-label {
+    font-size: 14px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-value {
+    font-size: 22px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .players-display {
+    font-size: 28px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .players-label {
+    font-size: 13px;
+  }
+}
+
 /* 使い方説明 */
 .usage-guide {
   max-width: 1100px;
@@ -1804,8 +2154,8 @@ body.mobile-fullscreen-active {
   border-radius: 4px;
 }
 
-/* レスポンシブ */
-@media (max-width: 900px) {
+/* レスポンシブ（縦画面のみ） */
+@media (max-width: 900px) and (orientation: portrait) {
   .timer-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -1942,7 +2292,7 @@ body.mobile-fullscreen-active {
   }
 
   /* モバイル時は画像を非表示 */
-  .qr-code-area {
+  .mascot-area {
     display: none;
   }
 
@@ -1995,7 +2345,8 @@ body.mobile-fullscreen-active {
   }
 }
 
-@media (max-width: 500px) {
+/* 小型スマートフォン縦画面用 */
+@media (max-width: 500px) and (orientation: portrait) {
   .poker-timer-app {
     padding: 10px;
   }
@@ -2340,8 +2691,8 @@ body.mobile-fullscreen-active {
         </div>
       </div>
       <!-- 画像領域（横画面フルスクリーン時のみ表示） -->
-      <div class="qr-code-area" id="qrCodeArea">
-        <img src="data:image/jpeg;base64,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" alt="ポーカーやろうよ" class="qr-code-img">
+      <div class="mascot-area" id="mascotArea">
+        <img src="data:image/jpeg;base64,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" alt="ポーカーやろうよ" class="mascot-img">
       </div>
     </div>
 
@@ -3723,8 +4074,16 @@ body.mobile-fullscreen-active {
     var app = $('pokerTimer');
     if (!app) return;
 
-    // ネイティブFullscreen APIが使えるかチェック
-    var canFullscreen = app.requestFullscreen || app.webkitRequestFullscreen;
+    // タッチデバイス判定（iPad/iPhone/Android）
+    var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    // iPad判定（iOS 13以降はMacとして報告されるため、タッチ+Macで判定）
+    var isIPad = isTouchDevice && (navigator.platform === 'MacIntel' || /iPad/.test(navigator.userAgent));
+    var isIPhone = /iPhone/.test(navigator.userAgent);
+    var isAndroid = /Android/.test(navigator.userAgent);
+    var isMobileDevice = isIPad || isIPhone || isAndroid;
+
+    // ネイティブFullscreen APIが使えるかチェック（デスクトップのみ使用）
+    var canFullscreen = !isMobileDevice && (app.requestFullscreen || app.webkitRequestFullscreen);
 
     if (canFullscreen) {
       // デスクトップ: ネイティブFullscreen API
@@ -3756,6 +4115,30 @@ body.mobile-fullscreen-active {
         // フルスクリーンを終了
         app.style.height = '';
         app.style.maxHeight = '';
+        app.style.width = '';
+        app.style.maxWidth = '';
+        // timer-gridのスタイルもリセット
+        var grid = app.querySelector('.timer-grid');
+        if (grid) {
+          grid.style.width = '';
+          grid.style.maxWidth = '';
+        }
+        // 各パネルのスタイルもリセット
+        var leftPanel = app.querySelector('.left-panel');
+        var centerPanel = app.querySelector('.center-panel');
+        var rightPanel = app.querySelector('.right-panel');
+        if (leftPanel) {
+          leftPanel.style.width = '';
+          leftPanel.style.maxWidth = '';
+        }
+        if (centerPanel) {
+          centerPanel.style.width = '';
+          centerPanel.style.maxWidth = '';
+        }
+        if (rightPanel) {
+          rightPanel.style.width = '';
+          rightPanel.style.maxWidth = '';
+        }
         app.classList.remove('mobile-fullscreen');
         document.body.classList.remove('mobile-fullscreen-active');
         window.removeEventListener('resize', setMobileFullscreenHeight);
@@ -3764,14 +4147,29 @@ body.mobile-fullscreen-active {
     }
   }
 
-  // Safari/iOS対応: 実際のビューポート高さを設定
+  // Safari/iOS対応: 実際のビューポートサイズを設定
   function setMobileFullscreenHeight() {
     var app = $('pokerTimer');
     if (!app) return;
-    // window.innerHeightは実際の表示領域高さを返す（Safari UIを除いた領域）
+    // window.innerHeight/innerWidthは実際の表示領域サイズを返す（Safari UIを除いた領域）
     var vh = window.innerHeight;
+    var vw = window.innerWidth;
     app.style.height = vh + 'px';
     app.style.maxHeight = vh + 'px';
+    app.style.width = vw + 'px';
+    app.style.maxWidth = vw + 'px';
+
+    // timer-gridの幅も明示的に設定（iPad対応）
+    var grid = app.querySelector('.timer-grid');
+    if (grid) {
+      // パディングを考慮した幅を計算
+      var paddingLeft = parseInt(window.getComputedStyle(app).paddingLeft) || 8;
+      var paddingRight = parseInt(window.getComputedStyle(app).paddingRight) || 8;
+      var gridWidth = vw - paddingLeft - paddingRight;
+      grid.style.width = gridWidth + 'px';
+      grid.style.maxWidth = gridWidth + 'px';
+      // 各パネルの幅はCSSのFlexboxで制御（パーセンテージ指定）
+    }
   }
 
   // キーボード操作

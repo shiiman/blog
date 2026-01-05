@@ -2566,7 +2566,7 @@ body.mobile-fullscreen-active aside {
     if (state.currentLevel < state.blinds.length - 1) {
       state.currentLevel++;
       setLevelTime(state.currentLevel);
-      playSound();
+      // 音は tick() から呼ばれる時のみ再生（進むボタンでは鳴らさない）
     } else {
       clearInterval(state.intervalId);
       state.isRunning = false;
@@ -3373,12 +3373,14 @@ body.mobile-fullscreen-active aside {
       chimeAudio.src = 'data:audio/wav;base64,' + CHIME_DATA;
     }
 
-    // iOS/iPad Safari対応: 無音で再生してアンロック
+    // iOS/iPad Safari対応: 完全無音で再生してアンロック
     if (!audioUnlocked) {
-      chimeAudio.volume = 0.01;
+      chimeAudio.muted = true;
+      chimeAudio.volume = 0;
       chimeAudio.play().then(function() {
         chimeAudio.pause();
         chimeAudio.currentTime = 0;
+        chimeAudio.muted = false;
         chimeAudio.volume = 1;
         audioUnlocked = true;
       }).catch(function() {});

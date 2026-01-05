@@ -82,9 +82,15 @@ menu_order: 0
 
 .prize-inmoney {
   font-size: 18px;
-  font-weight: 500;
-  color: #64748b;
+  font-weight: 600;
+  color: #475569;
   margin-top: 8px;
+}
+
+.prize-inmoney-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: inherit;
 }
 
 .prize-list {
@@ -243,7 +249,8 @@ menu_order: 0
 
 .blind-next-label {
   font-size: 16px;
-  color: #94a3b8;
+  font-weight: 600;
+  color: #cbd5e1;
   margin-bottom: 6px;
 }
 
@@ -257,7 +264,8 @@ menu_order: 0
 
 .next-ante {
   font-size: 20px;
-  color: #94a3b8;
+  font-weight: 600;
+  color: #e2e8f0;
   margin-left: 10px;
 }
 
@@ -405,7 +413,7 @@ menu_order: 0
 .panel-label {
   font-size: 16px;
   font-weight: 700;
-  color: #475569;
+  color: #1e293b;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 10px;
@@ -434,7 +442,6 @@ menu_order: 0
 
 .break-card .panel-label {
   color: rgba(255,255,255,0.9);
-  font-size: 18px;
 }
 
 .break-card .panel-value {
@@ -467,11 +474,11 @@ menu_order: 0
 .stack-card .stack-label {
   font-size: 16px;
   font-weight: 500;
-  color: #64748b;
+  color: #475569;
 }
 
 .stack-card .stack-value {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   color: #1e293b;
 }
@@ -482,7 +489,7 @@ menu_order: 0
 }
 
 .players-card .players-display {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
   color: #1e293b;
   white-space: nowrap;
@@ -491,7 +498,7 @@ menu_order: 0
 
 .players-card .players-label {
   font-size: 14px;
-  color: #94a3b8;
+  color: #475569;
   margin-bottom: 12px;
 }
 
@@ -1018,7 +1025,7 @@ body.modal-open .footer {
 
 .poker-timer-app:fullscreen .next-ante {
   font-size: 28px;
-  color: #94a3b8;
+  color: #e2e8f0;
 }
 
 .poker-timer-app:fullscreen .timer-progress {
@@ -1033,33 +1040,36 @@ body.modal-open .footer {
   overflow: hidden;
 }
 
-.poker-timer-app:fullscreen .prize-card {
+.poker-timer-app:fullscreen .left-panel {
   padding: 24px;
 }
 
-.poker-timer-app:fullscreen .prize-card .panel-label {
-  font-size: 24px;
+.poker-timer-app:fullscreen .left-panel .panel-label {
+  font-size: 28px;
   font-weight: 600;
-  color: #64748b;
+  color: #1e293b;
 }
 
 .poker-timer-app:fullscreen .prize-inmoney {
-  font-size: 22px;
-  color: #64748b;
+  font-size: 26px;
+}
+
+.poker-timer-app:fullscreen .prize-inmoney-value {
+  font-size: 26px;
 }
 
 .poker-timer-app:fullscreen .prize-item {
-  font-size: 22px;
+  font-size: 24px;
   padding: 6px 0;
 }
 
 .poker-timer-app:fullscreen .prize-item .prize-rank {
-  font-size: 22px;
+  font-size: 24px;
   color: #1e293b;
 }
 
 .poker-timer-app:fullscreen .prize-item .prize-amount {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   color: #22c55e;
 }
@@ -1075,7 +1085,7 @@ body.modal-open .footer {
 }
 
 .poker-timer-app:fullscreen .break-card .panel-label {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -1092,18 +1102,18 @@ body.modal-open .footer {
 }
 
 .poker-timer-app:fullscreen .stack-card .panel-label {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
-  color: #64748b;
+  color: #1e293b;
 }
 
 .poker-timer-app:fullscreen .stack-row .stack-label {
-  font-size: 18px;
-  color: #94a3b8;
+  font-size: 24px;
+  color: #475569;
 }
 
 .poker-timer-app:fullscreen .stack-row .stack-value {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 700;
   color: #1e293b;
 }
@@ -1114,21 +1124,21 @@ body.modal-open .footer {
 }
 
 .poker-timer-app:fullscreen .players-card .panel-label {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
-  color: #64748b;
+  color: #1e293b;
 }
 
 .poker-timer-app:fullscreen .players-display {
-  font-size: 38px;
+  font-size: 48px;
   font-weight: 700;
   color: #1e293b;
   white-space: nowrap;
 }
 
-.poker-timer-app:fullscreen .players-sublabel {
-  font-size: 16px;
-  color: #94a3b8;
+.poker-timer-app:fullscreen .players-label {
+  font-size: 22px;
+  color: #475569;
 }
 
 .poker-timer-app:fullscreen .players-buttons {
@@ -1220,7 +1230,7 @@ body.mobile-fullscreen-active {
 
 /* 中央パネル - タイマー */
 .poker-timer-app.mobile-fullscreen .timer-time {
-  font-size: 72px;
+  font-size: 100px;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -1228,40 +1238,40 @@ body.mobile-fullscreen-active {
 }
 
 .poker-timer-app.mobile-fullscreen .timer-level {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 600;
   color: #ffffff;
 }
 
 .poker-timer-app.mobile-fullscreen .level-badge {
-  padding: 4px 12px;
-  font-size: 14px;
+  padding: 6px 16px;
+  font-size: 20px;
 }
 
 .poker-timer-app.mobile-fullscreen .blind-current {
-  font-size: 28px;
+  font-size: 40px;
   font-weight: 700;
   color: #fbbf24;
 }
 
 .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
-  font-size: 28px;
+  font-size: 40px;
   color: #fbbf24;
 }
 
 .poker-timer-app.mobile-fullscreen .blind-next-label {
-  font-size: 11px;
+  font-size: 16px;
 }
 
 .poker-timer-app.mobile-fullscreen .blind-next-value {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 600;
   color: #e2e8f0;
 }
 
 .poker-timer-app.mobile-fullscreen .next-ante {
-  font-size: 11px;
-  color: #94a3b8;
+  font-size: 16px;
+  color: #e2e8f0;
 }
 
 .poker-timer-app.mobile-fullscreen .timer-progress {
@@ -1276,24 +1286,22 @@ body.mobile-fullscreen-active {
   height: 100%;
 }
 
-.poker-timer-app.mobile-fullscreen .prize-card {
-  padding: 4px 6px;
-  max-height: 100%;
-  overflow: hidden;
-}
-
-.poker-timer-app.mobile-fullscreen .prize-card .panel-label {
-  font-size: 10px;
+.poker-timer-app.mobile-fullscreen .left-panel .panel-label {
+  font-size: 22px;
   margin-bottom: 2px;
 }
 
 .poker-timer-app.mobile-fullscreen .prize-inmoney {
-  font-size: 10px;
+  font-size: 22px;
+}
+
+.poker-timer-app.mobile-fullscreen .prize-inmoney-value {
+  font-size: 28px;
 }
 
 .poker-timer-app.mobile-fullscreen .prize-item {
-  font-size: 12px;
-  padding: 1px 0;
+  font-size: 24px;
+  padding: 3px 0;
 }
 
 /* 右パネル */
@@ -1315,13 +1323,13 @@ body.mobile-fullscreen-active {
 }
 
 .poker-timer-app.mobile-fullscreen .break-card .panel-label {
-  font-size: 10px;
+  font-size: 22px;
   white-space: nowrap;
   margin-bottom: 2px;
 }
 
 .poker-timer-app.mobile-fullscreen .break-card .panel-value {
-  font-size: 18px;
+  font-size: 36px;
   white-space: nowrap;
 }
 
@@ -1348,16 +1356,16 @@ body.mobile-fullscreen-active {
 }
 
 .poker-timer-app.mobile-fullscreen .stack-card .panel-label {
-  font-size: 10px;
+  font-size: 22px;
   margin-bottom: 2px;
 }
 
 .poker-timer-app.mobile-fullscreen .stack-row .stack-label {
-  font-size: 10px;
+  font-size: 22px;
 }
 
 .poker-timer-app.mobile-fullscreen .stack-row .stack-value {
-  font-size: 14px;
+  font-size: 36px;
 }
 
 .poker-timer-app.mobile-fullscreen .stack-row {
@@ -1373,14 +1381,19 @@ body.mobile-fullscreen-active {
 }
 
 .poker-timer-app.mobile-fullscreen .players-card .panel-label {
-  font-size: 10px;
+  font-size: 22px;
   margin-bottom: 2px;
 }
 
 .poker-timer-app.mobile-fullscreen .players-display {
-  font-size: 18px;
+  font-size: 44px;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.poker-timer-app.mobile-fullscreen .players-label {
+  font-size: 20px;
+  color: #475569;
 }
 
 .poker-timer-app.mobile-fullscreen .players-buttons {
@@ -1485,47 +1498,48 @@ body.mobile-fullscreen-active {
   }
 
   .poker-timer-app.mobile-fullscreen .blind-current {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .poker-timer-app.mobile-fullscreen .blind-next-value {
-    font-size: 14px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .level-badge {
-    font-size: 12px;
-    padding: 4px 10px;
-  }
-
-  /* 右パネルのカード内フォント */
-  .poker-timer-app.mobile-fullscreen .break-card .panel-label,
-  .poker-timer-app.mobile-fullscreen .stack-card .panel-label,
-  .poker-timer-app.mobile-fullscreen .players-card .panel-label {
-    font-size: 9px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .break-card .panel-value {
-    font-size: 14px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row .stack-label {
-    font-size: 9px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row .stack-value {
-    font-size: 12px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .players-display {
     font-size: 16px;
   }
 
-  .poker-timer-app.mobile-fullscreen .players-sublabel {
-    font-size: 9px;
+  .poker-timer-app.mobile-fullscreen .level-badge {
+    font-size: 14px;
+    padding: 3px 10px;
+  }
+
+  /* パネルラベルのフォント統一 */
+  .poker-timer-app.mobile-fullscreen .left-panel .panel-label,
+  .poker-timer-app.mobile-fullscreen .break-card .panel-label,
+  .poker-timer-app.mobile-fullscreen .stack-card .panel-label,
+  .poker-timer-app.mobile-fullscreen .players-card .panel-label {
+    font-size: 12px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .break-card .panel-value {
+    font-size: 20px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-label {
+    font-size: 12px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-value {
+    font-size: 18px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .players-display {
+    font-size: 24px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .players-label {
+    font-size: 11px;
   }
 }
 
@@ -1569,7 +1583,11 @@ body.mobile-fullscreen-active {
   }
 
   .poker-timer-app.mobile-fullscreen .prize-inmoney {
-    font-size: 8px;
+    font-size: 10px;
+  }
+
+  .poker-timer-app.mobile-fullscreen .prize-inmoney-value {
+    font-size: 12px;
   }
 
   .poker-timer-app.mobile-fullscreen .prize-list {
@@ -1584,7 +1602,7 @@ body.mobile-fullscreen-active {
   }
 
   .poker-timer-app.mobile-fullscreen .prize-item {
-    font-size: 9px;
+    font-size: 11px;
     padding: 1px 0;
   }
 
@@ -1640,26 +1658,26 @@ body.mobile-fullscreen-active {
 
   /* 横画面: タイマーサイズ調整 */
   .poker-timer-app.mobile-fullscreen .timer-time {
-    font-size: 48px;
+    font-size: 56px;
     margin: 4px 0;
   }
 
   .poker-timer-app.mobile-fullscreen .blind-current {
-    font-size: 18px;
+    font-size: 22px;
     margin: 4px 0;
   }
 
   .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .poker-timer-app.mobile-fullscreen .blind-next-value {
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .poker-timer-app.mobile-fullscreen .level-badge {
-    font-size: 10px;
-    padding: 2px 6px;
+    font-size: 12px;
+    padding: 3px 8px;
     margin-bottom: 4px;
   }
 
@@ -1677,24 +1695,25 @@ body.mobile-fullscreen-active {
     padding-top: 4px;
   }
 
-  /* 右パネルのカード内フォント */
+  /* パネルラベルのフォント統一 */
+  .poker-timer-app.mobile-fullscreen .left-panel .panel-label,
   .poker-timer-app.mobile-fullscreen .break-card .panel-label,
   .poker-timer-app.mobile-fullscreen .stack-card .panel-label,
   .poker-timer-app.mobile-fullscreen .players-card .panel-label {
-    font-size: 7px;
+    font-size: 10px;
     margin-bottom: 1px;
   }
 
   .poker-timer-app.mobile-fullscreen .break-card .panel-value {
-    font-size: 11px;
+    font-size: 16px;
   }
 
   .poker-timer-app.mobile-fullscreen .stack-row .stack-label {
-    font-size: 7px;
+    font-size: 10px;
   }
 
   .poker-timer-app.mobile-fullscreen .stack-row .stack-value {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   .poker-timer-app.mobile-fullscreen .stack-row {
@@ -1702,11 +1721,11 @@ body.mobile-fullscreen-active {
   }
 
   .poker-timer-app.mobile-fullscreen .players-display {
-    font-size: 12px;
+    font-size: 20px;
   }
 
-  .poker-timer-app.mobile-fullscreen .players-sublabel {
-    font-size: 7px;
+  .poker-timer-app.mobile-fullscreen .players-label {
+    font-size: 9px;
   }
 }
 
@@ -1881,7 +1900,7 @@ body.mobile-fullscreen-active {
   }
 
   .players-card .players-display {
-    font-size: 28px;
+    font-size: 20px;
   }
 
   .prize-list {
@@ -1912,11 +1931,11 @@ body.mobile-fullscreen-active {
 
   .prize-item {
     padding: 4px 0;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .prize-inmoney {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   /* info-cardをコンパクトに */
@@ -1925,8 +1944,12 @@ body.mobile-fullscreen-active {
   }
 
   .right-panel .panel-label {
-    font-size: 11px;
+    font-size: 16px;
     margin-bottom: 4px;
+  }
+
+  .left-panel .panel-label {
+    font-size: 16px;
   }
 
   /* STACKカードのフォントサイズ調整 */
@@ -1939,7 +1962,7 @@ body.mobile-fullscreen-active {
   }
 
   .stack-card .stack-value {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -1979,8 +2002,12 @@ body.mobile-fullscreen-active {
   }
 
   .right-panel .panel-label {
-    font-size: 10px;
+    font-size: 14px;
     margin-bottom: 2px;
+  }
+
+  .left-panel .panel-label {
+    font-size: 14px;
   }
 
   .panel-value {
@@ -1992,7 +2019,7 @@ body.mobile-fullscreen-active {
   }
 
   .players-card .players-display {
-    font-size: 28px;
+    font-size: 16px;
   }
 
   /* STACKカードをさらにコンパクトに */
@@ -2005,7 +2032,7 @@ body.mobile-fullscreen-active {
   }
 
   .stack-card .stack-value {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .players-buttons .btn {
@@ -2019,6 +2046,14 @@ body.mobile-fullscreen-active {
     height: 210px;
     max-height: 210px;
     overflow: hidden;
+  }
+
+  .prize-item {
+    font-size: 14px;
+  }
+
+  .prize-inmoney {
+    font-size: 14px;
   }
 
   .prize-list {
@@ -2057,7 +2092,7 @@ body.mobile-fullscreen-active {
     <div class="left-panel">
       <div class="prize-header">
         <div class="panel-label">PRIZE</div>
-        <div class="prize-inmoney" id="prizeInmoney">インマネ: 2名</div>
+        <div class="prize-inmoney" id="prizeInmoney">インマネ: <span class="prize-inmoney-value">2</span>名</div>
       </div>
       <div class="prize-list" id="prizeListContainer">
         <div class="prize-list-inner" id="prizeList">
@@ -2375,21 +2410,22 @@ body.mobile-fullscreen-active {
         state.currentSetName = settings.currentSetName || 'default';
         state.prizeSettings = settings.prizeSettings || JSON.parse(JSON.stringify(defaultPrizeSettings));
         state.prizeDistribution = settings.prizeDistribution || [];
-
-        // 現在レベルの時間を設定
-        var currentBlind = state.blinds[state.currentLevel];
-        if (currentBlind) {
-          if (currentBlind.isBreak) {
-            state.levelTime = (currentBlind.breakTime || 5) * 60;
-          } else {
-            state.levelTime = (currentBlind.levelTime || state.defaultLevelTime) * 60;
-          }
-          state.timeRemaining = state.levelTime;
-        }
       } catch(e) {
         console.log('Settings load error:', e);
       }
     }
+
+    // 現在レベルの時間を設定（保存データの有無に関わらず実行）
+    var currentBlind = state.blinds[state.currentLevel];
+    if (currentBlind) {
+      if (currentBlind.isBreak) {
+        state.levelTime = (currentBlind.breakTime || 5) * 60;
+      } else {
+        state.levelTime = (currentBlind.levelTime || state.defaultLevelTime) * 60;
+      }
+      state.timeRemaining = state.levelTime;
+    }
+
     updateBlindSetSelector();
     updateDisplay();
     updatePrizeDisplay();
@@ -2797,7 +2833,7 @@ body.mobile-fullscreen-active {
     }
 
     var pi = $('prizeInmoney');
-    if (pi) pi.textContent = 'インマネ: ' + totalInMoney + '名';
+    if (pi) pi.innerHTML = 'インマネ: <span class="prize-inmoney-value">' + totalInMoney + '</span>名';
 
     var listEl = $('prizeList');
     if (listEl) {

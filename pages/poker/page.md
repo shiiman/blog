@@ -38,18 +38,71 @@ menu_order: 0
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 <style>
+/* ============================================
+   CSS Variables - 統一カラー・フォント・スペーシング
+   ============================================ */
+.poker-timer-app {
+  /* Colors */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-success: #22c55e;
+  --color-success-dark: #16a34a;
+  --color-warning: #f59e0b;
+  --color-warning-dark: #d97706;
+  --color-danger: #ef4444;
+  --color-gold: #fbbf24;
+  --color-text: #1e293b;
+  --color-text-muted: #475569;
+  --color-text-light: #64748b;
+  --color-text-lighter: #94a3b8;
+  --color-bg: #f8fafc;
+  --color-card: #fff;
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+
+  /* Typography - Desktop */
+  --font-timer: 96px;
+  --font-blind: 42px;
+  --font-blind-next: 28px;
+  --font-label: 16px;
+  --font-value: 32px;
+  --font-level-badge: 22px;
+
+  /* Spacing */
+  --panel-padding: 20px;
+  --card-radius: 12px;
+  --card-radius-lg: 16px;
+  --gap-sm: 8px;
+  --gap-md: 12px;
+  --gap-lg: 15px;
+
+  /* Fullscreen Typography Scales */
+  --fs-timer-full: 180px;
+  --fs-blind-full: 72px;
+  --fs-level-badge-full: 28px;
+  --fs-label-full: 28px;
+  --fs-value-full: 48px;
+
+  /* Mobile Fullscreen Typography Scales */
+  --fs-timer-mobile: 100px;
+  --fs-blind-mobile: 40px;
+  --fs-level-badge-mobile: 20px;
+  --fs-label-mobile: 22px;
+  --fs-value-mobile: 36px;
+}
+
 /* メインアプリ */
 .poker-timer-app {
   max-width: 1100px;
   margin: 0 auto;
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
-  border-radius: 16px;
-  padding: 20px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--card-radius-lg);
+  padding: var(--panel-padding);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   position: relative;
-  touch-action: manipulation;  /* ダブルタップズームを無効化 */
+  touch-action: manipulation;
 }
 
 .poker-timer-app * {
@@ -60,14 +113,14 @@ menu_order: 0
 .timer-grid {
   display: grid;
   grid-template-columns: 220px 1fr 240px;
-  gap: 15px;
+  gap: var(--gap-lg);
   min-height: 400px;
 }
 
 /* 左カラム - PRIZE */
 .left-panel {
-  background: #fff;
-  border-radius: 12px;
+  background: var(--color-card);
+  border-radius: var(--card-radius);
   padding: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   display: flex;
@@ -75,7 +128,7 @@ menu_order: 0
 }
 
 .prize-header {
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid var(--color-border);
   padding-bottom: 16px;
   margin-bottom: 16px;
 }
@@ -83,7 +136,7 @@ menu_order: 0
 .prize-inmoney {
   font-size: 18px;
   font-weight: 600;
-  color: #475569;
+  color: var(--color-text-muted);
   margin-top: 8px;
 }
 
@@ -118,12 +171,12 @@ menu_order: 0
 }
 
 .prize-rank {
-  color: #475569;
+  color: var(--color-text-muted);
   font-weight: 600;
 }
 
 .prize-amount {
-  color: #22c55e;
+  color: var(--color-success);
   font-weight: 700;
 }
 
@@ -138,43 +191,43 @@ menu_order: 0
 .mascot-img {
   width: 180px;
   height: auto;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   opacity: 0.95;
 }
 
 /* 中央カラム - タイマー */
 .center-panel {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-text) 0%, #334155 100%);
+  border-radius: var(--card-radius);
   padding: 25px;
   color: #fff;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;  /* フルスクリーンボタン配置用 */
+  position: relative;
 }
 
 /* レベル表示 - 大きく見やすく */
 .level-badge {
   display: inline-block;
-  background: #3b82f6;
+  background: var(--color-primary);
   color: #fff;
   padding: 12px 32px;
   border-radius: 30px;
-  font-size: 22px;
+  font-size: var(--font-level-badge);
   font-weight: 700;
   margin-bottom: 15px;
   letter-spacing: 1px;
 }
 
 .level-badge.break {
-  background: #22c55e;
+  background: var(--color-success);
 }
 
 /* タイマー表示 - 大きく見やすく */
 .timer-time {
-  font-size: 96px;
+  font-size: var(--font-timer);
   font-weight: 700;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   letter-spacing: 2px;
@@ -184,7 +237,7 @@ menu_order: 0
 }
 
 .timer-time.warning {
-  color: #ef4444;
+  color: var(--color-danger);
   animation: pulse 1s infinite;
 }
 
@@ -216,22 +269,23 @@ menu_order: 0
 }
 
 .blind-current {
-  font-size: 48px;
+  font-size: var(--font-blind);
   font-weight: 700;
-  color: #fbbf24;
+  color: var(--color-gold);
   margin: 16px 0;
   text-shadow: 0 3px 12px rgba(251, 191, 36, 0.4);
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .blind-current .ante-value {
-  font-size: 48px;
+  font-size: var(--font-blind);
   font-weight: 700;
-  color: #fbbf24;
+  color: var(--color-gold);
   text-shadow: 0 3px 12px rgba(251, 191, 36, 0.4);
 }
 
@@ -241,21 +295,21 @@ menu_order: 0
 
 .blind-next {
   font-size: 18px;
-  color: #94a3b8;
+  color: var(--color-text-lighter);
   margin-top: 20px;
   padding-top: 20px;
   border-top: 2px solid rgba(255,255,255,0.2);
 }
 
 .blind-next-label {
-  font-size: 16px;
+  font-size: var(--font-label);
   font-weight: 600;
   color: #cbd5e1;
   margin-bottom: 6px;
 }
 
 .blind-next-value {
-  font-size: 28px;
+  font-size: var(--font-blind-next);
   font-weight: 600;
   color: #e2e8f0;
   display: block;
@@ -282,7 +336,7 @@ menu_order: 0
   font-size: 15px;
   font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--gap-sm);
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -300,37 +354,37 @@ menu_order: 0
 }
 
 .btn-primary {
-  background: #22c55e;
+  background: var(--color-success);
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: #16a34a;
+  background: var(--color-success-dark);
 }
 
 .btn-secondary {
-  background: #64748b;
+  background: var(--color-text-light);
   color: #fff;
 }
 
 .btn-secondary:hover {
-  background: #475569;
+  background: var(--color-text-muted);
 }
 
 .btn-warning {
-  background: #f59e0b;
+  background: var(--color-warning);
   color: #fff;
 }
 
 .btn-warning:hover {
-  background: #d97706;
+  background: var(--color-warning-dark);
 }
 
 /* 右カラム */
 .right-panel {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--gap-md);
   position: relative;
   padding-top: 40px;
   height: 100%;
@@ -345,7 +399,20 @@ menu_order: 0
 .right-panel-bottom {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--gap-md);
+}
+
+/* フルスクリーンボタン共通スタイル */
+.fullscreen-btn-top,
+.fullscreen-btn-mobile {
+  color: #fff;
+  border: none;
+  border-radius: var(--gap-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
 }
 
 /* フルスクリーンボタン（PC用・right-panel右上固定） */
@@ -355,21 +422,13 @@ menu_order: 0
   right: 0;
   width: 36px;
   height: 36px;
-  background: #3b82f6;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  background: var(--color-primary);
   font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 10;
-  transition: background 0.2s;
 }
 
 .fullscreen-btn-top:hover {
-  background: #2563eb;
+  background: var(--color-primary-hover);
 }
 
 /* フルスクリーンボタン（モバイル用・center-panelの右上に絶対配置） */
@@ -380,20 +439,13 @@ menu_order: 0
   width: 32px;
   height: 32px;
   background: rgba(59, 130, 246, 0.9);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
   font-size: 14px;
-  display: none;  /* PCでは非表示 */
-  align-items: center;
-  justify-content: center;
+  display: none;
   z-index: 20;
-  transition: background 0.2s;
 }
 
 .fullscreen-btn-mobile:hover {
-  background: #2563eb;
+  background: var(--color-primary-hover);
 }
 
 /* モバイル用: Levelバッジ行 */
@@ -410,9 +462,9 @@ menu_order: 0
 }
 
 .info-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
+  background: var(--color-card);
+  border-radius: var(--card-radius-lg);
+  padding: var(--panel-padding);
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   overflow: hidden;
@@ -421,25 +473,25 @@ menu_order: 0
 
 /* ラベルスタイル - 大きく見やすく */
 .panel-label {
-  font-size: 16px;
+  font-size: var(--font-label);
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-text);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 10px;
 }
 
 .panel-value {
-  font-size: 32px;
+  font-size: var(--font-value);
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .panel-value.gold {
-  color: #d97706;
+  color: var(--color-warning-dark);
 }
 
 .panel-value.large {
@@ -448,7 +500,7 @@ menu_order: 0
 
 /* NEXT BREAK IN */
 .break-card {
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  background: linear-gradient(135deg, var(--color-success) 0%, var(--color-success-dark) 100%);
   color: #fff;
   padding: 24px;
 }
@@ -465,7 +517,7 @@ menu_order: 0
 
 /* ブレイクがない場合のスタイル */
 .break-card.no-break {
-  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  background: linear-gradient(135deg, var(--color-text-light) 0%, var(--color-text-muted) 100%);
 }
 
 .break-card.no-break .panel-value {
@@ -474,26 +526,26 @@ menu_order: 0
 
 /* STACK カード */
 .stack-card {
-  padding: 20px;
+  padding: var(--panel-padding);
 }
 
 .stack-card .stack-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
+  padding: var(--gap-sm) 0;
 }
 
 .stack-card .stack-label {
-  font-size: 16px;
+  font-size: var(--font-label);
   font-weight: 500;
-  color: #475569;
+  color: var(--color-text-muted);
 }
 
 .stack-card .stack-value {
-  font-size: 32px;
+  font-size: var(--font-value);
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -501,40 +553,40 @@ menu_order: 0
 
 /* PLAYERS カード */
 .players-card {
-  padding: 20px;
+  padding: var(--panel-padding);
 }
 
 .players-card .players-display {
-  font-size: 32px;
+  font-size: var(--font-value);
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 12px 0;
+  margin: var(--gap-md) 0;
 }
 
 .players-card .players-label {
   font-size: 14px;
-  color: #475569;
-  margin-bottom: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--gap-md);
 }
 
 /* カウンターコントロール */
 .counter-controls {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: var(--gap-sm);
 }
 
 .counter-btn {
   width: 36px;
   height: 36px;
-  border-radius: 8px;
-  border: 2px solid #e2e8f0;
-  background: #fff;
-  color: #475569;
-  font-size: 16px;
+  border-radius: var(--gap-sm);
+  border: 2px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text-muted);
+  font-size: var(--font-label);
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -544,29 +596,31 @@ menu_order: 0
 }
 
 .counter-btn:hover {
-  background: #3b82f6;
-  border-color: #3b82f6;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: #fff;
 }
 
 /* 設定モーダル - z-index最大 */
 .settings-modal {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  z-index: 2147483647;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0,0,0,0.95) !important;
+  z-index: 2147483647 !important;
   overflow-y: auto;
+  isolation: isolate;
 }
 
 .settings-modal.active {
-  display: flex;
+  display: flex !important;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 /* モーダル表示時にWordPressのヘッダー/フッターを非表示 */
@@ -582,23 +636,32 @@ body.modal-open .footer {
 }
 
 .settings-content {
-  background: #fff;
+  background: #ffffff !important;
   border-radius: 16px;
   padding: 24px;
   max-width: 650px;
   width: 100%;
-  margin: 20px 0;
-  color: #1e293b;
-  max-height: 90vh;
+  margin: 0;
+  color: #1e293b !important;
+  max-height: calc(100vh - 40px);
   overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.settings-title {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #1e293b;
+.settings-title,
+.settings-modal h2.settings-title,
+.settings-content h2.settings-title {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  margin-bottom: 20px !important;
+  text-align: center !important;
+  color: #1e293b !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  margin-top: 0 !important;
 }
 
 .settings-tabs {
@@ -613,13 +676,14 @@ body.modal-open .footer {
   text-align: center;
   cursor: pointer;
   font-weight: 600;
-  color: #64748b;
+  color: #94a3b8 !important;
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
+  background: transparent !important;
 }
 
 .settings-tab.active {
-  color: #3b82f6;
+  color: #3b82f6 !important;
   border-bottom-color: #3b82f6;
 }
 
@@ -639,23 +703,24 @@ body.modal-open .footer {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
-  color: #475569;
+  color: #475569 !important;
   font-size: 14px;
 }
 
 .setting-input {
   width: 100%;
   padding: 10px;
-  border: 2px solid #e2e8f0;
+  border: 2px solid #e2e8f0 !important;
   border-radius: 8px;
-  background: #f8fafc;
-  color: #1e293b;
+  background: #f8fafc !important;
+  color: #1e293b !important;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .setting-input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #3b82f6 !important;
 }
 
 .setting-row {
@@ -674,9 +739,11 @@ body.modal-open .footer {
 .blind-set-selector select {
   flex: 1;
   padding: 10px;
-  border: 2px solid #e2e8f0;
+  border: 2px solid #e2e8f0 !important;
   border-radius: 8px;
   font-size: 16px;
+  background: #f8fafc !important;
+  color: #1e293b !important;
 }
 
 .blind-set-selector button {
@@ -688,64 +755,70 @@ body.modal-open .footer {
 }
 
 .btn-save-set {
-  background: #22c55e;
-  color: #fff;
+  background: #22c55e !important;
+  color: #fff !important;
 }
 
 .btn-delete-set {
-  background: #ef4444;
-  color: #fff;
+  background: #ef4444 !important;
+  color: #fff !important;
 }
 
 /* ブラインドレベル一覧 */
 .blind-levels {
   max-height: 280px;
   overflow-y: auto;
-  margin-bottom: 12px;
-  border: 1px solid #e2e8f0;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 8px;
 }
 
-.blind-level-item {
+/* 共通ドラッグアイテムスタイル */
+.blind-level-item,
+.prize-edit-item {
   display: flex;
   align-items: center;
   gap: 4px;
   padding: 6px 8px;
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
   cursor: grab;
   transition: background 0.2s, transform 0.2s;
   flex-wrap: wrap;
 }
 
-.blind-level-item:active {
+.blind-level-item:active,
+.prize-edit-item:active {
   cursor: grabbing;
 }
 
-.blind-level-item.dragging {
+.blind-level-item.dragging,
+.prize-edit-item.dragging {
   opacity: 0.5;
-  background: #e2e8f0;
+  background: #e2e8f0 !important;
 }
 
-.blind-level-item.drag-over {
-  border-top: 3px solid #3b82f6;
+.blind-level-item.drag-over,
+.prize-edit-item.drag-over {
+  border-top: 3px solid #3b82f6 !important;
 }
 
-.blind-level-item:last-child {
-  border-bottom: none;
+.blind-level-item:last-child,
+.prize-edit-item:last-child {
+  border-bottom: none !important;
 }
 
 .blind-level-item.break-item {
-  background: #dcfce7;
+  background: #dcfce7 !important;
 }
 
 .blind-level-item input {
   width: 84px;
   padding: 4px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 4px;
-  background: #fff;
-  color: #1e293b;
+  background: #ffffff !important;
+  color: #1e293b !important;
   font-size: 16px;
   box-sizing: border-box;
   text-align: center;
@@ -765,34 +838,39 @@ body.modal-open .footer {
   width: 84px;
 }
 
-.blind-level-item .drag-handle {
+/* 共通ドラッグハンドル */
+.blind-level-item .drag-handle,
+.prize-edit-item .drag-handle {
   cursor: grab;
-  color: #94a3b8;
+  color: #94a3b8 !important;
   font-size: 14px;
   padding: 0 4px;
 }
 
-.blind-level-item .drag-handle:active {
+.blind-level-item .drag-handle:active,
+.prize-edit-item .drag-handle:active {
   cursor: grabbing;
 }
 
 .blind-level-item .level-num {
   min-width: 24px;
   font-weight: bold;
-  color: #3b82f6;
+  color: #3b82f6 !important;
   font-size: 13px;
   text-align: center;
 }
 
 .blind-level-item .break-label {
-  color: #22c55e;
+  color: #22c55e !important;
   font-weight: 600;
   font-size: 14px;
 }
 
-.blind-level-item .delete-level {
-  background: #ef4444;
-  color: #fff;
+/* 共通削除ボタン */
+.blind-level-item .delete-level,
+.prize-edit-item .delete-prize {
+  background: #ef4444 !important;
+  color: #fff !important;
   border: none;
   border-radius: 4px;
   padding: 4px 8px;
@@ -808,8 +886,8 @@ body.modal-open .footer {
 }
 
 .move-btn {
-  background: #e2e8f0;
-  color: #1e293b;
+  background: #e2e8f0 !important;
+  color: #1e293b !important;
   border: none;
   border-radius: 6px;
   width: 28px;
@@ -824,12 +902,12 @@ body.modal-open .footer {
 
 .blind-level-item .time-label {
   font-size: 12px;
-  color: #64748b;
+  color: #94a3b8 !important;
 }
 
 .blind-level-item span {
   font-size: 12px;
-  color: #64748b;
+  color: #64748b !important;
 }
 
 .level-actions {
@@ -848,71 +926,35 @@ body.modal-open .footer {
 }
 
 .btn-add-level {
-  background: #3b82f6;
-  color: #fff;
+  background: #3b82f6 !important;
+  color: #fff !important;
 }
 
 .btn-add-break {
-  background: #22c55e;
-  color: #fff;
+  background: #22c55e !important;
+  color: #fff !important;
 }
 
 /* プライズ編集リスト */
 .prize-edit-list {
   max-height: 250px;
   overflow-y: auto;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 8px;
   margin-top: 10px;
 }
 
-.prize-edit-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px 8px;
-  border-bottom: 1px solid #e2e8f0;
-  background: #f8fafc;
-  cursor: grab;
-  transition: background 0.2s;
-  flex-wrap: wrap;
-}
-
-.prize-edit-item:active {
-  cursor: grabbing;
-}
-
-.prize-edit-item.dragging {
-  opacity: 0.5;
-  background: #e2e8f0;
-}
-
-.prize-edit-item.drag-over {
-  border-top: 3px solid #3b82f6;
-}
-
-.prize-edit-item:last-child {
-  border-bottom: none;
-}
-
-.prize-edit-item .drag-handle {
-  cursor: grab;
-  color: #94a3b8;
-  font-size: 14px;
-  padding: 0 4px;
-}
-
-.prize-edit-item .drag-handle:active {
-  cursor: grabbing;
-}
+/* prize-edit-item の基本スタイルは共通ドラッグアイテムスタイルで定義済み */
 
 .prize-edit-item input {
   padding: 4px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e2e8f0 !important;
   border-radius: 4px;
   font-size: 16px;
   box-sizing: border-box;
   text-align: center;
+  background: #ffffff !important;
+  color: #1e293b !important;
 }
 
 .prize-edit-item input.rank-input {
@@ -926,19 +968,10 @@ body.modal-open .footer {
 
 .prize-edit-item span {
   font-size: 13px;
-  color: #64748b;
+  color: #64748b !important;
 }
 
-.prize-edit-item .delete-prize {
-  background: #ef4444;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-left: auto;
-}
+/* delete-prize は共通削除ボタンで定義済み */
 
 .prize-edit-actions {
   display: flex;
@@ -949,8 +982,8 @@ body.modal-open .footer {
 .btn-add-prize {
   flex: 1;
   padding: 10px;
-  background: #3b82f6;
-  color: #fff;
+  background: #3b82f6 !important;
+  color: #fff !important;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -966,8 +999,8 @@ body.modal-open .footer {
 }
 
 .btn-calc {
-  background: #3b82f6;
-  color: #fff;
+  background: #3b82f6 !important;
+  color: #fff !important;
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
@@ -986,41 +1019,122 @@ body.modal-open .footer {
   flex: 1;
 }
 
-/* フルスクリーン時のスタイル */
-.poker-timer-app:fullscreen {
-  padding: 40px;
+/* モーダル内ボタンの色を明示的に指定 */
+.settings-modal .btn-primary {
+  background: #22c55e !important;
+  color: #fff !important;
+}
+
+.settings-modal .btn-primary:hover {
+  background: #16a34a !important;
+}
+
+.settings-modal .btn-secondary {
+  background: #64748b !important;
+  color: #fff !important;
+}
+
+.settings-modal .btn-secondary:hover {
+  background: #475569 !important;
+}
+
+/* ============================================
+   共通フルスクリーンスタイル
+   :fullscreen と .mobile-fullscreen で共有
+   ============================================ */
+
+/* フルスクリーン共通: 基本レイアウト */
+.poker-timer-app:fullscreen,
+.poker-timer-app.mobile-fullscreen {
   display: flex;
   flex-direction: column;
-  width: 100vw !important;
-  height: 100vh !important;
   max-width: none !important;
   border-radius: 0 !important;
-  background: #f8fafc !important;
+  background: var(--color-bg) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
 }
 
-.poker-timer-app:fullscreen .timer-grid {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-}
-
-/* フルスクリーン時は設定ボタンのみ非表示（操作ボタンは表示） */
-.poker-timer-app:fullscreen .controls #btnSettings {
+/* フルスクリーン共通: 設定ボタン非表示 */
+.poker-timer-app:fullscreen .controls #btnSettings,
+.poker-timer-app.mobile-fullscreen .controls #btnSettings {
   display: none !important;
 }
 
-/* フルスクリーン時のレイアウト調整 */
-.poker-timer-app:fullscreen .timer-grid {
-  gap: 16px;
-  grid-template-columns: minmax(200px, 1.2fr) 2fr minmax(200px, 1.2fr);
-  padding: 16px;
+/* フルスクリーン共通: フルスクリーンボタン非表示 */
+.poker-timer-app:fullscreen .fullscreen-btn-top,
+.poker-timer-app.mobile-fullscreen .fullscreen-btn-top,
+.poker-timer-app.mobile-fullscreen .fullscreen-btn-mobile {
+  display: none;
+}
+
+/* フルスクリーン共通: timer-grid */
+.poker-timer-app:fullscreen .timer-grid,
+.poker-timer-app.mobile-fullscreen .timer-grid {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
   box-sizing: border-box;
 }
 
-/* 中央パネル - タイマー */
+/* フルスクリーン共通: パネル */
+.poker-timer-app:fullscreen .left-panel,
+.poker-timer-app.mobile-fullscreen .left-panel,
+.poker-timer-app:fullscreen .right-panel,
+.poker-timer-app.mobile-fullscreen .right-panel {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* フルスクリーン共通: 中央パネル */
+.poker-timer-app:fullscreen .center-panel,
+.poker-timer-app.mobile-fullscreen .center-panel {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* フルスクリーン共通: プレイヤーボタン非表示 */
+.poker-timer-app:fullscreen .players-buttons,
+.poker-timer-app.mobile-fullscreen .players-buttons {
+  display: none;
+}
+
+/* フルスクリーン共通: テキストオーバーフロー対策 */
+.poker-timer-app:fullscreen .panel-value,
+.poker-timer-app:fullscreen .stack-value,
+.poker-timer-app:fullscreen .players-display,
+.poker-timer-app.mobile-fullscreen .panel-value,
+.poker-timer-app.mobile-fullscreen .stack-value,
+.poker-timer-app.mobile-fullscreen .players-display {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* ============================================
+   デスクトップ ネイティブフルスクリーン固有スタイル
+   ============================================ */
+.poker-timer-app:fullscreen {
+  padding: 40px;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.poker-timer-app:fullscreen .timer-grid {
+  height: 100%;
+  gap: 16px;
+  grid-template-columns: minmax(180px, 1fr) 2.5fr minmax(180px, 1fr);
+  padding: 16px;
+}
+
+/* デスクトップフルスクリーン: タイマー */
 .poker-timer-app:fullscreen .timer-time {
-  font-size: 180px;
+  font-size: var(--fs-timer-full);
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -1033,19 +1147,19 @@ body.modal-open .footer {
 }
 
 .poker-timer-app:fullscreen .level-badge {
-  font-size: 28px;
+  font-size: var(--fs-level-badge-full);
   padding: 14px 36px;
 }
 
 .poker-timer-app:fullscreen .blind-current {
-  font-size: 72px;
+  font-size: var(--fs-blind-full);
   font-weight: 700;
-  color: #fbbf24;
+  color: var(--color-gold);
 }
 
 .poker-timer-app:fullscreen .blind-current .ante-value {
-  font-size: 72px;
-  color: #fbbf24;
+  font-size: var(--fs-blind-full);
+  color: var(--color-gold);
 }
 
 .poker-timer-app:fullscreen .blind-next {
@@ -1054,7 +1168,7 @@ body.modal-open .footer {
 
 .poker-timer-app:fullscreen .blind-next-label {
   font-size: 22px;
-  color: #94a3b8;
+  color: var(--color-text-lighter);
 }
 
 .poker-timer-app:fullscreen .blind-next-value {
@@ -1073,21 +1187,16 @@ body.modal-open .footer {
   margin: 24px 0;
 }
 
-/* 左パネル - PRIZE */
+/* デスクトップフルスクリーン: 左パネル - PRIZE */
 .poker-timer-app:fullscreen .left-panel {
-  min-width: 0;
   height: 100%;
-  overflow: hidden;
-}
-
-.poker-timer-app:fullscreen .left-panel {
   padding: 24px;
 }
 
 .poker-timer-app:fullscreen .left-panel .panel-label {
-  font-size: 28px;
+  font-size: var(--fs-label-full);
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-text);
 }
 
 .poker-timer-app:fullscreen .prize-inmoney {
@@ -1105,98 +1214,80 @@ body.modal-open .footer {
 
 .poker-timer-app:fullscreen .prize-item .prize-rank {
   font-size: 24px;
-  color: #1e293b;
+  color: var(--color-text);
 }
 
 .poker-timer-app:fullscreen .prize-item .prize-amount {
   font-size: 24px;
   font-weight: 600;
-  color: #22c55e;
+  color: var(--color-success);
 }
 
-/* 右パネル - NEXT BREAK */
-.poker-timer-app:fullscreen .right-panel {
-  min-width: 0;
-  overflow: hidden;
-}
-
+/* デスクトップフルスクリーン: 右パネル */
 .poker-timer-app:fullscreen .break-card {
-  padding: 20px;
+  padding: var(--panel-padding);
 }
 
 .poker-timer-app:fullscreen .break-card .panel-label {
-  font-size: 28px;
+  font-size: var(--fs-label-full);
   font-weight: 600;
-  white-space: nowrap;
 }
 
 .poker-timer-app:fullscreen .break-card .panel-value {
   font-size: 36px;
   font-weight: 700;
-  white-space: nowrap;
 }
 
-/* 右パネル - STACK */
 .poker-timer-app:fullscreen .stack-card {
-  padding: 20px;
+  padding: var(--panel-padding);
 }
 
 .poker-timer-app:fullscreen .stack-card .panel-label {
-  font-size: 28px;
+  font-size: var(--fs-label-full);
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-text);
 }
 
 .poker-timer-app:fullscreen .stack-row .stack-label {
   font-size: 24px;
-  color: #475569;
+  color: var(--color-text-muted);
 }
 
 .poker-timer-app:fullscreen .stack-row .stack-value {
-  font-size: 48px;
+  font-size: var(--fs-value-full);
   font-weight: 700;
-  color: #1e293b;
+  color: var(--color-text);
 }
 
-/* 右パネル - PLAYERS */
 .poker-timer-app:fullscreen .players-card {
-  padding: 20px;
+  padding: var(--panel-padding);
 }
 
 .poker-timer-app:fullscreen .players-card .panel-label {
-  font-size: 28px;
+  font-size: var(--fs-label-full);
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-text);
 }
 
 .poker-timer-app:fullscreen .players-display {
-  font-size: 48px;
+  font-size: var(--fs-value-full);
   font-weight: 700;
-  color: #1e293b;
-  white-space: nowrap;
+  color: var(--color-text);
 }
 
 .poker-timer-app:fullscreen .players-label {
   font-size: 22px;
-  color: #475569;
+  color: var(--color-text-muted);
 }
 
-.poker-timer-app:fullscreen .players-buttons {
-  display: none;
-}
-
-/* フルスクリーンボタン非表示 */
-.poker-timer-app:fullscreen .fullscreen-btn-top {
-  display: none;
-}
-
-/* フルスクリーン時の画像拡大 */
 .poker-timer-app:fullscreen .mascot-img {
   width: 280px;
   height: auto;
 }
 
-/* モバイル擬似フルスクリーン */
+/* ============================================
+   モバイル擬似フルスクリーン固有スタイル
+   ============================================ */
 body.mobile-fullscreen-active {
   overflow: hidden !important;
 }
@@ -1225,87 +1316,68 @@ body.mobile-fullscreen-active aside {
   left: 0 !important;
   right: 0 !important;
   width: auto !important;
-  /* heightはJavaScriptでwindow.innerHeightを設定 */
   max-width: 100% !important;
-  border-radius: 0 !important;
   z-index: 2147483647 !important;
   padding: 8px;
   padding-top: max(8px, env(safe-area-inset-top));
   padding-bottom: max(8px, env(safe-area-inset-bottom));
   padding-left: max(8px, env(safe-area-inset-left));
   padding-right: max(8px, env(safe-area-inset-right));
-  display: flex;
-  flex-direction: column;
-  background: #f8fafc !important;
-  box-sizing: border-box !important;
-  overflow: hidden !important;
 }
 
 .poker-timer-app.mobile-fullscreen .timer-grid {
-  flex: 1;
-  width: 100%;
   max-width: 100%;
-  min-height: 0;
   display: grid;
-  /* デフォルトは1カラム（iPhone向け） */
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   padding: 4px;
   gap: 4px;
-  box-sizing: border-box;
   align-items: stretch;
-  overflow: hidden;
 }
 
-/* iPad以上（横幅901px以上）では3カラム - Flexboxで実装 */
-/* CSS VERSION: 2026-01-05-v3 - iPad Safari fix, iPhone横画面を除外 */
+/* ============================================
+   iPad以上（横幅901px以上）3カラムレイアウト
+   ============================================ */
 @media (min-width: 901px) {
-  /* グリッドではなくFlexboxで3カラムを実現（iPad Safari対応） */
+  /* Flexboxで3カラムを実現（iPad Safari対応） */
   .poker-timer-app.mobile-fullscreen .timer-grid {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     gap: 0 !important;
     padding: 8px !important;
-    overflow: hidden !important;
+    flex: 1 1 auto !important;
+    height: calc(100% - 16px) !important;
+    max-height: calc(100% - 16px) !important;
   }
 
-  /* gapの代わりにmarginを使用（Safari互換性向上） */
+  /* 3カラム共通幅設定（marginでgap代替） - 中央パネルを広く */
   .poker-timer-app.mobile-fullscreen .left-panel {
-    flex: 0 0 calc(25% - 6px) !important;
-    width: calc(25% - 6px) !important;
-    max-width: calc(25% - 6px) !important;
-    min-width: 0 !important;
+    flex: 0 0 calc(20% - 6px) !important;
+    width: calc(20% - 6px) !important;
+    max-width: calc(20% - 6px) !important;
     margin-right: 8px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
   }
 
   .poker-timer-app.mobile-fullscreen .center-panel {
-    flex: 0 0 calc(50% - 4px) !important;
-    width: calc(50% - 4px) !important;
-    max-width: calc(50% - 4px) !important;
-    min-width: 0 !important;
+    flex: 0 0 calc(60% - 4px) !important;
+    width: calc(60% - 4px) !important;
+    max-width: calc(60% - 4px) !important;
     margin-right: 8px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
   }
 
   .poker-timer-app.mobile-fullscreen .right-panel {
-    flex: 0 0 calc(25% - 6px) !important;
-    width: calc(25% - 6px) !important;
-    max-width: calc(25% - 6px) !important;
-    min-width: 0 !important;
+    flex: 0 0 calc(20% - 6px) !important;
+    width: calc(20% - 6px) !important;
+    max-width: calc(20% - 6px) !important;
     margin-right: 0 !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important;  /* 下揃え */
-    gap: 12px !important;  /* 項目間のスペース */
+    justify-content: flex-end !important;
+    gap: var(--gap-md) !important;
   }
 
-  /* すべての子要素に対してオーバーフロー制御 */
+  /* オーバーフロー制御 */
   .poker-timer-app.mobile-fullscreen .timer-grid *,
   .poker-timer-app.mobile-fullscreen .timer-grid *::before,
   .poker-timer-app.mobile-fullscreen .timer-grid *::after {
@@ -1318,20 +1390,8 @@ body.mobile-fullscreen-active aside {
     min-width: 0 !important;
     max-width: 100% !important;
     overflow: hidden !important;
-    box-sizing: border-box !important;
   }
 
-  /* 右パネル内の要素も幅制限 */
-  .poker-timer-app.mobile-fullscreen .right-panel .info-card,
-  .poker-timer-app.mobile-fullscreen .right-panel .panel-value,
-  .poker-timer-app.mobile-fullscreen .right-panel .stack-row,
-  .poker-timer-app.mobile-fullscreen .right-panel .players-display {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-  }
-
-  /* 右パネル内のカード間のスペース */
   .poker-timer-app.mobile-fullscreen .right-panel .info-card {
     margin-bottom: 10px !important;
   }
@@ -1339,27 +1399,9 @@ body.mobile-fullscreen-active aside {
     margin-bottom: 0 !important;
   }
 
-  /* テキストのオーバーフロー対策 */
-  .poker-timer-app.mobile-fullscreen .panel-value,
-  .poker-timer-app.mobile-fullscreen .stack-value,
-  .poker-timer-app.mobile-fullscreen .players-display {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
-  /* iPad用: timer-gridの高さを確実に100%に */
-  .poker-timer-app.mobile-fullscreen .timer-grid {
-    flex: 1 1 auto !important;
-    height: calc(100% - 16px) !important;
-    max-height: calc(100% - 16px) !important;
-    min-height: 0 !important;
-  }
-
-  /* iPad用: 左パネルのprize-item表示 */
+  /* iPad: prize-list表示 */
   .poker-timer-app.mobile-fullscreen .prize-list {
     flex: 1 !important;
-    overflow: hidden !important;
   }
 
   .poker-timer-app.mobile-fullscreen .prize-list-inner {
@@ -1374,66 +1416,21 @@ body.mobile-fullscreen-active aside {
     border-bottom: 1px solid rgba(0,0,0,0.1) !important;
   }
 
-  .poker-timer-app.mobile-fullscreen .prize-item .prize-rank,
-  .poker-timer-app.mobile-fullscreen .prize-item .prize-amount {
-    display: block !important;
-    visibility: visible !important;
-  }
+  /* iPad: フォントサイズ */
+  .poker-timer-app.mobile-fullscreen .prize-header .panel-label { font-size: 20px !important; }
+  .poker-timer-app.mobile-fullscreen .prize-inmoney { font-size: 16px !important; }
+  .poker-timer-app.mobile-fullscreen .prize-inmoney-value { font-size: 20px !important; }
+  .poker-timer-app.mobile-fullscreen .timer-time { font-size: 130px !important; line-height: 1 !important; }
+  .poker-timer-app.mobile-fullscreen .timer-level { font-size: 28px !important; }
+  .poker-timer-app.mobile-fullscreen .level-badge { font-size: 24px !important; padding: 8px 20px !important; }
+  .poker-timer-app.mobile-fullscreen .blind-current { font-size: 52px !important; }
+  .poker-timer-app.mobile-fullscreen .blind-current .ante-value { font-size: 52px !important; }
+  .poker-timer-app.mobile-fullscreen .blind-next-label { font-size: 20px !important; }
+  .poker-timer-app.mobile-fullscreen .blind-next-value { font-size: 32px !important; }
+  .poker-timer-app.mobile-fullscreen .next-ante { font-size: 20px !important; }
+  .poker-timer-app.mobile-fullscreen .timer-progress { height: 10px !important; margin: 8px 0 !important; }
 
-  /* iPad用: プライズヘッダーのフォントサイズ */
-  .poker-timer-app.mobile-fullscreen .prize-header .panel-label {
-    font-size: 20px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-inmoney {
-    font-size: 16px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-inmoney-value {
-    font-size: 20px !important;
-  }
-
-  /* iPad用: 中央パネルのフォントサイズ拡大 */
-  .poker-timer-app.mobile-fullscreen .timer-time {
-    font-size: 130px !important;
-    line-height: 1 !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .timer-level {
-    font-size: 28px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .level-badge {
-    font-size: 24px !important;
-    padding: 8px 20px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-current {
-    font-size: 52px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
-    font-size: 52px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-next-label {
-    font-size: 20px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-next-value {
-    font-size: 32px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .next-ante {
-    font-size: 20px !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .timer-progress {
-    height: 10px !important;
-    margin: 8px 0 !important;
-  }
-
-  /* iPad用: QRコード画像の表示とサイズ */
+  /* iPad: QRコード画像 */
   .poker-timer-app.mobile-fullscreen .mascot-area {
     display: block !important;
     margin-top: auto !important;
@@ -1446,24 +1443,7 @@ body.mobile-fullscreen-active aside {
   }
 }
 
-/* モバイルフルスクリーン時は設定ボタンのみ非表示 */
-.poker-timer-app.mobile-fullscreen .controls #btnSettings {
-  display: none !important;
-}
-
-/* モバイルフルスクリーン時のフォントサイズ */
-
-/* 中央パネル */
-.poker-timer-app.mobile-fullscreen .center-panel {
-  min-width: 0;
-  max-width: 100%;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  /* 縦方向中央揃え */
-  overflow: hidden;
-}
-
+/* モバイルフルスクリーン: デフォルトフォントサイズ */
 .poker-timer-app.mobile-fullscreen .timer-card {
   padding: 6px;
   flex: 1;
@@ -1473,9 +1453,8 @@ body.mobile-fullscreen-active aside {
   min-height: 0;
 }
 
-/* 中央パネル - タイマー */
 .poker-timer-app.mobile-fullscreen .timer-time {
-  font-size: 100px;
+  font-size: var(--fs-timer-mobile);
   font-weight: 700;
   color: #ffffff;
   text-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -1490,180 +1469,79 @@ body.mobile-fullscreen-active aside {
 
 .poker-timer-app.mobile-fullscreen .level-badge {
   padding: 6px 16px;
-  font-size: 20px;
+  font-size: var(--fs-level-badge-mobile);
 }
 
 .poker-timer-app.mobile-fullscreen .blind-current {
-  font-size: 40px;
+  font-size: var(--fs-blind-mobile);
   font-weight: 700;
-  color: #fbbf24;
+  color: var(--color-gold);
 }
 
 .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
-  font-size: 40px;
-  color: #fbbf24;
+  font-size: var(--fs-blind-mobile);
+  color: var(--color-gold);
 }
 
-.poker-timer-app.mobile-fullscreen .blind-next-label {
-  font-size: 16px;
-}
+.poker-timer-app.mobile-fullscreen .blind-next-label { font-size: 16px; }
+.poker-timer-app.mobile-fullscreen .blind-next-value { font-size: 24px; font-weight: 600; color: #e2e8f0; }
+.poker-timer-app.mobile-fullscreen .next-ante { font-size: 16px; color: #e2e8f0; }
+.poker-timer-app.mobile-fullscreen .timer-progress { height: 6px; margin: 4px 0; }
 
-.poker-timer-app.mobile-fullscreen .blind-next-value {
-  font-size: 24px;
-  font-weight: 600;
-  color: #e2e8f0;
-}
-
-.poker-timer-app.mobile-fullscreen .next-ante {
-  font-size: 16px;
-  color: #e2e8f0;
-}
-
-.poker-timer-app.mobile-fullscreen .timer-progress {
-  height: 6px;
-  margin: 4px 0;
-}
-
-/* 左パネル - PRIZE */
+/* モバイルフルスクリーン: 左パネル */
 .poker-timer-app.mobile-fullscreen .left-panel {
-  min-width: 0;
-  max-width: 100%;
-  min-height: 0;
   height: 100%;
-  overflow: hidden;
 }
 
-.poker-timer-app.mobile-fullscreen .left-panel .panel-label {
-  font-size: 22px;
-  margin-bottom: 2px;
-}
+.poker-timer-app.mobile-fullscreen .left-panel .panel-label { font-size: var(--fs-label-mobile); margin-bottom: 2px; }
+.poker-timer-app.mobile-fullscreen .prize-inmoney { font-size: var(--fs-label-mobile); }
+.poker-timer-app.mobile-fullscreen .prize-inmoney-value { font-size: 28px; }
+.poker-timer-app.mobile-fullscreen .prize-item { font-size: 24px; padding: 3px 0; }
 
-.poker-timer-app.mobile-fullscreen .prize-inmoney {
-  font-size: 22px;
-}
-
-.poker-timer-app.mobile-fullscreen .prize-inmoney-value {
-  font-size: 28px;
-}
-
-.poker-timer-app.mobile-fullscreen .prize-item {
-  font-size: 24px;
-  padding: 3px 0;
-}
-
-/* 右パネル */
+/* モバイルフルスクリーン: 右パネル */
 .poker-timer-app.mobile-fullscreen .right-panel {
-  min-width: 0;
-  max-width: 100%;
-  min-height: 0;
   gap: 2px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;  /* 上から順に詰める */
-  overflow: hidden;
+  justify-content: flex-start;
 }
 
-/* 右パネル - NEXT BREAK */
-.poker-timer-app.mobile-fullscreen .break-card {
-  padding: 4px 6px;
-  flex: 0 1 auto;
-  min-height: 0;
-  overflow: hidden;
-}
+.poker-timer-app.mobile-fullscreen .right-panel-spacer { display: none !important; }
 
-.poker-timer-app.mobile-fullscreen .break-card .panel-label {
-  font-size: 22px;
-  white-space: nowrap;
-  margin-bottom: 2px;
-}
-
-.poker-timer-app.mobile-fullscreen .break-card .panel-value {
-  font-size: 36px;
-  white-space: nowrap;
-}
-
-/* 右パネル - スペーサー: モバイルフルスクリーンでは非表示 */
-.poker-timer-app.mobile-fullscreen .right-panel-spacer {
-  display: none !important;
-}
-
-/* 右パネル - 下部エリア */
 .poker-timer-app.mobile-fullscreen .right-panel-bottom {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  flex: 0 0 auto;  /* 固定サイズ、縮小しない */
+  flex: 0 0 auto;
   min-height: 0;
 }
 
-/* 右パネル - STACK */
-.poker-timer-app.mobile-fullscreen .stack-card {
-  padding: 4px 6px;
-  flex: 0 1 auto;
-  min-height: 0;
-  overflow: hidden;
-}
-
-.poker-timer-app.mobile-fullscreen .stack-card .panel-label {
-  font-size: 22px;
-  margin-bottom: 2px;
-}
-
-.poker-timer-app.mobile-fullscreen .stack-row .stack-label {
-  font-size: 22px;
-}
-
-.poker-timer-app.mobile-fullscreen .stack-row .stack-value {
-  font-size: 36px;
-}
-
-.poker-timer-app.mobile-fullscreen .stack-row {
-  margin: 1px 0;
-}
-
-/* 右パネル - PLAYERS */
+/* モバイルフルスクリーン: カード共通 */
+.poker-timer-app.mobile-fullscreen .break-card,
+.poker-timer-app.mobile-fullscreen .stack-card,
 .poker-timer-app.mobile-fullscreen .players-card {
   padding: 4px 6px;
   flex: 0 1 auto;
   min-height: 0;
-  overflow: hidden;
 }
 
+.poker-timer-app.mobile-fullscreen .break-card .panel-label,
+.poker-timer-app.mobile-fullscreen .stack-card .panel-label,
 .poker-timer-app.mobile-fullscreen .players-card .panel-label {
-  font-size: 22px;
+  font-size: var(--fs-label-mobile);
   margin-bottom: 2px;
 }
 
-.poker-timer-app.mobile-fullscreen .players-display {
-  font-size: 44px;
-  font-weight: 700;
-  white-space: nowrap;
-}
+.poker-timer-app.mobile-fullscreen .break-card .panel-value { font-size: var(--fs-value-mobile); }
+.poker-timer-app.mobile-fullscreen .stack-row .stack-label { font-size: var(--fs-label-mobile); }
+.poker-timer-app.mobile-fullscreen .stack-row .stack-value { font-size: var(--fs-value-mobile); }
+.poker-timer-app.mobile-fullscreen .stack-row { margin: 1px 0; }
+.poker-timer-app.mobile-fullscreen .players-display { font-size: 44px; font-weight: 700; }
+.poker-timer-app.mobile-fullscreen .players-label { font-size: 20px; color: var(--color-text-muted); }
 
-.poker-timer-app.mobile-fullscreen .players-label {
-  font-size: 20px;
-  color: #475569;
-}
-
-.poker-timer-app.mobile-fullscreen .players-buttons {
-  display: none;
-}
-
-.poker-timer-app.mobile-fullscreen .fullscreen-btn-top {
-  display: none;
-}
-
-.poker-timer-app.mobile-fullscreen .fullscreen-btn-mobile {
-  display: none;
-}
-
-/* フルスクリーン解除ボタン（モバイルフルスクリーン時のみ表示） */
+/* フルスクリーン解除ボタン */
 .exit-fullscreen-btn {
   display: none;
-}
-
-.poker-timer-app.mobile-fullscreen .exit-fullscreen-btn {
-  display: flex;
   position: fixed;
   top: max(8px, env(safe-area-inset-top));
   right: max(8px, env(safe-area-inset-right));
@@ -1672,7 +1550,7 @@ body.mobile-fullscreen-active aside {
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--gap-sm);
   font-size: 18px;
   cursor: pointer;
   z-index: 2147483647;
@@ -1680,58 +1558,39 @@ body.mobile-fullscreen-active aside {
   justify-content: center;
 }
 
-.poker-timer-app.mobile-fullscreen .exit-fullscreen-btn:hover {
+.poker-timer-app.mobile-fullscreen .exit-fullscreen-btn {
+  display: flex;
+}
+
+.exit-fullscreen-btn:hover {
   background: rgba(0, 0, 0, 0.8);
 }
 
-/* スマートフォン向けモバイルフルスクリーン（縦画面600px未満） */
+/* ============================================
+   モバイルフルスクリーン: 縦画面（max-width: 599px）
+   ============================================ */
 @media (max-width: 599px) and (orientation: portrait) {
-  .poker-timer-app.mobile-fullscreen .left-panel {
-    display: none !important;  /* PRIZEを非表示 */
-  }
+  .poker-timer-app.mobile-fullscreen .left-panel { display: none !important; }
 
   .poker-timer-app.mobile-fullscreen .center-panel {
     order: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 0;
     flex: 1;
   }
 
   .poker-timer-app.mobile-fullscreen .right-panel {
     order: 2;
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* 2カラム */
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 6px;
     padding: 4px;
   }
 
-  .poker-timer-app.mobile-fullscreen .right-panel-spacer {
-    display: none !important;
-  }
+  .poker-timer-app.mobile-fullscreen .right-panel-bottom { display: contents; }
 
-  .poker-timer-app.mobile-fullscreen .right-panel-bottom {
-    display: contents;  /* 子要素を直接配置 */
-  }
-
-  /* NEXT BREAK: 左上 */
-  .poker-timer-app.mobile-fullscreen .break-card {
-    grid-column: 1;
-    grid-row: 1;
-    padding: 6px 10px;
-  }
-
-  /* STACK: 左下 */
-  .poker-timer-app.mobile-fullscreen .stack-card {
-    grid-column: 1;
-    grid-row: 2;
-    padding: 6px 10px;
-  }
-
-  /* PLAYERS: 右側（2行分） */
+  .poker-timer-app.mobile-fullscreen .break-card { grid-column: 1; grid-row: 1; padding: 6px 10px; }
+  .poker-timer-app.mobile-fullscreen .stack-card { grid-column: 1; grid-row: 2; padding: 6px 10px; }
   .poker-timer-app.mobile-fullscreen .players-card {
     grid-column: 2;
     grid-row: 1 / 3;
@@ -1741,61 +1600,30 @@ body.mobile-fullscreen-active aside {
     justify-content: center;
   }
 
-  /* iPhone: タイマーを大きく */
-  .poker-timer-app.mobile-fullscreen .timer-time {
-    font-size: 64px;
-  }
+  /* フォントサイズ調整 */
+  .poker-timer-app.mobile-fullscreen .timer-time { font-size: 64px; }
+  .poker-timer-app.mobile-fullscreen .blind-current { font-size: 26px; }
+  .poker-timer-app.mobile-fullscreen .blind-current .ante-value { font-size: 26px; }
+  .poker-timer-app.mobile-fullscreen .blind-next-value { font-size: 16px; }
+  .poker-timer-app.mobile-fullscreen .level-badge { font-size: 14px; padding: 3px 10px; }
 
-  .poker-timer-app.mobile-fullscreen .blind-current {
-    font-size: 26px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
-    font-size: 26px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-next-value {
-    font-size: 16px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .level-badge {
-    font-size: 14px;
-    padding: 3px 10px;
-  }
-
-  /* パネルラベルのフォント統一 */
   .poker-timer-app.mobile-fullscreen .left-panel .panel-label,
   .poker-timer-app.mobile-fullscreen .break-card .panel-label,
   .poker-timer-app.mobile-fullscreen .stack-card .panel-label,
-  .poker-timer-app.mobile-fullscreen .players-card .panel-label {
-    font-size: 12px;
-  }
+  .poker-timer-app.mobile-fullscreen .players-card .panel-label { font-size: 12px; }
 
-  .poker-timer-app.mobile-fullscreen .break-card .panel-value {
-    font-size: 20px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row .stack-label {
-    font-size: 12px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row .stack-value {
-    font-size: 18px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .players-display {
-    font-size: 24px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .players-label {
-    font-size: 11px;
-  }
+  .poker-timer-app.mobile-fullscreen .break-card .panel-value { font-size: 20px; }
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-label { font-size: 12px; }
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-value { font-size: 18px; }
+  .poker-timer-app.mobile-fullscreen .players-display { font-size: 24px; }
+  .poker-timer-app.mobile-fullscreen .players-label { font-size: 11px; }
 }
 
-/* スマートフォン向けモバイルフルスクリーン（横画面）- iPhone専用（幅900px以下かつ横画面） */
+/* ============================================
+   モバイルフルスクリーン: 横画面（max-width: 900px）
+   ============================================ */
 @media (max-width: 900px) and (orientation: landscape) {
   .poker-timer-app.mobile-fullscreen {
-    /* safe-areaを確保（iPhoneのノッチ・ホームインジケーター対応） */
     padding: 4px;
     padding-left: max(4px, env(safe-area-inset-left, 4px));
     padding-right: max(4px, env(safe-area-inset-right, 4px));
@@ -1803,309 +1631,107 @@ body.mobile-fullscreen-active aside {
   }
 
   .poker-timer-app.mobile-fullscreen .timer-grid {
-    grid-template-columns: minmax(100px, 1fr) 2fr minmax(100px, 1fr);  /* 3カラム: PRIZE, タイマー, 右パネル */
+    grid-template-columns: minmax(100px, 1fr) 2fr minmax(100px, 1fr);
     grid-template-rows: 1fr;
     gap: 4px;
     height: 100%;
     max-height: 100%;
-    overflow: hidden;
   }
 
-  /* PRIZE（左カラム）を表示 */
   .poker-timer-app.mobile-fullscreen .left-panel {
     display: flex !important;
     flex-direction: column;
     order: 1;
-    min-width: 0;
     max-height: 100%;
-    overflow: hidden;
     padding: 4px;
   }
 
-  .poker-timer-app.mobile-fullscreen .prize-card {
-    padding: 2px 4px;
-  }
+  .poker-timer-app.mobile-fullscreen .prize-card { padding: 2px 4px; }
+  .poker-timer-app.mobile-fullscreen .prize-header { padding-bottom: 2px; margin-bottom: 2px; }
+  .poker-timer-app.mobile-fullscreen .prize-inmoney { font-size: 10px; }
+  .poker-timer-app.mobile-fullscreen .prize-inmoney-value { font-size: 12px; }
+  .poker-timer-app.mobile-fullscreen .prize-list { flex: 1; }
+  .poker-timer-app.mobile-fullscreen .prize-list-inner { position: relative; will-change: transform; }
+  .poker-timer-app.mobile-fullscreen .prize-item { font-size: 11px; padding: 1px 0; }
 
-  .poker-timer-app.mobile-fullscreen .prize-header {
-    padding-bottom: 2px;
-    margin-bottom: 2px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-inmoney {
-    font-size: 10px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-inmoney-value {
-    font-size: 12px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-list {
-    /* max-height削除: 画像の上まで自動的に伸びる */
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-list-inner {
-    position: relative;
-    will-change: transform;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-item {
-    font-size: 11px;
-    padding: 1px 0;
-  }
-
-  /* 横画面フルスクリーン時にQRコードを表示 */
-  .poker-timer-app.mobile-fullscreen .mascot-area {
-    display: block;
-    margin-top: auto;
-    padding-top: 4px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .mascot-img {
-    width: 180px;
-    height: auto;
-  }
+  .poker-timer-app.mobile-fullscreen .mascot-area { display: block; margin-top: auto; padding-top: 4px; }
+  .poker-timer-app.mobile-fullscreen .mascot-img { width: 180px; height: auto; }
 
   .poker-timer-app.mobile-fullscreen .center-panel {
     order: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 0;
     max-height: 100%;
-    overflow: hidden;
     padding: 4px;
   }
 
   .poker-timer-app.mobile-fullscreen .right-panel {
     order: 3;
-    display: flex;
-    flex-direction: column;
     gap: 2px;
     padding: 4px;
-    justify-content: flex-end;  /* 下揃えに変更 */
-    min-width: 0;
+    justify-content: flex-end;
     max-height: 100%;
-    overflow: hidden;
   }
 
-  .poker-timer-app.mobile-fullscreen .right-panel-spacer {
-    display: none !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .right-panel-bottom {
-    display: contents;
-  }
+  .poker-timer-app.mobile-fullscreen .right-panel-bottom { display: contents; }
 
   .poker-timer-app.mobile-fullscreen .break-card,
   .poker-timer-app.mobile-fullscreen .stack-card,
-  .poker-timer-app.mobile-fullscreen .players-card {
-    padding: 2px 4px;
-  }
+  .poker-timer-app.mobile-fullscreen .players-card { padding: 2px 4px; }
 
-  /* 横画面: タイマーサイズ調整 */
-  .poker-timer-app.mobile-fullscreen .timer-time {
-    font-size: 56px;
-    margin: 4px 0;
-  }
+  /* フォントサイズ調整 */
+  .poker-timer-app.mobile-fullscreen .timer-time { font-size: 56px; margin: 4px 0; }
+  .poker-timer-app.mobile-fullscreen .blind-current { font-size: 22px; margin: 4px 0; }
+  .poker-timer-app.mobile-fullscreen .blind-current .ante-value { font-size: 22px; }
+  .poker-timer-app.mobile-fullscreen .blind-next-value { font-size: 14px; }
+  .poker-timer-app.mobile-fullscreen .level-badge { font-size: 12px; padding: 3px 8px; margin-bottom: 4px; }
+  .poker-timer-app.mobile-fullscreen .timer-progress { height: 3px; margin: 2px 0; }
+  .poker-timer-app.mobile-fullscreen .blind-info { margin: 4px 0; }
+  .poker-timer-app.mobile-fullscreen .blind-next { margin-top: 4px; padding-top: 4px; }
 
-  .poker-timer-app.mobile-fullscreen .blind-current {
-    font-size: 22px;
-    margin: 4px 0;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
-    font-size: 22px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-next-value {
-    font-size: 14px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .level-badge {
-    font-size: 12px;
-    padding: 3px 8px;
-    margin-bottom: 4px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .timer-progress {
-    height: 3px;
-    margin: 2px 0;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-info {
-    margin: 4px 0;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-next {
-    margin-top: 4px;
-    padding-top: 4px;
-  }
-
-  /* パネルラベルのフォント統一 */
   .poker-timer-app.mobile-fullscreen .left-panel .panel-label,
   .poker-timer-app.mobile-fullscreen .break-card .panel-label,
   .poker-timer-app.mobile-fullscreen .stack-card .panel-label,
-  .poker-timer-app.mobile-fullscreen .players-card .panel-label {
-    font-size: 10px;
-    margin-bottom: 1px;
-  }
+  .poker-timer-app.mobile-fullscreen .players-card .panel-label { font-size: 10px; margin-bottom: 1px; }
 
-  .poker-timer-app.mobile-fullscreen .break-card .panel-value {
-    font-size: 16px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row .stack-label {
-    font-size: 10px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row .stack-value {
-    font-size: 14px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row {
-    padding: 1px 0;
-  }
-
-  .poker-timer-app.mobile-fullscreen .players-display {
-    font-size: 20px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .players-label {
-    font-size: 9px;
-  }
+  .poker-timer-app.mobile-fullscreen .break-card .panel-value { font-size: 16px; }
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-label { font-size: 10px; }
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-value { font-size: 14px; }
+  .poker-timer-app.mobile-fullscreen .stack-row { padding: 1px 0; }
+  .poker-timer-app.mobile-fullscreen .players-display { font-size: 20px; }
+  .poker-timer-app.mobile-fullscreen .players-label { font-size: 9px; }
 }
 
-/* iPad用モバイルフルスクリーン（幅901px以上1024px以下、横画面） */
+/* ============================================
+   iPad横画面（901px〜1024px）追加調整
+   ============================================ */
 @media (min-width: 901px) and (max-width: 1024px) and (orientation: landscape) {
-  .poker-timer-app.mobile-fullscreen .timer-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    padding: 8px !important;
-    gap: 0 !important;
-    overflow: hidden !important;
-  }
+  .poker-timer-app.mobile-fullscreen .timer-time { font-size: 80px; }
+  .poker-timer-app.mobile-fullscreen .level-badge { font-size: 16px; padding: 6px 14px; margin-bottom: 8px; }
+  .poker-timer-app.mobile-fullscreen .blind-current { font-size: 32px; }
+  .poker-timer-app.mobile-fullscreen .blind-current .ante-value { font-size: 32px; }
+  .poker-timer-app.mobile-fullscreen .blind-next-value { font-size: 18px; }
+  .poker-timer-app.mobile-fullscreen .next-ante { font-size: 14px; }
+  .poker-timer-app.mobile-fullscreen .timer-progress { height: 6px; margin: 6px 0; }
 
-  /* iPad: Flexboxで各パネルの幅を明示的に指定（marginでgap代替） */
-  .poker-timer-app.mobile-fullscreen .left-panel {
-    flex: 0 0 calc(25% - 6px) !important;
-    width: calc(25% - 6px) !important;
-    max-width: calc(25% - 6px) !important;
-    min-width: 0 !important;
-    margin-right: 8px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-  }
+  .poker-timer-app.mobile-fullscreen .left-panel .panel-label { font-size: 14px; }
+  .poker-timer-app.mobile-fullscreen .prize-inmoney { font-size: 14px; }
+  .poker-timer-app.mobile-fullscreen .prize-inmoney-value { font-size: 18px; }
+  .poker-timer-app.mobile-fullscreen .prize-item { font-size: 16px; padding: 2px 0; }
 
-  .poker-timer-app.mobile-fullscreen .center-panel {
-    flex: 0 0 calc(50% - 4px) !important;
-    width: calc(50% - 4px) !important;
-    max-width: calc(50% - 4px) !important;
-    min-width: 0 !important;
-    margin-right: 8px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-  }
-
-  .poker-timer-app.mobile-fullscreen .right-panel {
-    flex: 0 0 calc(25% - 6px) !important;
-    width: calc(25% - 6px) !important;
-    max-width: calc(25% - 6px) !important;
-    min-width: 0 !important;
-    margin-right: 0 !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-  }
-
-  /* iPad: 中央パネル */
-  .poker-timer-app.mobile-fullscreen .timer-time {
-    font-size: 80px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .level-badge {
-    font-size: 16px;
-    padding: 6px 14px;
-    margin-bottom: 8px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-current {
-    font-size: 32px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-current .ante-value {
-    font-size: 32px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .blind-next-value {
-    font-size: 18px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .next-ante {
-    font-size: 14px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .timer-progress {
-    height: 6px;
-    margin: 6px 0;
-  }
-
-  /* iPad: 左パネル（PRIZE） */
-  .poker-timer-app.mobile-fullscreen .left-panel .panel-label {
-    font-size: 14px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-inmoney {
-    font-size: 14px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-inmoney-value {
-    font-size: 18px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .prize-item {
-    font-size: 16px;
-    padding: 2px 0;
-  }
-
-  /* iPad: 右パネル */
-  .poker-timer-app.mobile-fullscreen .right-panel {
-    gap: 6px;
-  }
-
+  .poker-timer-app.mobile-fullscreen .right-panel { gap: 6px; }
   .poker-timer-app.mobile-fullscreen .break-card,
   .poker-timer-app.mobile-fullscreen .stack-card,
-  .poker-timer-app.mobile-fullscreen .players-card {
-    padding: 6px 10px;
-  }
+  .poker-timer-app.mobile-fullscreen .players-card { padding: 6px 10px; }
 
   .poker-timer-app.mobile-fullscreen .break-card .panel-label,
   .poker-timer-app.mobile-fullscreen .stack-card .panel-label,
-  .poker-timer-app.mobile-fullscreen .players-card .panel-label {
-    font-size: 14px;
-  }
+  .poker-timer-app.mobile-fullscreen .players-card .panel-label { font-size: 14px; }
 
-  .poker-timer-app.mobile-fullscreen .break-card .panel-value {
-    font-size: 24px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row .stack-label {
-    font-size: 14px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .stack-row .stack-value {
-    font-size: 22px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .players-display {
-    font-size: 28px;
-  }
-
-  .poker-timer-app.mobile-fullscreen .players-label {
-    font-size: 13px;
-  }
+  .poker-timer-app.mobile-fullscreen .break-card .panel-value { font-size: 24px; }
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-label { font-size: 14px; }
+  .poker-timer-app.mobile-fullscreen .stack-row .stack-value { font-size: 22px; }
+  .poker-timer-app.mobile-fullscreen .players-display { font-size: 28px; }
+  .poker-timer-app.mobile-fullscreen .players-label { font-size: 13px; }
 }
 
 /* 使い方説明 */
@@ -2113,10 +1739,10 @@ body.mobile-fullscreen-active aside {
   max-width: 1100px;
   margin: 30px auto 0;
   padding: 24px;
-  background: #fff;
-  border-radius: 12px;
+  background: var(--color-card);
+  border-radius: var(--card-radius);
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  color: #1e293b;
+  color: var(--color-text);
   font-size: 14px;
   line-height: 1.8;
 }
@@ -2124,20 +1750,20 @@ body.mobile-fullscreen-active aside {
 .usage-guide h3 {
   margin: 0 0 16px 0;
   font-size: 18px;
-  color: #1e293b;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 8px;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--gap-sm);
 }
 
 .usage-guide h4 {
-  margin: 20px 0 8px 0;
+  margin: var(--panel-padding) 0 var(--gap-sm) 0;
   font-size: 15px;
-  color: #475569;
+  color: var(--color-text-muted);
 }
 
 .usage-guide ul {
-  margin: 8px 0;
-  padding-left: 20px;
+  margin: var(--gap-sm) 0;
+  padding-left: var(--panel-padding);
 }
 
 .usage-guide li {
@@ -2149,88 +1775,49 @@ body.mobile-fullscreen-active aside {
   padding: 2px 6px;
   font-size: 12px;
   font-family: monospace;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  background: var(--color-border-light);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
 }
 
-/* レスポンシブ（縦画面のみ） */
+/* ============================================
+   レスポンシブ: 縦画面（max-width: 900px）
+   ============================================ */
 @media (max-width: 900px) and (orientation: portrait) {
   .timer-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
-    gap: 12px;
+    gap: var(--gap-md);
   }
 
   .center-panel {
     order: 1;
-    padding: 12px;
+    padding: var(--gap-md);
   }
 
-  /* モバイル: Levelバッジとフルスクリーンボタンを横並び表示 */
-  .level-row {
-    display: flex;
-    margin-bottom: 4px;
-  }
+  .level-row { display: flex; margin-bottom: 4px; }
+  .center-panel > .level-badge { display: none; }
+  .timer-time { margin: 6px 0; font-size: 64px; }
+  .blind-info { margin-top: 6px; }
+  .controls { margin-top: 10px; }
+  .fullscreen-btn-top { display: none; }
+  .fullscreen-btn-mobile { display: flex; }
 
-  /* モバイル: 単独のLevelバッジを非表示 */
-  .center-panel > .level-badge {
-    display: none;
-  }
-
-  .timer-time {
-    margin: 6px 0;
-  }
-
-  .blind-info {
-    margin-top: 6px;
-  }
-
-  .controls {
-    margin-top: 10px;
-  }
-
-  /* モバイル: PC用ボタンを非表示、モバイル用ボタンを表示 */
-  .fullscreen-btn-top {
-    display: none;
-  }
-
-  .fullscreen-btn-mobile {
-    display: flex;
-  }
-
-  /* 右パネル: 3行グリッド（NEXT BREAK上、STACK+PLAYERS下横並び） */
   .right-panel {
     order: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: 8px;
+    gap: var(--gap-sm);
     padding-top: 0;
     height: auto;
   }
 
-  .right-panel-spacer {
-    display: none;
-  }
+  .right-panel-spacer { display: none; }
+  .right-panel-bottom { display: contents; }
 
-  .right-panel-bottom {
-    display: contents;
-  }
-
-  /* NEXT BREAK: 左上（フルスクリーン時と同じレイアウト） */
-  .break-card {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  /* STACK: 左下（フルスクリーン時と同じレイアウト） */
-  .stack-card {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  /* PLAYERS: 右側2行分（フルスクリーン時と同じレイアウト） */
+  .break-card { grid-column: 1; grid-row: 1; }
+  .stack-card { grid-column: 1; grid-row: 2; }
   .players-card {
     grid-column: 2;
     grid-row: 1 / 3;
@@ -2239,237 +1826,78 @@ body.mobile-fullscreen-active aside {
     justify-content: center;
   }
 
-  /* PRIZEは一番下 */
   .left-panel {
     order: 3;
     height: 210px;
     max-height: 210px;
-    overflow: hidden;
   }
 
-  .level-badge {
-    font-size: 14px;
-    padding: 6px 12px;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .timer-time {
-    font-size: 64px;
-  }
-
-  .blind-current {
-    font-size: 32px;
-  }
-
-  .blind-current .ante-value {
-    font-size: 32px;
-  }
-
-  .blind-next-value {
-    font-size: 20px;
-  }
-
-  .panel-value {
-    font-size: 24px;
-  }
-
-  .break-card .panel-value {
-    font-size: 28px;
-  }
-
-  .players-card .players-display {
-    font-size: 20px;
-  }
+  .level-badge { font-size: 14px; padding: 6px 12px; margin-top: 0; margin-bottom: 0; }
+  .blind-current { font-size: 32px; }
+  .blind-current .ante-value { font-size: 32px; }
+  .blind-next-value { font-size: 20px; }
+  .panel-value { font-size: 24px; }
+  .break-card .panel-value { font-size: 28px; }
+  .players-card .players-display { font-size: 20px; }
 
   .prize-list {
-    /* max-height削除: 画像の上まで自動的に伸びる */
     flex: 0 0 auto;
-    height: 120px;
-    overflow: hidden;
+    height: 100px;
     position: relative;
     min-height: 40px;
+    overflow: hidden;
   }
 
-  /* モバイル時は画像を非表示 */
-  .mascot-area {
-    display: none;
-  }
+  .mascot-area { display: none; }
+  .prize-header { padding-bottom: var(--gap-sm); margin-bottom: var(--gap-sm); }
+  .prize-list-inner { position: absolute; width: 100%; top: 0; left: 0; overflow: hidden; }
+  .prize-item { padding: 4px 0; font-size: 16px; }
+  .prize-inmoney { font-size: 16px; }
 
-  .prize-header {
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-  }
-
-  .prize-list-inner {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-
-  .prize-item {
-    padding: 4px 0;
-    font-size: 16px;
-  }
-
-  .prize-inmoney {
-    font-size: 16px;
-  }
-
-  /* info-cardをコンパクトに */
-  .right-panel .info-card {
-    padding: 10px 12px;
-  }
-
-  .right-panel .panel-label {
-    font-size: 16px;
-    margin-bottom: 4px;
-  }
-
-  .left-panel .panel-label {
-    font-size: 16px;
-  }
-
-  /* STACKカードのフォントサイズ調整 */
-  .stack-card .stack-row {
-    padding: 4px 0;
-  }
-
-  .stack-card .stack-label {
-    font-size: 12px;
-  }
-
-  .stack-card .stack-value {
-    font-size: 20px;
-  }
+  .right-panel .info-card { padding: 10px 12px; }
+  .right-panel .panel-label { font-size: 16px; margin-bottom: 4px; }
+  .left-panel .panel-label { font-size: 16px; }
+  .stack-card .stack-row { padding: 4px 0; }
+  .stack-card .stack-label { font-size: 12px; }
+  .stack-card .stack-value { font-size: 20px; }
 }
 
-/* 小型スマートフォン縦画面用 */
+/* ============================================
+   レスポンシブ: 小型スマホ縦画面（max-width: 500px）
+   ============================================ */
 @media (max-width: 500px) and (orientation: portrait) {
-  .poker-timer-app {
-    padding: 10px;
-  }
+  .poker-timer-app { padding: 10px; }
+  .timer-grid { gap: var(--gap-sm); }
+  .timer-time { font-size: 56px; }
+  .blind-current { font-size: 28px; }
+  .blind-current .ante-value { font-size: 28px; }
+  .level-badge { font-size: 16px; padding: 6px 16px; }
 
-  .timer-grid {
-    gap: 8px;
-  }
+  .right-panel { gap: 6px; }
+  .right-panel .info-card { padding: var(--gap-sm) 10px; }
+  .right-panel .panel-label { font-size: 14px; margin-bottom: 2px; }
+  .left-panel .panel-label { font-size: 14px; }
+  .panel-value { font-size: 20px; }
+  .break-card .panel-value { font-size: 24px; }
+  .players-card .players-display { font-size: 16px; }
 
-  .timer-time {
-    font-size: 56px;
-  }
+  .stack-card .stack-row { padding: 2px 0; }
+  .stack-card .stack-label { font-size: 10px; }
+  .stack-card .stack-value { font-size: 16px; }
+  .players-buttons .btn { width: 32px; height: 32px; font-size: 14px; }
 
-  .blind-current {
-    font-size: 28px;
-  }
+  .left-panel { height: 210px; max-height: 210px; }
+  .prize-item { font-size: 14px; }
+  .prize-inmoney { font-size: 14px; }
+  .prize-list { flex: 0 0 auto; height: 100px; overflow: hidden; }
+  .prize-list-inner { position: absolute; width: 100%; top: 0; left: 0; will-change: transform; overflow: hidden; }
 
-  .blind-current .ante-value {
-    font-size: 28px;
-  }
+  .controls { flex-wrap: wrap; gap: 6px; }
+  .btn { padding: 10px 14px; font-size: 13px; }
+  .label-desktop { display: none; }
+  .label-mobile { display: inline; }
 
-  .level-badge {
-    font-size: 16px;
-    padding: 6px 16px;
-  }
-
-  /* 右パネルをさらにコンパクトに */
-  .right-panel {
-    gap: 6px;
-  }
-
-  .right-panel .info-card {
-    padding: 8px 10px;
-  }
-
-  .right-panel .panel-label {
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-
-  .left-panel .panel-label {
-    font-size: 14px;
-  }
-
-  .panel-value {
-    font-size: 20px;
-  }
-
-  .break-card .panel-value {
-    font-size: 24px;
-  }
-
-  .players-card .players-display {
-    font-size: 16px;
-  }
-
-  /* STACKカードをさらにコンパクトに */
-  .stack-card .stack-row {
-    padding: 2px 0;
-  }
-
-  .stack-card .stack-label {
-    font-size: 10px;
-  }
-
-  .stack-card .stack-value {
-    font-size: 16px;
-  }
-
-  .players-buttons .btn {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-
-  /* PRIZEもコンパクトに */
-  .left-panel {
-    height: 210px;
-    max-height: 210px;
-    overflow: hidden;
-  }
-
-  .prize-item {
-    font-size: 14px;
-  }
-
-  .prize-inmoney {
-    font-size: 14px;
-  }
-
-  .prize-list {
-    /* max-height削除: 画像の上まで自動的に伸びる */
-    flex: 0 0 auto;
-    height: 120px;
-    overflow: hidden;
-  }
-
-  .prize-list-inner {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    will-change: transform;
-  }
-
-  .controls {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .btn {
-    padding: 10px 14px;
-    font-size: 13px;
-  }
-
-  /* 設定: モバイルは2行レイアウト */
-  .label-desktop {
-    display: none;
-  }
-
-  .label-mobile {
-    display: inline;
-  }
-
+  /* 設定: モバイル2行レイアウト */
   .blind-level-item {
     display: grid;
     grid-template-columns: 36px 24px 1fr 1fr 14px 32px;
@@ -2481,10 +1909,7 @@ body.mobile-fullscreen-active aside {
     padding-right: 36px;
   }
 
-  .blind-level-item .drag-handle {
-    display: none;
-  }
-
+  .blind-level-item .drag-handle { display: none; }
   .blind-level-item .move-controls {
     display: flex;
     grid-row: 1 / span 2;
@@ -2492,57 +1917,13 @@ body.mobile-fullscreen-active aside {
     justify-content: flex-start;
     margin-right: -2px;
   }
-
-  .blind-level-item .level-num {
-    grid-row: 1;
-    grid-column: 2;
-    justify-self: center;
-    min-width: 24px;
-  }
-
-  .blind-level-item .time-input {
-    grid-row: 2;
-    grid-column: 4;
-    width: 100%;
-  }
-
-  .blind-level-item .time-label {
-    display: inline;
-  }
-
-  .blind-level-item .sb-label,
-  .blind-level-item .bb-label,
-  .blind-level-item .ante-label {
-    display: none;
-  }
-
-  .blind-level-item .time-label {
-    display: none;
-  }
-
-  .blind-level-item .sb-input {
-    grid-row: 1;
-    grid-column: 3;
-    width: 100%;
-  }
-
-  .blind-level-item .bb-input {
-    grid-row: 1;
-    grid-column: 4;
-    width: 100%;
-  }
-
-  .blind-level-item .ante-input {
-    grid-row: 2;
-    grid-column: 3;
-    width: 100%;
-  }
-
-  .blind-level-item input {
-    min-width: 40px;
-    margin-right: 2px;
-  }
-
+  .blind-level-item .level-num { grid-row: 1; grid-column: 2; justify-self: center; min-width: 24px; }
+  .blind-level-item .time-input { grid-row: 2; grid-column: 4; width: 100%; }
+  .blind-level-item .sb-label, .blind-level-item .bb-label, .blind-level-item .ante-label, .blind-level-item .time-label { display: none; }
+  .blind-level-item .sb-input { grid-row: 1; grid-column: 3; width: 100%; }
+  .blind-level-item .bb-input { grid-row: 1; grid-column: 4; width: 100%; }
+  .blind-level-item .ante-input { grid-row: 2; grid-column: 3; width: 100%; }
+  .blind-level-item input { min-width: 40px; margin-right: 2px; }
   .blind-level-item .delete-level {
     position: absolute;
     right: 6px;
@@ -2551,10 +1932,7 @@ body.mobile-fullscreen-active aside {
     padding: 4px 6px;
     font-size: 12px;
   }
-
-  .blind-level-item span:not(.level-num):not(.break-label):not(.break-unit) {
-    display: none;
-  }
+  .blind-level-item span:not(.level-num):not(.break-label):not(.break-unit) { display: none; }
 
   .blind-level-item.break-item {
     display: grid;
@@ -2565,47 +1943,12 @@ body.mobile-fullscreen-active aside {
     position: relative;
     padding-right: 36px;
   }
-
-  .blind-level-item.break-item .drag-handle {
-    display: none;
-  }
-
-  .blind-level-item.break-item .move-controls {
-    display: flex;
-    grid-column: 1;
-  }
-
-  .blind-level-item.break-item .break-label {
-    grid-column: 3;
-    grid-row: 1 / span 2;
-    align-self: center;
-  }
-
-  .blind-level-item.break-item .break-time-input {
-    grid-column: 4;
-    grid-row: 1 / span 2;
-    width: 100% !important;
-    max-width: 64px;
-    margin-right: 4px;
-  }
-
-  .blind-level-item.break-item .break-unit {
-    grid-column: 5;
-    grid-row: 1 / span 2;
-    margin-left: 2px;
-    align-self: center;
-    line-height: 1;
-    justify-self: start;
-    position: relative;
-    top: 2px;
-  }
-
-  .blind-level-item.break-item .delete-level {
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+  .blind-level-item.break-item .drag-handle { display: none; }
+  .blind-level-item.break-item .move-controls { display: flex; grid-column: 1; }
+  .blind-level-item.break-item .break-label { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
+  .blind-level-item.break-item .break-time-input { grid-column: 4; grid-row: 1 / span 2; width: 100% !important; max-width: 64px; margin-right: 4px; }
+  .blind-level-item.break-item .break-unit { grid-column: 5; grid-row: 1 / span 2; margin-left: 2px; align-self: center; line-height: 1; justify-self: start; position: relative; top: 2px; }
+  .blind-level-item.break-item .delete-level { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); }
 
   .prize-edit-item {
     display: grid;
@@ -2614,64 +1957,17 @@ body.mobile-fullscreen-active aside {
     gap: 6px;
     align-items: center;
   }
-
-  .prize-edit-item .drag-handle {
-    display: none;
-  }
-
-  .prize-edit-item .move-controls {
-    display: flex;
-    grid-row: 1 / span 2;
-    grid-column: 1;
-    justify-content: flex-start;
-  }
-
-  .prize-edit-item input.rank-input {
-    grid-row: 1;
-    width: 100%;
-  }
-
-  .prize-edit-item input.rank-start {
-    grid-column: 2;
-  }
-
-  .prize-edit-item input.rank-end {
-    grid-column: 4;
-  }
-
-  .prize-edit-item span {
-    font-size: 12px;
-    white-space: nowrap;
-  }
-
-  .prize-edit-item span:nth-of-type(2) {
-    grid-row: 1;
-    grid-column: 3;
-    justify-self: center;
-  }
-
-  .prize-edit-item span:nth-of-type(3) {
-    grid-row: 1;
-    grid-column: 5;
-    justify-self: center;
-  }
-
-  .prize-edit-item input.amount-input {
-    grid-row: 2;
-    grid-column: 2 / span 3;
-    width: 100%;
-  }
-
-  .prize-edit-item span:nth-of-type(4) {
-    grid-row: 2;
-    grid-column: 5;
-    justify-self: start;
-  }
-
-  .prize-edit-item .delete-prize {
-    grid-row: 1 / span 2;
-    grid-column: 6;
-  }
+  .prize-edit-item .drag-handle { display: none; }
+  .prize-edit-item .move-controls { display: flex; grid-row: 1 / span 2; grid-column: 1; justify-content: flex-start; }
+  .prize-edit-item input.rank-input { grid-row: 1; width: 100%; }
+  .prize-edit-item input.rank-start { grid-column: 2; }
+  .prize-edit-item input.rank-end { grid-column: 4; }
+  .prize-edit-item span { font-size: 12px; white-space: nowrap; }
+  .prize-edit-item span:nth-of-type(2) { grid-row: 1; grid-column: 3; justify-self: center; }
+  .prize-edit-item span:nth-of-type(3) { grid-row: 1; grid-column: 5; justify-self: center; }
+  .prize-edit-item input.amount-input { grid-row: 2; grid-column: 2 / span 3; width: 100%; }
+  .prize-edit-item span:nth-of-type(4) { grid-row: 2; grid-column: 5; justify-self: start; }
+  .prize-edit-item .delete-prize { grid-row: 1 / span 2; grid-column: 6; }
 }
 </style>
 
@@ -2982,6 +2278,38 @@ body.mobile-fullscreen-active aside {
     return document.getElementById(id);
   }
 
+  // レベル番号計算（ブレイクを除いた番号）
+  function getLevelNumber(upToIndex) {
+    var levelNum = 0;
+    var limit = Math.min(upToIndex, state.blinds.length - 1);
+    for (var i = 0; i <= limit; i++) {
+      if (!state.blinds[i].isBreak) levelNum++;
+    }
+    return levelNum;
+  }
+
+  // 総レベル数計算（ブレイクを除く）
+  function getTotalLevels() {
+    var count = 0;
+    for (var i = 0; i < state.blinds.length; i++) {
+      if (!state.blinds[i].isBreak) count++;
+    }
+    return count;
+  }
+
+  // 現在レベルの時間を取得・設定
+  function setLevelTime(levelIndex) {
+    var blind = state.blinds[levelIndex];
+    if (blind) {
+      if (blind.isBreak) {
+        state.levelTime = (blind.breakTime || 5) * 60;
+      } else {
+        state.levelTime = (blind.levelTime || state.defaultLevelTime) * 60;
+      }
+      state.timeRemaining = state.levelTime;
+    }
+  }
+
   // アプリ初期化
   function initApp() {
     var app = $('pokerTimer');
@@ -3012,15 +2340,7 @@ body.mobile-fullscreen-active aside {
     }
 
     // 現在レベルの時間を設定（保存データの有無に関わらず実行）
-    var currentBlind = state.blinds[state.currentLevel];
-    if (currentBlind) {
-      if (currentBlind.isBreak) {
-        state.levelTime = (currentBlind.breakTime || 5) * 60;
-      } else {
-        state.levelTime = (currentBlind.levelTime || state.defaultLevelTime) * 60;
-      }
-      state.timeRemaining = state.levelTime;
-    }
+    setLevelTime(state.currentLevel);
 
     updateBlindSetSelector();
     updateDisplay();
@@ -3080,15 +2400,7 @@ body.mobile-fullscreen-active aside {
     state.currentLevel = 0;
 
     // 現在レベルの時間を設定
-    var currentBlind = state.blinds[0];
-    if (currentBlind) {
-      if (currentBlind.isBreak) {
-        state.levelTime = (currentBlind.breakTime || 5) * 60;
-      } else {
-        state.levelTime = (currentBlind.levelTime || defaultLevelTime) * 60;
-      }
-      state.timeRemaining = state.levelTime;
-    }
+    setLevelTime(0);
 
     localStorage.setItem(SETTINGS_KEY, JSON.stringify({
       defaultLevelTime: defaultLevelTime,
@@ -3218,16 +2530,15 @@ body.mobile-fullscreen-active aside {
 
   // タイマー開始/停止
   function toggleTimer() {
+    state.isRunning = !state.isRunning;
+    var startBtn = $('startBtn');
+
     if (state.isRunning) {
-      clearInterval(state.intervalId);
-      state.isRunning = false;
-      var startBtn = $('startBtn');
-      if (startBtn) startBtn.textContent = '開始';
-    } else {
-      state.isRunning = true;
-      var startBtn2 = $('startBtn');
-      if (startBtn2) startBtn2.textContent = '停止';
+      if (startBtn) startBtn.textContent = '停止';
       state.intervalId = setInterval(tick, 1000);
+    } else {
+      clearInterval(state.intervalId);
+      if (startBtn) startBtn.textContent = '開始';
     }
   }
 
@@ -3245,13 +2556,7 @@ body.mobile-fullscreen-active aside {
   function nextLevel() {
     if (state.currentLevel < state.blinds.length - 1) {
       state.currentLevel++;
-      var blind = state.blinds[state.currentLevel];
-      if (blind.isBreak) {
-        state.levelTime = (blind.breakTime || 5) * 60;
-      } else {
-        state.levelTime = (blind.levelTime || state.defaultLevelTime) * 60;
-      }
-      state.timeRemaining = state.levelTime;
+      setLevelTime(state.currentLevel);
     } else {
       clearInterval(state.intervalId);
       state.isRunning = false;
@@ -3264,13 +2569,7 @@ body.mobile-fullscreen-active aside {
   function prevLevel() {
     if (state.currentLevel > 0) {
       state.currentLevel--;
-      var blind = state.blinds[state.currentLevel];
-      if (blind.isBreak) {
-        state.levelTime = (blind.breakTime || 5) * 60;
-      } else {
-        state.levelTime = (blind.levelTime || state.defaultLevelTime) * 60;
-      }
-      state.timeRemaining = state.levelTime;
+      setLevelTime(state.currentLevel);
       updateDisplay();
     }
   }
@@ -3279,18 +2578,39 @@ body.mobile-fullscreen-active aside {
     nextLevel();
   }
 
+  // 時間フォーマット（MM:SS）
+  function formatTime(seconds) {
+    var m = Math.floor(seconds / 60);
+    var s = seconds % 60;
+    return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+  }
+
+  // レベルバッジ更新
+  function updateLevelBadge(blind) {
+    var lb = $('levelBadge');
+    var lbMobile = $('levelBadgeMobile');
+
+    if (blind.isBreak) {
+      if (lb) { lb.textContent = 'BREAK'; lb.classList.add('break'); }
+      if (lbMobile) { lbMobile.textContent = 'BREAK'; lbMobile.classList.add('break'); }
+    } else {
+      var levelNum = getLevelNumber(state.currentLevel);
+      var totalLevelsCount = getTotalLevels();
+      var html = 'Level <span id="currentLevel">' + levelNum + '</span> / <span id="totalLevels">' + totalLevelsCount + '</span>';
+      if (lb) { lb.innerHTML = html; lb.classList.remove('break'); }
+      if (lbMobile) {
+        lbMobile.innerHTML = html.replace('currentLevel', 'currentLevelMobile').replace('totalLevels', 'totalLevelsMobile');
+        lbMobile.classList.remove('break');
+      }
+    }
+  }
+
   // 表示更新
   function updateDisplay() {
-    var minutes = Math.floor(state.timeRemaining / 60);
-    var seconds = state.timeRemaining % 60;
     var td = $('timerDisplay');
-    if (td) td.textContent = String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
-
-    // Warning表示
-    if (state.timeRemaining <= 60) {
-      if (td) td.classList.add('warning');
-    } else {
-      if (td) td.classList.remove('warning');
+    if (td) {
+      td.textContent = formatTime(state.timeRemaining);
+      td.classList.toggle('warning', state.timeRemaining <= 60);
     }
 
     // プログレスバー
@@ -3300,41 +2620,16 @@ body.mobile-fullscreen-active aside {
 
     // ブラインド情報
     var blind = state.blinds[state.currentLevel];
-    var lb = $('levelBadge');
-    var lbMobile = $('levelBadgeMobile');
     var cb = $('currentBlind');
     var ai = $('anteInfo');
     var nb = $('nextBlind');
 
     if (blind) {
+      updateLevelBadge(blind);
       if (blind.isBreak) {
-        if (lb) {
-          lb.textContent = 'BREAK';
-          lb.classList.add('break');
-        }
-        if (lbMobile) {
-          lbMobile.textContent = 'BREAK';
-          lbMobile.classList.add('break');
-        }
         if (cb) cb.textContent = 'BREAK TIME';
         if (ai) ai.textContent = '';
       } else {
-        var levelNum = 0;
-        for (var i = 0; i <= state.currentLevel; i++) {
-          if (!state.blinds[i].isBreak) levelNum++;
-        }
-        var totalLevelsCount = 0;
-        for (var j = 0; j < state.blinds.length; j++) {
-          if (!state.blinds[j].isBreak) totalLevelsCount++;
-        }
-        if (lb) {
-          lb.innerHTML = 'Level <span id="currentLevel">' + levelNum + '</span> / <span id="totalLevels">' + totalLevelsCount + '</span>';
-          lb.classList.remove('break');
-        }
-        if (lbMobile) {
-          lbMobile.innerHTML = 'Level <span id="currentLevelMobile">' + levelNum + '</span> / <span id="totalLevelsMobile">' + totalLevelsCount + '</span>';
-          lbMobile.classList.remove('break');
-        }
         if (cb) cb.textContent = blind.sb + ' / ' + blind.bb;
         if (ai) ai.textContent = 'Ante: ' + blind.ante;
       }
@@ -3348,12 +2643,10 @@ body.mobile-fullscreen-active aside {
         break;
       }
     }
-    if (nextBlindData) {
-      if (nb) {
-        nb.innerHTML = nextBlindData.sb + ' / ' + nextBlindData.bb + ' <span class="next-ante">(Ante: ' + nextBlindData.ante + ')</span>';
-      }
-    } else {
-      if (nb) nb.innerHTML = '--';
+    if (nb) {
+      nb.innerHTML = nextBlindData
+        ? nextBlindData.sb + ' / ' + nextBlindData.bb + ' <span class="next-ante">(Ante: ' + nextBlindData.ante + ')</span>'
+        : '--';
     }
 
     // スタック表示
@@ -3392,22 +2685,10 @@ body.mobile-fullscreen-active aside {
     }
 
     var nbt = $('nextBreakTime');
-    var showBreak = false;
-    if (foundBreak) {
-      if (!state.blinds[state.currentLevel].isBreak) {
-        showBreak = true;
-      }
-    }
-    if (showBreak) {
-      breakCard.classList.remove('no-break');
-      var minutes = Math.floor(timeToBreak / 60);
-      var seconds = timeToBreak % 60;
-      if (nbt) nbt.textContent = String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
-    } else {
-      // ブレイクがなくても常時表示（--:-- を表示）
-      breakCard.classList.add('no-break');
-      if (nbt) nbt.textContent = '--:--';
-    }
+    var showBreak = foundBreak ? !state.blinds[state.currentLevel].isBreak : false;
+
+    breakCard.classList.toggle('no-break', !showBreak);
+    if (nbt) nbt.textContent = showBreak ? formatTime(timeToBreak) : '--:--';
   }
 
   // プライズ計算・表示（範囲指定対応）
@@ -3448,7 +2729,7 @@ body.mobile-fullscreen-active aside {
           if (p.startRank === p.endRank) {
             rankText = p.startRank + '位';
           } else {
-            rankText = p.startRank + '〜' + p.endRank + '位';
+            rankText = p.startRank + '～' + p.endRank + '位';
           }
 
           item.innerHTML = '<span class="prize-rank">' + rankText + '</span><span class="prize-amount">' + p.amount.toLocaleString() + ' pt</span>';
@@ -3509,10 +2790,12 @@ body.mobile-fullscreen-active aside {
         clearInterval(state.scrollIntervalId);
         state.scrollIntervalId = null;
       }
-      if (inner.getAttribute('data-duplicated') && inner.getAttribute('data-original-html')) {
-        inner.innerHTML = inner.getAttribute('data-original-html');
-        inner.removeAttribute('data-duplicated');
-        inner.removeAttribute('data-original-html');
+      if (inner.getAttribute('data-duplicated')) {
+        if (inner.getAttribute('data-original-html')) {
+          inner.innerHTML = inner.getAttribute('data-original-html');
+          inner.removeAttribute('data-duplicated');
+          inner.removeAttribute('data-original-html');
+        }
       }
       inner.style.top = '0';
       inner.style.transform = '';
@@ -3530,9 +2813,23 @@ body.mobile-fullscreen-active aside {
 
     if (!inner || !container) return;
 
+    // 既に複製されている場合は元に戻してから高さを計算
+    if (inner.getAttribute('data-duplicated')) {
+      var originalHtml = inner.getAttribute('data-original-html');
+      if (originalHtml) {
+        inner.innerHTML = originalHtml;
+        inner.removeAttribute('data-duplicated');
+        inner.removeAttribute('data-original-html');
+        inner.removeAttribute('data-loop-height');
+        inner.style.transform = '';
+      }
+    }
+
     var containerHeight = container.clientHeight;
     var innerHeight = inner.scrollHeight;
-    if (!containerHeight || !innerHeight || innerHeight <= containerHeight + 1) return;
+
+    // コンテンツがコンテナに収まる場合はスクロールしない
+    if (!containerHeight || !innerHeight || innerHeight <= containerHeight) return;
 
     // コンテンツを複製して継ぎ目なくループ（おしりと頭の間に隙間）
     var originalContent = inner.innerHTML;
@@ -3612,17 +2909,17 @@ body.mobile-fullscreen-active aside {
       item.setAttribute('draggable', 'true');
       item.innerHTML =
         '<div class="move-controls">' +
-          '<button class="move-btn move-up" title="上へ">▲</button>' +
-          '<button class="move-btn move-down" title="下へ">▼</button>' +
+          '<button class="move-btn move-up" title="上へ">&uarr;</button>' +
+          '<button class="move-btn move-down" title="下へ">&darr;</button>' +
         '</div>' +
-        '<span class="drag-handle">☰</span>' +
+        '<span class="drag-handle">&equiv;</span>' +
         '<input type="number" class="rank-input rank-start" value="' + p.startRank + '" min="1">' +
-        '<span>位 〜</span>' +
+        '<span>位 ～</span>' +
         '<input type="number" class="rank-input rank-end" value="' + p.endRank + '" min="1">' +
         '<span>位:</span>' +
         '<input type="number" class="amount-input" value="' + p.amount + '" min="0" step="100">' +
         '<span>pt</span>' +
-        '<button class="delete-prize">×</button>';
+        '<button class="delete-prize">&times;</button>';
       container.appendChild(item);
     }
 
@@ -3750,7 +3047,6 @@ body.mobile-fullscreen-active aside {
         container.insertBefore(state.draggedItem, this);
       }
 
-      // インデックスを再設定
       var newItems = container.querySelectorAll('.prize-edit-item');
       for (var i = 0; i < newItems.length; i++) {
         newItems[i].setAttribute('data-index', i);
@@ -3780,17 +3076,17 @@ body.mobile-fullscreen-active aside {
     item.setAttribute('draggable', 'true');
     item.innerHTML =
       '<div class="move-controls">' +
-        '<button class="move-btn move-up" title="上へ">▲</button>' +
-        '<button class="move-btn move-down" title="下へ">▼</button>' +
+        '<button class="move-btn move-up" title="上へ">&uarr;</button>' +
+        '<button class="move-btn move-down" title="下へ">&darr;</button>' +
       '</div>' +
-      '<span class="drag-handle">☰</span>' +
+      '<span class="drag-handle">&equiv;</span>' +
       '<input type="number" class="rank-input rank-start" value="' + nextRank + '" min="1">' +
-      '<span>位 〜</span>' +
+      '<span>位 ～</span>' +
       '<input type="number" class="rank-input rank-end" value="' + nextRank + '" min="1">' +
       '<span>位:</span>' +
       '<input type="number" class="amount-input" value="0" min="0" step="100">' +
       '<span>pt</span>' +
-      '<button class="delete-prize">×</button>';
+      '<button class="delete-prize">&times;</button>';
 
     container.appendChild(item);
 
@@ -3811,13 +3107,14 @@ body.mobile-fullscreen-active aside {
     if (!container) return;
 
     var items = container.querySelectorAll('.prize-edit-item');
-    if (items.length > 1 && items[index]) {
-      items[index].remove();
-      // インデックスを再設定
-      var newItems = container.querySelectorAll('.prize-edit-item');
-      for (var i = 0; i < newItems.length; i++) {
-        newItems[i].setAttribute('data-index', i);
-      }
+    if (items.length <= 1) return;
+    if (!items[index]) return;
+
+    items[index].remove();
+    // インデックスを再設定
+    var newItems = container.querySelectorAll('.prize-edit-item');
+    for (var i = 0; i < newItems.length; i++) {
+      newItems[i].setAttribute('data-index', i);
     }
   }
 
@@ -3878,13 +3175,13 @@ body.mobile-fullscreen-active aside {
         item.setAttribute('draggable', 'true');
         item.innerHTML =
           '<div class="move-controls">' +
-            '<button class="move-btn move-up" title="上へ">▲</button>' +
-            '<button class="move-btn move-down" title="下へ">▼</button>' +
+            '<button class="move-btn move-up" title="上へ">&uarr;</button>' +
+            '<button class="move-btn move-down" title="下へ">&darr;</button>' +
           '</div>' +
-          '<span class="drag-handle">☰</span>' +
+          '<span class="drag-handle">&equiv;</span>' +
           '<span class="break-label">BREAK</span>' +
           '<input type="number" class="break-time-input" value="' + (blind.breakTime || 5) + '" min="1" style="width: 50px;"> <span class="break-unit">分</span>' +
-          '<button class="delete-level">×</button>';
+          '<button class="delete-level">&times;</button>';
       } else {
         levelNum++;
         item.className = 'blind-level-item';
@@ -3892,10 +3189,10 @@ body.mobile-fullscreen-active aside {
         item.setAttribute('draggable', 'true');
         item.innerHTML =
           '<div class="move-controls">' +
-            '<button class="move-btn move-up" title="上へ">▲</button>' +
-            '<button class="move-btn move-down" title="下へ">▼</button>' +
+            '<button class="move-btn move-up" title="上へ">&uarr;</button>' +
+            '<button class="move-btn move-down" title="下へ">&darr;</button>' +
           '</div>' +
-          '<span class="drag-handle">☰</span>' +
+          '<span class="drag-handle">&equiv;</span>' +
           '<span class="level-num">' + levelNum + '</span>' +
           '<input type="number" class="time-input" value="' + (blind.levelTime || state.defaultLevelTime) + '" min="1" title="時間(分)" placeholder="時間">' +
           '<span class="time-label">分</span>' +
@@ -3905,7 +3202,7 @@ body.mobile-fullscreen-active aside {
           '<span class="bb-label">BB</span>' +
           '<input type="number" class="ante-input" value="' + blind.ante + '" placeholder="Ante">' +
           '<span class="ante-label">Ante</span>' +
-          '<button class="delete-level">×</button>';
+          '<button class="delete-level">&times;</button>';
       }
       container.appendChild(item);
     }
@@ -4013,11 +3310,8 @@ body.mobile-fullscreen-active aside {
       var fromIndex = items.indexOf(state.draggedItem);
       var toIndex = items.indexOf(this);
 
-      // state.blindsの配列も並べ替え
       var movedBlind = state.blinds.splice(fromIndex, 1)[0];
       state.blinds.splice(toIndex, 0, movedBlind);
-
-      // 画面を再描画
       renderBlindLevels();
     }
     return false;
@@ -4077,17 +3371,18 @@ body.mobile-fullscreen-active aside {
     // タッチデバイス判定（iPad/iPhone/Android）
     var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     // iPad判定（iOS 13以降はMacとして報告されるため、タッチ+Macで判定）
-    var isIPad = isTouchDevice && (navigator.platform === 'MacIntel' || /iPad/.test(navigator.userAgent));
+    var isIPad = isTouchDevice ? (navigator.platform === 'MacIntel' || /iPad/.test(navigator.userAgent)) : false;
     var isIPhone = /iPhone/.test(navigator.userAgent);
     var isAndroid = /Android/.test(navigator.userAgent);
     var isMobileDevice = isIPad || isIPhone || isAndroid;
 
     // ネイティブFullscreen APIが使えるかチェック（デスクトップのみ使用）
-    var canFullscreen = !isMobileDevice && (app.requestFullscreen || app.webkitRequestFullscreen);
+    var canFullscreen = !isMobileDevice ? (app.requestFullscreen || app.webkitRequestFullscreen) : false;
 
     if (canFullscreen) {
       // デスクトップ: ネイティブFullscreen API
-      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+      var isFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
+      if (!isFullscreen) {
         if (app.requestFullscreen) {
           app.requestFullscreen();
         } else if (app.webkitRequestFullscreen) {
@@ -4200,70 +3495,40 @@ body.mobile-fullscreen-active aside {
     }
   }
 
-  // イベントリスナーを設定
+  // イベントリスナーを設定（ヘルパー関数）
+  function addClick(id, handler) {
+    var el = $(id);
+    if (el) el.addEventListener('click', handler);
+  }
+
   function setupEventListeners() {
     // メインコントロール
-    var startBtn = $('startBtn');
-    if (startBtn) startBtn.addEventListener('click', toggleTimer);
-
-    var btnPrev = $('btnPrev');
-    if (btnPrev) btnPrev.addEventListener('click', prevLevel);
-
-    var btnSkip = $('btnSkip');
-    if (btnSkip) btnSkip.addEventListener('click', skipLevel);
-
-    var btnSettings = $('btnSettings');
-    if (btnSettings) btnSettings.addEventListener('click', openSettings);
-
-    var btnFullscreen = $('btnFullscreen');
-    if (btnFullscreen) btnFullscreen.addEventListener('click', toggleFullscreen);
-
-    var btnFullscreenMobile = $('btnFullscreenMobile');
-    if (btnFullscreenMobile) btnFullscreenMobile.addEventListener('click', toggleFullscreen);
-
-    var btnExitFullscreen = $('btnExitFullscreen');
-    if (btnExitFullscreen) btnExitFullscreen.addEventListener('click', toggleFullscreen);
+    addClick('startBtn', toggleTimer);
+    addClick('btnPrev', prevLevel);
+    addClick('btnSkip', skipLevel);
+    addClick('btnSettings', openSettings);
+    addClick('btnFullscreen', toggleFullscreen);
+    addClick('btnFullscreenMobile', toggleFullscreen);
+    addClick('btnExitFullscreen', toggleFullscreen);
 
     // プレイヤー調整
-    var btnEntryMinus = $('btnEntryMinus');
-    if (btnEntryMinus) btnEntryMinus.addEventListener('click', function() { adjustEntries(-1); });
-
-    var btnEntryPlus = $('btnEntryPlus');
-    if (btnEntryPlus) btnEntryPlus.addEventListener('click', function() { adjustEntries(1); });
-
-    var btnRemainMinus = $('btnRemainMinus');
-    if (btnRemainMinus) btnRemainMinus.addEventListener('click', function() { adjustRemaining(-1); });
-
-    var btnRemainPlus = $('btnRemainPlus');
-    if (btnRemainPlus) btnRemainPlus.addEventListener('click', function() { adjustRemaining(1); });
+    addClick('btnEntryMinus', function() { adjustEntries(-1); });
+    addClick('btnEntryPlus', function() { adjustEntries(1); });
+    addClick('btnRemainMinus', function() { adjustRemaining(-1); });
+    addClick('btnRemainPlus', function() { adjustRemaining(1); });
 
     // 設定モーダル
-    var btnSaveSettings = $('btnSaveSettings');
-    if (btnSaveSettings) btnSaveSettings.addEventListener('click', saveSettings);
-
-    var btnCloseSettings = $('btnCloseSettings');
-    if (btnCloseSettings) btnCloseSettings.addEventListener('click', closeSettings);
-
-    var btnSaveSet = $('btnSaveSet');
-    if (btnSaveSet) btnSaveSet.addEventListener('click', saveBlindSet);
-
-    var btnDeleteSet = $('btnDeleteSet');
-    if (btnDeleteSet) btnDeleteSet.addEventListener('click', deleteBlindSet);
+    addClick('btnSaveSettings', saveSettings);
+    addClick('btnCloseSettings', closeSettings);
+    addClick('btnSaveSet', saveBlindSet);
+    addClick('btnDeleteSet', deleteBlindSet);
+    addClick('btnAddLevel', addBlindLevel);
+    addClick('btnAddBreak', addBreakLevel);
+    addClick('btnCalcPrize', calculatePrizes);
+    addClick('btnAddPrize', addPrizeRow);
 
     var blindSetSelect = $('blindSetSelect');
     if (blindSetSelect) blindSetSelect.addEventListener('change', loadBlindSet);
-
-    var btnAddLevel = $('btnAddLevel');
-    if (btnAddLevel) btnAddLevel.addEventListener('click', addBlindLevel);
-
-    var btnAddBreak = $('btnAddBreak');
-    if (btnAddBreak) btnAddBreak.addEventListener('click', addBreakLevel);
-
-    var btnCalcPrize = $('btnCalcPrize');
-    if (btnCalcPrize) btnCalcPrize.addEventListener('click', calculatePrizes);
-
-    var btnAddPrize = $('btnAddPrize');
-    if (btnAddPrize) btnAddPrize.addEventListener('click', addPrizeRow);
 
     // タブ切り替え
     var tabs = document.querySelectorAll('.settings-tab');

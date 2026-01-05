@@ -80,6 +80,9 @@ go build -o wp-cli .
 # 記事更新
 ./tools/wp-cli/wp-cli update posts/2025-01-03_slug/article.md
 
+# 固定ページ更新
+./tools/wp-cli/wp-cli update pages/poker/page.md --page --publish
+
 # カテゴリ・タグ一覧
 ./tools/wp-cli/wp-cli categories
 ./tools/wp-cli/wp-cli tags
@@ -95,6 +98,8 @@ blog/
 │       └── assets/         # 記事用アセット
 │           └── eyecatch.png
 ├── pages/                  # インポート済み固定ページ（slug/）
+│   ├── poker/              # ポーカータイマー
+│   └── mahjong/            # 麻雀点数計算
 ├── drafts/                 # 新規下書き記事
 ├── templates/              # 記事テンプレート
 ├── tools/wp-cli/           # Go製CLIツール
@@ -153,6 +158,21 @@ menu_order: 0
 ```
 
 > **Tip**: アイキャッチ画像は [Gemini](https://gemini.google.com/) などの画像生成AIで作成し、手動で配置できます。
+
+## 固定ページ
+
+### ポーカータイマー (`pages/poker/`)
+
+ポーカートーナメント用のブラインドタイマー。
+
+- フルスクリーン対応（PC/モバイル）
+- ブラインドレベル・プライズ配分のカスタマイズ
+- レベルアップ時のチャイム音（iOS/iPad対応）
+- 残り10秒で時間表示が赤く点滅
+
+### 麻雀点数計算 (`pages/mahjong/`)
+
+麻雀の点数計算ツール。
 
 ## ライセンス
 

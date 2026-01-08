@@ -128,7 +128,7 @@ menu_order: 0
 <summary><strong>流局について</strong></summary>
 <ul>
 <li>オーラス流局は終局（供託点棒はトップ者のもの）</li>
-<li>流局時は3000点供託（全員聴牌or全員ノーテンは点棒移動なし）</li>
+<li>流局時はノーテン罰符3000点（全員聴牌or全員ノーテンは点棒移動なし）</li>
 <li>リーチ棒は次局繰越し、アガリ者のもの</li>
 <li>形式テンパイ有り</li>
 <li>流し満貫無し</li>
@@ -162,7 +162,7 @@ menu_order: 0
 <summary><strong>トビについて</strong></summary>
 <ul>
 <li>トビ有り、箱下計算有り</li>
-<li>900点以下でリーチ不可</li>
+<li>1000点未満でリーチ不可</li>
 </ul>
 </details>
 
@@ -232,7 +232,7 @@ menu_order: 0
 <tr><td style="text-align:center"></td><td>小三元</td><td>ショウサンゲン</td><td>三元牌のうち2つが刻子、1つが雀頭</td></tr>
 <tr><td style="text-align:center">▲</td><td>一気通貫</td><td>イッキツウカン</td><td>同じ色で123・456・789の順子</td></tr>
 <tr><td style="text-align:center"></td><td>三槓子</td><td>サンカンツ</td><td>槓子が3つ</td></tr>
-<tr><td style="text-align:center">●</td><td>ダブル立直</td><td>ダブルリーチ</td><td>第一ツモ前にリーチ</td></tr>
+<tr><td style="text-align:center">●</td><td>ダブル立直</td><td>ダブルリーチ</td><td>誰も鳴いていない第一巡目にリーチ</td></tr>
 <tr><td style="text-align:center">▲</td><td>混全帯ヤオ九</td><td>チャンタ</td><td>全ての面子と雀頭に1・9・字牌を含む</td></tr>
 <tr><td style="text-align:center">●</td><td>七対子</td><td>チイトイツ</td><td>7つの対子で構成</td></tr>
 </tbody>

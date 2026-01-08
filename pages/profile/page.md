@@ -102,71 +102,38 @@ FIREについてはまた後ほど記事を書こうと思っておりますが�
 
 ## 保有資格
 
-・基本情報処理技術者(2008年頃)
-
-・Certified Kubernetes Administrator(2018年03月)
-
-・Google Cloud Certified Associate Cloud Engineer(2019年09月)
-
-・Google Cloud Certified Professional Cloud Architect(2019年12月)
-
-・AWS Certified Cloud Practitioner(2019年10月)
-
-・AWS Certified Cloud Solution Architect Associate(2020年07月)
-
-・AWS Certified Cloud Developer Associate(2020年07月)
-
-・AWS Certified Sysops Admin Associate(2020年08月)
-
-・Google Cloud Certified Professional Data Engineer(2021年07月)
-
-・Google Cloud Certified Professional Cloud Developer(2021年12月)
-
-・AWS Certified Security – Specialty(2022年07月)
-
-・AWS Certified Advanced Networking – Specialty(2022年07月)
-
-・AWS Certified Database – Specialty(2023年04月)
-
-・AWS Certified DevOps Engineer – Professional(2023年07月)
-
-・Microsoft Certified: Azure Fundamentals(2024年09月)
+- 基本情報処理技術者(2008年頃)
+- Certified Kubernetes Administrator(2018年03月)
+- Google Cloud Certified Associate Cloud Engineer(2019年09月)
+- Google Cloud Certified Professional Cloud Architect(2019年12月)
+- AWS Certified Cloud Practitioner(2019年10月)
+- AWS Certified Cloud Solution Architect Associate(2020年07月)
+- AWS Certified Cloud Developer Associate(2020年07月)
+- AWS Certified Sysops Admin Associate(2020年08月)
+- Google Cloud Certified Professional Data Engineer(2021年07月)
+- Google Cloud Certified Professional Cloud Developer(2021年12月)
+- AWS Certified Security – Specialty(2022年07月)
+- AWS Certified Advanced Networking – Specialty(2022年07月)
+- AWS Certified Database – Specialty(2023年04月)
+- AWS Certified DevOps Engineer – Professional(2023年07月)
+- Microsoft Certified: Azure Fundamentals(2024年09月)
 
 カッコ内の年月は取得時期になります
-
-[![Associate Cloud Engineer](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/13695702)](https://www.credential.net/eeff28c8-6442-4a5e-b7df-2d0ddc6306ec)
-
-[![Professional Cloud Architect](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/14383672)](https://www.credential.net/b5a6fe48-235d-46ec-969d-59f5af51bf10)
-
-[![Professional Cloud Data Engineer](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/35346807)](https://www.credential.net/1a21f53e-94e3-47e1-9d8a-3dc338d2d1ba)
-
-[![Professional Cloud Cloud Developer](https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/43664224)](https://www.credential.net/cdb1e67c-6f45-4f8f-99f4-496f4f553478)
-
-[![Hands-On Essentials: Data Warehousing Workshop](https://shiimanblog.com/wp-content/uploads/2024/09/6cbc6584-c8e1-48e0-bb02-ae92b224a7ff.png)](https://www.credential.net/a99aab8a-dedb-4b65-9103-6906fd4c0103#gs.a9jk7y)
-
-[![Microsoft Certified: Azure Fundamentals](https://shiimanblog.com/wp-content/uploads/2024/09/microsoft-certified-fundamentals-badge-2.png)](https://learn.microsoft.com/api/credentials/share/ja-jp/26859940/7CBF449E4CA603A2?sharingId=F2010920F7860B79)
 
 ## テクニカルスキル
 
 ![テクニカルスキル](https://shiimanblog.com/wp-content/uploads/2021/09/programing-800x533.jpg)
 
-・OS：Windows(2012〜)、Mac(2017〜)、linux(2012〜)
-
-・開発言語：PHP(2012〜)、 C#(1年)、 nodeJS(1年)、 Go(2020〜)、 python、 javascript、 html、 css
-
-・DB：Mysql(2012〜)、cassandra(1年)
-
-・Cache: redis、memcache
-
-・監視ツール等: datadog(2017〜)、 mackarel、newrelic、snowflake
-
-・負荷試験ツール: jmater、vageta、locust
-
-・プラットフォーム: GCP(2017〜)、AWS(2017〜)
-
-・チャットツール: chatwork、slack
-
-・その他: terraform(2017〜)、ansible(2017〜)、docker、gitlab、github、wrike、notion
+- OS：Windows(2012〜)、Mac(2017〜)、linux(2012〜)
+- 開発言語：PHP(2012〜)、 C#(1年)、 nodeJS(1年)、 Go(2020〜)、 python、 javascript、 html、 css
+- DB：Mysql(2012〜)、cassandra(1年)、PostgreSQL
+- Cache: redis、memcache、valkey
+- 監視ツール等: datadog(2017〜)、 mackarel、newrelic、snowflake
+- 負荷試験ツール: jmater、vageta、locust
+- プラットフォーム: GCP(2017〜)、AWS(2017〜)、Azure
+- AI: Cursor、Claude Code、Codex、Gemini、Copilot、ChatGPT
+- チャットツール: chatwork、slack
+- その他: terraform(2017〜)、ansible(2017〜)、docker、gitlab、github、wrike、notion
 
 カッコ内の年月は継続的によく使用するものは(\[年\]〜)で
 
@@ -187,7 +154,7 @@ FIREについてはまた後ほど記事を書こうと思っておりますが�
 ### 体動かす系
 
 - 野球 : 6年ほど部活でやっていました。
-- 卓球 : 社会人2年目くらいに社会人サークルに入ってから始めました。
+- 卓球 : 社会人2年目くらいに社会人サークルに入ってから始めました。STS(しーまん卓球サークル)を作り月1で開催しています。
 - テニス : 2019年くらいに半年ほどテニススクールに通っていました。
 - ダンス : 2018年から2年ほどダンススクールに通っていました。
 - ゴルフ : 数回程度ですが、学生時代からやっています。
@@ -201,7 +168,8 @@ FIREについてはまた後ほど記事を書こうと思っておりますが�
 - ボードゲーム : 隔週くらいでボードゲーム会に参加しています。
 - 人狼ゲーム : 2019年から1年間くらい毎月人狼ゲーム会に参加していました。
 - 脱出ゲーム : たまに友人と脱出ゲームに参加します。
-- 麻雀 : 学生時代からたまに無性にやりたくなります。
+- 麻雀 : 学生時代からたまに無性にやりたくなります。しーまーじゃん会を作り月1で開催しています。
+- ポーカー : 月1以上でやっています。
 - 読書 : 毎月2冊程度本を読む習慣があります。
 - テレビ鑑賞 : 昔から根っからのテレビっ子です。
 - youtube鑑賞 : 2020年から投資や税金系などのチャンネルを見るようになりました。

@@ -30,3 +30,5 @@ Thumbs.db
 # プラン
 .claude/plans/
 .claude/settings.local.json
+
+.playwright-mcp/

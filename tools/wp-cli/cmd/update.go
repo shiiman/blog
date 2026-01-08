@@ -31,6 +31,7 @@ var updateID int
 var updatePublish bool
 var updateDryRun bool
 var updatePage bool
+var updateForceEyecatch bool
 
 func init() {
 	rootCmd.AddCommand(updateCmd)
@@ -38,6 +39,7 @@ func init() {
 	updateCmd.Flags().BoolVarP(&updatePublish, "publish", "p", false, "公開状態に変更")
 	updateCmd.Flags().BoolVar(&updateDryRun, "dry-run", false, "更新せずに内容を確認")
 	updateCmd.Flags().BoolVar(&updatePage, "page", false, "固定ページとして更新")
+	updateCmd.Flags().BoolVar(&updateForceEyecatch, "force-eyecatch", false, "アイキャッチ画像を強制的に再アップロード")
 }
 
 func runUpdate(cmd *cobra.Command, args []string) {
@@ -104,9 +106,13 @@ func runUpdate(cmd *cobra.Command, args []string) {
 		articleDir := filepath.Dir(filePath)
 		eyecatchPath := filepath.Join(articleDir, "assets", eyecatchFilename)
 
-		if _, err := os.Stat(eyecatchPath); err == nil && featuredMediaID == 0 {
-			// アイキャッチ画像が存在し、まだ設定されていない場合
-			color.Cyan("アイキャッチ画像をアップロード中...")
+		// アイキャッチ画像が存在し、まだ設定されていない場合、または強制アップロードの場合
+		if _, err := os.Stat(eyecatchPath); err == nil && (featuredMediaID == 0 || updateForceEyecatch) {
+			if updateForceEyecatch {
+				color.Cyan("アイキャッチ画像を強制的に再アップロード中...")
+			} else {
+				color.Cyan("アイキャッチ画像をアップロード中...")
+			}
 
 			imageData, err := os.ReadFile(eyecatchPath)
 			if err != nil {

@@ -57,6 +57,7 @@ func (c *Client) doRequest(method, endpoint string, body interface{}) ([]byte, e
 
 	req.Header.Set("Authorization", c.getAuthHeader())
 	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
 
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
@@ -266,6 +267,7 @@ func (c *Client) UploadMedia(filename string, data []byte, mimeType string) (*ty
 
 	req.Header.Set("Authorization", c.getAuthHeader())
 	req.Header.Set("Content-Type", mimeType)
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
 	req.Header.Set("Content-Disposition", fmt.Sprintf(`attachment; filename="%s"`, filename))
 
 	resp, err := c.httpClient.Do(req)

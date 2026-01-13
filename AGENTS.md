@@ -1,6 +1,11 @@
-# Blog Project - AGENT.md
+# Blog Project - AGENTS.md
+
+## Core Rules
+- **ALWAYS respond to the user in Japanese.** (ユーザーへの応答は常に日本語で行ってください。)
+- **ALWAYS generate implementation plans and task lists in Japanese.** (プランやタスクリストなどのアーティファクトも全て日本語で作成してください。)
 
 This file contains project-specific instructions for the coding agent.
+
 
 ## Project Overview
 

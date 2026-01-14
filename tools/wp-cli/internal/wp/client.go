@@ -241,6 +241,38 @@ func (c *Client) GetCategories() ([]types.Category, error) {
 	return categories, nil
 }
 
+// CreateCategory は新しいカテゴリを作成する
+func (c *Client) CreateCategory(req *types.CreateCategoryRequest) (*types.Category, error) {
+	body, err := c.doRequest("POST", "/categories", req)
+	if err != nil {
+		return nil, err
+	}
+
+	var category types.Category
+	if err := json.Unmarshal(body, &category); err != nil {
+		return nil, fmt.Errorf("カテゴリのパースに失敗: %w", err)
+	}
+
+	return &category, nil
+}
+
+// UpdateCategory は既存のカテゴリを更新する
+func (c *Client) UpdateCategory(id int, req *types.UpdateCategoryRequest) (*types.Category, error) {
+	endpoint := fmt.Sprintf("/categories/%d", id)
+
+	body, err := c.doRequest("POST", endpoint, req)
+	if err != nil {
+		return nil, err
+	}
+
+	var category types.Category
+	if err := json.Unmarshal(body, &category); err != nil {
+		return nil, fmt.Errorf("カテゴリのパースに失敗: %w", err)
+	}
+
+	return &category, nil
+}
+
 // GetTags はタグ一覧を取得する
 func (c *Client) GetTags() ([]types.Tag, error) {
 	body, err := c.doRequest("GET", "/tags?per_page=100", nil)

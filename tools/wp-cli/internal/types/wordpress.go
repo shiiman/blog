@@ -97,16 +97,16 @@ type Tag struct {
 
 // Media はWordPressメディアを表す
 type Media struct {
-	ID        int    `json:"id"`
-	Date      WPTime `json:"date"`
-	Slug      string `json:"slug"`
-	Status    string `json:"status"`
+	ID        int      `json:"id"`
+	Date      WPTime   `json:"date"`
+	Slug      string   `json:"slug"`
+	Status    string   `json:"status"`
 	Title     Rendered `json:"title"`
-	Author    int    `json:"author"`
-	MediaType string `json:"media_type"`
-	MimeType  string `json:"mime_type"`
-	SourceURL string `json:"source_url"`
-	Link      string `json:"link"`
+	Author    int      `json:"author"`
+	MediaType string   `json:"media_type"`
+	MimeType  string   `json:"mime_type"`
+	SourceURL string   `json:"source_url"`
+	Link      string   `json:"link"`
 }
 
 // CreatePostRequest は投稿作成リクエストを表す
@@ -155,20 +155,36 @@ type UpdatePageRequest struct {
 	MenuOrder int    `json:"menu_order,omitempty"`
 }
 
+// CreateCategoryRequest はカテゴリ作成リクエストを表す
+type CreateCategoryRequest struct {
+	Name        string `json:"name"`
+	Slug        string `json:"slug,omitempty"`
+	Description string `json:"description,omitempty"`
+	Parent      int    `json:"parent,omitempty"`
+}
+
+// UpdateCategoryRequest はカテゴリ更新リクエストを表す
+type UpdateCategoryRequest struct {
+	Name        string `json:"name,omitempty"`
+	Slug        string `json:"slug,omitempty"`
+	Description string `json:"description,omitempty"`
+	Parent      int    `json:"parent,omitempty"`
+}
+
 // FrontMatter はMarkdownファイルのフロントマターを表す
 type FrontMatter struct {
-	ID            int      `yaml:"id,omitempty"`
-	Title         string   `yaml:"title"`
-	Slug          string   `yaml:"slug,omitempty"`
-	Status        string   `yaml:"status,omitempty"`
-	Excerpt       string   `yaml:"excerpt,omitempty"`
-	Categories    []int    `yaml:"categories,omitempty"`
-	Tags          []int    `yaml:"tags,omitempty"`
-	FeaturedMedia int      `yaml:"featured_media,omitempty"`
-	Date          string   `yaml:"date,omitempty"`
-	Modified      string   `yaml:"modified,omitempty"`
-	Parent        int      `yaml:"parent,omitempty"`
-	MenuOrder     int      `yaml:"menu_order,omitempty"`
+	ID            int    `yaml:"id,omitempty"`
+	Title         string `yaml:"title"`
+	Slug          string `yaml:"slug,omitempty"`
+	Status        string `yaml:"status,omitempty"`
+	Excerpt       string `yaml:"excerpt,omitempty"`
+	Categories    []int  `yaml:"categories,omitempty"`
+	Tags          []int  `yaml:"tags,omitempty"`
+	FeaturedMedia int    `yaml:"featured_media,omitempty"`
+	Date          string `yaml:"date,omitempty"`
+	Modified      string `yaml:"modified,omitempty"`
+	Parent        int    `yaml:"parent,omitempty"`
+	MenuOrder     int    `yaml:"menu_order,omitempty"`
 }
 
 // Article はMarkdown記事を表す

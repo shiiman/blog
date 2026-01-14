@@ -37,22 +37,26 @@ AI設定をローカルファイル（`GEMINI.md`, `CLAUDE.md` など）とし�
 ~/dotfiles
 ├── .zshrc
 ├── .vimrc
-├── ai_setup.sh       # AI設定用のセットアップスクリプト
+├── AGENTS.md         # プロジェクト共通のAIエージェント指針（新設）
+├── CLAUDE.md         # プロジェクト固有の指示書（AI用）
+├── ai_setup.sh       # AI設定用の一括セットアップスクリプト
 └── ai/
     ├── claude/
-    │   ├── CLAUDE.md      # グローバルな指示書
+    │   ├── CLAUDE.md      # グローバルな指示（~/.claude/ へ）
     │   └── settings.json
     ├── codex/
-    │   ├── config.toml    # API設定など
-    │   └── skills/        # スキル定義ディレクトリ
+    │   ├── config.toml
+    │   └── skills/
     ├── cursor/
     │   ├── User/
-    │   │   ├── settings.json     # エディタ設定
-    │   │   └── keybindings.json  # キーバインド
-    │   ├── extensions.json       # 拡張機能リスト
-    │   └── mcp.json              # MCP設定
-    └── gemini/
-        └── GEMINI.md      # Gemini(Antigravity)用の設定
+    │   │   ├── settings.json
+    │   │   ├── keybindings.json
+    │   │   └── snippets/   # コードスニペット管理
+    │   ├── extensions.json # 拡張機能リスト（自動インストール用）
+    │   └── mcp.json
+    └── antigravity/       # (旧gemini)名称変更
+        ├── GEMINI.md      # グローバルな指示（~/.gemini/ へ）
+        └── extensions.json
 ```
 
 実際のコード構成はGitHubでも公開していますので、参考にしてください。
@@ -87,7 +91,7 @@ AI搭載エディタ「Cursor」は、VS Code互換の設定ファイルに加�
     - `~/Library/Application Support/Cursor/User/settings.json` など
     - `~/.cursor/mcp.json`
 
-特に `setup.sh` では、`extensions.json` に記載された拡張機能IDを読み取り、`cursor --install-extension` コマンドで自動インストールする仕組みも実装しています。これでエディタの環境構築も自動化されます。
+特に `setup.sh` では、`extensions.json` に記載された拡張機能IDを `jq` で読み取り、`cursor --install-extension` コマンドで自動インストールする仕組みも導入しました。これにより、プラグインまで含めた完全な再現が可能になります。
 
 ### 3. Codex (OpenAI)
 Codex系のCLIツールや独自のスクリプトで使用する設定です。
@@ -100,14 +104,18 @@ Codex系のCLIツールや独自のスクリプトで使用する設定です。
     - `~/.codex/config.toml`
     - `~/.codex/skills/`
 
-### 4. Gemini (Antigravity)
-GoogleのAdvanced Agentic Codingエージェント用設定です。
+### 4. Antigravity (Gemini)
+GoogleのAdvanced Agentic Codingエージェント用設定です。最近 `gemini` からより汎用的な `antigravity` へと名称変更されました。
 
 - **管理ファイル**:
-    - `GEMINI.md`: エージェントへの基本指示書。プロジェクト共通のルールやコンテキストを記載。
+    - `GEMINI.md`: エージェントへの基本指示書。
+    - `extensions.json`: Antigravity用の拡張機能リスト。
 
 - **シンボリックリンク先**:
     - `~/.gemini/GEMINI.md`
+    - `~/.antigravity/extensions/extensions.json`
+
+Cursorと同様、CLIツールを使って拡張機能の自動インストールもサポートしています。
 
 ## セットアップスクリプトの実装例（ai_setup.sh）
 
@@ -119,73 +127,80 @@ GoogleのAdvanced Agentic Codingエージェント用設定です。
 set -e
 
 DOTFILES_DIR=~/dotfiles
-# バックアップディレクトリ
 BACKUP_DIR=~/.ai_config_backup/$(date +%Y%m%d_%H%M%S)
 
-# シンボリックリンク作成関数
+# シンボリックリンク作成関数（バックアップ機能付き）
 create_symlink() {
     local src=$1
     local dest=$2
-    local dest_dir=$(dirname "$dest")
-
-    mkdir -p "$dest_dir"
+    mkdir -p "$(dirname "$dest")"
 
     if [ -L "$dest" ]; then
         unlink "$dest"
     elif [ -e "$dest" ]; then
-        # 既存ファイルはバックアップ
         mkdir -p "$BACKUP_DIR"
         cp -r "$dest" "$BACKUP_DIR/"
         rm -rf "$dest"
     fi
 
     ln -sf "$src" "$dest"
-    echo "  ✓ $dest -> $src"
 }
 
-# Claude設定
-setup_claude() {
-    echo "Claude Code設定..."
-    create_symlink "$DOTFILES_DIR/ai/claude/settings.json" ~/.claude/settings.json
-    create_symlink "$DOTFILES_DIR/ai/claude/CLAUDE.md" ~/.claude/CLAUDE.md
-}
-
-# Cursor設定
+# Cursor設定：設定ファイルのリンクと拡張機能の自動インストール
 setup_cursor() {
     echo "Cursor設定..."
-    # macOS標準パスへのリンク
     local cursor_user_dir=~/Library/Application\ Support/Cursor/User
     create_symlink "$DOTFILES_DIR/ai/cursor/User/settings.json" "$cursor_user_dir/settings.json"
+    create_symlink "$DOTFILES_DIR/ai/cursor/User/keybindings.json" "$cursor_user_dir/keybindings.json"
     create_symlink "$DOTFILES_DIR/ai/cursor/mcp.json" ~/.cursor/mcp.json
 
-    # 拡張機能のインストール処理（省略）
+    # 拡張機能の自動インストール
+    if command -v jq &> /dev/null && command -v cursor &> /dev/null; then
+        local ext_ids=$(jq -r '.[].identifier.id' "$DOTFILES_DIR/ai/cursor/extensions.json")
+        for ext_id in $ext_ids; do
+            cursor --install-extension "$ext_id" > /dev/null 2>&1 && echo "  ✓ $ext_id"
+        done
+    fi
+}
+
+# Antigravity設定
+setup_antigravity() {
+    echo "Antigravity設定..."
+    create_symlink "$DOTFILES_DIR/ai/antigravity/GEMINI.md" ~/.gemini/GEMINI.md
+    # 拡張機能のインストールも同様に行う
 }
 
 # メイン処理
-setup_claude
 setup_cursor
-# setup_codex, setup_gemini...
+setup_antigravity
+# ...他ツールの設定
 ```
 
 ## 設定ファイルの中身（GEMINI.md の例）
 
-実際に管理している `GEMINI.md` の一部を紹介します。
-ここでは「出力言語の指定」や「やってはいけないこと（禁止事項）」を明記しています。
+実際に管理している `GEMINI.md` の一部を紹介します。出力言語の指定、禁止事項に加えて、コミットやPRのガイドラインも追加されました。
 
 ```markdown
 # GEMINI.md
 
 ## Output Language
-- **Always respond in Japanese.** (常に日本語で応答すること)
-- Technical terms and API names may remain in English.
-- Write implementation plans and artifacts in Japanese.
+- Always respond in Japanese.
+- Write code comments and error messages in Japanese.
 
 ## Strict Prohibitions
 1. **No hardcoded secrets** - 環境変数を使用すること。
-2. **No debugging code** - コミット前にデバッグ出力を削除すること。
+2. **No destructive operations without confirmation** - 破壊的な操作は必ず確認。
+
+## Commit Guidelines
+- Write commit messages in Japanese, concise and descriptive in one line.
 ```
 
-これをグローバル設定として読み込ませることで、どのプロジェクトを開いていても、「日本語で答えて」といちいち指示する必要がなくなります。
+## プロジェクト固有のAIガイドライン（AGENTS.md）
+
+今回のアップデートで最も特徴的なのが、リポジトリのルートに配置した `AGENTS.md` や `CLAUDE.md` です。
+
+これらは AI アシスタント自身がそのプロジェクトでどう振る舞うべきかを定めた「プロジェクトの憲法」です。
+dotfiles 自体の開発を AI に手伝わせる際、「Shellcheck を通すこと」「`.zshrc` は macOS の標準 Bash でも動くようにすること」といったルールをここに書いておくことで、AI が常にプロジェクトの文脈に沿った提案をしてくれるようになります。
 
 ## まとめ
 

@@ -4,8 +4,7 @@ title: Claude CodeでWordPressブログをMarkdown管理する方法
 slug: claude-code-wordpress-markdown
 status: publish
 excerpt: WordPressブログの記事をMarkdownでローカル管理し、Claude Codeと自作CLIツールで執筆・投稿を自動化するワークフローを紹介します。
-categories:
-    - 18
+categories: [18, 133]
 date: 2026-01-03T11:44:46
 ---
 

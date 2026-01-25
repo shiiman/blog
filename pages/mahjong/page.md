@@ -79,7 +79,7 @@ menu_order: 0
 <tr><td>チョンボ</td><td>なし</td><td>1000点オール</td></tr>
 <tr><td>誤ポン・チー・カン</td><td>なし</td><td>1000点オール</td></tr>
 <tr><td>誤ロン</td><td>なし</td><td>1000点オール + アガリ放棄 + 局継続</td></tr>
-<tr><td>時間制限</td><td>なし</td><td>40分制限</td></tr>
+<tr><td>時間制限</td><td>なし</td><td>50分制限</td></tr>
 </tbody>
 </table>
 
@@ -182,7 +182,7 @@ menu_order: 0
 <details>
 <summary><strong>その他</strong></summary>
 <ul>
-<li>40分制限（時間超過したらその局で終了）</li>
+<li>50分制限（時間超過したらその局で終了）</li>
 <li>一発は鳴き（暗槓含む）で無効</li>
 <li>現物・スジの食い替え無し</li>
 <li>鳴きは発声優先（同時ならポン・カン優先）</li>

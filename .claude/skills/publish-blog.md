@@ -5,7 +5,6 @@ allowed-tools:
   - Bash
   - Glob
   - AskUserQuestion
-disable-model-invocation: true
 ---
 
 # Publish Blog Skill

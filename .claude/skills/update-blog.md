@@ -7,7 +7,7 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# Blog Update Skill
+# Update Blog Skill
 
 ローカルで編集したMarkdown記事の内容をWordPressに反映します。
 

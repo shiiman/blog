@@ -7,7 +7,7 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# Blog Publish Skill
+# Publish Blog Skill
 
 Markdown記事をWordPressに投稿します（デフォルト: 下書き）。
 

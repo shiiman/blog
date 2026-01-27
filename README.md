@@ -49,16 +49,16 @@ go build -o wp-cli .
 
 ```bash
 # 記事を書く
-/blog-write
+/write-blog
 
 # WordPressから既存記事をインポート
-/blog-import posts
+/import-blog
 
 # 記事を投稿
-/blog-publish
+/publish-blog
 
 # 記事を更新
-/blog-update
+/update-blog
 ```
 
 ### CLIコマンド
@@ -105,8 +105,7 @@ blog/
 ├── tools/wp-cli/           # Go製CLIツール
 ├── .claude/
 │   ├── agents/             # 記事執筆エージェント
-│   ├── skills/             # スキル定義
-│   └── commands/           # スラッシュコマンド
+│   └── skills/             # スキル定義
 └── backlog/                # 過去の記事画像アセット
 ```
 

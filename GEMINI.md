@@ -17,20 +17,21 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 
 ## Custom Workflows
 The following workflows are defined in `.agent/workflows/`:
-- `/blog-import` - Import existing posts from WordPress
-- `/blog-write` - Create a new blog post as a draft
-- `/blog-eyecatch` - Generate an eyecatch image for the blog post
-- `/blog-publish` - Publish a post to WordPress (default state is draft)
-- `/blog-update` - Update an existing post on WordPress
+- `/import-blog` - Import existing posts from WordPress
+- `/write-blog` - Create a new blog post as a draft
+- `/create-eyecatch` - Generate an eyecatch image for the blog post
+- `/publish-blog` - Publish a post to WordPress (default state is draft)
+- `/update-blog` - Update an existing post on WordPress
 
 
 ## Standard Workflow
-1. Use `/blog-import` to import existing posts.
-2. Use `/blog-write` to create a new post in `drafts/`.
+1. Use `/import-blog` to import existing posts.
+2. Use `/write-blog` to create a new post in `drafts/`.
 3. Review and edit the post content.
-4. Use `/blog-publish` to upload the post to WordPress as a draft.
-5. Use `/blog-update` to update existing posts.
-6. Verify and finalize on the WordPress dashboard.
+4. Use `/create-eyecatch` to generate an eyecatch image.
+5. Use `/publish-blog` to upload the post to WordPress as a draft.
+6. Use `/update-blog` to update existing posts.
+7. Verify and finalize on the WordPress dashboard.
 
 ## CLI Tool (wp-cli)
 How to build and run:

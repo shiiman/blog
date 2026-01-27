@@ -4,12 +4,12 @@ ConoHa上で運営するWordPress技術ブログ（<https://shiimanblog.com>）�
 
 ## 機能
 
-- 📝 **記事執筆** - Claude Codeでブログ記事を執筆
+- 📝 **記事執筆** - Claude Code/Cursor/Antigravityでブログ記事を執筆
+- 🎨 **アイキャッチ生成** - Cursor/AntigravityでAI画像生成（記事内容に合わせて自動生成）
 - 📤 **記事投稿** - CLIでWordPressに投稿（デフォルト: 下書き）
 - 📥 **記事インポート** - WordPressから既存記事をMarkdownとして取得
 - ✏️ **記事更新** - ローカルで編集した記事をWordPressに反映
 - 📄 **固定ページ管理** - 投稿と同様に固定ページも操作可能
-- 🎨 **アイキャッチ対応** - assets/eyecatch.png を配置すると投稿時に自動アップロード
 
 ## セットアップ
 
@@ -45,7 +45,9 @@ go build -o wp-cli .
 
 ## 使い方
 
-### Claude Codeスキル（推奨）
+### スキル/ワークフロー（推奨）
+
+#### 記事管理（全ツール対応）
 
 ```bash
 # 記事を書く
@@ -60,6 +62,15 @@ go build -o wp-cli .
 # 記事を更新
 /update-blog
 ```
+
+#### アイキャッチ画像生成（Cursor/Antigravity のみ）
+
+```bash
+# アイキャッチ画像を生成
+/create-eyecatch
+```
+
+> **Note**: Claude Codeには画像生成機能がないため、アイキャッチは手動配置が必要です。
 
 ### CLIコマンド
 
@@ -103,9 +114,13 @@ blog/
 ├── drafts/                 # 新規下書き記事
 ├── templates/              # 記事テンプレート
 ├── tools/wp-cli/           # Go製CLIツール
+├── .cursor/
+│   └── skills/             # Cursorスキル定義
 ├── .claude/
 │   ├── agents/             # 記事執筆エージェント
-│   └── skills/             # スキル定義
+│   └── skills/             # Claude Codeスキル定義
+├── .agent/
+│   └── workflows/          # Antigravity (Gemini) ワークフロー
 └── backlog/                # 過去の記事画像アセット
 ```
 
@@ -143,20 +158,41 @@ menu_order: 0
 
 記事ディレクトリの `assets/eyecatch.png` に画像を配置すると、投稿時に自動でWordPressにアップロードしてアイキャッチに設定します。
 
-### ワークフロー
+### 画像生成ワークフロー
+
+#### Cursor/Antigravity（AI自動生成）
 
 ```bash
 # 1. 記事を作成
-/blog-write
+/write-blog
 
-# 2. アイキャッチ画像を配置
+# 2. アイキャッチ画像を生成（AIが記事内容を分析して自動生成）
+/create-eyecatch
+
+# 3. 投稿（アイキャッチは自動でアップロード・設定）
+./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md --publish
+```
+
+**デザインルール:**
+- アスペクト比: 16:9 (1280x720)
+- ベースカラー: 白 (#FFFFFF)
+- アクセントカラー: 青 (#007BFF) + 濃いグレー (#424242)
+- スタイル: テクニカル・クリーン
+
+#### Claude Code/手動配置
+
+```bash
+# 1. 記事を作成
+/write-blog
+
+# 2. アイキャッチ画像を手動で配置
 # drafts/2026-01-03_my-article/assets/eyecatch.png
 
 # 3. 投稿（アイキャッチは自動でアップロード・設定）
 ./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md --publish
 ```
 
-> **Tip**: アイキャッチ画像は [Gemini](https://gemini.google.com/) などの画像生成AIで作成し、手動で配置できます。
+> **Note**: Claude Codeには画像生成機能がないため、外部ツールで画像を作成して手動配置してください。
 
 ## 固定ページ
 

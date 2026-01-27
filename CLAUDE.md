@@ -26,6 +26,7 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 - `/publish-blog` - Publish article to WordPress (draft by default)
 - `/import-blog` - Import existing articles from WordPress
 - `/update-blog` - Update existing article on WordPress
+- `/create-eyecatch` - Generate eyecatch image for blog article
 
 ## Workflow
 

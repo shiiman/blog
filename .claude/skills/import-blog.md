@@ -5,9 +5,10 @@ allowed-tools:
   - Bash
   - Glob
   - AskUserQuestion
+disable-model-invocation: true
 ---
 
-# Blog Import Skill
+# Import Blog Skill
 
 WordPressから記事または固定ページをインポートし、ローカルにMarkdownファイルとして保存します。
 

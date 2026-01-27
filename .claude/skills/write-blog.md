@@ -11,7 +11,7 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# Blog Write Skill
+# Write Blog Skill
 
 技術ブログ記事を執筆し、投稿用のMarkdownファイルを生成します。
 
@@ -49,7 +49,7 @@ mkdir -p drafts/$(date +%Y-%m-%d)_slug
 ### 5. 次のステップ案内
 
 記事作成後、以下を案内:
-- `/blog-publish` で WordPressに投稿（下書き）
+- `/publish-blog` で WordPressに投稿（下書き）
 - 記事内容の確認・編集方法
 - カテゴリ・タグIDの確認方法（`wp-cli categories`, `wp-cli tags`）
 

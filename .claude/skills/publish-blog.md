@@ -5,9 +5,10 @@ allowed-tools:
   - Bash
   - Glob
   - AskUserQuestion
+disable-model-invocation: true
 ---
 
-# Blog Publish Skill
+# Publish Blog Skill
 
 Markdown記事をWordPressに投稿します（デフォルト: 下書き）。
 

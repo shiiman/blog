@@ -1,5 +1,5 @@
 ---
-name: create-eyecatch
+name: eyecatch-create
 description: ブログ記事のアイキャッチ画像を生成する。「アイキャッチ作成」「eyecatch」「サムネイル生成」「アイキャッチ画像」などで起動。記事の内容を分析し、統一デザインルールに基づいた高品質な画像を生成。
 ---
 

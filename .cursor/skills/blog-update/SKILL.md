@@ -1,5 +1,5 @@
 ---
-name: update-blog
+name: blog-update
 description: 既存記事の修正をWordPressに反映する。「記事を更新」「修正を反映」「記事を同期」「変更をアップロード」「記事を上書き」「更新を投稿」などで起動。ローカルで編集したMarkdown記事をWordPressに反映。
 ---
 

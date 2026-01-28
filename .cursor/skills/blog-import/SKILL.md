@@ -1,5 +1,5 @@
 ---
-name: import-blog
+name: blog-import
 description: WordPressから記事をインポートする。「記事をインポート」「既存記事を取得」「WordPressから取得」「記事をダウンロード」「投稿をローカルに」「記事を同期」などで起動。WordPress REST API経由で記事を取得しMarkdownとして保存。
 ---
 

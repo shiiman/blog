@@ -51,23 +51,23 @@ go build -o wp-cli .
 
 ```bash
 # 記事を書く
-/write-blog
+/blog-write
 
 # WordPressから既存記事をインポート
-/import-blog
+/blog-import
 
 # 記事を投稿
-/publish-blog
+/blog-publish
 
 # 記事を更新
-/update-blog
+/blog-update
 ```
 
 #### アイキャッチ画像生成（Cursor/Antigravity のみ）
 
 ```bash
 # アイキャッチ画像を生成
-/create-eyecatch
+/eyecatch-create
 ```
 
 > **Note**: Claude Codeには画像生成機能がないため、アイキャッチは手動配置が必要です。
@@ -164,10 +164,10 @@ menu_order: 0
 
 ```bash
 # 1. 記事を作成
-/write-blog
+/blog-write
 
 # 2. アイキャッチ画像を生成（AIが記事内容を分析して自動生成）
-/create-eyecatch
+/eyecatch-create
 
 # 3. 投稿（アイキャッチは自動でアップロード・設定）
 ./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md --publish
@@ -183,7 +183,7 @@ menu_order: 0
 
 ```bash
 # 1. 記事を作成
-/write-blog
+/blog-write
 
 # 2. アイキャッチ画像を手動で配置
 # drafts/2026-01-03_my-article/assets/eyecatch.png

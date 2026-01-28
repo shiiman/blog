@@ -22,19 +22,19 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 
 ## Skills
 
-- `/write-blog` - Write a new blog article
-- `/publish-blog` - Publish article to WordPress (draft by default)
-- `/import-blog` - Import existing articles from WordPress
-- `/update-blog` - Update existing article on WordPress
-- `/create-eyecatch` - Generate eyecatch image for blog article
+- `/blog-write` - Write a new blog article
+- `/blog-publish` - Publish article to WordPress (draft by default)
+- `/blog-import` - Import existing articles from WordPress
+- `/blog-update` - Update existing article on WordPress
+- `/eyecatch-create` - Generate eyecatch image for blog article
 
 ## Workflow
 
-1. Use `/import-blog` to import existing articles from WordPress
-2. Use `/write-blog` to create new article in `drafts/`
+1. Use `/blog-import` to import existing articles from WordPress
+2. Use `/blog-write` to create new article in `drafts/`
 3. Review and edit the article
-4. Use `/publish-blog` to post to WordPress as draft
-5. Use `/update-blog` to update existing articles
+4. Use `/blog-publish` to post to WordPress as draft
+5. Use `/blog-update` to update existing articles
 6. Finalize in WordPress dashboard
 
 ## CLI Tool (wp-cli)

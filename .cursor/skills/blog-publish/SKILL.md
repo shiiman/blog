@@ -1,5 +1,5 @@
 ---
-name: publish-blog
+name: blog-publish
 description: Markdown記事をWordPressに投稿する。「記事を投稿」「WordPressに公開」「ブログ投稿」「記事をアップ」「下書き保存」「記事を公開」「WPに投稿」などで起動。drafts/の記事をWordPress REST API経由で投稿。
 ---
 

@@ -46,13 +46,23 @@ CLIツールで投稿（デフォルト: 下書き）:
 ./tools/wp-cli/wp-cli post drafts/YYYY-MM-DD_slug/article.md --dry-run
 ```
 
-### 4. 結果報告
+### 4. 記事ディレクトリの移動（公開時）
+
+記事を公開した場合（`--publish` 指定、または後から `update --publish` で公開した場合）、記事ディレクトリを `drafts/` から `posts/` に移動する:
+```bash
+mv drafts/YYYY-MM-DD_slug posts/
+```
+
+※ `post --publish` で直接公開した場合は CLI が自動移動するため不要。下書き保存後に `update --publish` で公開した場合は手動で移動すること。
+
+### 5. 結果報告
 
 投稿結果をユーザーに報告:
 - タイトル
 - 投稿ID
 - URL
 - ステータス（下書き/公開）
+- 記事の配置先（`drafts/` or `posts/`）
 
 ## CLIコマンドリファレンス
 

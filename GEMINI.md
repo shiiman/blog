@@ -23,6 +23,12 @@ The following workflows are defined in `.agent/workflows/`:
 - `/blog-publish` - Publish a post to WordPress (default state is draft)
 - `/blog-update` - Update an existing post on WordPress
 
+For Codex, project-local skills are defined in `.agents/skills/`:
+- `blog-write`
+- `blog-import`
+- `blog-publish`
+- `blog-update`
+
 
 ## Workflow
 1. Use `/blog-import` to import existing articles from WordPress

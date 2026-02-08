@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Update"
+  short_description: "Sync edited Markdown posts back to WordPress"
+  default_prompt: "Use $blog-update to update an existing WordPress post/page from local Markdown using front matter id and report the outcome."

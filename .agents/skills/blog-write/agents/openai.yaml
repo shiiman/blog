@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Write"
+  short_description: "Write SEO-focused Japanese tech blog drafts"
+  default_prompt: "Use $blog-write to draft a new Japanese technical blog article in drafts/ with proper front matter and heading hierarchy."

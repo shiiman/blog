@@ -13,6 +13,10 @@ ConoHa上で運営するWordPress技術ブログ（<https://shiimanblog.com>）�
 
 ## セットアップ
 
+### 前提条件
+
+- **Go 1.24以上** - CLIツールのビルドに必要です。[Go公式サイト](https://go.dev/dl/)からインストールしてください。
+
 ### 1. WordPress アプリケーションパスワードの発行
 
 1. <https://shiimanblog.com/wp-admin/> にログイン
@@ -208,6 +212,55 @@ menu_order: 0
 ### 麻雀点数計算 (`pages/mahjong/`)
 
 麻雀の点数計算ツール。
+
+## トラブルシューティング
+
+### wp-cli ビルドエラー
+
+```
+go build: command not found
+```
+
+**対処法:** Go がインストールされていません。[Go公式サイト](https://go.dev/dl/)からインストールしてください（Go 1.24以上が必要）。
+
+```
+go: module requires Go >= 1.24
+```
+
+**対処法:** Go のバージョンが古いです。`go version` で確認し、1.24以上にアップデートしてください。
+
+### .env 未設定時のエラー
+
+```
+Error: WP_SITE_URL is not set
+```
+
+**対処法:**
+1. `.env.example` をコピーして `.env` を作成: `cp .env.example .env`
+2. `.env` に WordPress の接続情報を設定してください（セットアップ手順を参照）
+
+### WordPress API 認証失敗
+
+```
+Error: 401 Unauthorized
+```
+
+**対処法:**
+- `WP_USERNAME` と `WP_APP_PASSWORD` が正しいか確認
+- アプリケーションパスワードにスペースが含まれていることを確認（`xxxx xxxx xxxx xxxx` 形式）
+- WordPress管理画面でアプリケーションパスワードが有効か確認
+- パスワードを再発行して `.env` を更新
+
+### WordPress API 接続エラー
+
+```
+Error: connection refused / timeout
+```
+
+**対処法:**
+- `WP_SITE_URL` が正しいか確認（末尾のスラッシュは不要）
+- サイトが稼働中か確認: `curl -I https://shiimanblog.com`
+- WordPress REST API が有効か確認: `curl https://shiimanblog.com/wp-json/wp/v2/posts`
 
 ## ライセンス
 

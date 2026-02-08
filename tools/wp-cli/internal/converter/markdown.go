@@ -125,12 +125,12 @@ func parseFrontMatter(content string) (*types.FrontMatter, string, error) {
 	matches := re.FindStringSubmatch(content)
 
 	if len(matches) != 3 {
-		return nil, content, nil // Front Matterがない場合
+		return &types.FrontMatter{}, content, nil // Front Matterがない場合
 	}
 
 	var fm types.FrontMatter
 	if err := yaml.Unmarshal([]byte(matches[1]), &fm); err != nil {
-		return nil, "", fmt.Errorf("Front Matterのパースに失敗: %w", err)
+		return nil, "", fmt.Errorf("front matterのパースに失敗: %w", err)
 	}
 
 	return &fm, strings.TrimSpace(matches[2]), nil
@@ -140,7 +140,7 @@ func parseFrontMatter(content string) (*types.FrontMatter, string, error) {
 func GenerateArticleFile(article *types.Article) (string, error) {
 	fmBytes, err := yaml.Marshal(article.FrontMatter)
 	if err != nil {
-		return "", fmt.Errorf("Front Matterの生成に失敗: %w", err)
+		return "", fmt.Errorf("front matterの生成に失敗: %w", err)
 	}
 
 	return fmt.Sprintf("---\n%s---\n\n%s", string(fmBytes), article.Content), nil
@@ -162,8 +162,8 @@ func PostToArticle(post *types.Post) (*types.Article, error) {
 		Categories:    post.Categories,
 		Tags:          post.Tags,
 		FeaturedMedia: post.FeaturedMedia,
-		Date:          post.Date.Time.Format("2006-01-02T15:04:05"),
-		Modified:      post.Modified.Time.Format("2006-01-02T15:04:05"),
+		Date:          post.Date.Format("2006-01-02T15:04:05"),
+		Modified:      post.Modified.Format("2006-01-02T15:04:05"),
 	}
 
 	// Excerptがある場合はHTMLタグを除去
@@ -193,8 +193,8 @@ func PageToArticle(page *types.Page) (*types.Article, error) {
 		Status:    page.Status,
 		Parent:    page.Parent,
 		MenuOrder: page.MenuOrder,
-		Date:      page.Date.Time.Format("2006-01-02T15:04:05"),
-		Modified:  page.Modified.Time.Format("2006-01-02T15:04:05"),
+		Date:      page.Date.Format("2006-01-02T15:04:05"),
+		Modified:  page.Modified.Format("2006-01-02T15:04:05"),
 	}
 
 	// Excerptがある場合はHTMLタグを除去

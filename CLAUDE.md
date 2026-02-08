@@ -33,9 +33,10 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 1. Use `/blog-import` to import existing articles from WordPress
 2. Use `/blog-write` to create new article in `drafts/`
 3. Review and edit the article
-4. Use `/blog-publish` to post to WordPress as draft
-5. Use `/blog-update` to update existing articles
-6. Finalize in WordPress dashboard
+4. Use `/eyecatch-create` to generate an eyecatch image
+5. Use `/blog-publish` to post to WordPress as draft
+6. Use `/blog-update` to update existing articles
+7. Finalize in WordPress dashboard
 
 ## CLI Tool (wp-cli)
 
@@ -66,12 +67,14 @@ Posts use YAML front matter:
 
 ```yaml
 ---
-id: 123          # WordPress post ID (for updates)
+id: 123                    # WordPress post ID (for updates)
 title: "Title"
 slug: "url-slug"
-status: draft    # draft | publish
-categories: [1]  # Category IDs
-tags: [10, 20]   # Tag IDs
+status: draft              # draft | publish
+excerpt: "Post summary"
+categories: [1]            # Category IDs
+tags: [10, 20]             # Tag IDs
+featured_media: 456        # Eyecatch image media ID
 ---
 ```
 

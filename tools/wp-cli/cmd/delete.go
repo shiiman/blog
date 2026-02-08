@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"os"
+	"fmt"
 	"strconv"
 
 	"github.com/fatih/color"
@@ -20,7 +20,7 @@ var deleteCmd = &cobra.Command{
   wp-cli delete 123
   wp-cli delete 123 --force`,
 	Args: cobra.ExactArgs(1),
-	Run:  runDelete,
+	RunE: runDelete,
 }
 
 var deleteForce bool
@@ -30,17 +30,15 @@ func init() {
 	deleteCmd.Flags().BoolVar(&deleteForce, "force", false, "完全に削除（ゴミ箱をスキップ）")
 }
 
-func runDelete(cmd *cobra.Command, args []string) {
+func runDelete(cmd *cobra.Command, args []string) error {
 	id, err := strconv.Atoi(args[0])
 	if err != nil {
-		color.Red("無効な投稿ID: %s", args[0])
-		os.Exit(1)
+		return fmt.Errorf("無効な投稿ID: %s", args[0])
 	}
 
 	cfg, err := config.Load()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("設定エラー: %w", err)
 	}
 
 	client := wp.NewClient(cfg)
@@ -52,8 +50,7 @@ func runDelete(cmd *cobra.Command, args []string) {
 	}
 
 	if err := client.DeletePost(id, deleteForce); err != nil {
-		color.Red("投稿の削除に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("投稿の削除に失敗: %w", err)
 	}
 
 	if deleteForce {
@@ -61,4 +58,5 @@ func runDelete(cmd *cobra.Command, args []string) {
 	} else {
 		color.Green("投稿 %d をゴミ箱に移動しました。", id)
 	}
+	return nil
 }

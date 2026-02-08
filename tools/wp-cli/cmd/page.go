@@ -1,13 +1,11 @@
 package cmd
 
 import (
-	"os"
+	"fmt"
 
 	"github.com/fatih/color"
-	"github.com/shiimanblog/wp-cli/internal/config"
 	"github.com/shiimanblog/wp-cli/internal/converter"
 	"github.com/shiimanblog/wp-cli/internal/types"
-	"github.com/shiimanblog/wp-cli/internal/wp"
 	"github.com/spf13/cobra"
 )
 
@@ -22,7 +20,7 @@ var pageCmd = &cobra.Command{
   wp-cli page drafts/page.md --publish
   wp-cli page drafts/page.md --dry-run`,
 	Args: cobra.ExactArgs(1),
-	Run:  runPage,
+	RunE: runPage,
 }
 
 var pagePublish bool
@@ -34,53 +32,39 @@ func init() {
 	pageCmd.Flags().BoolVar(&pageDryRun, "dry-run", false, "投稿せずに内容を確認")
 }
 
-func runPage(cmd *cobra.Command, args []string) {
+func runPage(cmd *cobra.Command, args []string) error {
 	filePath := args[0]
 
 	// 記事ファイルを解析
 	article, err := converter.ParseArticle(filePath)
 	if err != nil {
-		color.Red("記事ファイルの解析に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("記事ファイルの解析に失敗: %w", err)
 	}
 
 	// ステータスの決定
-	status := "draft"
-	if pagePublish {
-		status = "publish"
-	}
-	if article.FrontMatter.Status != "" && !pagePublish {
-		status = article.FrontMatter.Status
-	}
+	status := determineStatus(pagePublish, article.FrontMatter.Status)
 
 	// MarkdownをHTMLに変換
 	htmlContent := converter.MarkdownToHTML(article.Content)
 
 	// ドライラン
 	if pageDryRun {
-		color.Yellow("=== ドライラン モード ===")
-		color.White("タイトル: %s", article.FrontMatter.Title)
-		color.White("スラッグ: %s", article.FrontMatter.Slug)
-		color.White("ステータス: %s", status)
-		color.White("親ページID: %d", article.FrontMatter.Parent)
-		color.White("メニュー順序: %d", article.FrontMatter.MenuOrder)
-		color.White("\n--- 本文（HTML）プレビュー ---")
-		preview := htmlContent
-		if len(preview) > 500 {
-			preview = preview[:500] + "..."
-		}
-		color.White("%s", preview)
-		return
+		showPageDryRunPreview(
+			article.FrontMatter.Title,
+			article.FrontMatter.Slug,
+			status,
+			htmlContent,
+			article.FrontMatter.Parent,
+			article.FrontMatter.MenuOrder,
+		)
+		return nil
 	}
 
-	// 設定読み込み
-	cfg, err := config.Load()
+	// 設定読み込みとクライアント生成
+	client, err := setupClient()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return err
 	}
-
-	client := wp.NewClient(cfg)
 
 	// 固定ページ作成リクエスト
 	req := &types.CreatePageRequest{
@@ -97,12 +81,9 @@ func runPage(cmd *cobra.Command, args []string) {
 
 	page, err := client.CreatePage(req)
 	if err != nil {
-		color.Red("固定ページの作成に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("固定ページの作成に失敗: %w", err)
 	}
 
-	color.Green("固定ページが作成されました！")
-	color.White("  ID: %d", page.ID)
-	color.White("  URL: %s", page.Link)
-	color.White("  ステータス: %s", formatStatus(page.Status))
+	printPageResult(page, false)
+	return nil
 }

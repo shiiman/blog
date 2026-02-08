@@ -6,7 +6,6 @@ import (
 	"text/tabwriter"
 
 	"github.com/fatih/color"
-	"github.com/shiimanblog/wp-cli/internal/config"
 	"github.com/shiimanblog/wp-cli/internal/wp"
 	"github.com/spf13/cobra"
 )
@@ -21,7 +20,7 @@ var listCmd = &cobra.Command{
   wp-cli list posts --status=draft  # 下書きのみ
   wp-cli list pages           # 固定ページ一覧`,
 	Args: cobra.ExactArgs(1),
-	Run:  runList,
+	RunE: runList,
 }
 
 var listStatus string
@@ -33,103 +32,77 @@ func init() {
 	listCmd.Flags().IntVar(&listLimit, "limit", 20, "取得件数")
 }
 
-func runList(cmd *cobra.Command, args []string) {
-	cfg, err := config.Load()
+func runList(cmd *cobra.Command, args []string) error {
+	client, err := setupClient()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return err
 	}
 
-	client := wp.NewClient(cfg)
 	itemType := args[0]
 
 	switch itemType {
 	case "posts":
-		listPosts(client)
+		return listPosts(client)
 	case "pages":
-		listPages(client)
+		return listPages(client)
 	default:
-		color.Red("無効な引数です。'posts' または 'pages' を指定してください。")
-		os.Exit(1)
+		return fmt.Errorf("無効な引数です。'posts' または 'pages' を指定してください")
 	}
 }
 
-func listPosts(client *wp.Client) {
+func listPosts(client *wp.Client) error {
 	color.Cyan("投稿一覧を取得中...")
 
 	posts, err := client.GetPosts(1, listLimit, listStatus)
 	if err != nil {
-		color.Red("投稿一覧の取得に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("投稿一覧の取得に失敗: %w", err)
 	}
 
 	if len(posts) == 0 {
 		color.Yellow("投稿が見つかりませんでした。")
-		return
+		return nil
 	}
 
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
-	fmt.Fprintln(w, "ID\tタイトル\tステータス\tスラッグ\t日付")
-	fmt.Fprintln(w, "---\t---\t---\t---\t---")
+	_, _ = fmt.Fprintln(w, "ID\tタイトル\tステータス\tスラッグ\t日付")
+	_, _ = fmt.Fprintln(w, "---\t---\t---\t---\t---")
 
 	for _, post := range posts {
 		status := formatStatus(post.Status)
-		date := post.Date.Time.Format("2006-01-02")
+		date := post.Date.Format("2006-01-02")
 		title := truncate(post.Title.Rendered, 40)
-		fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%s\n", post.ID, title, status, post.Slug, date)
+		_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%s\n", post.ID, title, status, post.Slug, date)
 	}
-	w.Flush()
+	_ = w.Flush()
 
 	color.Green("\n%d件の投稿を表示しました。", len(posts))
+	return nil
 }
 
-func listPages(client *wp.Client) {
+func listPages(client *wp.Client) error {
 	color.Cyan("固定ページ一覧を取得中...")
 
 	pages, err := client.GetPages(1, listLimit, listStatus)
 	if err != nil {
-		color.Red("固定ページ一覧の取得に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("固定ページ一覧の取得に失敗: %w", err)
 	}
 
 	if len(pages) == 0 {
 		color.Yellow("固定ページが見つかりませんでした。")
-		return
+		return nil
 	}
 
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
-	fmt.Fprintln(w, "ID\tタイトル\tステータス\tスラッグ\t親ID")
-	fmt.Fprintln(w, "---\t---\t---\t---\t---")
+	_, _ = fmt.Fprintln(w, "ID\tタイトル\tステータス\tスラッグ\t親ID")
+	_, _ = fmt.Fprintln(w, "---\t---\t---\t---\t---")
 
 	for _, page := range pages {
 		status := formatStatus(page.Status)
 		title := truncate(page.Title.Rendered, 40)
-		fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%d\n", page.ID, title, status, page.Slug, page.Parent)
+		_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%d\n", page.ID, title, status, page.Slug, page.Parent)
 	}
-	w.Flush()
+	_ = w.Flush()
 
 	color.Green("\n%d件の固定ページを表示しました。", len(pages))
-}
-
-func formatStatus(status string) string {
-	switch status {
-	case "publish":
-		return color.GreenString("公開")
-	case "draft":
-		return color.YellowString("下書き")
-	case "pending":
-		return color.CyanString("保留中")
-	case "private":
-		return color.MagentaString("非公開")
-	default:
-		return status
-	}
-}
-
-func truncate(s string, maxLen int) string {
-	runes := []rune(s)
-	if len(runes) <= maxLen {
-		return s
-	}
-	return string(runes[:maxLen-3]) + "..."
+	return nil
 }

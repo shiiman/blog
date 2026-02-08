@@ -5,6 +5,8 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
+	"sync"
 
 	"github.com/fatih/color"
 	"github.com/shiimanblog/wp-cli/internal/config"
@@ -26,7 +28,7 @@ var importCmd = &cobra.Command{
   wp-cli import pages           # 全固定ページをインポート
   wp-cli import page 45         # ID=45の固定ページをインポート`,
 	Args: cobra.MinimumNArgs(1),
-	Run:  runImport,
+	RunE: runImport,
 }
 
 var importLimit int
@@ -38,11 +40,10 @@ func init() {
 	importCmd.Flags().StringVarP(&importOutputDir, "output", "o", "", "出力ディレクトリ（デフォルト: posts/ または pages/）")
 }
 
-func runImport(cmd *cobra.Command, args []string) {
+func runImport(cmd *cobra.Command, args []string) error {
 	cfg, err := config.Load()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("設定エラー: %w", err)
 	}
 
 	client := wp.NewClient(cfg)
@@ -50,49 +51,54 @@ func runImport(cmd *cobra.Command, args []string) {
 
 	switch itemType {
 	case "posts":
-		importPosts(client)
+		return importPosts(client)
 	case "post":
 		if len(args) < 2 {
-			color.Red("投稿IDを指定してください。")
-			os.Exit(1)
+			return fmt.Errorf("投稿IDを指定してください")
 		}
 		id, err := strconv.Atoi(args[1])
 		if err != nil {
-			color.Red("無効な投稿ID: %s", args[1])
-			os.Exit(1)
+			return fmt.Errorf("無効な投稿ID: %s", args[1])
 		}
-		importPost(client, id)
+		return importPost(client, id)
 	case "pages":
-		importPages(client)
+		return importPages(client)
 	case "page":
 		if len(args) < 2 {
-			color.Red("固定ページIDを指定してください。")
-			os.Exit(1)
+			return fmt.Errorf("固定ページIDを指定してください")
 		}
 		id, err := strconv.Atoi(args[1])
 		if err != nil {
-			color.Red("無効な固定ページID: %s", args[1])
-			os.Exit(1)
+			return fmt.Errorf("無効な固定ページID: %s", args[1])
 		}
-		importPage(client, id)
+		return importPage(client, id)
 	default:
-		color.Red("無効な引数です。'posts', 'post', 'pages', または 'page' を指定してください。")
-		os.Exit(1)
+		return fmt.Errorf("無効な引数です。'posts', 'post', 'pages', または 'page' を指定してください")
 	}
 }
 
-func importPosts(client *wp.Client) {
+// importResult は並行インポートの結果を保持する
+type importResult struct {
+	id      int
+	article *types.Article
+	dirPath string
+	title   string
+	err     error
+}
+
+const maxConcurrency = 10
+
+func importPosts(client *wp.Client) error {
 	color.Cyan("投稿をインポート中...")
 
 	posts, err := client.GetPosts(1, importLimit, "")
 	if err != nil {
-		color.Red("投稿一覧の取得に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("投稿一覧の取得に失敗: %w", err)
 	}
 
 	if len(posts) == 0 {
 		color.Yellow("インポートする投稿がありません。")
-		return
+		return nil
 	}
 
 	outputDir := importOutputDir
@@ -100,50 +106,73 @@ func importPosts(client *wp.Client) {
 		outputDir = "posts"
 	}
 
+	// 並行で詳細取得・変換を実行
+	results := make([]importResult, len(posts))
+	sem := make(chan struct{}, maxConcurrency)
+	var wg sync.WaitGroup
+
+	for i, post := range posts {
+		wg.Add(1)
+		go func(idx int, postID int) {
+			defer wg.Done()
+			sem <- struct{}{}
+			defer func() { <-sem }()
+
+			fullPost, err := client.GetPost(postID)
+			if err != nil {
+				results[idx] = importResult{id: postID, err: fmt.Errorf("詳細取得に失敗: %w", err)}
+				return
+			}
+
+			article, err := converter.PostToArticle(fullPost)
+			if err != nil {
+				results[idx] = importResult{id: postID, err: fmt.Errorf("変換に失敗: %w", err)}
+				return
+			}
+
+			dirName := fullPost.Date.Format("2006-01-02") + "_" + fullPost.Slug
+			results[idx] = importResult{
+				id:      postID,
+				article: article,
+				dirPath: filepath.Join(outputDir, dirName),
+				title:   fullPost.Title.Rendered,
+			}
+		}(i, post.ID)
+	}
+	wg.Wait()
+
+	// 結果を順番に保存
 	imported := 0
-	for _, post := range posts {
-		// 投稿を詳細取得（content.rawを取得するため）
-		fullPost, err := client.GetPost(post.ID)
-		if err != nil {
-			color.Yellow("投稿 %d の詳細取得に失敗: %v", post.ID, err)
+	for _, r := range results {
+		if r.err != nil {
+			color.Yellow("投稿 %d: %v", r.id, r.err)
 			continue
 		}
 
-		article, err := converter.PostToArticle(fullPost)
-		if err != nil {
-			color.Yellow("投稿 %d の変換に失敗: %v", post.ID, err)
+		if err := saveArticle(r.dirPath, "article.md", r.article); err != nil {
+			color.Yellow("投稿 %d の保存に失敗: %v", r.id, err)
 			continue
 		}
 
-		// ディレクトリ名: YYYY-MM-DD_slug
-		dirName := fullPost.Date.Time.Format("2006-01-02") + "_" + fullPost.Slug
-		dirPath := filepath.Join(outputDir, dirName)
-
-		if err := saveArticle(dirPath, "article.md", article); err != nil {
-			color.Yellow("投稿 %d の保存に失敗: %v", post.ID, err)
-			continue
-		}
-
-		color.White("  ✓ %s", fullPost.Title.Rendered)
+		color.White("  ✓ %s", r.title)
 		imported++
 	}
 
 	color.Green("\n%d件の投稿をインポートしました。", imported)
+	return nil
 }
 
-func importPost(client *wp.Client, id int) {
+func importPost(client *wp.Client, id int) error {
 	color.Cyan("投稿 %d をインポート中...", id)
 
 	post, err := client.GetPost(id)
 	if err != nil {
-		color.Red("投稿の取得に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("投稿の取得に失敗: %w", err)
 	}
 
 	article, err := converter.PostToArticle(post)
 	if err != nil {
-		color.Red("投稿の変換に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("投稿の変換に失敗: %w", err)
 	}
 
 	outputDir := importOutputDir
@@ -152,29 +181,28 @@ func importPost(client *wp.Client, id int) {
 	}
 
 	// ディレクトリ名: YYYY-MM-DD_slug
-	dirName := post.Date.Time.Format("2006-01-02") + "_" + post.Slug
+	dirName := post.Date.Format("2006-01-02") + "_" + post.Slug
 	dirPath := filepath.Join(outputDir, dirName)
 
 	if err := saveArticle(dirPath, "article.md", article); err != nil {
-		color.Red("投稿の保存に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("投稿の保存に失敗: %w", err)
 	}
 
 	color.Green("投稿をインポートしました: %s", filepath.Join(dirPath, "article.md"))
+	return nil
 }
 
-func importPages(client *wp.Client) {
+func importPages(client *wp.Client) error {
 	color.Cyan("固定ページをインポート中...")
 
 	pages, err := client.GetPages(1, importLimit, "")
 	if err != nil {
-		color.Red("固定ページ一覧の取得に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("固定ページ一覧の取得に失敗: %w", err)
 	}
 
 	if len(pages) == 0 {
 		color.Yellow("インポートする固定ページがありません。")
-		return
+		return nil
 	}
 
 	outputDir := importOutputDir
@@ -182,49 +210,72 @@ func importPages(client *wp.Client) {
 		outputDir = "pages"
 	}
 
+	// 並行で詳細取得・変換を実行
+	results := make([]importResult, len(pages))
+	sem := make(chan struct{}, maxConcurrency)
+	var wg sync.WaitGroup
+
+	for i, page := range pages {
+		wg.Add(1)
+		go func(idx int, pageID int) {
+			defer wg.Done()
+			sem <- struct{}{}
+			defer func() { <-sem }()
+
+			fullPage, err := client.GetPage(pageID)
+			if err != nil {
+				results[idx] = importResult{id: pageID, err: fmt.Errorf("詳細取得に失敗: %w", err)}
+				return
+			}
+
+			article, err := converter.PageToArticle(fullPage)
+			if err != nil {
+				results[idx] = importResult{id: pageID, err: fmt.Errorf("変換に失敗: %w", err)}
+				return
+			}
+
+			results[idx] = importResult{
+				id:      pageID,
+				article: article,
+				dirPath: filepath.Join(outputDir, fullPage.Slug),
+				title:   fullPage.Title.Rendered,
+			}
+		}(i, page.ID)
+	}
+	wg.Wait()
+
+	// 結果を順番に保存
 	imported := 0
-	for _, page := range pages {
-		// 固定ページを詳細取得
-		fullPage, err := client.GetPage(page.ID)
-		if err != nil {
-			color.Yellow("固定ページ %d の詳細取得に失敗: %v", page.ID, err)
+	for _, r := range results {
+		if r.err != nil {
+			color.Yellow("固定ページ %d: %v", r.id, r.err)
 			continue
 		}
 
-		article, err := converter.PageToArticle(fullPage)
-		if err != nil {
-			color.Yellow("固定ページ %d の変換に失敗: %v", page.ID, err)
+		if err := saveArticle(r.dirPath, "page.md", r.article); err != nil {
+			color.Yellow("固定ページ %d の保存に失敗: %v", r.id, err)
 			continue
 		}
 
-		// ディレクトリ名: slug
-		dirPath := filepath.Join(outputDir, fullPage.Slug)
-
-		if err := saveArticle(dirPath, "page.md", article); err != nil {
-			color.Yellow("固定ページ %d の保存に失敗: %v", page.ID, err)
-			continue
-		}
-
-		color.White("  ✓ %s", fullPage.Title.Rendered)
+		color.White("  ✓ %s", r.title)
 		imported++
 	}
 
 	color.Green("\n%d件の固定ページをインポートしました。", imported)
+	return nil
 }
 
-func importPage(client *wp.Client, id int) {
+func importPage(client *wp.Client, id int) error {
 	color.Cyan("固定ページ %d をインポート中...", id)
 
 	page, err := client.GetPage(id)
 	if err != nil {
-		color.Red("固定ページの取得に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("固定ページの取得に失敗: %w", err)
 	}
 
 	article, err := converter.PageToArticle(page)
 	if err != nil {
-		color.Red("固定ページの変換に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("固定ページの変換に失敗: %w", err)
 	}
 
 	outputDir := importOutputDir
@@ -236,16 +287,32 @@ func importPage(client *wp.Client, id int) {
 	dirPath := filepath.Join(outputDir, page.Slug)
 
 	if err := saveArticle(dirPath, "page.md", article); err != nil {
-		color.Red("固定ページの保存に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("固定ページの保存に失敗: %w", err)
 	}
 
 	color.Green("固定ページをインポートしました: %s", filepath.Join(dirPath, "page.md"))
+	return nil
 }
 
 func saveArticle(dirPath, filename string, article *types.Article) error {
+	// パストラバーサル対策: パスを正規化し、ベースディレクトリ外への書き込みを防止
+	cleanPath := filepath.Clean(dirPath)
+	absPath, err := filepath.Abs(cleanPath)
+	if err != nil {
+		return fmt.Errorf("パスの解決に失敗: %w", err)
+	}
+
+	// カレントディレクトリを基準にベースディレクトリ外への書き込みを防止
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("カレントディレクトリの取得に失敗: %w", err)
+	}
+	if !strings.HasPrefix(absPath, cwd+string(filepath.Separator)) && absPath != cwd {
+		return fmt.Errorf("不正なパスです（ベースディレクトリ外への書き込み）: %s", dirPath)
+	}
+
 	// ディレクトリ作成
-	if err := os.MkdirAll(dirPath, 0755); err != nil {
+	if err := os.MkdirAll(cleanPath, 0755); err != nil {
 		return fmt.Errorf("ディレクトリの作成に失敗: %w", err)
 	}
 

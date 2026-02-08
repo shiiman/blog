@@ -20,9 +20,8 @@ func Load() (*Config, error) {
 	// プロジェクトルートの.envを探す
 	envPath := findEnvFile()
 	if envPath != "" {
-		if err := godotenv.Load(envPath); err != nil {
-			// .envファイルが見つからない場合は環境変数から読み込む
-		}
+		// .envファイルの読み込みに失敗しても環境変数から読み込むため無視する
+		_ = godotenv.Load(envPath)
 	}
 
 	siteURL := os.Getenv("WP_SITE_URL")

@@ -7,10 +7,8 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
-	"github.com/shiimanblog/wp-cli/internal/config"
 	"github.com/shiimanblog/wp-cli/internal/converter"
 	"github.com/shiimanblog/wp-cli/internal/types"
-	"github.com/shiimanblog/wp-cli/internal/wp"
 	"github.com/spf13/cobra"
 )
 
@@ -28,7 +26,7 @@ var postCmd = &cobra.Command{
   wp-cli post drafts/article.md --publish
   wp-cli post drafts/article.md --dry-run`,
 	Args: cobra.ExactArgs(1),
-	Run:  runPost,
+	RunE: runPost,
 }
 
 var postPublish bool
@@ -40,79 +38,45 @@ func init() {
 	postCmd.Flags().BoolVar(&postDryRun, "dry-run", false, "投稿せずに内容を確認")
 }
 
-func runPost(cmd *cobra.Command, args []string) {
+func runPost(cmd *cobra.Command, args []string) error {
 	filePath := args[0]
 
 	// 記事ファイルを解析
 	article, err := converter.ParseArticle(filePath)
 	if err != nil {
-		color.Red("記事ファイルの解析に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("記事ファイルの解析に失敗: %w", err)
 	}
 
 	// ステータスの決定
-	status := "draft"
-	if postPublish {
-		status = "publish"
-	}
-	if article.FrontMatter.Status != "" && !postPublish {
-		status = article.FrontMatter.Status
-	}
+	status := determineStatus(postPublish, article.FrontMatter.Status)
 
 	// MarkdownをHTMLに変換
 	htmlContent := converter.MarkdownToHTML(article.Content)
 
 	// ドライラン
 	if postDryRun {
-		color.Yellow("=== ドライラン モード ===")
-		color.White("タイトル: %s", article.FrontMatter.Title)
-		color.White("スラッグ: %s", article.FrontMatter.Slug)
-		color.White("ステータス: %s", status)
-		color.White("カテゴリ: %v", article.FrontMatter.Categories)
-		color.White("タグ: %v", article.FrontMatter.Tags)
-		color.White("\n--- 本文（HTML）プレビュー ---")
-		preview := htmlContent
-		if len(preview) > 500 {
-			preview = preview[:500] + "..."
-		}
-		color.White("%s", preview)
-		return
+		showDryRunPreview(
+			article.FrontMatter.Title,
+			article.FrontMatter.Slug,
+			status,
+			htmlContent,
+			article.FrontMatter.Categories,
+			article.FrontMatter.Tags,
+		)
+		return nil
 	}
 
-	// 設定読み込み
-	cfg, err := config.Load()
+	// 設定読み込みとクライアント生成
+	client, err := setupClient()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return err
 	}
-
-	client := wp.NewClient(cfg)
 
 	// アイキャッチ画像のアップロード
-	featuredMediaID := article.FrontMatter.FeaturedMedia
 	articleDir := filepath.Dir(filePath)
-	eyecatchPath := filepath.Join(articleDir, "assets", eyecatchFilename)
-
-	if _, err := os.Stat(eyecatchPath); err == nil && featuredMediaID == 0 {
-		// アイキャッチ画像が存在し、まだ設定されていない場合
-		color.Cyan("アイキャッチ画像をアップロード中...")
-
-		imageData, err := os.ReadFile(eyecatchPath)
-		if err != nil {
-			color.Red("アイキャッチ画像の読み込みに失敗: %v", err)
-			os.Exit(1)
-		}
-
-		media, err := client.UploadMedia(eyecatchFilename, imageData, "image/png")
-		if err != nil {
-			color.Red("アイキャッチ画像のアップロードに失敗: %v", err)
-			os.Exit(1)
-		}
-
-		featuredMediaID = media.ID
-		color.Green("アイキャッチ画像をアップロードしました！")
-		color.White("  メディアID: %d", media.ID)
-		color.White("  URL: %s", media.SourceURL)
+	featuredMediaID, err := uploadEyecatchIfExists(client, articleDir, article.FrontMatter.FeaturedMedia, false)
+	if err != nil {
+		return err
 	}
 
 	var post *types.Post
@@ -135,11 +99,9 @@ func runPost(cmd *cobra.Command, args []string) {
 
 		post, err = client.UpdatePost(article.FrontMatter.ID, req)
 		if err != nil {
-			color.Red("投稿の更新に失敗: %v", err)
-			os.Exit(1)
+			return fmt.Errorf("投稿の更新に失敗: %w", err)
 		}
 
-		color.Green("投稿が更新されました！")
 	} else {
 		// 新規作成
 		req := &types.CreatePostRequest{
@@ -157,21 +119,17 @@ func runPost(cmd *cobra.Command, args []string) {
 
 		post, err = client.CreatePost(req)
 		if err != nil {
-			color.Red("投稿の作成に失敗: %v", err)
-			os.Exit(1)
+			return fmt.Errorf("投稿の作成に失敗: %w", err)
 		}
-
-		color.Green("投稿が作成されました！")
 	}
 
-	color.White("  ID: %d", post.ID)
-	color.White("  URL: %s", post.Link)
-	color.White("  ステータス: %s", formatStatus(post.Status))
+	printPostResult(post, article.FrontMatter.ID > 0)
 
 	// 公開時にdrafts/からposts/に移動
 	if status == "publish" && strings.Contains(filePath, "drafts/") {
 		moveToPublished(filePath, post)
 	}
+	return nil
 }
 
 // moveToPublished はdrafts/からposts/に記事を移動する
@@ -180,8 +138,24 @@ func moveToPublished(filePath string, post *types.Post) {
 	srcDir := filepath.Dir(filePath)
 
 	// 新しいディレクトリ名: YYYY-MM-DD_slug
-	newDirName := post.Date.Time.Format("2006-01-02") + "_" + post.Slug
-	destDir := filepath.Join("posts", newDirName)
+	newDirName := post.Date.Format("2006-01-02") + "_" + post.Slug
+	destDir := filepath.Clean(filepath.Join("posts", newDirName))
+
+	// パストラバーサル対策: 移動先がposts/配下であることを検証
+	absDestDir, err := filepath.Abs(destDir)
+	if err != nil {
+		color.Yellow("  パスの解決に失敗: %v", err)
+		return
+	}
+	absPosts, err := filepath.Abs("posts")
+	if err != nil {
+		color.Yellow("  パスの解決に失敗: %v", err)
+		return
+	}
+	if !strings.HasPrefix(absDestDir, absPosts+string(filepath.Separator)) {
+		color.Yellow("  不正なパスです（posts/ディレクトリ外への移動）: %s", destDir)
+		return
+	}
 
 	// 移動先が既に存在する場合はスキップ
 	if _, err := os.Stat(destDir); err == nil {
@@ -206,7 +180,7 @@ func moveToPublished(filePath string, post *types.Post) {
 	articlePath := filepath.Join(destDir, filepath.Base(filePath))
 	article.FrontMatter.ID = post.ID
 	article.FrontMatter.Status = "publish"
-	article.FrontMatter.Date = post.Date.Time.Format("2006-01-02T15:04:05")
+	article.FrontMatter.Date = post.Date.Format("2006-01-02T15:04:05")
 	article.FrontMatter.FeaturedMedia = post.FeaturedMedia
 
 	content, err := converter.GenerateArticleFile(article)

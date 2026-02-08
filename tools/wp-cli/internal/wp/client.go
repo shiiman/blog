@@ -7,7 +7,9 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"strings"
+	"time"
 
 	"github.com/shiimanblog/wp-cli/internal/config"
 	"github.com/shiimanblog/wp-cli/internal/types"
@@ -24,7 +26,7 @@ type Client struct {
 func NewClient(cfg *config.Config) *Client {
 	return &Client{
 		config:     cfg,
-		httpClient: &http.Client{},
+		httpClient: &http.Client{Timeout: 30 * time.Second},
 		baseURL:    strings.TrimSuffix(cfg.SiteURL, "/") + "/wp-json/wp/v2",
 	}
 }
@@ -57,13 +59,13 @@ func (c *Client) doRequest(method, endpoint string, body interface{}) ([]byte, e
 
 	req.Header.Set("Authorization", c.getAuthHeader())
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+	req.Header.Set("User-Agent", "wp-cli/1.0.0")
 
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("リクエストの実行に失敗: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -81,7 +83,7 @@ func (c *Client) doRequest(method, endpoint string, body interface{}) ([]byte, e
 func (c *Client) GetPosts(page, perPage int, status string) ([]types.Post, error) {
 	endpoint := fmt.Sprintf("/posts?page=%d&per_page=%d&_embed", page, perPage)
 	if status != "" {
-		endpoint += "&status=" + status
+		endpoint += "&status=" + url.QueryEscape(status)
 	}
 
 	body, err := c.doRequest("GET", endpoint, nil)
@@ -161,7 +163,7 @@ func (c *Client) DeletePost(id int, force bool) error {
 func (c *Client) GetPages(page, perPage int, status string) ([]types.Page, error) {
 	endpoint := fmt.Sprintf("/pages?page=%d&per_page=%d&_embed", page, perPage)
 	if status != "" {
-		endpoint += "&status=" + status
+		endpoint += "&status=" + url.QueryEscape(status)
 	}
 
 	body, err := c.doRequest("GET", endpoint, nil)
@@ -299,14 +301,14 @@ func (c *Client) UploadMedia(filename string, data []byte, mimeType string) (*ty
 
 	req.Header.Set("Authorization", c.getAuthHeader())
 	req.Header.Set("Content-Type", mimeType)
-	req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+	req.Header.Set("User-Agent", "wp-cli/1.0.0")
 	req.Header.Set("Content-Disposition", fmt.Sprintf(`attachment; filename="%s"`, filename))
 
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("リクエストの実行に失敗: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {

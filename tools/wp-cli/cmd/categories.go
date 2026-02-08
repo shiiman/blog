@@ -19,21 +19,21 @@ var categoriesCmd = &cobra.Command{
 
 例:
   wp-cli categories`,
-	Run: runCategories,
+	RunE: runCategories,
 }
 
 var createCategoryCmd = &cobra.Command{
 	Use:   "create [name]",
 	Short: "新しいカテゴリを作成",
 	Args:  cobra.ExactArgs(1),
-	Run:   runCreateCategory,
+	RunE:  runCreateCategory,
 }
 
 var updateCategoryCmd = &cobra.Command{
 	Use:   "update [id]",
 	Short: "既存のカテゴリを更新",
 	Args:  cobra.ExactArgs(1),
-	Run:   runUpdateCategory,
+	RunE:  runUpdateCategory,
 }
 
 var tagsCmd = &cobra.Command{
@@ -43,7 +43,7 @@ var tagsCmd = &cobra.Command{
 
 例:
   wp-cli tags`,
-	Run: runTags,
+	RunE: runTags,
 }
 
 var parentID int
@@ -61,11 +61,10 @@ func init() {
 	rootCmd.AddCommand(tagsCmd)
 }
 
-func runCategories(cmd *cobra.Command, args []string) {
+func runCategories(cmd *cobra.Command, args []string) error {
 	cfg, err := config.Load()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("設定エラー: %w", err)
 	}
 
 	client := wp.NewClient(cfg)
@@ -74,33 +73,32 @@ func runCategories(cmd *cobra.Command, args []string) {
 
 	categories, err := client.GetCategories()
 	if err != nil {
-		color.Red("カテゴリ一覧の取得に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("カテゴリ一覧の取得に失敗: %w", err)
 	}
 
 	if len(categories) == 0 {
 		color.Yellow("カテゴリが見つかりませんでした。")
-		return
+		return nil
 	}
 
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
-	fmt.Fprintln(w, "ID\t名前\tスラッグ\t記事数\t親ID")
-	fmt.Fprintln(w, "---\t---\t---\t---\t---")
+	_, _ = fmt.Fprintln(w, "ID\t名前\tスラッグ\t記事数\t親ID")
+	_, _ = fmt.Fprintln(w, "---\t---\t---\t---\t---")
 
 	for _, cat := range categories {
-		fmt.Fprintf(w, "%d\t%s\t%s\t%d\t%d\n", cat.ID, cat.Name, cat.Slug, cat.Count, cat.Parent)
+		_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%d\t%d\n", cat.ID, cat.Name, cat.Slug, cat.Count, cat.Parent)
 	}
-	w.Flush()
+	_ = w.Flush()
 
 	color.Green("\n%d件のカテゴリを表示しました。", len(categories))
+	return nil
 }
 
-func runCreateCategory(cmd *cobra.Command, args []string) {
+func runCreateCategory(cmd *cobra.Command, args []string) error {
 	name := args[0]
 	cfg, err := config.Load()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("設定エラー: %w", err)
 	}
 
 	client := wp.NewClient(cfg)
@@ -114,29 +112,27 @@ func runCreateCategory(cmd *cobra.Command, args []string) {
 
 	category, err := client.CreateCategory(req)
 	if err != nil {
-		color.Red("カテゴリの作成に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("カテゴリの作成に失敗: %w", err)
 	}
 
 	color.Green("カテゴリが作成されました！")
 	fmt.Printf("  ID: %d\n", category.ID)
 	fmt.Printf("  名前: %s\n", category.Name)
 	fmt.Printf("  スラッグ: %s\n", category.Slug)
+	return nil
 }
 
-func runUpdateCategory(cmd *cobra.Command, args []string) {
+func runUpdateCategory(cmd *cobra.Command, args []string) error {
 	idStr := args[0]
 	var id int
 	_, err := fmt.Sscanf(idStr, "%d", &id)
 	if err != nil {
-		color.Red("ID形式エラー: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("ID形式エラー: %w", err)
 	}
 
 	cfg, err := config.Load()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("設定エラー: %w", err)
 	}
 
 	client := wp.NewClient(cfg)
@@ -150,8 +146,7 @@ func runUpdateCategory(cmd *cobra.Command, args []string) {
 
 	category, err := client.UpdateCategory(id, req)
 	if err != nil {
-		color.Red("カテゴリの更新に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("カテゴリの更新に失敗: %w", err)
 	}
 
 	color.Green("カテゴリが更新されました！")
@@ -159,13 +154,13 @@ func runUpdateCategory(cmd *cobra.Command, args []string) {
 	fmt.Printf("  名前: %s\n", category.Name)
 	fmt.Printf("  スラッグ: %s\n", category.Slug)
 	fmt.Printf("  親ID: %d\n", category.Parent)
+	return nil
 }
 
-func runTags(cmd *cobra.Command, args []string) {
+func runTags(cmd *cobra.Command, args []string) error {
 	cfg, err := config.Load()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("設定エラー: %w", err)
 	}
 
 	client := wp.NewClient(cfg)
@@ -174,23 +169,23 @@ func runTags(cmd *cobra.Command, args []string) {
 
 	tags, err := client.GetTags()
 	if err != nil {
-		color.Red("タグ一覧の取得に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("タグ一覧の取得に失敗: %w", err)
 	}
 
 	if len(tags) == 0 {
 		color.Yellow("タグが見つかりませんでした。")
-		return
+		return nil
 	}
 
 	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
-	fmt.Fprintln(w, "ID\t名前\tスラッグ\t記事数")
-	fmt.Fprintln(w, "---\t---\t---\t---")
+	_, _ = fmt.Fprintln(w, "ID\t名前\tスラッグ\t記事数")
+	_, _ = fmt.Fprintln(w, "---\t---\t---\t---")
 
 	for _, tag := range tags {
-		fmt.Fprintf(w, "%d\t%s\t%s\t%d\n", tag.ID, tag.Name, tag.Slug, tag.Count)
+		_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%d\n", tag.ID, tag.Name, tag.Slug, tag.Count)
 	}
-	w.Flush()
+	_ = w.Flush()
 
 	color.Green("\n%d件のタグを表示しました。", len(tags))
+	return nil
 }

@@ -15,7 +15,7 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 - `tools/wp-cli/` - Go-based WordPress management CLI tool
 - `backlog/` - Historical article assets
 
-## Custom Workflows
+## Skills
 The following workflows are defined in `.agent/workflows/`:
 - `/blog-import` - Import existing posts from WordPress
 - `/blog-write` - Create a new blog post as a draft
@@ -24,14 +24,14 @@ The following workflows are defined in `.agent/workflows/`:
 - `/blog-update` - Update an existing post on WordPress
 
 
-## Standard Workflow
-1. Use `/blog-import` to import existing posts.
-2. Use `/blog-write` to create a new post in `drafts/`.
-3. Review and edit the post content.
-4. Use `/eyecatch-create` to generate an eyecatch image.
-5. Use `/blog-publish` to upload the post to WordPress as a draft.
-6. Use `/blog-update` to update existing posts.
-7. Verify and finalize on the WordPress dashboard.
+## Workflow
+1. Use `/blog-import` to import existing articles from WordPress
+2. Use `/blog-write` to create new article in `drafts/`
+3. Review and edit the article
+4. Use `/eyecatch-create` to generate an eyecatch image
+5. Use `/blog-publish` to post to WordPress as draft
+6. Use `/blog-update` to update existing articles
+7. Finalize in WordPress dashboard
 
 ## CLI Tool (wp-cli)
 How to build and run:
@@ -56,12 +56,14 @@ go build -o wp-cli .
 Posts use YAML front matter:
 ```yaml
 ---
-id: 123          # WordPress post ID (for updates)
+id: 123                    # WordPress post ID (for updates)
 title: "Title"
 slug: "url-slug"
-status: draft    # draft | publish
-categories: [1]  # Category IDs
-tags: [10, 20]   # Tag IDs
+status: draft              # draft | publish
+excerpt: "Post summary"
+categories: [1]            # Category IDs
+tags: [10, 20]             # Tag IDs
+featured_media: 456        # Eyecatch image media ID
 ---
 ```
 

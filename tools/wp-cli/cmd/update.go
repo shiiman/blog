@@ -1,11 +1,10 @@
 package cmd
 
 import (
-	"os"
+	"fmt"
 	"path/filepath"
 
 	"github.com/fatih/color"
-	"github.com/shiimanblog/wp-cli/internal/config"
 	"github.com/shiimanblog/wp-cli/internal/converter"
 	"github.com/shiimanblog/wp-cli/internal/types"
 	"github.com/shiimanblog/wp-cli/internal/wp"
@@ -24,7 +23,7 @@ var updateCmd = &cobra.Command{
   wp-cli update drafts/article.md --id=123
   wp-cli update posts/article.md --publish`,
 	Args: cobra.ExactArgs(1),
-	Run:  runUpdate,
+	RunE: runUpdate,
 }
 
 var updateID int
@@ -42,14 +41,13 @@ func init() {
 	updateCmd.Flags().BoolVar(&updateForceEyecatch, "force-eyecatch", false, "アイキャッチ画像を強制的に再アップロード")
 }
 
-func runUpdate(cmd *cobra.Command, args []string) {
+func runUpdate(cmd *cobra.Command, args []string) error {
 	filePath := args[0]
 
 	// 記事ファイルを解析
 	article, err := converter.ParseArticle(filePath)
 	if err != nil {
-		color.Red("記事ファイルの解析に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("記事ファイルの解析に失敗: %w", err)
 	}
 
 	// IDの決定
@@ -58,8 +56,7 @@ func runUpdate(cmd *cobra.Command, args []string) {
 		id = updateID
 	}
 	if id == 0 {
-		color.Red("投稿IDが指定されていません。Front Matterの 'id' フィールドまたは --id オプションで指定してください。")
-		os.Exit(1)
+		return fmt.Errorf("投稿IDが指定されていません。Front Matterの 'id' フィールドまたは --id オプションで指定してください")
 	}
 
 	// ステータスの決定
@@ -88,59 +85,32 @@ func runUpdate(cmd *cobra.Command, args []string) {
 			preview = preview[:500] + "..."
 		}
 		color.White("%s", preview)
-		return
+		return nil
 	}
 
-	// 設定読み込み
-	cfg, err := config.Load()
+	// 設定読み込みとクライアント生成
+	client, err := setupClient()
 	if err != nil {
-		color.Red("設定エラー: %v", err)
-		os.Exit(1)
+		return err
 	}
-
-	client := wp.NewClient(cfg)
 
 	// アイキャッチ画像のアップロード（投稿の場合のみ）
 	featuredMediaID := article.FrontMatter.FeaturedMedia
 	if !updatePage {
 		articleDir := filepath.Dir(filePath)
-		eyecatchPath := filepath.Join(articleDir, "assets", eyecatchFilename)
-
-		// アイキャッチ画像が存在し、まだ設定されていない場合、または強制アップロードの場合
-		if _, err := os.Stat(eyecatchPath); err == nil && (featuredMediaID == 0 || updateForceEyecatch) {
-			if updateForceEyecatch {
-				color.Cyan("アイキャッチ画像を強制的に再アップロード中...")
-			} else {
-				color.Cyan("アイキャッチ画像をアップロード中...")
-			}
-
-			imageData, err := os.ReadFile(eyecatchPath)
-			if err != nil {
-				color.Red("アイキャッチ画像の読み込みに失敗: %v", err)
-				os.Exit(1)
-			}
-
-			media, err := client.UploadMedia(eyecatchFilename, imageData, "image/png")
-			if err != nil {
-				color.Red("アイキャッチ画像のアップロードに失敗: %v", err)
-				os.Exit(1)
-			}
-
-			featuredMediaID = media.ID
-			color.Green("アイキャッチ画像をアップロードしました！")
-			color.White("  メディアID: %d", media.ID)
-			color.White("  URL: %s", media.SourceURL)
+		featuredMediaID, err = uploadEyecatchIfExists(client, articleDir, featuredMediaID, updateForceEyecatch)
+		if err != nil {
+			return err
 		}
 	}
 
 	if updatePage {
-		updatePageContent(client, id, article, htmlContent, status)
-	} else {
-		updatePostContent(client, id, article, htmlContent, status, featuredMediaID)
+		return updatePageContent(client, id, article, htmlContent, status)
 	}
+	return updatePostContent(client, id, article, htmlContent, status, featuredMediaID)
 }
 
-func updatePostContent(client *wp.Client, id int, article *types.Article, htmlContent, status string, featuredMediaID int) {
+func updatePostContent(client *wp.Client, id int, article *types.Article, htmlContent, status string, featuredMediaID int) error {
 	req := &types.UpdatePostRequest{
 		Title:         article.FrontMatter.Title,
 		Content:       htmlContent,
@@ -158,17 +128,14 @@ func updatePostContent(client *wp.Client, id int, article *types.Article, htmlCo
 
 	post, err := client.UpdatePost(id, req)
 	if err != nil {
-		color.Red("投稿の更新に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("投稿の更新に失敗: %w", err)
 	}
 
-	color.Green("投稿が更新されました！")
-	color.White("  ID: %d", post.ID)
-	color.White("  URL: %s", post.Link)
-	color.White("  ステータス: %s", formatStatus(post.Status))
+	printPostResult(post, true)
+	return nil
 }
 
-func updatePageContent(client *wp.Client, id int, article *types.Article, htmlContent, status string) {
+func updatePageContent(client *wp.Client, id int, article *types.Article, htmlContent, status string) error {
 	req := &types.UpdatePageRequest{
 		Title:     article.FrontMatter.Title,
 		Content:   htmlContent,
@@ -185,12 +152,9 @@ func updatePageContent(client *wp.Client, id int, article *types.Article, htmlCo
 
 	page, err := client.UpdatePage(id, req)
 	if err != nil {
-		color.Red("固定ページの更新に失敗: %v", err)
-		os.Exit(1)
+		return fmt.Errorf("固定ページの更新に失敗: %w", err)
 	}
 
-	color.Green("固定ページが更新されました！")
-	color.White("  ID: %d", page.ID)
-	color.White("  URL: %s", page.Link)
-	color.White("  ステータス: %s", formatStatus(page.Status))
+	printPageResult(page, true)
+	return nil
 }

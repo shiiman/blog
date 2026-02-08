@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Publish"
+  short_description: "Publish local Markdown drafts to WordPress safely"
+  default_prompt: "Use $blog-publish to post a selected draft Markdown article to WordPress as draft by default, then report the result."

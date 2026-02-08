@@ -28,6 +28,12 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 - `/blog-update` - Update existing article on WordPress
 - `/eyecatch-create` - Generate eyecatch image for blog article
 
+For Codex, project-local skills are defined in `.agents/skills/`:
+- `blog-write`
+- `blog-import`
+- `blog-publish`
+- `blog-update`
+
 ## Workflow
 
 1. Use `/blog-import` to import existing articles from WordPress

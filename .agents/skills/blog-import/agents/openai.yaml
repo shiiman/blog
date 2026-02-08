@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Import"
+  short_description: "Import WordPress posts/pages into local Markdown"
+  default_prompt: "Use $blog-import to import WordPress posts or pages into local Markdown files and summarize the imported results."

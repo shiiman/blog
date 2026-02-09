@@ -237,7 +237,7 @@ Layer 2: グローバルメモリ（~/.multi-agent-mcp/memory/、全プロジェ
 Layer 3: プロジェクトメモリ（セッション単位、プロジェクト固有）
 ```
 
-各エントリは`YYYY-MM-DD_key.md`として個別ファイル保存されます。TTL（デフォルト30日）を超えたエントリは削除ではなく**アーカイブへ移動**し、復元可能にしています。「消してしまったが後で必要になった」というケースを防ぐ設計です。
+各エントリは`YYYY-MM-DD_key.md`として個別ファイル保存されます。TTL（デフォルト90日）を超えたエントリは削除ではなく**アーカイブへ移動**し、復元可能にしています。「消してしまったが後で必要になった」というケースを防ぐ設計です。
 
 グローバルメモリにより、プロジェクトAで得た知見をプロジェクトBでも活用できるのが実運用で大きな価値を生んでいます。
 
@@ -246,8 +246,8 @@ Layer 3: プロジェクトメモリ（セッション単位、プロジェク�
 **standard / performanceの2プロファイル**を用意し、全エージェントに一括適用できるようにしました。
 
 ```text
-Standard:    Admin=Sonnet, Worker=Haiku,  最大6 Worker
-Performance: Admin=Opus,   Worker=Sonnet, 最大12 Worker
+Standard:    Admin=Opus,   Worker=Sonnet, 最大6 Worker
+Performance: Admin=Opus,   Worker=Opus,   最大16 Worker
 ```
 
 コスト集計ではWorkerの実測コスト（API計測）と未実行タスクの推定値を併用し、警告閾値を超えた場合にアラートを出します。速度とコストのバランスを運用中に調整できるのがポイントです。
@@ -491,6 +491,16 @@ multi-issue-flow "要件XをIssue作成からPR作成まで実行"
 
 `MCP_MAX_WORKERS` はマシンのCPU/メモリに合わせて調整するのがおすすめです。`MCP_ENABLE_WORKTREE=false` にすると、worktreeを使わない小規模プロジェクトでも利用できます。
 
+### tmux設定
+
+| 変数 | デフォルト | 説明 |
+|------|-----------|------|
+| `MCP_WINDOW_NAME_MAIN` | main | メインウィンドウ名（Admin + Worker 1-6） |
+| `MCP_WINDOW_NAME_WORKER_PREFIX` | workers- | 追加Workerウィンドウ名のプレフィックス |
+| `MCP_EXTRA_WORKER_ROWS` | 2 | 追加ウィンドウの行数 |
+| `MCP_EXTRA_WORKER_COLS` | 5 | 追加ウィンドウの列数 |
+| `MCP_WORKERS_PER_EXTRA_WINDOW` | 10 | 追加ウィンドウあたりのWorker数 |
+
 ### モデルプロファイル設定
 
 `standard` と `performance` の2プロファイルを切り替えて使えます。
@@ -507,6 +517,10 @@ multi-issue-flow "要件XをIssue作成からPR作成まで実行"
 | `MCP_MODEL_PROFILE_STANDARD_ADMIN_MODEL` | opus | Adminのモデル |
 | `MCP_MODEL_PROFILE_STANDARD_WORKER_MODEL` | sonnet | Workerのモデル |
 | `MCP_MODEL_PROFILE_STANDARD_MAX_WORKERS` | 6 | Worker上限 |
+| `MCP_MODEL_PROFILE_STANDARD_ADMIN_THINKING_TOKENS` | 4000 | Admin思考トークン数 |
+| `MCP_MODEL_PROFILE_STANDARD_WORKER_THINKING_TOKENS` | 4000 | Worker思考トークン数 |
+| `MCP_MODEL_PROFILE_STANDARD_ADMIN_REASONING_EFFORT` | medium | Admin推論強度 |
+| `MCP_MODEL_PROFILE_STANDARD_WORKER_REASONING_EFFORT` | medium | Worker推論強度 |
 
 #### performanceプロファイル（速度重視）
 
@@ -516,8 +530,25 @@ multi-issue-flow "要件XをIssue作成からPR作成まで実行"
 | `MCP_MODEL_PROFILE_PERFORMANCE_ADMIN_MODEL` | opus | Adminのモデル |
 | `MCP_MODEL_PROFILE_PERFORMANCE_WORKER_MODEL` | opus | Workerのモデル |
 | `MCP_MODEL_PROFILE_PERFORMANCE_MAX_WORKERS` | 16 | Worker上限 |
+| `MCP_MODEL_PROFILE_PERFORMANCE_ADMIN_THINKING_TOKENS` | 30000 | Admin思考トークン数 |
+| `MCP_MODEL_PROFILE_PERFORMANCE_WORKER_THINKING_TOKENS` | 4000 | Worker思考トークン数 |
+| `MCP_MODEL_PROFILE_PERFORMANCE_ADMIN_REASONING_EFFORT` | high | Admin推論強度 |
+| `MCP_MODEL_PROFILE_PERFORMANCE_WORKER_REASONING_EFFORT` | high | Worker推論強度 |
 
 たとえば `MCP_MODEL_PROFILE_STANDARD_CLI=codex` に変更すれば、standardプロファイルでCodex CLIを使う構成に切り替えられます。
+
+### CLI別デフォルトモデル設定
+
+各AI CLIごとのデフォルトモデルを設定できます。Claude固有のモデル名（opus、sonnetなど）が非Claude CLIで指定された場合、ここで設定したモデルにフォールバックします。
+
+| 変数 | デフォルト | 説明 |
+|------|-----------|------|
+| `MCP_CLI_DEFAULT_CLAUDE_ADMIN_MODEL` | opus | Claude CLIのAdminデフォルトモデル |
+| `MCP_CLI_DEFAULT_CLAUDE_WORKER_MODEL` | sonnet | Claude CLIのWorkerデフォルトモデル |
+| `MCP_CLI_DEFAULT_CODEX_ADMIN_MODEL` | gpt-5.3-codex | Codex CLIのAdminデフォルトモデル |
+| `MCP_CLI_DEFAULT_CODEX_WORKER_MODEL` | gpt-5.3-codex | Codex CLIのWorkerデフォルトモデル |
+| `MCP_CLI_DEFAULT_GEMINI_ADMIN_MODEL` | gemini-3-pro | Gemini CLIのAdminデフォルトモデル |
+| `MCP_CLI_DEFAULT_GEMINI_WORKER_MODEL` | gemini-3-flash | Gemini CLIのWorkerデフォルトモデル |
 
 ### Worker個別設定（per-workerモード）
 
@@ -527,8 +558,7 @@ multi-issue-flow "要件XをIssue作成からPR作成まで実行"
 |------|-----------|------|
 | `MCP_WORKER_CLI_MODE` | uniform | CLI設定モード（uniform/per-worker） |
 | `MCP_WORKER_CLI_1`〜`16` | （空） | per-workerモード時のWorker別CLI |
-| `MCP_WORKER_MODEL_MODE` | uniform | モデル設定モード（uniform/per-worker） |
-| `MCP_WORKER_MODEL_1`〜`16` | （空） | per-workerモード時のWorker別モデル |
+| `MCP_WORKER_MODEL_1`〜`16` | （空） | per-workerモード時のWorker別モデル（`MCP_WORKER_CLI_MODE=per-worker`時のみ有効） |
 
 ```text
 # 例: Worker 1-2をClaude、Worker 3-4をCodexで動かす
@@ -545,9 +575,12 @@ MCP_WORKER_CLI_4=codex
 
 | 変数 | デフォルト | 説明 |
 |------|-----------|------|
+| `MCP_SEND_COOLDOWN_SECONDS` | 2.0 | tmuxへの連続送信時の最小待機秒数（全CLI共通） |
 | `MCP_HEALTHCHECK_INTERVAL_SECONDS` | 60 | 監視ループの実行間隔（秒） |
 | `MCP_HEALTHCHECK_STALL_TIMEOUT_SECONDS` | 600 | 無応答判定の閾値（秒） |
+| `MCP_HEALTHCHECK_IN_PROGRESS_NO_IPC_TIMEOUT_SECONDS` | 120 | in_progressタスクの無通信判定閾値（秒） |
 | `MCP_HEALTHCHECK_MAX_RECOVERY_ATTEMPTS` | 3 | 復旧試行の上限回数 |
+| `MCP_HEALTHCHECK_IDLE_STOP_CONSECUTIVE` | 3 | 実作業なし連続検出でdaemonを自動停止する閾値 |
 
 `MCP_HEALTHCHECK_STALL_TIMEOUT_SECONDS` を短くすると異常検出が早くなりますが、長時間処理を誤検出するリスクもあります。タスクの性質に合わせて調整してください。
 
@@ -558,6 +591,7 @@ MCP_WORKER_CLI_4=codex
 | `MCP_COST_WARNING_THRESHOLD_USD` | 10.0 | コスト警告の閾値（USD） |
 | `MCP_ESTIMATED_TOKENS_PER_CALL` | 2000 | API呼び出しあたりの推定トークン数 |
 | `MCP_MODEL_COST_TABLE_JSON` | `{"claude:opus":0.03,...}` | モデル別の1000トークン単価テーブル |
+| `MCP_MODEL_COST_DEFAULT_PER_1K` | 0.01 | 未定義モデル向けの汎用単価（USD/1Kトークン） |
 
 ### メモリ管理設定
 
@@ -565,6 +599,20 @@ MCP_WORKER_CLI_4=codex
 |------|-----------|------|
 | `MCP_MEMORY_MAX_ENTRIES` | 1000 | メモリの最大エントリ数 |
 | `MCP_MEMORY_TTL_DAYS` | 90 | メモリエントリの保持期間（日） |
+
+### 品質チェック設定
+
+| 変数 | デフォルト | 説明 |
+|------|-----------|------|
+| `MCP_QUALITY_CHECK_MAX_ITERATIONS` | 5 | 品質チェックの最大イテレーション回数 |
+| `MCP_QUALITY_CHECK_SAME_ISSUE_LIMIT` | 3 | 同一問題の繰り返し上限（超えたらOwnerに相談） |
+| `MCP_QUALITY_GATE_STRICT` | true | 品質ゲートの厳格モード（falseで緩和） |
+
+### スクリーンショット設定
+
+| 変数 | デフォルト | 説明 |
+|------|-----------|------|
+| `MCP_SCREENSHOT_EXTENSIONS` | [".png",".jpg",".jpeg",".gif",".webp"] | スクリーンショットとして認識する拡張子 |
 
 全環境変数の一覧は [multi-agent-mcp README](https://github.com/shiiman/multi-agent-mcp#環境変数) を参照してください。
 

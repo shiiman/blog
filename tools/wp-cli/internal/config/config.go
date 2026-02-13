@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/joho/godotenv"
 )
@@ -30,6 +31,9 @@ func Load() (*Config, error) {
 
 	if siteURL == "" {
 		return nil, fmt.Errorf("WP_SITE_URL が設定されていません")
+	}
+	if !strings.HasPrefix(siteURL, "https://") {
+		return nil, fmt.Errorf("WP_SITE_URL は https:// で始まる必要があります（現在: %s）", siteURL)
 	}
 	if username == "" {
 		return nil, fmt.Errorf("WP_USERNAME が設定されていません")

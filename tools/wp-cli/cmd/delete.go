@@ -5,8 +5,6 @@ import (
 	"strconv"
 
 	"github.com/fatih/color"
-	"github.com/shiimanblog/wp-cli/internal/config"
-	"github.com/shiimanblog/wp-cli/internal/wp"
 	"github.com/spf13/cobra"
 )
 
@@ -36,12 +34,12 @@ func runDelete(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("無効な投稿ID: %s", args[0])
 	}
 
-	cfg, err := config.Load()
+	client, err := setupClient()
 	if err != nil {
-		return fmt.Errorf("設定エラー: %w", err)
+		return err
 	}
 
-	client := wp.NewClient(cfg)
+	ctx := cmd.Context()
 
 	if deleteForce {
 		color.Cyan("投稿 %d を完全に削除中...", id)
@@ -49,7 +47,7 @@ func runDelete(cmd *cobra.Command, args []string) error {
 		color.Cyan("投稿 %d をゴミ箱に移動中...", id)
 	}
 
-	if err := client.DeletePost(id, deleteForce); err != nil {
+	if err := client.DeletePost(ctx, id, deleteForce); err != nil {
 		return fmt.Errorf("投稿の削除に失敗: %w", err)
 	}
 

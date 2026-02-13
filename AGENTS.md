@@ -1,88 +1,26 @@
-# Blog Project - AGENTS.md
+# Blog Project - AGENTS.md (Codex)
 
 ## Core Rules
+
 - **ALWAYS respond to the user in Japanese.** (ユーザーへの応答は常に日本語で行ってください。)
 - **ALWAYS generate implementation plans and task lists in Japanese.** (プランやタスクリストなどのアーティファクトも全て日本語で作成してください。)
 
-This file contains project-specific instructions for the coding agent.
+See `CLAUDE.md` for full project documentation (directory structure, workflow, article guidelines, front matter format, CLI tool usage).
 
+## Codex Skills
 
-## Project Overview
+Project-local skills are defined in `.agents/skills/`:
 
-Technical blog management system for shiimanblog.com (WordPress on ConoHa).
-
-## Directory Structure
-
-- `posts/` - Imported posts from WordPress (format: `YYYY-MM-DD_slug/`)
-- `pages/` - Imported pages from WordPress (format: `slug/`)
-- `drafts/` - New article drafts
-- `templates/` - Article templates
-- `tools/wp-cli/` - Go CLI tool for WordPress management
-- `backlog/` - Historical article assets
-
-## Skills
-
-- `/blog-write` - Write a new blog article
-- `/blog-publish` - Publish article to WordPress (draft by default)
-- `/blog-import` - Import existing articles from WordPress
-- `/blog-update` - Update existing article on WordPress
-- `/eyecatch-create` - Generate eyecatch image for blog article
-
-For Codex, project-local skills are defined in `.agents/skills/`:
-- `blog-write`
-- `blog-import`
-- `blog-publish`
-- `blog-update`
-
-## Workflow
-
-1. Use `/blog-import` to import existing articles from WordPress
-2. Use `/blog-write` to create new article in `drafts/`
-3. Review and edit the article
-4. Use `/eyecatch-create` to generate an eyecatch image
-5. Use `/blog-publish` to post to WordPress as draft
-6. Use `/blog-update` to update existing articles
-7. Finalize in WordPress dashboard
-
-## CLI Tool (wp-cli)
-
-Build and run:
-
-```bash
-cd tools/wp-cli
-go build -o wp-cli .
-./wp-cli --help
-```
+- `blog-write` - Write a new blog article
+- `blog-import` - Import existing articles from WordPress
+- `blog-publish` - Publish article to WordPress (draft by default)
+- `blog-update` - Update existing article on WordPress
 
 ## Security
 
 - NEVER read or expose `.env` file contents
 - Application passwords should be managed via environment variables
 - Default posting status is "draft" for safety
-
-## Article Guidelines
-
-- Write titles in Japanese (50 chars max)
-- Include SEO-optimized excerpts
-- Use proper heading hierarchy (H2, H3, H4)
-- Add code blocks with language specification
-
-## Front Matter Format
-
-Posts use YAML front matter:
-
-```yaml
----
-id: 123                    # WordPress post ID (for updates)
-title: "Title"
-slug: "url-slug"
-status: draft              # draft | publish
-excerpt: "Post summary"
-categories: [1]            # Category IDs
-tags: [10, 20]             # Tag IDs
-featured_media: 456        # Eyecatch image media ID
----
-```
 
 ## Git Commit Guidelines
 

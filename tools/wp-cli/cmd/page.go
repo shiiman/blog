@@ -66,6 +66,8 @@ func runPage(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
+	ctx := cmd.Context()
+
 	// 固定ページ作成リクエスト
 	req := &types.CreatePageRequest{
 		Title:     article.FrontMatter.Title,
@@ -79,7 +81,7 @@ func runPage(cmd *cobra.Command, args []string) error {
 
 	color.Cyan("固定ページを作成中...")
 
-	page, err := client.CreatePage(req)
+	page, err := client.CreatePage(ctx, req)
 	if err != nil {
 		return fmt.Errorf("固定ページの作成に失敗: %w", err)
 	}

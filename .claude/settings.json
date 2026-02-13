@@ -7,8 +7,6 @@
       "Bash(cd tools/wp-cli && go build:*)",
       "Bash(ls:*)",
       "Bash(mkdir:*)",
-      "Bash(cat:*)",
-      "Bash(head:*)",
       "Read(posts/**)",
       "Read(pages/**)",
       "Read(drafts/**)",

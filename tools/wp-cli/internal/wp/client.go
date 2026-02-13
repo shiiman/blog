@@ -2,6 +2,7 @@ package wp
 
 import (
 	"bytes"
+	"context"
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
@@ -14,6 +15,9 @@ import (
 	"github.com/shiimanblog/wp-cli/internal/config"
 	"github.com/shiimanblog/wp-cli/internal/types"
 )
+
+// maxResponseSize はレスポンスボディの最大サイズ（50MB）
+const maxResponseSize = 50 * 1024 * 1024
 
 // Client はWordPress REST APIクライアント
 type Client struct {
@@ -40,26 +44,22 @@ func (c *Client) getAuthHeader() string {
 	return "Basic " + encoded
 }
 
-// doRequest はHTTPリクエストを実行する
-func (c *Client) doRequest(method, endpoint string, body interface{}) ([]byte, error) {
-	var reqBody io.Reader
-	if body != nil {
-		jsonBody, err := json.Marshal(body)
-		if err != nil {
-			return nil, fmt.Errorf("リクエストボディのJSON化に失敗: %w", err)
-		}
-		reqBody = bytes.NewBuffer(jsonBody)
-	}
-
-	url := c.baseURL + endpoint
-	req, err := http.NewRequest(method, url, reqBody)
+// doRawRequest はHTTPリクエストを実行する共通処理
+// 認証ヘッダー付与、レスポンス読み取り（サイズ制限付き）、エラーチェックを行う
+func (c *Client) doRawRequest(ctx context.Context, method, endpoint string, body io.Reader, contentType string, extraHeaders map[string]string) ([]byte, error) {
+	reqURL := c.baseURL + endpoint
+	req, err := http.NewRequestWithContext(ctx, method, reqURL, body)
 	if err != nil {
 		return nil, fmt.Errorf("リクエストの作成に失敗: %w", err)
 	}
 
 	req.Header.Set("Authorization", c.getAuthHeader())
-	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Content-Type", contentType)
 	req.Header.Set("User-Agent", "wp-cli/1.0.0")
+
+	for k, v := range extraHeaders {
+		req.Header.Set(k, v)
+	}
 
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
@@ -67,7 +67,7 @@ func (c *Client) doRequest(method, endpoint string, body interface{}) ([]byte, e
 	}
 	defer func() { _ = resp.Body.Close() }()
 
-	respBody, err := io.ReadAll(resp.Body)
+	respBody, err := io.ReadAll(io.LimitReader(resp.Body, maxResponseSize))
 	if err != nil {
 		return nil, fmt.Errorf("レスポンスの読み取りに失敗: %w", err)
 	}
@@ -79,14 +79,28 @@ func (c *Client) doRequest(method, endpoint string, body interface{}) ([]byte, e
 	return respBody, nil
 }
 
+// doRequest はJSON形式のHTTPリクエストを実行する
+func (c *Client) doRequest(ctx context.Context, method, endpoint string, body interface{}) ([]byte, error) {
+	var reqBody io.Reader
+	if body != nil {
+		jsonBody, err := json.Marshal(body)
+		if err != nil {
+			return nil, fmt.Errorf("リクエストボディのJSON化に失敗: %w", err)
+		}
+		reqBody = bytes.NewBuffer(jsonBody)
+	}
+
+	return c.doRawRequest(ctx, method, endpoint, reqBody, "application/json", nil)
+}
+
 // GetPosts は投稿一覧を取得する
-func (c *Client) GetPosts(page, perPage int, status string) ([]types.Post, error) {
+func (c *Client) GetPosts(ctx context.Context, page, perPage int, status string) ([]types.Post, error) {
 	endpoint := fmt.Sprintf("/posts?page=%d&per_page=%d&_embed", page, perPage)
 	if status != "" {
 		endpoint += "&status=" + url.QueryEscape(status)
 	}
 
-	body, err := c.doRequest("GET", endpoint, nil)
+	body, err := c.doRequest(ctx, "GET", endpoint, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -100,10 +114,10 @@ func (c *Client) GetPosts(page, perPage int, status string) ([]types.Post, error
 }
 
 // GetPost は特定の投稿を取得する
-func (c *Client) GetPost(id int) (*types.Post, error) {
+func (c *Client) GetPost(ctx context.Context, id int) (*types.Post, error) {
 	endpoint := fmt.Sprintf("/posts/%d?context=edit", id)
 
-	body, err := c.doRequest("GET", endpoint, nil)
+	body, err := c.doRequest(ctx, "GET", endpoint, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -117,8 +131,8 @@ func (c *Client) GetPost(id int) (*types.Post, error) {
 }
 
 // CreatePost は新しい投稿を作成する
-func (c *Client) CreatePost(req *types.CreatePostRequest) (*types.Post, error) {
-	body, err := c.doRequest("POST", "/posts", req)
+func (c *Client) CreatePost(ctx context.Context, req *types.CreatePostRequest) (*types.Post, error) {
+	body, err := c.doRequest(ctx, "POST", "/posts", req)
 	if err != nil {
 		return nil, err
 	}
@@ -132,10 +146,10 @@ func (c *Client) CreatePost(req *types.CreatePostRequest) (*types.Post, error) {
 }
 
 // UpdatePost は既存の投稿を更新する
-func (c *Client) UpdatePost(id int, req *types.UpdatePostRequest) (*types.Post, error) {
+func (c *Client) UpdatePost(ctx context.Context, id int, req *types.UpdatePostRequest) (*types.Post, error) {
 	endpoint := fmt.Sprintf("/posts/%d", id)
 
-	body, err := c.doRequest("POST", endpoint, req)
+	body, err := c.doRequest(ctx, "POST", endpoint, req)
 	if err != nil {
 		return nil, err
 	}
@@ -149,24 +163,24 @@ func (c *Client) UpdatePost(id int, req *types.UpdatePostRequest) (*types.Post, 
 }
 
 // DeletePost は投稿を削除する
-func (c *Client) DeletePost(id int, force bool) error {
+func (c *Client) DeletePost(ctx context.Context, id int, force bool) error {
 	endpoint := fmt.Sprintf("/posts/%d", id)
 	if force {
 		endpoint += "?force=true"
 	}
 
-	_, err := c.doRequest("DELETE", endpoint, nil)
+	_, err := c.doRequest(ctx, "DELETE", endpoint, nil)
 	return err
 }
 
 // GetPages は固定ページ一覧を取得する
-func (c *Client) GetPages(page, perPage int, status string) ([]types.Page, error) {
+func (c *Client) GetPages(ctx context.Context, page, perPage int, status string) ([]types.Page, error) {
 	endpoint := fmt.Sprintf("/pages?page=%d&per_page=%d&_embed", page, perPage)
 	if status != "" {
 		endpoint += "&status=" + url.QueryEscape(status)
 	}
 
-	body, err := c.doRequest("GET", endpoint, nil)
+	body, err := c.doRequest(ctx, "GET", endpoint, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -180,10 +194,10 @@ func (c *Client) GetPages(page, perPage int, status string) ([]types.Page, error
 }
 
 // GetPage は特定の固定ページを取得する
-func (c *Client) GetPage(id int) (*types.Page, error) {
+func (c *Client) GetPage(ctx context.Context, id int) (*types.Page, error) {
 	endpoint := fmt.Sprintf("/pages/%d?context=edit", id)
 
-	body, err := c.doRequest("GET", endpoint, nil)
+	body, err := c.doRequest(ctx, "GET", endpoint, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -197,8 +211,8 @@ func (c *Client) GetPage(id int) (*types.Page, error) {
 }
 
 // CreatePage は新しい固定ページを作成する
-func (c *Client) CreatePage(req *types.CreatePageRequest) (*types.Page, error) {
-	body, err := c.doRequest("POST", "/pages", req)
+func (c *Client) CreatePage(ctx context.Context, req *types.CreatePageRequest) (*types.Page, error) {
+	body, err := c.doRequest(ctx, "POST", "/pages", req)
 	if err != nil {
 		return nil, err
 	}
@@ -212,10 +226,10 @@ func (c *Client) CreatePage(req *types.CreatePageRequest) (*types.Page, error) {
 }
 
 // UpdatePage は既存の固定ページを更新する
-func (c *Client) UpdatePage(id int, req *types.UpdatePageRequest) (*types.Page, error) {
+func (c *Client) UpdatePage(ctx context.Context, id int, req *types.UpdatePageRequest) (*types.Page, error) {
 	endpoint := fmt.Sprintf("/pages/%d", id)
 
-	body, err := c.doRequest("POST", endpoint, req)
+	body, err := c.doRequest(ctx, "POST", endpoint, req)
 	if err != nil {
 		return nil, err
 	}
@@ -229,8 +243,8 @@ func (c *Client) UpdatePage(id int, req *types.UpdatePageRequest) (*types.Page, 
 }
 
 // GetCategories はカテゴリ一覧を取得する
-func (c *Client) GetCategories() ([]types.Category, error) {
-	body, err := c.doRequest("GET", "/categories?per_page=100", nil)
+func (c *Client) GetCategories(ctx context.Context) ([]types.Category, error) {
+	body, err := c.doRequest(ctx, "GET", "/categories?per_page=100", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -244,8 +258,8 @@ func (c *Client) GetCategories() ([]types.Category, error) {
 }
 
 // CreateCategory は新しいカテゴリを作成する
-func (c *Client) CreateCategory(req *types.CreateCategoryRequest) (*types.Category, error) {
-	body, err := c.doRequest("POST", "/categories", req)
+func (c *Client) CreateCategory(ctx context.Context, req *types.CreateCategoryRequest) (*types.Category, error) {
+	body, err := c.doRequest(ctx, "POST", "/categories", req)
 	if err != nil {
 		return nil, err
 	}
@@ -259,10 +273,10 @@ func (c *Client) CreateCategory(req *types.CreateCategoryRequest) (*types.Catego
 }
 
 // UpdateCategory は既存のカテゴリを更新する
-func (c *Client) UpdateCategory(id int, req *types.UpdateCategoryRequest) (*types.Category, error) {
+func (c *Client) UpdateCategory(ctx context.Context, id int, req *types.UpdateCategoryRequest) (*types.Category, error) {
 	endpoint := fmt.Sprintf("/categories/%d", id)
 
-	body, err := c.doRequest("POST", endpoint, req)
+	body, err := c.doRequest(ctx, "POST", endpoint, req)
 	if err != nil {
 		return nil, err
 	}
@@ -276,8 +290,8 @@ func (c *Client) UpdateCategory(id int, req *types.UpdateCategoryRequest) (*type
 }
 
 // GetTags はタグ一覧を取得する
-func (c *Client) GetTags() ([]types.Tag, error) {
-	body, err := c.doRequest("GET", "/tags?per_page=100", nil)
+func (c *Client) GetTags(ctx context.Context) ([]types.Tag, error) {
+	body, err := c.doRequest(ctx, "GET", "/tags?per_page=100", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -291,32 +305,14 @@ func (c *Client) GetTags() ([]types.Tag, error) {
 }
 
 // UploadMedia はメディアをアップロードする
-func (c *Client) UploadMedia(filename string, data []byte, mimeType string) (*types.Media, error) {
-	url := c.baseURL + "/media"
-
-	req, err := http.NewRequest("POST", url, bytes.NewReader(data))
-	if err != nil {
-		return nil, fmt.Errorf("リクエストの作成に失敗: %w", err)
+func (c *Client) UploadMedia(ctx context.Context, filename string, data []byte, mimeType string) (*types.Media, error) {
+	extraHeaders := map[string]string{
+		"Content-Disposition": fmt.Sprintf(`attachment; filename="%s"`, filename),
 	}
 
-	req.Header.Set("Authorization", c.getAuthHeader())
-	req.Header.Set("Content-Type", mimeType)
-	req.Header.Set("User-Agent", "wp-cli/1.0.0")
-	req.Header.Set("Content-Disposition", fmt.Sprintf(`attachment; filename="%s"`, filename))
-
-	resp, err := c.httpClient.Do(req)
+	respBody, err := c.doRawRequest(ctx, "POST", "/media", bytes.NewReader(data), mimeType, extraHeaders)
 	if err != nil {
-		return nil, fmt.Errorf("リクエストの実行に失敗: %w", err)
-	}
-	defer func() { _ = resp.Body.Close() }()
-
-	respBody, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("レスポンスの読み取りに失敗: %w", err)
-	}
-
-	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
-		return nil, fmt.Errorf("APIエラー (status %d): %s", resp.StatusCode, string(respBody))
+		return nil, err
 	}
 
 	var media types.Media

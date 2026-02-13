@@ -49,7 +49,7 @@ mkdir -p drafts/$(date +%Y-%m-%d)_slug
 ### 5. 次のステップ案内
 
 記事作成後、以下を案内:
-- `/publish-blog` で WordPressに投稿（下書き）
+- `/blog-publish` で WordPressに投稿（下書き）
 - 記事内容の確認・編集方法
 - カテゴリ・タグIDの確認方法（`wp-cli categories`, `wp-cli tags`）
 

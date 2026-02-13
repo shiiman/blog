@@ -6,9 +6,7 @@ import (
 	"text/tabwriter"
 
 	"github.com/fatih/color"
-	"github.com/shiimanblog/wp-cli/internal/config"
 	"github.com/shiimanblog/wp-cli/internal/types"
-	"github.com/shiimanblog/wp-cli/internal/wp"
 	"github.com/spf13/cobra"
 )
 
@@ -62,16 +60,16 @@ func init() {
 }
 
 func runCategories(cmd *cobra.Command, args []string) error {
-	cfg, err := config.Load()
+	client, err := setupClient()
 	if err != nil {
-		return fmt.Errorf("設定エラー: %w", err)
+		return err
 	}
 
-	client := wp.NewClient(cfg)
+	ctx := cmd.Context()
 
 	color.Cyan("カテゴリ一覧を取得中...")
 
-	categories, err := client.GetCategories()
+	categories, err := client.GetCategories(ctx)
 	if err != nil {
 		return fmt.Errorf("カテゴリ一覧の取得に失敗: %w", err)
 	}
@@ -96,12 +94,12 @@ func runCategories(cmd *cobra.Command, args []string) error {
 
 func runCreateCategory(cmd *cobra.Command, args []string) error {
 	name := args[0]
-	cfg, err := config.Load()
+	client, err := setupClient()
 	if err != nil {
-		return fmt.Errorf("設定エラー: %w", err)
+		return err
 	}
 
-	client := wp.NewClient(cfg)
+	ctx := cmd.Context()
 
 	color.Cyan("カテゴリ '%s' を作成中...", name)
 
@@ -110,7 +108,7 @@ func runCreateCategory(cmd *cobra.Command, args []string) error {
 		Parent: parentID,
 	}
 
-	category, err := client.CreateCategory(req)
+	category, err := client.CreateCategory(ctx, req)
 	if err != nil {
 		return fmt.Errorf("カテゴリの作成に失敗: %w", err)
 	}
@@ -130,12 +128,12 @@ func runUpdateCategory(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("ID形式エラー: %w", err)
 	}
 
-	cfg, err := config.Load()
+	client, err := setupClient()
 	if err != nil {
-		return fmt.Errorf("設定エラー: %w", err)
+		return err
 	}
 
-	client := wp.NewClient(cfg)
+	ctx := cmd.Context()
 
 	color.Cyan("カテゴリID %d を更新中...", id)
 
@@ -144,7 +142,7 @@ func runUpdateCategory(cmd *cobra.Command, args []string) error {
 		Parent: parentID,
 	}
 
-	category, err := client.UpdateCategory(id, req)
+	category, err := client.UpdateCategory(ctx, id, req)
 	if err != nil {
 		return fmt.Errorf("カテゴリの更新に失敗: %w", err)
 	}
@@ -158,16 +156,16 @@ func runUpdateCategory(cmd *cobra.Command, args []string) error {
 }
 
 func runTags(cmd *cobra.Command, args []string) error {
-	cfg, err := config.Load()
+	client, err := setupClient()
 	if err != nil {
-		return fmt.Errorf("設定エラー: %w", err)
+		return err
 	}
 
-	client := wp.NewClient(cfg)
+	ctx := cmd.Context()
 
 	color.Cyan("タグ一覧を取得中...")
 
-	tags, err := client.GetTags()
+	tags, err := client.GetTags(ctx)
 	if err != nil {
 		return fmt.Errorf("タグ一覧の取得に失敗: %w", err)
 	}

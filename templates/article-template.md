@@ -5,6 +5,8 @@ categories: [1]
 tags: []
 slug: "url-slug-here"
 status: draft
+# featured_media: 0   # アイキャッチ画像のメディアID（投稿後に自動設定）
+# id: 0               # WordPress投稿ID（投稿後に自動設定）
 ---
 
 ## はじめに

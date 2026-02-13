@@ -72,9 +72,11 @@ func runPost(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
+	ctx := cmd.Context()
+
 	// アイキャッチ画像のアップロード
 	articleDir := filepath.Dir(filePath)
-	featuredMediaID, err := uploadEyecatchIfExists(client, articleDir, article.FrontMatter.FeaturedMedia, false)
+	featuredMediaID, err := uploadEyecatchIfExists(ctx, client, articleDir, article.FrontMatter.FeaturedMedia, false)
 	if err != nil {
 		return err
 	}
@@ -97,7 +99,7 @@ func runPost(cmd *cobra.Command, args []string) error {
 
 		color.Cyan("投稿 %d を更新中...", article.FrontMatter.ID)
 
-		post, err = client.UpdatePost(article.FrontMatter.ID, req)
+		post, err = client.UpdatePost(ctx, article.FrontMatter.ID, req)
 		if err != nil {
 			return fmt.Errorf("投稿の更新に失敗: %w", err)
 		}
@@ -117,7 +119,7 @@ func runPost(cmd *cobra.Command, args []string) error {
 
 		color.Cyan("投稿を作成中...")
 
-		post, err = client.CreatePost(req)
+		post, err = client.CreatePost(ctx, req)
 		if err != nil {
 			return fmt.Errorf("投稿の作成に失敗: %w", err)
 		}

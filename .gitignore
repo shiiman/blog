@@ -32,3 +32,7 @@ Thumbs.db
 .claude/settings.local.json
 
 .playwright-mcp/
+.claude/tmp/
+.multi-agent-mcp/
+coverage.out
+tools/wp-cli/coverage.out

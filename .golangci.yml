@@ -17,6 +17,8 @@ linters:
     - misspell
     - gosimple
     - typecheck
+    - gosec
+    - noctx
 
 linters-settings:
   errcheck:

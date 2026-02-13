@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -70,7 +71,7 @@ func setupClient() (*wp.Client, error) {
 
 // uploadEyecatchIfExists はアイキャッチ画像が存在する場合にアップロードする
 // forceUpload が true の場合は、既にFeaturedMediaが設定されていても再アップロードする
-func uploadEyecatchIfExists(client *wp.Client, articleDir string, currentFeaturedMediaID int, forceUpload bool) (int, error) {
+func uploadEyecatchIfExists(ctx context.Context, client *wp.Client, articleDir string, currentFeaturedMediaID int, forceUpload bool) (int, error) {
 	eyecatchPath := filepath.Join(articleDir, "assets", eyecatchFilename)
 
 	// ファイル存在確認
@@ -96,7 +97,7 @@ func uploadEyecatchIfExists(client *wp.Client, articleDir string, currentFeature
 		return 0, fmt.Errorf("アイキャッチ画像の読み込みに失敗: %w", err)
 	}
 
-	media, err := client.UploadMedia(eyecatchFilename, imageData, "image/png")
+	media, err := client.UploadMedia(ctx, eyecatchFilename, imageData, "image/png")
 	if err != nil {
 		return 0, fmt.Errorf("アイキャッチ画像のアップロードに失敗: %w", err)
 	}

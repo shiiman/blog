@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 	"path/filepath"
 
@@ -94,23 +95,25 @@ func runUpdate(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
+	ctx := cmd.Context()
+
 	// アイキャッチ画像のアップロード（投稿の場合のみ）
 	featuredMediaID := article.FrontMatter.FeaturedMedia
 	if !updatePage {
 		articleDir := filepath.Dir(filePath)
-		featuredMediaID, err = uploadEyecatchIfExists(client, articleDir, featuredMediaID, updateForceEyecatch)
+		featuredMediaID, err = uploadEyecatchIfExists(ctx, client, articleDir, featuredMediaID, updateForceEyecatch)
 		if err != nil {
 			return err
 		}
 	}
 
 	if updatePage {
-		return updatePageContent(client, id, article, htmlContent, status)
+		return updatePageContent(ctx, client, id, article, htmlContent, status)
 	}
-	return updatePostContent(client, id, article, htmlContent, status, featuredMediaID)
+	return updatePostContent(ctx, client, id, article, htmlContent, status, featuredMediaID)
 }
 
-func updatePostContent(client *wp.Client, id int, article *types.Article, htmlContent, status string, featuredMediaID int) error {
+func updatePostContent(ctx context.Context, client *wp.Client, id int, article *types.Article, htmlContent, status string, featuredMediaID int) error {
 	req := &types.UpdatePostRequest{
 		Title:         article.FrontMatter.Title,
 		Content:       htmlContent,
@@ -126,7 +129,7 @@ func updatePostContent(client *wp.Client, id int, article *types.Article, htmlCo
 
 	color.Cyan("投稿 %d を更新中...", id)
 
-	post, err := client.UpdatePost(id, req)
+	post, err := client.UpdatePost(ctx, id, req)
 	if err != nil {
 		return fmt.Errorf("投稿の更新に失敗: %w", err)
 	}
@@ -135,7 +138,7 @@ func updatePostContent(client *wp.Client, id int, article *types.Article, htmlCo
 	return nil
 }
 
-func updatePageContent(client *wp.Client, id int, article *types.Article, htmlContent, status string) error {
+func updatePageContent(ctx context.Context, client *wp.Client, id int, article *types.Article, htmlContent, status string) error {
 	req := &types.UpdatePageRequest{
 		Title:     article.FrontMatter.Title,
 		Content:   htmlContent,
@@ -150,7 +153,7 @@ func updatePageContent(client *wp.Client, id int, article *types.Article, htmlCo
 
 	color.Cyan("固定ページ %d を更新中...", id)
 
-	page, err := client.UpdatePage(id, req)
+	page, err := client.UpdatePage(ctx, id, req)
 	if err != nil {
 		return fmt.Errorf("固定ページの更新に失敗: %w", err)
 	}

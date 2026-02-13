@@ -99,6 +99,22 @@ func TestLoadConfig_AppPassword未設定(t *testing.T) {
 	}
 }
 
+func TestLoadConfig_HTTPのSiteURLはエラー(t *testing.T) {
+	isolateFromEnvFile(t)
+	clearWPEnvVars(t)
+
+	setEnvVars(t, map[string]string{
+		"WP_SITE_URL":     "http://example.com",
+		"WP_USERNAME":     "admin",
+		"WP_APP_PASSWORD": "secret",
+	})
+
+	_, err := Load()
+	if err == nil {
+		t.Error("http:// のSiteURLでエラーが発生するべき")
+	}
+}
+
 func TestLoadConfig_全環境変数未設定(t *testing.T) {
 	isolateFromEnvFile(t)
 	clearWPEnvVars(t)

@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"text/tabwriter"
@@ -38,22 +39,23 @@ func runList(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
+	ctx := cmd.Context()
 	itemType := args[0]
 
 	switch itemType {
 	case "posts":
-		return listPosts(client)
+		return listPosts(ctx, client)
 	case "pages":
-		return listPages(client)
+		return listPages(ctx, client)
 	default:
 		return fmt.Errorf("無効な引数です。'posts' または 'pages' を指定してください")
 	}
 }
 
-func listPosts(client *wp.Client) error {
+func listPosts(ctx context.Context, client *wp.Client) error {
 	color.Cyan("投稿一覧を取得中...")
 
-	posts, err := client.GetPosts(1, listLimit, listStatus)
+	posts, err := client.GetPosts(ctx, 1, listLimit, listStatus)
 	if err != nil {
 		return fmt.Errorf("投稿一覧の取得に失敗: %w", err)
 	}
@@ -79,10 +81,10 @@ func listPosts(client *wp.Client) error {
 	return nil
 }
 
-func listPages(client *wp.Client) error {
+func listPages(ctx context.Context, client *wp.Client) error {
 	color.Cyan("固定ページ一覧を取得中...")
 
-	pages, err := client.GetPages(1, listLimit, listStatus)
+	pages, err := client.GetPages(ctx, 1, listLimit, listStatus)
 	if err != nil {
 		return fmt.Errorf("固定ページ一覧の取得に失敗: %w", err)
 	}

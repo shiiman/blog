@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -9,7 +10,6 @@ import (
 	"sync"
 
 	"github.com/fatih/color"
-	"github.com/shiimanblog/wp-cli/internal/config"
 	"github.com/shiimanblog/wp-cli/internal/converter"
 	"github.com/shiimanblog/wp-cli/internal/types"
 	"github.com/shiimanblog/wp-cli/internal/wp"
@@ -41,17 +41,17 @@ func init() {
 }
 
 func runImport(cmd *cobra.Command, args []string) error {
-	cfg, err := config.Load()
+	client, err := setupClient()
 	if err != nil {
-		return fmt.Errorf("設定エラー: %w", err)
+		return err
 	}
 
-	client := wp.NewClient(cfg)
+	ctx := cmd.Context()
 	itemType := args[0]
 
 	switch itemType {
 	case "posts":
-		return importPosts(client)
+		return importPosts(ctx, client)
 	case "post":
 		if len(args) < 2 {
 			return fmt.Errorf("投稿IDを指定してください")
@@ -60,9 +60,9 @@ func runImport(cmd *cobra.Command, args []string) error {
 		if err != nil {
 			return fmt.Errorf("無効な投稿ID: %s", args[1])
 		}
-		return importPost(client, id)
+		return importPost(ctx, client, id)
 	case "pages":
-		return importPages(client)
+		return importPages(ctx, client)
 	case "page":
 		if len(args) < 2 {
 			return fmt.Errorf("固定ページIDを指定してください")
@@ -71,7 +71,7 @@ func runImport(cmd *cobra.Command, args []string) error {
 		if err != nil {
 			return fmt.Errorf("無効な固定ページID: %s", args[1])
 		}
-		return importPage(client, id)
+		return importPage(ctx, client, id)
 	default:
 		return fmt.Errorf("無効な引数です。'posts', 'post', 'pages', または 'page' を指定してください")
 	}
@@ -88,10 +88,10 @@ type importResult struct {
 
 const maxConcurrency = 10
 
-func importPosts(client *wp.Client) error {
+func importPosts(ctx context.Context, client *wp.Client) error {
 	color.Cyan("投稿をインポート中...")
 
-	posts, err := client.GetPosts(1, importLimit, "")
+	posts, err := client.GetPosts(ctx, 1, importLimit, "")
 	if err != nil {
 		return fmt.Errorf("投稿一覧の取得に失敗: %w", err)
 	}
@@ -118,7 +118,7 @@ func importPosts(client *wp.Client) error {
 			sem <- struct{}{}
 			defer func() { <-sem }()
 
-			fullPost, err := client.GetPost(postID)
+			fullPost, err := client.GetPost(ctx, postID)
 			if err != nil {
 				results[idx] = importResult{id: postID, err: fmt.Errorf("詳細取得に失敗: %w", err)}
 				return
@@ -162,10 +162,10 @@ func importPosts(client *wp.Client) error {
 	return nil
 }
 
-func importPost(client *wp.Client, id int) error {
+func importPost(ctx context.Context, client *wp.Client, id int) error {
 	color.Cyan("投稿 %d をインポート中...", id)
 
-	post, err := client.GetPost(id)
+	post, err := client.GetPost(ctx, id)
 	if err != nil {
 		return fmt.Errorf("投稿の取得に失敗: %w", err)
 	}
@@ -192,10 +192,10 @@ func importPost(client *wp.Client, id int) error {
 	return nil
 }
 
-func importPages(client *wp.Client) error {
+func importPages(ctx context.Context, client *wp.Client) error {
 	color.Cyan("固定ページをインポート中...")
 
-	pages, err := client.GetPages(1, importLimit, "")
+	pages, err := client.GetPages(ctx, 1, importLimit, "")
 	if err != nil {
 		return fmt.Errorf("固定ページ一覧の取得に失敗: %w", err)
 	}
@@ -222,7 +222,7 @@ func importPages(client *wp.Client) error {
 			sem <- struct{}{}
 			defer func() { <-sem }()
 
-			fullPage, err := client.GetPage(pageID)
+			fullPage, err := client.GetPage(ctx, pageID)
 			if err != nil {
 				results[idx] = importResult{id: pageID, err: fmt.Errorf("詳細取得に失敗: %w", err)}
 				return
@@ -265,10 +265,10 @@ func importPages(client *wp.Client) error {
 	return nil
 }
 
-func importPage(client *wp.Client, id int) error {
+func importPage(ctx context.Context, client *wp.Client, id int) error {
 	color.Cyan("固定ページ %d をインポート中...", id)
 
-	page, err := client.GetPage(id)
+	page, err := client.GetPage(ctx, id)
 	if err != nil {
 		return fmt.Errorf("固定ページの取得に失敗: %w", err)
 	}

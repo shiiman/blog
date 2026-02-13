@@ -4,7 +4,7 @@ id: 2213
 slug: "ai-settings-dotfiles"
 status: publish
 categories: [18, 133]
-tags: [101, 102] # dotfiles, AI (Assuming IDs)
+tags: [101, 102]
 excerpt: "ClaudeやGeminiなどのAIアシスタントのカスタム指示（System Instructions）をdotfilesで管理し、複数のPCで環境を統一する方法を紹介します。シンボリックリンクを活用して、開発環境セットアップと一緒にAI設定も自動化しましょう。"
 ---
 

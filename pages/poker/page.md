@@ -1298,6 +1298,173 @@ body.modal-open .footer {
 }
 
 /* ============================================
+   ネイティブフルスクリーン: レスポンシブ対応（Android等）
+   ============================================ */
+
+/* ネイティブフルスクリーン: exit ボタン表示（モバイルサイズ） */
+@media (max-width: 900px) {
+  .poker-timer-app:fullscreen .exit-fullscreen-btn {
+    display: flex;
+  }
+  .poker-timer-app:fullscreen .fullscreen-btn-top {
+    display: none;
+  }
+}
+
+/* ネイティブフルスクリーン: スマホ縦画面（≤599px） */
+@media (max-width: 599px) and (orientation: portrait) {
+  .poker-timer-app:fullscreen {
+    padding: 8px;
+  }
+  .poker-timer-app:fullscreen .timer-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 4px;
+    padding: 4px;
+  }
+  .poker-timer-app:fullscreen .left-panel { display: none !important; }
+  .poker-timer-app:fullscreen .center-panel {
+    order: 1;
+    align-items: center;
+    flex: 1;
+  }
+  .poker-timer-app:fullscreen .right-panel {
+    order: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 6px;
+    padding: 4px;
+    padding-top: 0;
+    height: auto;
+  }
+  .poker-timer-app:fullscreen .right-panel-spacer { display: none; }
+  .poker-timer-app:fullscreen .right-panel-bottom { display: contents; }
+  .poker-timer-app:fullscreen .break-card { grid-column: 1; grid-row: 1; padding: 6px 10px; }
+  .poker-timer-app:fullscreen .stack-card { grid-column: 1; grid-row: 2; padding: 6px 10px; }
+  .poker-timer-app:fullscreen .players-card {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    padding: 6px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* フォントサイズ */
+  .poker-timer-app:fullscreen .timer-time { font-size: 64px; }
+  .poker-timer-app:fullscreen .blind-current { font-size: 26px; }
+  .poker-timer-app:fullscreen .blind-current .ante-value { font-size: 26px; }
+  .poker-timer-app:fullscreen .blind-next-value { font-size: 16px; }
+  .poker-timer-app:fullscreen .next-ante { font-size: 16px; }
+  .poker-timer-app:fullscreen .level-badge { font-size: 14px; padding: 3px 10px; }
+  .poker-timer-app:fullscreen .left-panel .panel-label,
+  .poker-timer-app:fullscreen .break-card .panel-label,
+  .poker-timer-app:fullscreen .stack-card .panel-label,
+  .poker-timer-app:fullscreen .players-card .panel-label { font-size: 12px; }
+  .poker-timer-app:fullscreen .break-card .panel-value { font-size: 20px; }
+  .poker-timer-app:fullscreen .stack-row .stack-label { font-size: 12px; }
+  .poker-timer-app:fullscreen .stack-row .stack-value { font-size: 18px; }
+  .poker-timer-app:fullscreen .players-display { font-size: 24px; }
+  .poker-timer-app:fullscreen .players-label { font-size: 11px; }
+}
+
+/* ネイティブフルスクリーン: スマホ横画面（≤900px） */
+@media (max-width: 900px) and (orientation: landscape) {
+  .poker-timer-app:fullscreen {
+    padding: 4px;
+  }
+  .poker-timer-app:fullscreen .timer-grid {
+    grid-template-columns: minmax(100px, 1fr) 2fr minmax(100px, 1fr);
+    grid-template-rows: 1fr;
+    gap: 4px;
+    height: 100%;
+    max-height: 100%;
+  }
+  .poker-timer-app:fullscreen .left-panel {
+    display: flex !important;
+    flex-direction: column;
+    order: 1;
+    max-height: 100%;
+    padding: 4px;
+  }
+  .poker-timer-app:fullscreen .prize-header { padding-bottom: 2px; margin-bottom: 2px; }
+  .poker-timer-app:fullscreen .prize-inmoney { font-size: 10px; }
+  .poker-timer-app:fullscreen .prize-inmoney-value { font-size: 12px; }
+  .poker-timer-app:fullscreen .prize-list { flex: 1; }
+  .poker-timer-app:fullscreen .prize-list-inner { position: relative; will-change: transform; }
+  .poker-timer-app:fullscreen .prize-item { font-size: 11px; padding: 1px 0; }
+  .poker-timer-app:fullscreen .mascot-area { display: block; margin-top: auto; padding-top: 4px; }
+  .poker-timer-app:fullscreen .mascot-img { width: 180px; height: auto; }
+  .poker-timer-app:fullscreen .center-panel {
+    order: 2;
+    align-items: center;
+    max-height: 100%;
+    padding: 4px;
+  }
+  .poker-timer-app:fullscreen .right-panel {
+    order: 3;
+    gap: 2px;
+    padding: 4px;
+    padding-top: 0;
+    justify-content: flex-end;
+    max-height: 100%;
+    height: auto;
+  }
+  .poker-timer-app:fullscreen .right-panel-spacer { display: none !important; }
+  .poker-timer-app:fullscreen .right-panel-bottom { display: contents; }
+  .poker-timer-app:fullscreen .break-card,
+  .poker-timer-app:fullscreen .stack-card,
+  .poker-timer-app:fullscreen .players-card { padding: 2px 4px; }
+  /* フォントサイズ */
+  .poker-timer-app:fullscreen .timer-time { font-size: 56px; margin: 2px 0; }
+  .poker-timer-app:fullscreen .blind-current { font-size: 22px; margin: 2px 0; }
+  .poker-timer-app:fullscreen .blind-current .ante-value { font-size: 22px; }
+  .poker-timer-app:fullscreen .blind-next-value { font-size: 14px; }
+  .poker-timer-app:fullscreen .next-ante { font-size: 14px; }
+  .poker-timer-app:fullscreen .level-badge { font-size: 12px; padding: 2px 8px; margin-bottom: 2px; }
+  .poker-timer-app:fullscreen .timer-progress { height: 3px; margin: 2px 0; }
+  .poker-timer-app:fullscreen .blind-info { margin: 2px 0; }
+  .poker-timer-app:fullscreen .blind-next { margin-top: 2px; padding-top: 2px; }
+  .poker-timer-app:fullscreen .left-panel .panel-label,
+  .poker-timer-app:fullscreen .break-card .panel-label,
+  .poker-timer-app:fullscreen .stack-card .panel-label,
+  .poker-timer-app:fullscreen .players-card .panel-label { font-size: 10px; margin-bottom: 1px; }
+  .poker-timer-app:fullscreen .break-card .panel-value { font-size: 16px; }
+  .poker-timer-app:fullscreen .stack-row .stack-label { font-size: 10px; }
+  .poker-timer-app:fullscreen .stack-row .stack-value { font-size: 14px; }
+  .poker-timer-app:fullscreen .stack-row { padding: 1px 0; }
+  .poker-timer-app:fullscreen .players-display { font-size: 20px; }
+  .poker-timer-app:fullscreen .players-label { font-size: 9px; }
+}
+
+/* ネイティブフルスクリーン: iPad横画面（901px〜1024px） */
+@media (min-width: 901px) and (max-width: 1024px) and (orientation: landscape) {
+  .poker-timer-app:fullscreen .timer-time { font-size: 80px; }
+  .poker-timer-app:fullscreen .level-badge { font-size: 16px; padding: 6px 14px; margin-bottom: 8px; }
+  .poker-timer-app:fullscreen .blind-current { font-size: 32px; }
+  .poker-timer-app:fullscreen .blind-current .ante-value { font-size: 32px; }
+  .poker-timer-app:fullscreen .blind-next-value { font-size: 18px; }
+  .poker-timer-app:fullscreen .next-ante { font-size: 14px; }
+  .poker-timer-app:fullscreen .timer-progress { height: 6px; margin: 6px 0; }
+  .poker-timer-app:fullscreen .left-panel .panel-label { font-size: 14px; }
+  .poker-timer-app:fullscreen .prize-inmoney { font-size: 14px; }
+  .poker-timer-app:fullscreen .prize-inmoney-value { font-size: 18px; }
+  .poker-timer-app:fullscreen .prize-item { font-size: 16px; padding: 2px 0; }
+  .poker-timer-app:fullscreen .right-panel { gap: 6px; }
+  .poker-timer-app:fullscreen .break-card,
+  .poker-timer-app:fullscreen .stack-card,
+  .poker-timer-app:fullscreen .players-card { padding: 6px 10px; }
+  .poker-timer-app:fullscreen .break-card .panel-label,
+  .poker-timer-app:fullscreen .stack-card .panel-label,
+  .poker-timer-app:fullscreen .players-card .panel-label { font-size: 14px; }
+  .poker-timer-app:fullscreen .break-card .panel-value { font-size: 24px; }
+  .poker-timer-app:fullscreen .stack-row .stack-label { font-size: 14px; }
+  .poker-timer-app:fullscreen .stack-row .stack-value { font-size: 22px; }
+  .poker-timer-app:fullscreen .players-display { font-size: 28px; }
+  .poker-timer-app:fullscreen .players-label { font-size: 13px; }
+}
+
+/* ============================================
    モバイル擬似フルスクリーン固有スタイル
    ============================================ */
 body.mobile-fullscreen-active {
@@ -1555,6 +1722,8 @@ body.mobile-fullscreen-active aside {
 .exit-fullscreen-btn {
   display: none;
   position: fixed;
+  top: 8px;  /* max() 非対応ブラウザ用フォールバック */
+  right: 8px;
   top: max(8px, env(safe-area-inset-top));
   right: max(8px, env(safe-area-inset-right));
   width: 40px;
@@ -1874,6 +2043,43 @@ body.mobile-fullscreen-active aside {
   .stack-card .stack-row { padding: 4px 0; }
   .stack-card .stack-label { font-size: 12px; }
   .stack-card .stack-value { font-size: 20px; }
+}
+
+/* ============================================
+   レスポンシブ: 横画面（max-width: 900px）
+   ============================================ */
+@media (max-width: 900px) and (orientation: landscape) {
+  .timer-grid {
+    grid-template-columns: minmax(140px, 1fr) 2fr minmax(140px, 1fr);
+    gap: var(--gap-sm);
+    min-height: auto;
+  }
+  .center-panel { padding: var(--gap-sm); }
+  .timer-time { font-size: 56px; margin: 4px 0; }
+  .blind-current { font-size: 24px; }
+  .blind-current .ante-value { font-size: 24px; }
+  .blind-next { margin-top: 4px; padding-top: 4px; }
+  .blind-next-value { font-size: 16px; }
+  .level-badge { font-size: 12px; padding: 4px 10px; margin-bottom: 6px; }
+  .controls { margin-top: 6px; }
+  .btn { padding: 8px 14px; font-size: 12px; }
+  .left-panel { padding: 8px; }
+  .prize-header { padding-bottom: 4px; margin-bottom: 4px; }
+  .prize-inmoney { font-size: 12px; }
+  .prize-item { font-size: 13px; padding: 2px 0; }
+  .mascot-area { display: none; }
+  .right-panel { padding-top: 0; gap: var(--gap-sm); }
+  .right-panel .info-card { padding: 6px 8px; }
+  .panel-label { font-size: 11px; margin-bottom: 2px; }
+  .panel-value { font-size: 18px; }
+  .break-card .panel-value { font-size: 20px; }
+  .stack-card .stack-label { font-size: 10px; }
+  .stack-card .stack-value { font-size: 16px; }
+  .stack-card .stack-row { padding: 2px 0; }
+  .players-card .players-display { font-size: 18px; }
+  .players-card .players-label { font-size: 10px; }
+  .fullscreen-btn-top { display: none; }
+  .fullscreen-btn-mobile { display: flex; }
 }
 
 /* ============================================
@@ -3424,9 +3630,10 @@ body.mobile-fullscreen-active aside {
     var isIPad = isTouchDevice ? (navigator.platform === 'MacIntel' || /iPad/.test(navigator.userAgent)) : false;
     var isIPhone = /iPhone/.test(navigator.userAgent);
     var isAndroid = /Android/.test(navigator.userAgent);
-    var isMobileDevice = isIPad || isIPhone || isAndroid;
+    // iOS のみCSS擬似フルスクリーン（Fullscreen API非対応）。AndroidはネイティブFullscreen APIを使用
+    var isMobileDevice = isIPad || isIPhone;
 
-    // ネイティブFullscreen APIが使えるかチェック（デスクトップのみ使用）
+    // ネイティブFullscreen APIが使えるかチェック（デスクトップ・Android）
     var canFullscreen = !isMobileDevice ? (app.requestFullscreen || app.webkitRequestFullscreen) : false;
 
     if (canFullscreen) {
@@ -3456,7 +3663,7 @@ body.mobile-fullscreen-active aside {
         setMobileFullscreenHeight();
         if (!state.resizeListenerAdded) {
           window.addEventListener('resize', setMobileFullscreenHeight);
-          window.addEventListener('orientationchange', setMobileFullscreenHeight);
+          window.addEventListener('orientationchange', handleOrientationChange);
           state.resizeListenerAdded = true;
         }
       } else {
@@ -3490,19 +3697,25 @@ body.mobile-fullscreen-active aside {
         app.classList.remove('mobile-fullscreen');
         document.body.classList.remove('mobile-fullscreen-active');
         window.removeEventListener('resize', setMobileFullscreenHeight);
-        window.removeEventListener('orientationchange', setMobileFullscreenHeight);
+        window.removeEventListener('orientationchange', handleOrientationChange);
         state.resizeListenerAdded = false;
       }
     }
+  }
+
+  // orientationchangeハンドラ（遅延実行でdimension確定を待つ）
+  function handleOrientationChange() {
+    setTimeout(setMobileFullscreenHeight, 150);
   }
 
   // Safari/iOS対応: 実際のビューポートサイズを設定
   function setMobileFullscreenHeight() {
     var app = $('pokerTimer');
     if (!app) return;
-    // window.innerHeight/innerWidthは実際の表示領域サイズを返す（Safari UIを除いた領域）
-    var vh = window.innerHeight;
-    var vw = window.innerWidth;
+    // visualViewport APIが使える場合はより正確なサイズを取得
+    var vp = window.visualViewport;
+    var vh = vp ? vp.height : window.innerHeight;
+    var vw = vp ? vp.width : window.innerWidth;
     app.style.height = vh + 'px';
     app.style.maxHeight = vh + 'px';
     app.style.width = vw + 'px';

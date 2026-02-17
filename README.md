@@ -57,9 +57,6 @@ go build -o wp-cli .
 # 記事を書く
 /blog-write
 
-# WordPressから既存記事をインポート
-/blog-import
-
 # 記事を投稿
 /blog-publish
 

@@ -38,7 +38,6 @@ func runList(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return fmt.Errorf("list --status が不正です: %w", err)
 	}
-	listStatus = normalizedStatus
 
 	client, err := setupClient()
 	if err != nil {
@@ -50,18 +49,18 @@ func runList(cmd *cobra.Command, args []string) error {
 
 	switch itemType {
 	case "posts":
-		return listPosts(ctx, client)
+		return listPosts(ctx, client, normalizedStatus)
 	case "pages":
-		return listPages(ctx, client)
+		return listPages(ctx, client, normalizedStatus)
 	default:
 		return fmt.Errorf("無効な引数です。'posts' または 'pages' を指定してください")
 	}
 }
 
-func listPosts(ctx context.Context, client *wp.Client) error {
+func listPosts(ctx context.Context, client *wp.Client, statusFilter string) error {
 	color.Cyan("投稿一覧を取得中...")
 
-	posts, err := client.GetPosts(ctx, 1, listLimit, listStatus)
+	posts, err := client.GetPosts(ctx, 1, listLimit, statusFilter)
 	if err != nil {
 		return fmt.Errorf("投稿一覧の取得に失敗: %w", err)
 	}
@@ -87,10 +86,10 @@ func listPosts(ctx context.Context, client *wp.Client) error {
 	return nil
 }
 
-func listPages(ctx context.Context, client *wp.Client) error {
+func listPages(ctx context.Context, client *wp.Client, statusFilter string) error {
 	color.Cyan("固定ページ一覧を取得中...")
 
-	pages, err := client.GetPages(ctx, 1, listLimit, listStatus)
+	pages, err := client.GetPages(ctx, 1, listLimit, statusFilter)
 	if err != nil {
 		return fmt.Errorf("固定ページ一覧の取得に失敗: %w", err)
 	}

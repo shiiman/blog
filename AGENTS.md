@@ -20,6 +20,7 @@ Project-local skills are defined in `.agents/skills/`:
 - NEVER read or expose `.env` file contents
 - Application passwords should be managed via environment variables
 - `blog-write` always creates draft posts in `drafts/`
+- Codex の `blog-write` はアイキャッチ画像を自動生成しない（必要時は手動配置）
 
 ## Git Commit Guidelines
 

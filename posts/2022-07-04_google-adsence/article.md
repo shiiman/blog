@@ -6,10 +6,8 @@ status: publish
 date: 2022-07-04T19:30:00
 modified: 2022-07-03T14:40:37
 excerpt: Google AdSenseの登録手順と審査に通るまでの経緯を紹介。半年ぶりの申請で審査通過した体験談です。
-categories:
-    - 12
-tags:
-    - 119
+categories: [12]
+tags: [119]
 featured_media: 1693
 ---
 

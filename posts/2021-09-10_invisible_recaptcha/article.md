@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-10T19:30:00
 modified: 2021-09-08T02:16:28
 excerpt: WordPressのBot攻撃対策として「Invisible reCaptcha」プラグインの導入・設定方法を初心者向けに解説します。
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-    - 38
+categories: [10, 3]
+tags: [6, 23, 38]
 featured_media: 478
 ---
 

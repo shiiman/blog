@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-01T19:30:00
 modified: 2021-09-24T21:40:59
 excerpt: WordPressのバックアップを自動化するプラグイン「BackWPup」の導入から設定方法まで、初心者にもわかりやすく解説します。
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-    - 24
+categories: [10, 3]
+tags: [6, 23, 24]
 featured_media: 84
 ---
 

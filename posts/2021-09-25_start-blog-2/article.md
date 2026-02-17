@@ -6,10 +6,8 @@ status: publish
 date: 2021-09-25T19:30:00
 modified: 2021-09-21T18:23:35
 excerpt: ブログを始める際に参考にした書籍4冊とYouTuber3名を、それぞれの特徴と学べる内容とともに紹介します。
-categories:
-    - 17
-tags:
-    - 6
+categories: [17]
+tags: [6]
 featured_media: 829
 ---
 

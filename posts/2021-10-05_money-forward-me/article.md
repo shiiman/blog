@@ -6,11 +6,8 @@ status: publish
 date: 2021-10-05T19:30:00
 modified: 2021-10-04T14:43:18
 excerpt: 家計簿管理アプリ「マネーフォワードME」の活用方法を紹介。収支の見える化がFIREへの第一歩です。
-categories:
-    - 52
-    - 14
-tags:
-    - 53
+categories: [52, 14]
+tags: [53]
 featured_media: 855
 ---
 

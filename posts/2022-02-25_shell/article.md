@@ -6,13 +6,8 @@ status: publish
 date: 2022-02-25T19:30:00
 modified: 2022-02-17T15:46:42
 excerpt: macのシェルをbash・zsh・fishでカスタマイズする方法を紹介。ターミナルの見た目と使い勝手を改善します。
-categories:
-    - 106
-    - 18
-tags:
-    - 110
-    - 111
-    - 112
+categories: [106, 18]
+tags: [110, 111, 112]
 featured_media: 1596
 ---
 

@@ -6,12 +6,8 @@ status: publish
 date: 2021-10-12T19:30:00
 modified: 2022-03-19T11:58:35
 excerpt: Go言語での型変換（キャスト）方法をまとめた備忘録。string・int・float間の変換やstrconvパッケージの使い方を解説します。
-categories:
-    - 18
-    - 60
-tags:
-    - 59
-    - 76
+categories: [18, 60]
+tags: [59, 76]
 featured_media: 1175
 ---
 

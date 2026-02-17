@@ -6,14 +6,8 @@ status: publish
 date: 2022-10-08T19:30:00
 modified: 2022-10-07T18:03:58
 excerpt: S3に保存されたCloudFrontのアクセスログをAthenaでクエリする方法を、テーブル作成からクエリ実行まで解説します。
-categories:
-    - 19
-    - 18
-    - 21
-tags:
-    - 124
-    - 125
-    - 126
+categories: [19, 18, 21]
+tags: [124, 125, 126]
 featured_media: 1760
 ---
 

@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-12T19:30:00
 modified: 2021-09-24T21:49:11
 excerpt: CocoonのWordPress設定保存時に発生する「Forbidden Access」エラーの原因と解決方法を紹介します。
-categories:
-    - 11
-    - 3
-tags:
-    - 6
-    - 7
-    - 31
+categories: [11, 3]
+tags: [6, 7, 31]
 featured_media: 555
 ---
 

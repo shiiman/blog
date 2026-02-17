@@ -6,12 +6,8 @@ status: publish
 date: 2021-08-31T19:30:00
 modified: 2021-09-24T21:39:54
 excerpt: WordPress初心者向けに、ConoHa WINGでのブログ開設手順をサーバー契約からWordPressインストールまで画像つきで丁寧に解説します。
-categories:
-    - 4
-    - 3
-tags:
-    - 6
-    - 7
+categories: [4, 3]
+tags: [6, 7]
 featured_media: 26
 ---
 

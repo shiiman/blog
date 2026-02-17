@@ -6,12 +6,8 @@ status: publish
 date: 2022-03-04T19:30:00
 modified: 2022-03-03T14:25:17
 excerpt: つみたてNISA20ヶ月目・iDeCo17ヶ月目の運用実績を公開。ウクライナ情勢下での積立状況を報告します。
-categories:
-    - 16
-    - 14
-tags:
-    - 69
-    - 70
+categories: [16, 14]
+tags: [69, 70]
 featured_media: 1618
 ---
 

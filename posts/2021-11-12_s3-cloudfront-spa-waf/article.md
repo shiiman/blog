@@ -6,15 +6,8 @@ status: publish
 date: 2021-11-12T19:30:00
 modified: 2021-11-11T17:24:34
 excerpt: AWSでS3+CloudFrontを使ったSPA構築時のルーティング問題と、WAFのIP制限との干渉を解決する方法を解説します。
-categories:
-    - 19
-    - 18
-tags:
-    - 79
-    - 81
-    - 82
-    - 83
-    - 84
+categories: [19, 18]
+tags: [79, 81, 82, 83, 84]
 featured_media: 1262
 ---
 

@@ -6,11 +6,8 @@ status: publish
 date: 2021-12-15T19:30:00
 modified: 2021-12-10T14:07:37
 excerpt: 広告登録数約5000件を誇る大手アフィリエイトASP「アクセストレード」の特徴と登録方法を解説します。
-categories:
-    - 12
-    - 3
-tags:
-    - 89
+categories: [12, 3]
+tags: [89]
 featured_media: 1390
 ---
 

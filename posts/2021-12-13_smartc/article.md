@@ -6,11 +6,8 @@ status: publish
 date: 2021-12-13T19:30:00
 modified: 2021-12-09T19:32:52
 excerpt: スマートフォンアプリ広告に特化したアフィリエイトASP「Smart-C」の特徴と登録方法を解説します。
-categories:
-    - 12
-    - 3
-tags:
-    - 87
+categories: [12, 3]
+tags: [87]
 featured_media: 1331
 ---
 

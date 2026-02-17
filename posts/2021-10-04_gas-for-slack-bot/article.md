@@ -6,14 +6,8 @@ status: publish
 date: 2021-10-04T19:30:00
 modified: 2021-10-01T19:22:16
 excerpt: Google Apps Script（GAS）からSlack APIを叩いてBotを作成する方法を、ライブラリ未使用で一から解説します。
-categories:
-    - 18
-    - 64
-    - 65
-tags:
-    - 66
-    - 67
-    - 68
+categories: [18, 64, 65]
+tags: [66, 67, 68]
 featured_media: 1051
 ---
 

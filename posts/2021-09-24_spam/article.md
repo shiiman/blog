@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-24T19:30:00
 modified: 2021-09-24T21:51:30
 excerpt: Contact Form 7のお問い合わせメールが迷惑メールフォルダに入る問題の原因と、ConoHa WINGでの解決方法を紹介します。
-categories:
-    - 4
-    - 3
-tags:
-    - 6
-    - 7
-    - 51
+categories: [4, 3]
+tags: [6, 7, 51]
 featured_media: 805
 ---
 

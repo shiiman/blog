@@ -6,12 +6,8 @@ status: publish
 date: 2021-09-22T19:30:00
 modified: 2021-09-15T15:35:29
 excerpt: Google公式プラグイン「Site Kit」を使って、WordPressダッシュボード上でAnalyticsやSearch Consoleを一元管理する方法を紹介します。
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 49
+categories: [10, 3]
+tags: [6, 49]
 featured_media: 742
 ---
 

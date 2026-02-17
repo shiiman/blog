@@ -6,11 +6,8 @@ status: publish
 date: 2022-01-21T19:30:00
 modified: 2022-01-19T17:08:55
 excerpt: 2021年に読んだおすすめの異世界冒険マンガ21作品を、あらすじとともに一挙紹介します。
-categories:
-    - 17
-tags:
-    - 95
-    - 96
+categories: [17]
+tags: [95, 96]
 featured_media: 1461
 ---
 

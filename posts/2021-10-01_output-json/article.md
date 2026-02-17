@@ -6,13 +6,8 @@ status: publish
 date: 2021-10-01T19:30:00
 modified: 2021-10-01T13:29:14
 excerpt: GolangでHTTPレスポンスのJSONを構造体定義なしでファイルに出力する方法を紹介。JSON-to-Goの活用法も解説します。
-categories:
-    - 18
-    - 60
-tags:
-    - 59
-    - 61
-    - 62
+categories: [18, 60]
+tags: [59, 61, 62]
 featured_media: 1035
 ---
 

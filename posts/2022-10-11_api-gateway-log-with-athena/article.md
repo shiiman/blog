@@ -6,14 +6,8 @@ status: publish
 date: 2022-10-11T19:30:00
 modified: 2022-10-11T11:27:40
 excerpt: S3に保存されたAPI GatewayのアクセスログをAthenaでクエリする方法を、テーブル作成からクエリ実行まで解説します。
-categories:
-    - 19
-    - 18
-    - 21
-tags:
-    - 124
-    - 125
-    - 127
+categories: [19, 18, 21]
+tags: [124, 125, 127]
 featured_media: 1773
 ---
 

@@ -6,14 +6,8 @@ status: publish
 date: 2021-09-05T19:30:00
 modified: 2021-09-02T18:15:20
 excerpt: Cocoonを使用してWordPressにサイトマップを作成し、ヘッダーやフッターに設置する方法を初心者向けに解説します。
-categories:
-    - 4
-    - 11
-    - 3
-tags:
-    - 6
-    - 27
-    - 31
+categories: [4, 11, 3]
+tags: [6, 27, 31]
 featured_media: 247
 ---
 

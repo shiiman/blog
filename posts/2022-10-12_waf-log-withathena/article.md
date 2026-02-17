@@ -6,14 +6,8 @@ status: publish
 date: 2022-10-12T19:30:00
 modified: 2022-10-11T12:06:53
 excerpt: S3に保存されたAWS WAFのログをAthenaでクエリする方法を、テーブル作成からクエリ実行まで解説します。
-categories:
-    - 19
-    - 18
-    - 21
-tags:
-    - 83
-    - 124
-    - 125
+categories: [19, 18, 21]
+tags: [83, 124, 125]
 featured_media: 1784
 ---
 

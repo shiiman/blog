@@ -6,12 +6,8 @@ status: publish
 date: 2021-12-03T12:00:00
 modified: 2022-11-04T17:41:25
 excerpt: GolangでGoogleのOAuth2.0認証を実装する方法をサンプルコード付きで解説。アドベントカレンダー2021の記事です。
-categories:
-    - 18
-    - 60
-tags:
-    - 85
-    - 86
+categories: [18, 60]
+tags: [85, 86]
 featured_media: 1290
 ---
 

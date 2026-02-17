@@ -6,13 +6,8 @@ status: publish
 date: 2022-08-23T19:30:00
 modified: 2022-08-23T00:30:38
 excerpt: Fargate Spot環境でBlue-Greenデプロイを行う際に遭遇した問題と、CodeDeployの設定での解決方法を紹介します。
-categories:
-    - 19
-    - 18
-tags:
-    - 115
-    - 121
-    - 122
+categories: [19, 18]
+tags: [115, 121, 122]
 featured_media: 1738
 ---
 

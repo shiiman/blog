@@ -6,12 +6,8 @@ status: publish
 date: 2021-10-25T19:30:00
 modified: 2021-10-22T12:40:03
 excerpt: MacでSnowflakeのCLIクライアント「SnowSQL」をインストール・設定する方法と、Permission deniedエラーの対処法を紹介します。
-categories:
-    - 18
-    - 77
-tags:
-    - 78
-    - 80
+categories: [18, 77]
+tags: [78, 80]
 featured_media: 1221
 ---
 

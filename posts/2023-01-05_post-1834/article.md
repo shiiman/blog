@@ -6,11 +6,8 @@ status: publish
 date: 2023-01-05T19:30:00
 modified: 2023-01-05T19:06:34
 excerpt: フリーランスになる前に検討すべきお金の話8選。銀行口座・クレジットカード・保険など、会社員のうちに準備しておくべき項目を解説します。
-categories:
-    - 52
-tags:
-    - 131
-    - 132
+categories: [52]
+tags: [131, 132]
 featured_media: 1841
 ---
 

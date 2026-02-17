@@ -6,11 +6,8 @@ status: publish
 date: 2021-10-07T19:30:00
 modified: 2022-10-07T14:14:12
 excerpt: iDeCo開始12ヶ月目の運用実績を公開。節税効果とともに1年間の運用成績を振り返ります。
-categories:
-    - 16
-    - 14
-tags:
-    - 70
+categories: [16, 14]
+tags: [70]
 featured_media: 1125
 ---
 

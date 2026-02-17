@@ -6,12 +6,8 @@ status: publish
 date: 2021-09-09T19:30:00
 modified: 2021-09-11T03:32:18
 excerpt: Dockerを使ってWordPressのローカルテスト環境を構築する方法を紹介。プラグインやテーマの検証を安全に行えます。
-categories:
-    - 18
-    - 22
-tags:
-    - 6
-    - 35
+categories: [18, 22]
+tags: [6, 35]
 featured_media: 465
 ---
 

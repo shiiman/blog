@@ -6,13 +6,8 @@ status: publish
 date: 2022-01-28T19:30:00
 modified: 2022-01-19T19:41:38
 excerpt: SnowflakeのSnowpipeを使ってAWS S3からデータを継続的に自動ロードする仕組みの構築方法を解説します。
-categories:
-    - 18
-    - 77
-tags:
-    - 78
-    - 79
-    - 97
+categories: [18, 77]
+tags: [78, 79, 97]
 featured_media: 1496
 ---
 

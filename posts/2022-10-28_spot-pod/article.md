@@ -6,13 +6,8 @@ status: publish
 date: 2022-10-28T19:30:00
 modified: 2022-10-28T18:22:38
 excerpt: GKE AutopilotのSpot Podを導入してPod料金を60〜91%削減した実践例。導入手順と注意点を紹介します。
-categories:
-    - 20
-    - 18
-tags:
-    - 128
-    - 129
-    - 130
+categories: [20, 18]
+tags: [128, 129, 130]
 featured_media: 1794
 ---
 

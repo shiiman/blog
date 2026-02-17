@@ -6,10 +6,8 @@ status: publish
 date: 2021-09-20T19:30:00
 modified: 2021-09-21T18:32:40
 excerpt: Google Search Consoleの登録からCocoonテーマへの設定まで、WordPressサイト向けに初心者向けに解説します。
-categories:
-    - 13
-tags:
-    - 47
+categories: [13]
+tags: [47]
 featured_media: 703
 ---
 

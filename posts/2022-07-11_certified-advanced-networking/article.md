@@ -6,12 +6,8 @@ status: publish
 date: 2022-07-11T19:30:00
 modified: 2022-08-07T22:29:36
 excerpt: AWS Certified Advanced Networking – Specialty資格を取得した体験談。勉強法と試験のポイントを紹介します。
-categories:
-    - 19
-    - 18
-tags:
-    - 81
-    - 120
+categories: [19, 18]
+tags: [81, 120]
 featured_media: 1718
 ---
 

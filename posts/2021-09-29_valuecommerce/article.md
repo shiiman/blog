@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-29T19:30:00
 modified: 2021-12-09T18:26:23
 excerpt: 日本初のASPサービス「バリューコマース」の登録方法を紹介。大手企業案件が豊富なアフィリエイトASPです。
-categories:
-    - 12
-    - 3
-tags:
-    - 56
-    - 57
-    - 58
+categories: [12, 3]
+tags: [56, 57, 58]
 featured_media: 987
 ---
 

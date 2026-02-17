@@ -6,13 +6,8 @@ status: publish
 date: 2022-01-24T19:30:00
 modified: 2022-01-21T17:31:34
 excerpt: AWSのFireLensとFluentbit、Kinesis Data Firehoseを使って、コンテナログをS3にリアルタイム出力する方法を解説します。
-categories:
-    - 19
-    - 18
-tags:
-    - 98
-    - 99
-    - 100
+categories: [19, 18]
+tags: [98, 99, 100]
 featured_media: 1524
 ---
 

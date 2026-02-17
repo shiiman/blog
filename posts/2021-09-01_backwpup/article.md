@@ -3,7 +3,9 @@ id: 82
 title: 【WordPress】おすすめのプラグイン Part 1 〜 BackWPup 〜
 slug: backwpup
 status: publish
-excerpt: 前回の記事ででWordPressを導入するところまで行いました。ブログ開設までの流れを解説しておりますので、そちらも合わせて御覧ください。 さてブログはとりあえず公開することができましたが、そのままの設定だと実際に運営し \[…\]
+date: 2021-09-01T19:30:00
+modified: 2021-09-24T21:40:59
+excerpt: WordPressのバックアップを自動化するプラグイン「BackWPup」の導入から設定方法まで、初心者にもわかりやすく解説します。
 categories:
     - 10
     - 3
@@ -12,8 +14,6 @@ tags:
     - 23
     - 24
 featured_media: 84
-date: 2021-09-01T19:30:00
-modified: 2021-09-24T21:40:59
 ---
 
 前回の記事で [ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM) ![](https://www19.a8.net/0.gif?a8mat=3HKUB1+DBVECY+50+5SI7RM)でWordPressを導入するところまで行いました。

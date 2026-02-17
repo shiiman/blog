@@ -3,14 +3,14 @@ id: 701
 title: 【2021年9月】初心者用 Google Search Console 登録と設定 | Cocoon
 slug: google-search-console
 status: publish
-excerpt: こんばんは、しーまんです！ Google Search Console(通称サチコ)はwebサイトの表示回数やユーザの行動を分析するためのツールです。こちらのツールを使用することで、自身のwebサイトの状態をグラフで確認 \[…\]
+date: 2021-09-20T19:30:00
+modified: 2021-09-21T18:32:40
+excerpt: Google Search Consoleの登録からCocoonテーマへの設定まで、WordPressサイト向けに初心者向けに解説します。
 categories:
     - 13
 tags:
     - 47
 featured_media: 703
-date: 2021-09-20T19:30:00
-modified: 2021-09-21T18:32:40
 ---
 
 こんばんは、しーまんです！

@@ -3,7 +3,9 @@ id: 1154
 title: 【slack】GASを使ってslackのpublicチャンネル一覧をスプレッドシートに出力する方法
 slug: public-channels
 status: publish
-excerpt: こんばんは、しーまんです。 チャットツールの定番Slackでチャンネル数が増えすぎてどんなチャンネルが有るのか分からなくなったことはありませんか。また自分の所属しているチャンネルが増えすぎて、どのチャンネルに投稿した方が \[…\]
+date: 2021-10-11T19:30:00
+modified: 2022-06-30T18:00:20
+excerpt: GASとSlack APIを使って、Slackのpublicチャンネル一覧をスプレッドシートに出力する方法を紹介します。
 categories:
     - 18
     - 64
@@ -14,8 +16,6 @@ tags:
     - 68
     - 75
 featured_media: 1156
-date: 2021-10-11T19:30:00
-modified: 2022-06-30T18:00:20
 ---
 
 こんばんは、しーまんです。

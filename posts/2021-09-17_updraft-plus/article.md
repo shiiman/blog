@@ -3,7 +3,9 @@ id: 637
 title: 【WordPress】おすすめのプラグイン Part 5 〜 Updraft Plus 〜
 slug: updraft-plus
 status: publish
-excerpt: こんばんは、しーまんです！ 皆さんはWordPressのバックアップを取っていますでしょうか？WordPressは比較的簡単に動かなくなったり、動作がおかしくなったりしますので、定期的なバックアップをおすすめします。 そ \[…\]
+date: 2021-09-17T19:30:00
+modified: 2021-09-14T00:46:53
+excerpt: WordPressのバックアッププラグイン「UpdraftPlus」の導入・設定方法を紹介。自動バックアップで万が一に備えます。
 categories:
     - 10
     - 3
@@ -11,8 +13,6 @@ tags:
     - 6
     - 44
 featured_media: 638
-date: 2021-09-17T19:30:00
-modified: 2021-09-14T00:46:53
 ---
 
 こんばんは、しーまんです！

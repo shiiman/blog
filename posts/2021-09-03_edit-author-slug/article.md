@@ -3,7 +3,9 @@ id: 152
 title: 【WordPress】おすすめのプラグイン Part 3 〜 Edit Author Slug 〜
 slug: edit-author-slug
 status: publish
-excerpt: WordPressを初めてセキュリティー対策としてプラグインを追加すると思いますが、今回は「Edit Author Slug」というものを紹介します。 皆さんWordPressでブログやwebサイトを運用していて、悪い人 \[…\]
+date: 2021-09-03T19:30:00
+modified: 2021-09-02T14:23:19
+excerpt: WordPressのセキュリティ対策として、ユーザー名の漏洩を防ぐプラグイン「Edit Author Slug」の導入と設定方法を紹介します。
 categories:
     - 10
     - 3
@@ -12,8 +14,6 @@ tags:
     - 23
     - 26
 featured_media: 145
-date: 2021-09-03T19:30:00
-modified: 2021-09-02T14:23:19
 ---
 
 WordPressを初めてセキュリティー対策としてプラグインを追加すると思いますが、

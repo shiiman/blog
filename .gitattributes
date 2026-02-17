@@ -1,0 +1,5 @@
+backlog/**/*.png filter=lfs diff=lfs merge=lfs -text
+backlog/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+backlog/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+backlog/**/*.gif filter=lfs diff=lfs merge=lfs -text
+backlog/**/*.webp filter=lfs diff=lfs merge=lfs -text

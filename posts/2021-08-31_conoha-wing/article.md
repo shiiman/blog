@@ -3,7 +3,9 @@ id: 21
 title: 【2021年8月】初心者がConoHa WINGでWordPressを始めたので手順を1からまとめてみた
 slug: conoha-wing
 status: publish
-excerpt: ブログを書こうと思ってからじゃあwordpressを使おうと思って色々調べて見ました。 最初は自前でサーバを立てようかなと思ったのですが、 で管理するのが圧倒的に楽そうだったので で始めることにしました。 ConoHa \[…\]
+date: 2021-08-31T19:30:00
+modified: 2021-09-24T21:39:54
+excerpt: WordPress初心者向けに、ConoHa WINGでのブログ開設手順をサーバー契約からWordPressインストールまで画像つきで丁寧に解説します。
 categories:
     - 4
     - 3
@@ -11,8 +13,6 @@ tags:
     - 6
     - 7
 featured_media: 26
-date: 2021-08-31T19:30:00
-modified: 2021-09-24T21:39:54
 ---
 
 ブログを書こうと思ってからじゃあwordpressを使おうと思って色々調べて見ました。

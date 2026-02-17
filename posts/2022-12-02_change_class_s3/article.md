@@ -3,15 +3,15 @@ id: 1808
 title: 【AWS】S3ストレージクラス変更時の注意点
 slug: change_class_s3
 status: publish
-excerpt: こんにちは、しーまんです。 今回は、去年も行ったアドベントカレンダー用の記事になります。サムザップ Advent Calendar 2022の12/2の記事です。 毎年このイベント用の記事を書いていると、今年も終わりだな \[…\]
+date: 2022-12-02T07:00:00
+modified: 2022-12-01T19:12:48
+excerpt: S3ストレージクラスの変更時に気をつけるべき注意点を、Terraformでの実装例とともに紹介します。
 categories:
     - 19
     - 18
 tags:
     - 79
 featured_media: 1810
-date: 2022-12-02T07:00:00
-modified: 2022-12-01T19:12:48
 ---
 
 こんにちは、しーまんです。

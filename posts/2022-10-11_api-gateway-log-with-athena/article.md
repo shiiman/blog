@@ -3,7 +3,9 @@ id: 1772
 title: 【AWS】API GatewayのログをAthenaでクエリする方法
 slug: api-gateway-log-with-athena
 status: publish
-excerpt: こんばんは、しーまんです。 前回の記事でCloud FrontのアクセスログをAthenaでクエリする方法を紹介しました。まだご覧になっていない方はぜひこちらも御覧ください。 【AWS】Cloud FrontのログをAt \[…\]
+date: 2022-10-11T19:30:00
+modified: 2022-10-11T11:27:40
+excerpt: S3に保存されたAPI GatewayのアクセスログをAthenaでクエリする方法を、テーブル作成からクエリ実行まで解説します。
 categories:
     - 19
     - 18
@@ -13,8 +15,6 @@ tags:
     - 125
     - 127
 featured_media: 1773
-date: 2022-10-11T19:30:00
-modified: 2022-10-11T11:27:40
 ---
 
 こんばんは、しーまんです。

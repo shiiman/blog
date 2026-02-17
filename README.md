@@ -6,7 +6,7 @@ ConoHa上で運営するWordPress技術ブログ（<https://shiimanblog.com>）�
 
 - 📝 **記事執筆** - Claude Code/Cursor/Codex/Antigravityでブログ記事を執筆
 - 🎨 **アイキャッチ生成** - Cursor/AntigravityでAI画像生成（記事内容に合わせて自動生成）
-- 📤 **記事投稿** - CLIでWordPressに投稿（デフォルト: 下書き）
+- 📤 **記事投稿** - CLIでWordPressに公開（デフォルト: 公開）
 - 📥 **記事インポート** - WordPressから既存記事をMarkdownとして取得
 - ✏️ **記事更新** - ローカルで編集した記事をWordPressに反映
 - 📄 **固定ページ管理** - 投稿と同様に固定ページも操作可能
@@ -49,6 +49,12 @@ go build -o wp-cli .
 
 ## 使い方
 
+### 変更点（運用ルール統一）
+
+- `blog-write` は下書き作成専用（`drafts/` + `status: draft`）
+- `blog-publish` は公開専用（`wp-cli post` はデフォルト公開）
+- `blog-update` は既存記事更新専用（`wp-cli update --publish` は廃止）
+
 ### スキル/ワークフロー（推奨）
 
 #### 記事管理（全ツール対応）
@@ -57,7 +63,7 @@ go build -o wp-cli .
 # 記事を書く
 /blog-write
 
-# 記事を投稿
+# 記事を公開
 /blog-publish
 
 # 記事を更新
@@ -85,17 +91,17 @@ go build -o wp-cli .
 ./tools/wp-cli/wp-cli import posts
 ./tools/wp-cli/wp-cli import post 123
 
-# 新規投稿（下書き）
+# 新規投稿（公開・デフォルト）
 ./tools/wp-cli/wp-cli post drafts/2025-01-03_article/article.md
 
-# 新規投稿（公開）
-./tools/wp-cli/wp-cli post drafts/article.md --publish
+# 新規投稿（下書き）
+./tools/wp-cli/wp-cli post drafts/article.md --draft
 
 # 記事更新
 ./tools/wp-cli/wp-cli update posts/2025-01-03_slug/article.md
 
 # 固定ページ更新
-./tools/wp-cli/wp-cli update pages/poker/page.md --page --publish
+./tools/wp-cli/wp-cli update pages/poker/page.md --page
 
 # カテゴリ・タグ一覧
 ./tools/wp-cli/wp-cli categories
@@ -174,8 +180,8 @@ menu_order: 0
 # 2. アイキャッチ画像を生成（AIが記事内容を分析して自動生成）
 /eyecatch-create
 
-# 3. 投稿（アイキャッチは自動でアップロード・設定）
-./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md --publish
+# 3. 公開（アイキャッチは自動でアップロード・設定）
+./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md
 ```
 
 **デザインルール:**
@@ -193,8 +199,8 @@ menu_order: 0
 # 2. アイキャッチ画像を手動で配置
 # drafts/2026-01-03_my-article/assets/eyecatch.png
 
-# 3. 投稿（アイキャッチは自動でアップロード・設定）
-./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md --publish
+# 3. 公開（アイキャッチは自動でアップロード・設定）
+./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md
 ```
 
 > **Note**: Claude Codeには画像生成機能がないため、外部ツールで画像を作成して手動配置してください。

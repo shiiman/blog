@@ -4,7 +4,35 @@ import (
 	"testing"
 )
 
-func TestDetermineStatus(t *testing.T) {
+func TestDeterminePostStatus(t *testing.T) {
+	tests := []struct {
+		name      string
+		draftFlag bool
+		want      string
+	}{
+		{
+			name:      "デフォルトはpublish",
+			draftFlag: false,
+			want:      "publish",
+		},
+		{
+			name:      "draftフラグ指定時はdraft",
+			draftFlag: true,
+			want:      "draft",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := determinePostStatus(tt.draftFlag)
+			if got != tt.want {
+				t.Errorf("determinePostStatus(%v) = %q, want %q", tt.draftFlag, got, tt.want)
+			}
+		})
+	}
+}
+
+func TestDeterminePageStatus(t *testing.T) {
 	tests := []struct {
 		name              string
 		publishFlag       bool
@@ -29,25 +57,13 @@ func TestDetermineStatus(t *testing.T) {
 			frontMatterStatus: "pending",
 			want:              "pending",
 		},
-		{
-			name:              "publishフラグありでフロントマターステータスは無視",
-			publishFlag:       true,
-			frontMatterStatus: "pending",
-			want:              "publish",
-		},
-		{
-			name:              "フロントマターがpublishの場合",
-			publishFlag:       false,
-			frontMatterStatus: "publish",
-			want:              "publish",
-		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := determineStatus(tt.publishFlag, tt.frontMatterStatus)
+			got := determinePageStatus(tt.publishFlag, tt.frontMatterStatus)
 			if got != tt.want {
-				t.Errorf("determineStatus(%v, %q) = %q, want %q", tt.publishFlag, tt.frontMatterStatus, got, tt.want)
+				t.Errorf("determinePageStatus(%v, %q) = %q, want %q", tt.publishFlag, tt.frontMatterStatus, got, tt.want)
 			}
 		})
 	}

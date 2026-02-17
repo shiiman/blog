@@ -49,7 +49,7 @@ mkdir -p drafts/$(date +%Y-%m-%d)_slug
 ### 5. 次のステップ案内
 
 記事作成後、以下を案内:
-- `/blog-publish` で WordPressに投稿（下書き）
+- `/blog-publish` で WordPressに公開
 - 記事内容の確認・編集方法
 - カテゴリ・タグIDの確認方法（`wp-cli categories`, `wp-cli tags`）
 
@@ -72,3 +72,4 @@ status: draft
 - Front Matter の categories/tags は ID で指定
 - コードブロックには言語を明示（```python など）
 - 画像は `drafts/YYYY-MM-DD_slug/assets/` に配置
+- `blog-write` は下書き作成専用（公開は `blog-publish` を使う）

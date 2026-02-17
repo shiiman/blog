@@ -19,4 +19,4 @@ description: ブログ記事のアイキャッチ画像を生成する
 5. 生成された画像を、記事ディレクトリ内の `assets/eyecatch.png` として保存します。
 
 
-※ `wp-cli post` や `wp-cli update` コマンドは、`assets/eyecatch.png` が存在する場合、自動的に WordPress にアップロードしてアイキャッチに設定します。
+※ `wp-cli post` や `wp-cli update` コマンドは、`assets/eyecatch.png` が存在する場合、自動的に WordPress にアップロードしてアイキャッチに設定します。既に `featured_media` が設定済みの記事で差し替える場合は `wp-cli update <file> --force-eyecatch` を使用します。

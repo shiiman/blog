@@ -42,7 +42,7 @@ func runPage(cmd *cobra.Command, args []string) error {
 	}
 
 	// ステータスの決定
-	status := determineStatus(pagePublish, article.FrontMatter.Status)
+	status := determinePageStatus(pagePublish, article.FrontMatter.Status)
 
 	// MarkdownをHTMLに変換
 	htmlContent := converter.MarkdownToHTML(article.Content)

@@ -5,15 +5,27 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/fatih/color"
 	"github.com/shiimanblog/wp-cli/internal/config"
+	"github.com/shiimanblog/wp-cli/internal/converter"
 	"github.com/shiimanblog/wp-cli/internal/types"
 	"github.com/shiimanblog/wp-cli/internal/wp"
 )
 
-// determineStatus はpublishフラグとFront Matterからステータスを決定する
-func determineStatus(publishFlag bool, frontMatterStatus string) string {
+// determinePostStatus はpostコマンド向けにステータスを決定する
+// write=draft / publish=publish の責務分離に合わせ、
+// postはデフォルトで公開、--draft指定時のみ下書きにする。
+func determinePostStatus(draftFlag bool) string {
+	if draftFlag {
+		return "draft"
+	}
+	return "publish"
+}
+
+// determinePageStatus はpageコマンド向けにステータスを決定する
+func determinePageStatus(publishFlag bool, frontMatterStatus string) string {
 	status := "draft"
 	if publishFlag {
 		status = "publish"
@@ -69,6 +81,39 @@ func setupClient() (*wp.Client, error) {
 	return wp.NewClient(cfg), nil
 }
 
+// syncPostToLocal は投稿結果をローカルMarkdownに同期し、必要に応じて公開ディレクトリへ移動する
+func syncPostToLocal(filePath string, post *types.Post, moveOnPublish bool) (string, error) {
+	article, err := converter.ParseArticle(filePath)
+	if err != nil {
+		return filePath, fmt.Errorf("フロントマター読み込みに失敗: %w", err)
+	}
+
+	article.FrontMatter.ID = post.ID
+	article.FrontMatter.Status = post.Status
+	article.FrontMatter.Date = post.Date.Format("2006-01-02T15:04:05")
+	article.FrontMatter.Modified = post.Modified.Format("2006-01-02T15:04:05")
+	article.FrontMatter.Slug = post.Slug
+	article.FrontMatter.FeaturedMedia = post.FeaturedMedia
+
+	currentPath := filePath
+	if moveOnPublish && post.Status == "publish" && strings.Contains(filePath, "drafts/") {
+		currentPath, err = moveToPublished(filePath, post)
+		if err != nil {
+			return filePath, err
+		}
+	}
+
+	content, err := converter.GenerateArticleFile(article)
+	if err != nil {
+		return currentPath, fmt.Errorf("記事ファイル生成に失敗: %w", err)
+	}
+	if err := os.WriteFile(currentPath, []byte(content), 0600); err != nil {
+		return currentPath, fmt.Errorf("記事ファイル保存に失敗: %w", err)
+	}
+
+	return currentPath, nil
+}
+
 // uploadEyecatchIfExists はアイキャッチ画像が存在する場合にアップロードする
 // forceUpload が true の場合は、既にFeaturedMediaが設定されていても再アップロードする
 func uploadEyecatchIfExists(ctx context.Context, client *wp.Client, articleDir string, currentFeaturedMediaID int, forceUpload bool) (int, error) {
@@ -107,6 +152,38 @@ func uploadEyecatchIfExists(ctx context.Context, client *wp.Client, articleDir s
 	color.White("  URL: %s", media.SourceURL)
 
 	return media.ID, nil
+}
+
+// moveToPublished はdrafts/からposts/に記事を移動する
+func moveToPublished(filePath string, post *types.Post) (string, error) {
+	srcDir := filepath.Dir(filePath)
+	newDirName := post.Date.Format("2006-01-02") + "_" + post.Slug
+	destDir := filepath.Clean(filepath.Join("posts", newDirName))
+
+	absDestDir, err := filepath.Abs(destDir)
+	if err != nil {
+		return filePath, fmt.Errorf("パスの解決に失敗: %w", err)
+	}
+	absPosts, err := filepath.Abs("posts")
+	if err != nil {
+		return filePath, fmt.Errorf("パスの解決に失敗: %w", err)
+	}
+	if !strings.HasPrefix(absDestDir, absPosts+string(filepath.Separator)) {
+		return filePath, fmt.Errorf("不正なパスです（posts/ディレクトリ外への移動）: %s", destDir)
+	}
+
+	if _, err := os.Stat(destDir); err == nil {
+		return filePath, fmt.Errorf("移動先が既に存在します: %s", destDir)
+	}
+
+	if err := os.Rename(srcDir, destDir); err != nil {
+		return filePath, fmt.Errorf("記事の移動に失敗 (%s -> %s): %w", srcDir, destDir, err)
+	}
+
+	color.Green("  記事を移動しました: %s", destDir)
+	fmt.Println()
+
+	return filepath.Join(destDir, filepath.Base(filePath)), nil
 }
 
 // formatStatus はステータス文字列を色付きの日本語に変換する

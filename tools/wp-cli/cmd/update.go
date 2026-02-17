@@ -21,14 +21,12 @@ var updateCmd = &cobra.Command{
 例:
   wp-cli update posts/2025-01-03_my-article/article.md
   wp-cli update pages/about/page.md
-  wp-cli update drafts/article.md --id=123
-  wp-cli update posts/article.md --publish`,
+  wp-cli update drafts/article.md --id=123`,
 	Args: cobra.ExactArgs(1),
 	RunE: runUpdate,
 }
 
 var updateID int
-var updatePublish bool
 var updateDryRun bool
 var updatePage bool
 var updateForceEyecatch bool
@@ -36,7 +34,6 @@ var updateForceEyecatch bool
 func init() {
 	rootCmd.AddCommand(updateCmd)
 	updateCmd.Flags().IntVar(&updateID, "id", 0, "更新する投稿/固定ページのID（Front Matterを上書き）")
-	updateCmd.Flags().BoolVarP(&updatePublish, "publish", "p", false, "公開状態に変更")
 	updateCmd.Flags().BoolVar(&updateDryRun, "dry-run", false, "更新せずに内容を確認")
 	updateCmd.Flags().BoolVar(&updatePage, "page", false, "固定ページとして更新")
 	updateCmd.Flags().BoolVar(&updateForceEyecatch, "force-eyecatch", false, "アイキャッチ画像を強制的に再アップロード")
@@ -60,11 +57,8 @@ func runUpdate(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("投稿IDが指定されていません。Front Matterの 'id' フィールドまたは --id オプションで指定してください")
 	}
 
-	// ステータスの決定
+	// ステータスはFront Matterを維持（updateは更新専用）
 	status := article.FrontMatter.Status
-	if updatePublish {
-		status = "publish"
-	}
 
 	// MarkdownをHTMLに変換
 	htmlContent := converter.MarkdownToHTML(article.Content)
@@ -110,10 +104,22 @@ func runUpdate(cmd *cobra.Command, args []string) error {
 	if updatePage {
 		return updatePageContent(ctx, client, id, article, htmlContent, status)
 	}
-	return updatePostContent(ctx, client, id, article, htmlContent, status, featuredMediaID)
+
+	post, err := updatePostContent(ctx, client, id, article, htmlContent, status, featuredMediaID)
+	if err != nil {
+		return err
+	}
+
+	syncedPath, err := syncPostToLocal(filePath, post, false)
+	if err != nil {
+		return err
+	}
+
+	color.Green("  記事ファイルを同期しました: %s", syncedPath)
+	return nil
 }
 
-func updatePostContent(ctx context.Context, client *wp.Client, id int, article *types.Article, htmlContent, status string, featuredMediaID int) error {
+func updatePostContent(ctx context.Context, client *wp.Client, id int, article *types.Article, htmlContent, status string, featuredMediaID int) (*types.Post, error) {
 	req := &types.UpdatePostRequest{
 		Title:         article.FrontMatter.Title,
 		Content:       htmlContent,
@@ -131,11 +137,11 @@ func updatePostContent(ctx context.Context, client *wp.Client, id int, article *
 
 	post, err := client.UpdatePost(ctx, id, req)
 	if err != nil {
-		return fmt.Errorf("投稿の更新に失敗: %w", err)
+		return nil, fmt.Errorf("投稿の更新に失敗: %w", err)
 	}
 
 	printPostResult(post, true)
-	return nil
+	return post, nil
 }
 
 func updatePageContent(ctx context.Context, client *wp.Client, id int, article *types.Article, htmlContent, status string) error {

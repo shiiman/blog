@@ -1,5 +1,5 @@
 ---
-description: Markdown記事をWordPressに投稿する。「記事を投稿」「WordPressに公開」「ブログ投稿」「記事をアップ」「下書き保存」「記事を公開」「WPに投稿」などで起動。drafts/の記事をWordPress REST API経由で投稿。
+description: Markdown記事をWordPressに公開する。「記事を投稿」「WordPressに公開」「ブログ投稿」「記事をアップ」「記事を公開」「WPに投稿」などで起動。drafts/の記事をWordPress REST API経由で公開。
 allowed-tools:
   - Read
   - Bash
@@ -9,7 +9,7 @@ allowed-tools:
 
 # Publish Blog Skill
 
-Markdown記事をWordPressに投稿します（デフォルト: 下書き）。
+Markdown記事をWordPressに公開します（デフォルト: 公開）。
 
 ## 前提条件
 
@@ -38,26 +38,21 @@ cat drafts/YYYY-MM-DD_slug/article.md
 
 ### 3. 投稿実行
 
-CLIツールで投稿（デフォルト: 下書き）:
+CLIツールで公開（デフォルト: 公開）:
 ```bash
 # プロジェクトルートから実行
 ./tools/wp-cli/wp-cli post drafts/YYYY-MM-DD_slug/article.md
 
-# 公開する場合
-./tools/wp-cli/wp-cli post drafts/YYYY-MM-DD_slug/article.md --publish
-
 # ドライランで確認
 ./tools/wp-cli/wp-cli post drafts/YYYY-MM-DD_slug/article.md --dry-run
+
+# 下書きで投稿したい場合
+./tools/wp-cli/wp-cli post drafts/YYYY-MM-DD_slug/article.md --draft
 ```
 
 ### 4. 記事ディレクトリの移動（公開時）
 
-記事を公開した場合（`--publish` 指定、または後から `update --publish` で公開した場合）、記事ディレクトリを `drafts/` から `posts/` に移動する:
-```bash
-mv drafts/YYYY-MM-DD_slug posts/
-```
-
-※ `post --publish` で直接公開した場合は CLI が自動移動するため不要。下書き保存後に `update --publish` で公開した場合は手動で移動すること。
+`post` 実行後、公開された記事は CLI が自動で `drafts/` から `posts/` に移動し、Front Matter の `id/status/date/modified/featured_media` を同期します。
 
 ### 5. 結果報告
 
@@ -71,11 +66,11 @@ mv drafts/YYYY-MM-DD_slug posts/
 ## CLIコマンドリファレンス
 
 ```bash
-# 投稿（下書き）
+# 投稿（公開・デフォルト）
 ./tools/wp-cli/wp-cli post <file>
 
-# 投稿（公開）
-./tools/wp-cli/wp-cli post <file> --publish
+# 投稿（下書き）
+./tools/wp-cli/wp-cli post <file> --draft
 
 # ドライラン
 ./tools/wp-cli/wp-cli post <file> --dry-run
@@ -86,6 +81,6 @@ mv drafts/YYYY-MM-DD_slug posts/
 
 ## 重要な注意事項
 
-- デフォルトは下書き保存（安全のため）
-- 公開には明示的な `--publish` オプションが必要
+- デフォルトは公開
+- 下書きで投稿したい場合のみ `--draft` を指定
 - カテゴリ・タグはIDで指定（`wp-cli categories` で確認可能）

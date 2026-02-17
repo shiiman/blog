@@ -12,14 +12,14 @@ See `CLAUDE.md` for full project documentation (directory structure, workflow, a
 Project-local skills are defined in `.agents/skills/`:
 
 - `blog-write` - Write a new blog article
-- `blog-publish` - Publish article to WordPress (draft by default)
+- `blog-publish` - Publish article to WordPress
 - `blog-update` - Update existing article on WordPress
 
 ## Security
 
 - NEVER read or expose `.env` file contents
 - Application passwords should be managed via environment variables
-- Default posting status is "draft" for safety
+- `blog-write` always creates draft posts in `drafts/`
 
 ## Git Commit Guidelines
 

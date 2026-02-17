@@ -9,4 +9,4 @@ description: WordPress上の既存記事を更新する
    ```bash
    ./tools/wp-cli/wp-cli update <article_path>
    ```
-   ※ 公開状態に変更する場合は `--publish` フラグを付けてください。
+   ※ 既存のアイキャッチを差し替える場合は `--force-eyecatch` を使用してください。

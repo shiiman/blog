@@ -3,15 +3,12 @@ id: 192
 title: 【Cocoon】3分でできる! クリック時画像を拡大させる方法
 slug: image_expansion
 status: publish
-excerpt: こんばんは！しーまんです。 皆さんはgoogleで調べ物をしている時に画像付きで紹介されているページをよく見ていませんでしょうか。私は文章がいっぱいの説明ページより、画像いっぱいで説明されているページをよく見ます。 しか \[…\]
-categories:
-    - 11
-    - 3
-tags:
-    - 31
-featured_media: 570
 date: 2021-09-13T19:30:00
 modified: 2021-09-12T18:21:43
+excerpt: Cocoonで画像クリック時にポップアップ拡大表示させる設定方法を、3分でできる簡単な手順で紹介します。
+categories: [11, 3]
+tags: [31]
+featured_media: 570
 ---
 
 こんばんは！しーまんです。

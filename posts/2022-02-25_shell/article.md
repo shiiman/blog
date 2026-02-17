@@ -3,17 +3,12 @@ id: 1594
 title: 【mac】シェルをカスタマイズしてみた |【bash】【zsh】【fish】
 slug: shell
 status: publish
-excerpt: こんばんは、しーまんです。 皆さんはmacで作業する時、コマンドラインを使用しますか？エンジニアなら必ず使用しますよね。 しかしエンジニアであっても意外と標準のコマンドラインをそのまま使っている方が多いような気がします。 \[…\]
-categories:
-    - 106
-    - 18
-tags:
-    - 110
-    - 111
-    - 112
-featured_media: 1596
 date: 2022-02-25T19:30:00
 modified: 2022-02-17T15:46:42
+excerpt: macのシェルをbash・zsh・fishでカスタマイズする方法を紹介。ターミナルの見た目と使い勝手を改善します。
+categories: [106, 18]
+tags: [110, 111, 112]
+featured_media: 1596
 ---
 
 こんばんは、しーまんです。

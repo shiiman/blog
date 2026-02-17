@@ -59,10 +59,11 @@ go build -o wp-cli .
 
 ## Article Guidelines
 
-- Write titles in Japanese (50 chars max)
+- Write titles in Japanese (70 chars max)
 - Include SEO-optimized excerpts
 - Use proper heading hierarchy (H2, H3, H4)
 - Add code blocks with language specification
+- Slugs should use hyphen-separated format (e.g., `my-article-title`)
 
 ## Front Matter Format
 

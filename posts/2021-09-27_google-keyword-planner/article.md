@@ -3,15 +3,12 @@ id: 872
 title: 【2021年9月】初心者用 Googleキーワードプランナーの登録方法
 slug: google-keyword-planner
 status: publish
-excerpt: こんばんは、しーまんです！ 今回は「Googleキーワードプランナーを使えばSEO対策で設定すればいいキーワードを見つけられるって聞いたけど、登録の仕方が分からないよ。」 という方向けにGoogleキーワードプランナーの \[…\]
-categories:
-    - 13
-    - 3
-tags:
-    - 54
-featured_media: 873
 date: 2021-09-27T19:30:00
 modified: 2021-09-24T17:32:09
+excerpt: SEO対策に必須のGoogleキーワードプランナーの登録方法を、初心者向けに画像つきで解説します。
+categories: [13, 3]
+tags: [54]
+featured_media: 873
 ---
 
 こんばんは、しーまんです！

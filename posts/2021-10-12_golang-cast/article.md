@@ -3,16 +3,12 @@ id: 1173
 title: Go言語の型変換(キャスト)方法についてまとめてみた
 slug: golang-cast
 status: publish
-excerpt: こんばんは、しーまんです。 今回は完全に個人的な備忘録です！ 最近Go言語で開発する場面が増えているのですが、いつも型変換(キャスト)に悩まされます。 なるべくキャストはせずに開発するのがよいということは分かっているので \[…\]
-categories:
-    - 18
-    - 60
-tags:
-    - 59
-    - 76
-featured_media: 1175
 date: 2021-10-12T19:30:00
 modified: 2022-03-19T11:58:35
+excerpt: Go言語での型変換（キャスト）方法をまとめた備忘録。string・int・float間の変換やstrconvパッケージの使い方を解説します。
+categories: [18, 60]
+tags: [59, 76]
+featured_media: 1175
 ---
 
 こんばんは、しーまんです。

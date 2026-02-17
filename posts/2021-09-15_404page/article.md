@@ -3,17 +3,12 @@ id: 597
 title: 【WordPress】Cocoonで404ページを作成する方法
 slug: 404page
 status: publish
-excerpt: こんばんは、しーまんです！ 皆さんネットサーフィンをしていて「404 Not Found」と記載されたページが表示されたことはありませんでしょうか。 これは意味通り対象のページが存在していませんという注意ページになります \[…\]
-categories:
-    - 11
-    - 3
-tags:
-    - 6
-    - 31
-    - 43
-featured_media: 599
 date: 2021-09-15T00:01:00
 modified: 2021-09-13T01:25:22
+excerpt: Cocoonを使ったWordPressの404エラーページのカスタマイズ方法を紹介。ユーザーを適切に誘導するページを作成します。
+categories: [11, 3]
+tags: [6, 31, 43]
+featured_media: 599
 ---
 
 こんばんは、しーまんです！

@@ -1,11 +1,11 @@
 ---
-title: "AIのグローバル設定をdotfilesで管理する方法：PC移行でも自分専用のAIアシスタントを持ち歩く"
 id: 2213
+title: "AIのグローバル設定をdotfilesで管理する方法：PC移行でも自分専用のAIアシスタントを持ち歩く"
 slug: "ai-settings-dotfiles"
 status: publish
-categories: [18, 133]
-tags: [101, 102]
 excerpt: "ClaudeやGeminiなどのAIアシスタントのカスタム指示（System Instructions）をdotfilesで管理し、複数のPCで環境を統一する方法を紹介します。シンボリックリンクを活用して、開発環境セットアップと一緒にAI設定も自動化しましょう。"
+categories: [18, 133]
+tags: [114]
 ---
 
 PCを新調したり、職場と自宅で別のマシンを使ったりするとき、開発環境のセットアップは `dotfiles` で自動化しているエンジニアも多いと思います。`.zshrc` や `.vimrc` は当然のようにGit管理されていますよね。

@@ -5,7 +5,8 @@ categories: [1]
 tags: []
 slug: "url-slug-here"
 status: draft
-# featured_media: 0   # アイキャッチ画像のメディアID（投稿後に自動設定）
+# date: "YYYY-MM-DDTHH:MM:SS"  # 公開日時（指定する場合のみ）
+# featured_media: 0   # アイキャッチ画像のメディアID（publishスキル実行時にアイキャッチ画像が自動アップロードされ、featured_mediaが設定される）
 # id: 0               # WordPress投稿ID（投稿後に自動設定）
 ---
 

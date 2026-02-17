@@ -3,15 +3,12 @@ id: 1363
 title: 【2021年12月】スマホアプリ広告大手のASPであるZucksの登録方法
 slug: zucks
 status: publish
-excerpt: こんばんは、しーまんです。 アフェリエイトASPの一つである はご存知でしょうか。 スマフォアプリの案件数が国内最多と言われているASPです。 今回はこちらの登録方法を解説していきます。 Zucksとは とは主にスマート \[…\]
-categories:
-    - 12
-    - 3
-tags:
-    - 88
-featured_media: 1367
 date: 2021-12-14T19:30:00
 modified: 2021-12-10T11:31:25
+excerpt: スマホアプリ案件数が国内最多級のアフィリエイトASP「Zucks」の特徴と登録方法を解説します。
+categories: [12, 3]
+tags: [88]
+featured_media: 1367
 ---
 
 こんばんは、しーまんです。

@@ -3,17 +3,12 @@ id: 1580
 title: 【mac】HomeBrewでパッケージ管理|macの初期設定を毎回手動でやっている方必見！
 slug: homebrew
 status: publish
-excerpt: こんばんは、しーまんです！ 皆さんはPCはWindowsとMacどちらを使用しているでしょうか。一般の方はPCといえば割とWindowsをイメージされる方のほうが多いのかなと思います。 私の周りのエンジニアでもWindo \[…\]
-categories:
-    - 106
-    - 18
-tags:
-    - 107
-    - 108
-    - 109
-featured_media: 1591
 date: 2022-02-11T19:30:00
 modified: 2022-02-11T12:27:06
+excerpt: MacのパッケージマネージャーHomebrewとmasの導入方法を解説。PCの初期設定を効率化する第一歩を紹介します。
+categories: [106, 18]
+tags: [107, 108, 109]
+featured_media: 1591
 ---
 
 こんばんは、しーまんです！

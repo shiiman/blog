@@ -16,13 +16,33 @@ var postCmd = &cobra.Command{
 	Use:   "post <file>",
 	Short: "投稿を作成または更新",
 	Long: `Markdownファイルから投稿を作成または更新します。
-フロントマターにIDがある場合は既存記事を更新します。
+
+フロントマターに id フィールドがある場合は既存記事を更新し、
+id がない場合は新規記事として作成します。
 デフォルトでは公開状態で投稿されます。
 
+アイキャッチ画像（eyecatch.png）が記事ディレクトリに存在する場合、
+自動的にWordPressへアップロードされます。
+
 例:
-  wp-cli post drafts/2025-01-03_my-article/article.md
-  wp-cli post drafts/article.md --draft
-  wp-cli post drafts/article.md --dry-run`,
+  wp-cli post drafts/2025-01-03_my-article/article.md        # 新規作成（公開）
+  wp-cli post drafts/2025-01-03_my-article/article.md --draft # 新規作成（下書き）
+  wp-cli post drafts/2025-01-03_my-article/article.md --dry-run # 投稿せずに確認
+
+フロントマター例（新規作成）:
+  ---
+  title: "記事タイトル"
+  slug: "article-slug"
+  categories: [1]
+  tags: [10, 20]
+  ---
+
+フロントマター例（既存記事の更新）:
+  ---
+  id: 123
+  title: "記事タイトル"
+  slug: "article-slug"
+  ---`,
 	Args: cobra.ExactArgs(1),
 	RunE: runPost,
 }

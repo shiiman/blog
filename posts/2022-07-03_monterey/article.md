@@ -3,16 +3,12 @@ id: 1686
 title: 【mac】OSをCatalinaからMontereyにアップデートしたらとんでもないことに&#8230;
 slug: monterey
 status: publish
-excerpt: 皆さんmacのOSは何を使用していますでしょうか。 私は先月までCatalinaを使用していました。catalinaは2019年10月にリリースされたOSで既に2年以上経っているOSで、その後にBig Sur, Mont \[…\]
-categories:
-    - 106
-    - 18
-tags:
-    - 117
-    - 118
-featured_media: 1687
 date: 2022-07-03T19:30:00
 modified: 2022-07-02T16:42:51
+excerpt: macOSをCatalinaからMontereyにアップデートした際に発生した問題と、その対処方法を紹介します。
+categories: [106, 18]
+tags: [117, 118]
+featured_media: 1687
 ---
 
 皆さんmacのOSは何を使用していますでしょうか。

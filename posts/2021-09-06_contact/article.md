@@ -3,19 +3,12 @@ id: 155
 title: 【WordPress】Contact Form 7でお問い合わせフォームを作成しよう / 初心者でも簡単！ビジネスや広告をやる方は必須
 slug: contact
 status: publish
-excerpt: 皆さんのブログやwebサイトにお問い合わせフォームってついていますか？なんだか難しそうだからまだつけていないという方はこの記事を参考に直ぐにつけましょう。 大丈夫です！今回紹介するContact Form 7というプラグ \[…\]
-categories:
-    - 4
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-    - 28
-    - 34
-featured_media: 292
 date: 2021-09-06T19:30:00
 modified: 2021-09-08T01:34:48
+excerpt: WordPressプラグイン「Contact Form 7」を使って、5分でお問い合わせフォームを作成する方法を初心者向けに解説します。
+categories: [4, 10, 3]
+tags: [6, 23, 28, 34]
+featured_media: 292
 ---
 
 皆さんのブログやwebサイトにお問い合わせフォームってついていますか？

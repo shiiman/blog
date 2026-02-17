@@ -3,15 +3,12 @@ id: 1249
 title: 【iDeCo】13ヶ月目の運用実績公開！| 2021年11月
 slug: ideco-202111
 status: publish
-excerpt: こんばんは、しーまんです。 年末調整の時期がやってきました。皆さんはもう年末調整や確定申告の準備が終わっていますでしょうか？ 私も今週年末調整を行い、iDeCoの控除申請も行いました。 iDeCoの最大のメリットは非課税 \[…\]
-categories:
-    - 16
-    - 14
-tags:
-    - 70
-featured_media: 1253
 date: 2021-11-11T19:30:00
 modified: 2021-12-09T17:27:49
+excerpt: iDeCo開始13ヶ月目の運用実績を公開。年末調整でのiDeCo控除申請についても触れます。
+categories: [16, 14]
+tags: [70]
+featured_media: 1253
 ---
 
 こんばんは、しーまんです。

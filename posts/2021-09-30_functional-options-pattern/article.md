@@ -3,15 +3,12 @@ id: 858
 title: 【Golang】関数でデフォルト引数を実現させる方法 | Functional Options Pattern
 slug: functional-options-pattern
 status: publish
-excerpt: こんばんは、しーまんです。 プログラムで関数を作成する時に引数を設定すると思いますが、Golangではデフォルト引数(オプションパラメータ)の設定をすることができません。関数で引数を設定した場合には呼び出し元で必ず引数を \[…\]
-categories:
-    - 18
-    - 60
-tags:
-    - 59
-featured_media: 1027
 date: 2021-09-30T19:30:00
 modified: 2021-10-30T19:01:45
+excerpt: Golangでデフォルト引数を実現するFunctional Options Patternの使い方をサンプルコード付きで解説します。
+categories: [18, 60]
+tags: [59]
+featured_media: 1027
 ---
 
 こんばんは、しーまんです。

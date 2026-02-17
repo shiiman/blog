@@ -3,15 +3,12 @@ id: 1123
 title: 【iDeCo】12ヶ月目の運用実績公開！| 2021年10月
 slug: ideco-202110
 status: publish
-excerpt: こんばんは、しーまんです。 皆さんは節税対策としてiDeCo(個人型確定拠出年金)を行っていますでしょうか。 私は去年の10月に始めたので、iDeCoを始めてちょうど1年が立ちます。会社員をしていると使用できる節税対策は \[…\]
-categories:
-    - 16
-    - 14
-tags:
-    - 70
-featured_media: 1125
 date: 2021-10-07T19:30:00
 modified: 2022-10-07T14:14:12
+excerpt: iDeCo開始12ヶ月目の運用実績を公開。節税効果とともに1年間の運用成績を振り返ります。
+categories: [16, 14]
+tags: [70]
+featured_media: 1125
 ---
 
 こんばんは、しーまんです。

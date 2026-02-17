@@ -3,16 +3,12 @@ id: 612
 title: 【WordPress】最初に入れておきたい！おすすめプラグイン6選
 slug: recommendation-plugin
 status: publish
-excerpt: こんばんは、しーまんです！ WordPressを使用してWebサイトを構築していく際に、もっとこうだったらなとか、こんな機能ないかなと思った際はよくプラグインを追加して機能追加します。 今回は私がブログを初めて1ヶ月以内 \[…\]
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-featured_media: 614
 date: 2021-09-16T19:30:00
 modified: 2021-09-13T21:13:16
+excerpt: WordPressブログ開設1ヶ月で厳選した、初心者におすすめのプラグイン6選を紹介。セキュリティからSEO対策まで網羅します。
+categories: [10, 3]
+tags: [6, 23]
+featured_media: 614
 ---
 
 こんばんは、しーまんです！

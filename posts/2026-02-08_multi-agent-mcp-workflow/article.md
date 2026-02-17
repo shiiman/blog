@@ -1,11 +1,10 @@
 ---
 id: 2231
 title: "マルチエージェントMCPを作ってみた"
-excerpt: "Zenn記事とmulti-agent-shogunを土台に、multi-agent-mcpとmulti-flow/multi-issue-flowを実装して見えた差分を整理。特に複数AI CLI対応、復旧機構、Issue/PR連携の価値を実例で解説します。"
-categories: [1]
-tags: [10, 20]
 slug: "multi-agent-mcp-workflow"
 status: publish
+excerpt: "Zenn記事とmulti-agent-shogunを土台に、multi-agent-mcpとmulti-flow/multi-issue-flowを実装して見えた差分を整理。特に複数AI CLI対応、復旧機構、Issue/PR連携の価値を実例で解説します。"
+categories: [1]
 featured_media: 2232
 ---
 

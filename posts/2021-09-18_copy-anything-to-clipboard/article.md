@@ -3,16 +3,12 @@ id: 659
 title: 【WordPress】おすすめプラグイン part 6 〜 Copy Anything to Clipboard 〜
 slug: copy-anything-to-clipboard
 status: publish
-excerpt: こんばんは、しーまんです！ 皆さんwebサイトを見ていて「こちらのコードをコピー」とか「こちらを貼り付けてください」という箇所をご覧になったことはないでしょうか。 クーポンなどをコピーして貼り付けさせることで特典がもらえ \[…\]
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 45
-featured_media: 660
 date: 2021-09-18T19:30:00
 modified: 2021-09-14T15:11:34
+excerpt: WordPress上でテキストやコードのワンクリックコピー機能を実現するプラグイン「Copy Anything to Clipboard」の設定方法を紹介します。
+categories: [10, 3]
+tags: [6, 45]
+featured_media: 660
 ---
 
 こんばんは、しーまんです！

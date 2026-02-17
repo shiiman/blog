@@ -159,7 +159,7 @@ func TestHTMLToMarkdown_基本的なHTML(t *testing.T) {
 			if err != nil {
 				t.Fatalf("エラーが発生: %v", err)
 			}
-			if !containsString(result, tt.contains) {
+			if !strings.Contains(result, tt.contains) {
 				t.Errorf("結果 %q に %q が含まれていない", result, tt.contains)
 			}
 		})
@@ -204,7 +204,7 @@ func TestMarkdownToHTML_基本的なMarkdown(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result := MarkdownToHTML(tt.md)
-			if !containsString(result, tt.contains) {
+			if !strings.Contains(result, tt.contains) {
 				t.Errorf("結果 %q に %q が含まれていない", result, tt.contains)
 			}
 		})
@@ -215,7 +215,7 @@ func TestMarkdownToHTML_StyleタグはHTMLブロックでラップ(t *testing.T)
 	md := "<style>.test { color: red; }</style>\n\n## 見出し"
 	result := MarkdownToHTML(md)
 
-	if !containsString(result, "<!-- wp:html -->") {
+	if !strings.Contains(result, "<!-- wp:html -->") {
 		t.Errorf("styleタグを含むHTMLにwp:htmlブロックが含まれていない: %q", result)
 	}
 }
@@ -224,7 +224,7 @@ func TestMarkdownToHTML_ScriptタグはHTMLブロックでラップ(t *testing.T
 	md := "<script>console.log('test')</script>"
 	result := MarkdownToHTML(md)
 
-	if !containsString(result, "<!-- wp:html -->") {
+	if !strings.Contains(result, "<!-- wp:html -->") {
 		t.Errorf("scriptタグを含むHTMLにwp:htmlブロックが含まれていない: %q", result)
 	}
 }
@@ -272,7 +272,7 @@ tags:
 	if article.FilePath != filePath {
 		t.Errorf("FilePath = %q, want %q", article.FilePath, filePath)
 	}
-	if !containsString(article.Content, "テスト本文") {
+	if !strings.Contains(article.Content, "テスト本文") {
 		t.Errorf("Content に 'テスト本文' が含まれていない: %q", article.Content)
 	}
 }
@@ -302,13 +302,13 @@ func TestGenerateArticleFile_正常な記事(t *testing.T) {
 		t.Fatalf("エラーが発生: %v", err)
 	}
 
-	if !containsString(result, "---") {
+	if !strings.Contains(result, "---") {
 		t.Error("結果にFront Matterの区切り線が含まれていない")
 	}
-	if !containsString(result, "title: 生成テスト") {
+	if !strings.Contains(result, "title: 生成テスト") {
 		t.Errorf("結果にタイトルが含まれていない: %q", result)
 	}
-	if !containsString(result, "テスト内容です。") {
+	if !strings.Contains(result, "テスト内容です。") {
 		t.Errorf("結果に本文が含まれていない: %q", result)
 	}
 }
@@ -329,10 +329,10 @@ func TestWrapInGutenbergBlocks_Styleタグ含む(t *testing.T) {
 	html := "<style>.test{}</style><p>テスト</p>"
 	result := wrapInGutenbergBlocks(html)
 
-	if !containsString(result, "<!-- wp:html -->") {
+	if !strings.Contains(result, "<!-- wp:html -->") {
 		t.Error("styleタグを含むHTMLにwp:htmlが含まれていない")
 	}
-	if !containsString(result, "<!-- /wp:html -->") {
+	if !strings.Contains(result, "<!-- /wp:html -->") {
 		t.Error("styleタグを含むHTMLに/wp:htmlが含まれていない")
 	}
 }
@@ -341,7 +341,7 @@ func TestWrapInGutenbergBlocks_Scriptタグ含む(t *testing.T) {
 	html := "<script>alert('test')</script>"
 	result := wrapInGutenbergBlocks(html)
 
-	if !containsString(result, "<!-- wp:html -->") {
+	if !strings.Contains(result, "<!-- wp:html -->") {
 		t.Error("scriptタグを含むHTMLにwp:htmlが含まれていない")
 	}
 }
@@ -352,10 +352,10 @@ func TestProcessHtmlAndMarkdownMixed_ScriptタグとMarkdown混在(t *testing.T)
 	content := "<script>console.log('test')</script>\n\n## 見出し\n\nMarkdown本文"
 	result := processHtmlAndMarkdownMixed(content)
 
-	if !containsString(result, "<!-- wp:html -->") {
+	if !strings.Contains(result, "<!-- wp:html -->") {
 		t.Error("wp:htmlブロックが含まれていない")
 	}
-	if !containsString(result, "<script>") {
+	if !strings.Contains(result, "<script>") {
 		t.Error("scriptタグが保持されていない")
 	}
 }
@@ -364,7 +364,7 @@ func TestProcessHtmlAndMarkdownMixed_Scriptタグのみ(t *testing.T) {
 	content := "<script>console.log('only script')</script>"
 	result := processHtmlAndMarkdownMixed(content)
 
-	if !containsString(result, "<!-- wp:html -->") {
+	if !strings.Contains(result, "<!-- wp:html -->") {
 		t.Error("wp:htmlブロックが含まれていない")
 	}
 }
@@ -374,8 +374,36 @@ func TestProcessHtmlAndMarkdownMixed_Scriptなしのコンテンツ(t *testing.T
 	result := processHtmlAndMarkdownMixed(content)
 
 	// scriptタグがないのでwrapInGutenbergBlocksに委譲される
-	if containsString(result, "<!-- wp:html -->") {
+	if strings.Contains(result, "<!-- wp:html -->") {
 		t.Error("scriptなしのHTMLにwp:htmlブロックが含まれるべきでない")
+	}
+}
+
+// --- TestIsMarkdownPrefix ---
+
+func TestIsMarkdownPrefix(t *testing.T) {
+	tests := []struct {
+		name  string
+		input string
+		want  bool
+	}{
+		{name: "見出し", input: "## 見出し", want: true},
+		{name: "リスト（ハイフン）", input: "- 項目", want: true},
+		{name: "リスト（アスタリスク）", input: "* 項目", want: true},
+		{name: "番号付きリスト", input: "1. 項目", want: true},
+		{name: "引用", input: "> 引用文", want: true},
+		{name: "コードブロック", input: "```go\ncode\n```", want: true},
+		{name: "HTMLタグ", input: "<div>test</div>", want: false},
+		{name: "通常テキスト", input: "plain text", want: false},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := isMarkdownPrefix(tt.input)
+			if got != tt.want {
+				t.Errorf("isMarkdownPrefix(%q) = %v, want %v", tt.input, got, tt.want)
+			}
+		})
 	}
 }
 
@@ -383,16 +411,16 @@ func TestProcessHtmlAndMarkdownMixed_Scriptなしのコンテンツ(t *testing.T
 
 func TestPostToArticle_正常な投稿(t *testing.T) {
 	post := &types.Post{
-		ID:     1,
-		Slug:   "test-post",
-		Status: "publish",
-		Date:   types.WPTime{Time: time.Date(2024, 1, 15, 10, 30, 0, 0, time.UTC)},
-		Modified: types.WPTime{Time: time.Date(2024, 6, 1, 12, 0, 0, 0, time.UTC)},
-		Title:    types.Rendered{Rendered: "テスト投稿"},
-		Content:  types.Rendered{Rendered: "<p>テスト本文</p>"},
-		Excerpt:  types.Rendered{Rendered: "<p>テスト概要</p>"},
-		Categories: []int{1, 2},
-		Tags:       []int{10},
+		ID:            1,
+		Slug:          "test-post",
+		Status:        "publish",
+		Date:          types.WPTime{Time: time.Date(2024, 1, 15, 10, 30, 0, 0, time.UTC)},
+		Modified:      types.WPTime{Time: time.Date(2024, 6, 1, 12, 0, 0, 0, time.UTC)},
+		Title:         types.Rendered{Rendered: "テスト投稿"},
+		Content:       types.Rendered{Rendered: "<p>テスト本文</p>"},
+		Excerpt:       types.Rendered{Rendered: "<p>テスト概要</p>"},
+		Categories:    []int{1, 2},
+		Tags:          []int{10},
 		FeaturedMedia: 100,
 	}
 
@@ -472,17 +500,3 @@ func TestPageToArticle_正常な固定ページ(t *testing.T) {
 	}
 }
 
-// --- ヘルパー関数 ---
-
-func containsString(s, substr string) bool {
-	return len(s) >= len(substr) && (s == substr || len(s) > 0 && containsSubstring(s, substr))
-}
-
-func containsSubstring(s, substr string) bool {
-	for i := 0; i <= len(s)-len(substr); i++ {
-		if s[i:i+len(substr)] == substr {
-			return true
-		}
-	}
-	return false
-}

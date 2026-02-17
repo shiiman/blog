@@ -3,15 +3,12 @@ id: 1651
 title: 【AWS】Fargate Spotを導入してコンテナ費用を7割削減した話
 slug: post-1651
 status: publish
-excerpt: こんばんは、しーまんです。 今回は最近 Fargate Spot を導入してインフラ費用の削減を行いましたので、そのお話。FargateとはAWSが提供するコンテナ向けサーバーレスコンピューティングのことで、そのFarg \[…\]
-categories:
-    - 19
-    - 18
-tags:
-    - 115
-featured_media: 1644
 date: 2022-05-13T19:30:00
 modified: 2022-10-28T17:58:29
+excerpt: AWS Fargate Spotを導入してコンテナ費用を約7割削減した実践例を紹介。導入手順と注意点を解説します。
+categories: [19, 18]
+tags: [115]
+featured_media: 1644
 ---
 
 こんばんは、しーまんです。

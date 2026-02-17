@@ -3,19 +3,12 @@ id: 326
 title: 【WordPress】Contact Form 7でお問い合わせにファイルを添付させる方法
 slug: contact-attach-file
 status: publish
-excerpt: 前回の記事でWordPressのプラグインであるContact Form 7を使用してお問い合わせフォームを作成しました。こちらの設定までできていれば基本的なお問い合わせは問題ありません。 まだFormの設定ができていな \[…\]
-categories:
-    - 4
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-    - 28
-    - 34
-featured_media: 327
 date: 2021-09-07T19:30:00
 modified: 2021-09-08T01:37:08
+excerpt: Contact Form 7のお問い合わせフォームにファイル添付機能を追加する方法を、設定手順とともに解説します。
+categories: [4, 10, 3]
+tags: [6, 23, 28, 34]
+featured_media: 327
 ---
 
 前回の記事でWordPressのプラグインであるContact Form 7を使用してお問い合わせフォームを作成しました。こちらの設定までできていれば基本的なお問い合わせは問題ありません。

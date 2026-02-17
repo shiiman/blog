@@ -137,15 +137,46 @@ func syncPostToLocal(filePath string, post *types.Post, moveOnPublish bool) (str
 	return currentPath, nil
 }
 
+// syncPageToLocal は固定ページの更新結果をローカルMarkdownに同期する
+func syncPageToLocal(filePath string, page *types.Page) (string, error) {
+	article, err := converter.ParseArticle(filePath)
+	if err != nil {
+		return filePath, fmt.Errorf("フロントマター読み込みに失敗: %w", err)
+	}
+
+	article.FrontMatter.ID = page.ID
+	article.FrontMatter.Status = page.Status
+	article.FrontMatter.Date = page.Date.Format("2006-01-02T15:04:05")
+	article.FrontMatter.Modified = page.Modified.Format("2006-01-02T15:04:05")
+	article.FrontMatter.Slug = page.Slug
+	article.FrontMatter.Parent = page.Parent
+	article.FrontMatter.MenuOrder = page.MenuOrder
+
+	content, err := converter.GenerateArticleFile(article)
+	if err != nil {
+		return filePath, fmt.Errorf("記事ファイル生成に失敗: %w", err)
+	}
+	if err := os.WriteFile(filePath, []byte(content), 0600); err != nil {
+		return filePath, fmt.Errorf("記事ファイル保存に失敗: %w", err)
+	}
+
+	return filePath, nil
+}
+
 // uploadEyecatchIfExists はアイキャッチ画像が存在する場合にアップロードする
 // forceUpload が true の場合は、既にFeaturedMediaが設定されていても再アップロードする
 func uploadEyecatchIfExists(ctx context.Context, client *wp.Client, articleDir string, currentFeaturedMediaID int, forceUpload bool) (int, error) {
 	eyecatchPath := filepath.Join(articleDir, "assets", eyecatchFilename)
 
-	// ファイル存在確認
-	if _, err := os.Stat(eyecatchPath); err != nil {
+	// ファイル存在確認とサイズチェック
+	const maxEyecatchSize = 20 * 1024 * 1024 // 20MB
+	info, err := os.Stat(eyecatchPath)
+	if err != nil {
 		// ファイルが存在しない場合は現在のIDをそのまま返す
 		return currentFeaturedMediaID, nil
+	}
+	if info.Size() > maxEyecatchSize {
+		return 0, fmt.Errorf("アイキャッチ画像のサイズが上限（20MB）を超えています: %d bytes", info.Size())
 	}
 
 	// 既に設定されている場合は強制アップロードでない限りスキップ
@@ -177,21 +208,39 @@ func uploadEyecatchIfExists(ctx context.Context, client *wp.Client, articleDir s
 	return media.ID, nil
 }
 
+// sanitizeSlug はスラッグをサニタイズしてパストラバーサルを防止する
+func sanitizeSlug(slug string) string {
+	slug = strings.ReplaceAll(slug, "/", "")
+	slug = strings.ReplaceAll(slug, "\\", "")
+	slug = strings.ReplaceAll(slug, "..", "")
+	return slug
+}
+
 // moveToPublished はdrafts/からposts/に記事を移動する
+// ソースファイルのパスからプロジェクトルートを導出し、CWDに依存しない
 func moveToPublished(filePath string, post *types.Post) (string, error) {
 	srcDir := filepath.Dir(filePath)
-	newDirName := post.Date.Format("2006-01-02") + "_" + post.Slug
-	destDir := filepath.Clean(filepath.Join("posts", newDirName))
+	newDirName := post.Date.Format("2006-01-02") + "_" + sanitizeSlug(post.Slug)
 
-	absDestDir, err := filepath.Abs(destDir)
+	// ソースファイルの絶対パスからプロジェクトルートを導出
+	absSrcDir, err := filepath.Abs(srcDir)
 	if err != nil {
 		return filePath, fmt.Errorf("パスの解決に失敗: %w", err)
 	}
-	absPosts, err := filepath.Abs("posts")
-	if err != nil {
-		return filePath, fmt.Errorf("パスの解決に失敗: %w", err)
+
+	sep := string(filepath.Separator)
+	draftsMarker := sep + "drafts" + sep
+	idx := strings.LastIndex(absSrcDir+sep, draftsMarker)
+	if idx == -1 {
+		return filePath, fmt.Errorf("draftsディレクトリが見つかりません: %s", absSrcDir)
 	}
-	if !strings.HasPrefix(absDestDir, absPosts+string(filepath.Separator)) {
+	projectRoot := absSrcDir[:idx]
+
+	postsDir := filepath.Join(projectRoot, "posts")
+	destDir := filepath.Join(postsDir, newDirName)
+
+	// パストラバーサル防止
+	if !strings.HasPrefix(destDir, postsDir+sep) {
 		return filePath, fmt.Errorf("不正なパスです（posts/ディレクトリ外への移動）: %s", destDir)
 	}
 
@@ -199,8 +248,8 @@ func moveToPublished(filePath string, post *types.Post) (string, error) {
 		return filePath, fmt.Errorf("移動先が既に存在します: %s", destDir)
 	}
 
-	if err := os.Rename(srcDir, destDir); err != nil {
-		return filePath, fmt.Errorf("記事の移動に失敗 (%s -> %s): %w", srcDir, destDir, err)
+	if err := os.Rename(absSrcDir, destDir); err != nil {
+		return filePath, fmt.Errorf("記事の移動に失敗 (%s -> %s): %w", absSrcDir, destDir, err)
 	}
 
 	color.Green("  記事を移動しました: %s", destDir)
@@ -227,9 +276,16 @@ func formatStatus(status string) string {
 
 // truncate は文字列を指定された長さに切り詰める
 func truncate(s string, maxLen int) string {
+	if maxLen <= 0 {
+		return ""
+	}
 	runes := []rune(s)
 	if len(runes) <= maxLen {
 		return s
+	}
+	// "..." を付加する余裕がない場合はそのまま切り詰め
+	if maxLen <= 3 {
+		return string(runes[:maxLen])
 	}
 	return string(runes[:maxLen-3]) + "..."
 }

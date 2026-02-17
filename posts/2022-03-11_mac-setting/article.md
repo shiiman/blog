@@ -3,16 +3,12 @@ id: 1626
 title: 【mac】Macの初期設定をワンライナーで完結させてみた
 slug: mac-setting
 status: publish
-excerpt: こんばんは、しーまんです。 今回はmacの初期設定についての記事の完結編になります。こちらの記事をご覧になれば、毎回手動で設定していた面倒くさいPCの初期設定が、コマンド一つ叩くだけで完了致します。 私自身PCをWind \[…\]
-categories:
-    - 106
-    - 18
-tags:
-    - 113
-    - 114
-featured_media: 1628
 date: 2022-03-11T19:30:00
 modified: 2022-03-09T15:02:12
+excerpt: Macの初期設定をシェルスクリプトで自動化する方法を紹介。Homebrewとdefaultsコマンドでワンライナー完結を実現します。
+categories: [106, 18]
+tags: [113, 114]
+featured_media: 1628
 ---
 
 こんばんは、しーまんです。

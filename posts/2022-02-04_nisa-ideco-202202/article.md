@@ -3,16 +3,12 @@ id: 1555
 title: 【つみたてNISA】19ヶ月目【iDeCo】16ヶ月目の運用実績公開！| 2022年2月
 slug: nisa-ideco-202202
 status: publish
-excerpt: こんばんは、しーまんです！ 2022年になって米国株の相場が荒れまくって話題になっていますよね。そんな時でもつみたてNISAやiDeCoは関係ありません。淡々と積み立てていくのみです。 とはいえ今回の暴落が資産推移にどの \[…\]
-categories:
-    - 16
-    - 14
-tags:
-    - 69
-    - 70
-featured_media: 1559
 date: 2022-02-04T19:30:00
 modified: 2022-02-03T11:09:55
+excerpt: つみたてNISA19ヶ月目・iDeCo16ヶ月目の運用実績を公開。米国株相場の荒れの中での積立状況を報告します。
+categories: [16, 14]
+tags: [69, 70]
+featured_media: 1559
 ---
 
 こんばんは、しーまんです！

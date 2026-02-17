@@ -2,6 +2,7 @@
 title: "ページタイトル"
 slug: "page-slug"
 status: draft
+# excerpt: "ページの要約文（オプション）"
 parent: 0
 menu_order: 0
 ---

@@ -1,7 +1,7 @@
 ---
 id: 192
 title: 【Cocoon】3分でできる! クリック時画像を拡大させる方法
-slug: image_expansion
+slug: image-expansion
 status: publish
 date: 2021-09-13T19:30:00
 modified: 2021-09-12T18:21:43

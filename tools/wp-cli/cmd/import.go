@@ -16,6 +16,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// importItem はバッチインポートの入力アイテムを表す
+type importItem struct {
+	id    int
+	title string
+}
+
 var importCmd = &cobra.Command{
 	Use:   "import [posts|pages|post|page] [id]",
 	Short: "WordPressから記事をインポート",
@@ -94,6 +100,63 @@ type importResult struct {
 
 const maxConcurrency = 10
 
+// batchImport は複数アイテムを並行でインポートする共通関数
+func batchImport(
+	ctx context.Context,
+	typeName string,
+	items []importItem,
+	fileName string,
+	processItem func(ctx context.Context, id int) (article *types.Article, dirPath string, err error),
+) error {
+	if len(items) == 0 {
+		color.Yellow("インポートする%sがありません。", typeName)
+		return nil
+	}
+
+	results := make([]importResult, len(items))
+	sem := make(chan struct{}, maxConcurrency)
+	var wg sync.WaitGroup
+
+	for i, item := range items {
+		wg.Add(1)
+		go func(idx int, it importItem) {
+			defer wg.Done()
+			sem <- struct{}{}
+			defer func() { <-sem }()
+
+			article, dirPath, err := processItem(ctx, it.id)
+			if err != nil {
+				results[idx] = importResult{id: it.id, err: err}
+				return
+			}
+			results[idx] = importResult{
+				id:      it.id,
+				article: article,
+				dirPath: dirPath,
+				title:   it.title,
+			}
+		}(i, item)
+	}
+	wg.Wait()
+
+	imported := 0
+	for _, r := range results {
+		if r.err != nil {
+			color.Yellow("%s %d: %v", typeName, r.id, r.err)
+			continue
+		}
+		if err := saveArticle(r.dirPath, fileName, r.article); err != nil {
+			color.Yellow("%s %d の保存に失敗: %v", typeName, r.id, err)
+			continue
+		}
+		color.White("  ✓ %s", r.title)
+		imported++
+	}
+
+	color.Green("\n%d件の%sをインポートしました。", imported, typeName)
+	return nil
+}
+
 func importPosts(ctx context.Context, client *wp.Client) error {
 	color.Cyan("投稿をインポート中...")
 
@@ -102,70 +165,28 @@ func importPosts(ctx context.Context, client *wp.Client) error {
 		return fmt.Errorf("投稿一覧の取得に失敗: %w", err)
 	}
 
-	if len(posts) == 0 {
-		color.Yellow("インポートする投稿がありません。")
-		return nil
-	}
-
 	outputDir := importOutputDir
 	if outputDir == "" {
 		outputDir = "posts"
 	}
 
-	// 並行で詳細取得・変換を実行
-	results := make([]importResult, len(posts))
-	sem := make(chan struct{}, maxConcurrency)
-	var wg sync.WaitGroup
-
-	for i, post := range posts {
-		wg.Add(1)
-		go func(idx int, postID int) {
-			defer wg.Done()
-			sem <- struct{}{}
-			defer func() { <-sem }()
-
-			fullPost, err := client.GetPost(ctx, postID)
-			if err != nil {
-				results[idx] = importResult{id: postID, err: fmt.Errorf("詳細取得に失敗: %w", err)}
-				return
-			}
-
-			article, err := converter.PostToArticle(fullPost)
-			if err != nil {
-				results[idx] = importResult{id: postID, err: fmt.Errorf("変換に失敗: %w", err)}
-				return
-			}
-
-			dirName := fullPost.Date.Format("2006-01-02") + "_" + sanitizeSlug(fullPost.Slug)
-			results[idx] = importResult{
-				id:      postID,
-				article: article,
-				dirPath: filepath.Join(outputDir, dirName),
-				title:   fullPost.Title.Rendered,
-			}
-		}(i, post.ID)
-	}
-	wg.Wait()
-
-	// 結果を順番に保存
-	imported := 0
-	for _, r := range results {
-		if r.err != nil {
-			color.Yellow("投稿 %d: %v", r.id, r.err)
-			continue
-		}
-
-		if err := saveArticle(r.dirPath, "article.md", r.article); err != nil {
-			color.Yellow("投稿 %d の保存に失敗: %v", r.id, err)
-			continue
-		}
-
-		color.White("  ✓ %s", r.title)
-		imported++
+	items := make([]importItem, len(posts))
+	for i, p := range posts {
+		items[i] = importItem{id: p.ID, title: p.Title.Rendered}
 	}
 
-	color.Green("\n%d件の投稿をインポートしました。", imported)
-	return nil
+	return batchImport(ctx, "投稿", items, "article.md", func(ctx context.Context, id int) (*types.Article, string, error) {
+		fullPost, err := client.GetPost(ctx, id)
+		if err != nil {
+			return nil, "", fmt.Errorf("詳細取得に失敗: %w", err)
+		}
+		article, err := converter.PostToArticle(fullPost)
+		if err != nil {
+			return nil, "", fmt.Errorf("変換に失敗: %w", err)
+		}
+		dirName := fullPost.Date.Format("2006-01-02") + "_" + sanitizeSlug(fullPost.Slug)
+		return article, filepath.Join(outputDir, dirName), nil
+	})
 }
 
 func importPost(ctx context.Context, client *wp.Client, id int) error {
@@ -206,69 +227,27 @@ func importPages(ctx context.Context, client *wp.Client) error {
 		return fmt.Errorf("固定ページ一覧の取得に失敗: %w", err)
 	}
 
-	if len(pages) == 0 {
-		color.Yellow("インポートする固定ページがありません。")
-		return nil
-	}
-
 	outputDir := importOutputDir
 	if outputDir == "" {
 		outputDir = "pages"
 	}
 
-	// 並行で詳細取得・変換を実行
-	results := make([]importResult, len(pages))
-	sem := make(chan struct{}, maxConcurrency)
-	var wg sync.WaitGroup
-
-	for i, page := range pages {
-		wg.Add(1)
-		go func(idx int, pageID int) {
-			defer wg.Done()
-			sem <- struct{}{}
-			defer func() { <-sem }()
-
-			fullPage, err := client.GetPage(ctx, pageID)
-			if err != nil {
-				results[idx] = importResult{id: pageID, err: fmt.Errorf("詳細取得に失敗: %w", err)}
-				return
-			}
-
-			article, err := converter.PageToArticle(fullPage)
-			if err != nil {
-				results[idx] = importResult{id: pageID, err: fmt.Errorf("変換に失敗: %w", err)}
-				return
-			}
-
-			results[idx] = importResult{
-				id:      pageID,
-				article: article,
-				dirPath: filepath.Join(outputDir, sanitizeSlug(fullPage.Slug)),
-				title:   fullPage.Title.Rendered,
-			}
-		}(i, page.ID)
-	}
-	wg.Wait()
-
-	// 結果を順番に保存
-	imported := 0
-	for _, r := range results {
-		if r.err != nil {
-			color.Yellow("固定ページ %d: %v", r.id, r.err)
-			continue
-		}
-
-		if err := saveArticle(r.dirPath, "page.md", r.article); err != nil {
-			color.Yellow("固定ページ %d の保存に失敗: %v", r.id, err)
-			continue
-		}
-
-		color.White("  ✓ %s", r.title)
-		imported++
+	items := make([]importItem, len(pages))
+	for i, p := range pages {
+		items[i] = importItem{id: p.ID, title: p.Title.Rendered}
 	}
 
-	color.Green("\n%d件の固定ページをインポートしました。", imported)
-	return nil
+	return batchImport(ctx, "固定ページ", items, "page.md", func(ctx context.Context, id int) (*types.Article, string, error) {
+		fullPage, err := client.GetPage(ctx, id)
+		if err != nil {
+			return nil, "", fmt.Errorf("詳細取得に失敗: %w", err)
+		}
+		article, err := converter.PageToArticle(fullPage)
+		if err != nil {
+			return nil, "", fmt.Errorf("変換に失敗: %w", err)
+		}
+		return article, filepath.Join(outputDir, sanitizeSlug(fullPage.Slug)), nil
+	})
 }
 
 func importPage(ctx context.Context, client *wp.Client, id int) error {

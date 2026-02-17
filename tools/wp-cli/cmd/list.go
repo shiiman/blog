@@ -7,6 +7,7 @@ import (
 	"text/tabwriter"
 
 	"github.com/fatih/color"
+	"github.com/shiimanblog/wp-cli/internal/types"
 	"github.com/shiimanblog/wp-cli/internal/wp"
 	"github.com/spf13/cobra"
 )
@@ -57,59 +58,66 @@ func runList(cmd *cobra.Command, args []string) error {
 	}
 }
 
-func listPosts(ctx context.Context, client *wp.Client, statusFilter string) error {
-	color.Cyan("投稿一覧を取得中...")
+// listItems はアイテム一覧を取得・表示する共通ジェネリック関数
+func listItems[T any](
+	ctx context.Context,
+	typeName string,
+	fetch func(ctx context.Context) ([]T, error),
+	display func(items []T),
+) error {
+	color.Cyan("%s一覧を取得中...", typeName)
 
-	posts, err := client.GetPosts(ctx, 1, listLimit, statusFilter)
+	items, err := fetch(ctx)
 	if err != nil {
-		return fmt.Errorf("投稿一覧の取得に失敗: %w", err)
+		return fmt.Errorf("%s一覧の取得に失敗: %w", typeName, err)
 	}
 
-	if len(posts) == 0 {
-		color.Yellow("投稿が見つかりませんでした。")
+	if len(items) == 0 {
+		color.Yellow("%sが見つかりませんでした。", typeName)
 		return nil
 	}
 
-	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
-	_, _ = fmt.Fprintln(w, "ID\tタイトル\tステータス\tスラッグ\t日付")
-	_, _ = fmt.Fprintln(w, "---\t---\t---\t---\t---")
+	display(items)
 
-	for _, post := range posts {
-		status := formatStatus(post.Status)
-		date := post.Date.Format("2006-01-02")
-		title := truncate(post.Title.Rendered, 40)
-		_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%s\n", post.ID, title, status, post.Slug, date)
-	}
-	_ = w.Flush()
-
-	color.Green("\n%d件の投稿を表示しました。", len(posts))
+	color.Green("\n%d件の%sを表示しました。", len(items), typeName)
 	return nil
 }
 
+func listPosts(ctx context.Context, client *wp.Client, statusFilter string) error {
+	return listItems(ctx, "投稿",
+		func(ctx context.Context) ([]types.Post, error) {
+			return client.GetPosts(ctx, 1, listLimit, statusFilter)
+		},
+		func(posts []types.Post) {
+			w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
+			_, _ = fmt.Fprintln(w, "ID\tタイトル\tステータス\tスラッグ\t日付")
+			_, _ = fmt.Fprintln(w, "---\t---\t---\t---\t---")
+			for _, post := range posts {
+				status := formatStatus(post.Status)
+				date := post.Date.Format("2006-01-02")
+				title := truncate(post.Title.Rendered, 40)
+				_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%s\n", post.ID, title, status, post.Slug, date)
+			}
+			_ = w.Flush()
+		},
+	)
+}
+
 func listPages(ctx context.Context, client *wp.Client, statusFilter string) error {
-	color.Cyan("固定ページ一覧を取得中...")
-
-	pages, err := client.GetPages(ctx, 1, listLimit, statusFilter)
-	if err != nil {
-		return fmt.Errorf("固定ページ一覧の取得に失敗: %w", err)
-	}
-
-	if len(pages) == 0 {
-		color.Yellow("固定ページが見つかりませんでした。")
-		return nil
-	}
-
-	w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
-	_, _ = fmt.Fprintln(w, "ID\tタイトル\tステータス\tスラッグ\t親ID")
-	_, _ = fmt.Fprintln(w, "---\t---\t---\t---\t---")
-
-	for _, page := range pages {
-		status := formatStatus(page.Status)
-		title := truncate(page.Title.Rendered, 40)
-		_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%d\n", page.ID, title, status, page.Slug, page.Parent)
-	}
-	_ = w.Flush()
-
-	color.Green("\n%d件の固定ページを表示しました。", len(pages))
-	return nil
+	return listItems(ctx, "固定ページ",
+		func(ctx context.Context) ([]types.Page, error) {
+			return client.GetPages(ctx, 1, listLimit, statusFilter)
+		},
+		func(pages []types.Page) {
+			w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
+			_, _ = fmt.Fprintln(w, "ID\tタイトル\tステータス\tスラッグ\t親ID")
+			_, _ = fmt.Fprintln(w, "---\t---\t---\t---\t---")
+			for _, page := range pages {
+				status := formatStatus(page.Status)
+				title := truncate(page.Title.Rendered, 40)
+				_, _ = fmt.Fprintf(w, "%d\t%s\t%s\t%s\t%d\n", page.ID, title, status, page.Slug, page.Parent)
+			}
+			_ = w.Flush()
+		},
+	)
 }

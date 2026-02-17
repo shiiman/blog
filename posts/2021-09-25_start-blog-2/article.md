@@ -1,6 +1,6 @@
 ---
 id: 812
-title: ブログ始めるために参考にした書籍4選&#038;Youtuber3名!!
+title: ブログ始めるために参考にした書籍4選&Youtuber3名!!
 slug: start-blog-2
 status: publish
 date: 2021-09-25T19:30:00

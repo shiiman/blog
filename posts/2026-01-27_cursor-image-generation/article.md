@@ -3,6 +3,8 @@ id: 2227
 title: "Cursor 2.4の画像生成機能でブログ運営が更に進化。アイキャッチ作成もエディタ内で完結"
 slug: "cursor-image-generation-eyecatch"
 status: publish
+date: "2026-01-27T00:00:00+09:00"
+modified: "2026-01-27T00:00:00+09:00"
 excerpt: "Cursor 2.4で追加された画像生成機能を活用し、Antigravityと同様にブログ記事を一貫して作成できるようになりました。カスタムスキルの作り方と、どちらのツールでも快適にブログ運営できるワークフローを紹介します。"
 categories: [18, 133]
 tags: [6]

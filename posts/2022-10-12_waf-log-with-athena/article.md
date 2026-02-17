@@ -1,7 +1,7 @@
 ---
 id: 1782
 title: 【AWS】WAFのログをAthenaでクエリする方法
-slug: waf-log-withathena
+slug: waf-log-with-athena
 status: publish
 date: 2022-10-12T19:30:00
 modified: 2022-10-11T12:06:53

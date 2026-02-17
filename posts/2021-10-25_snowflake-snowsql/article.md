@@ -1,7 +1,7 @@
 ---
 id: 1214
 title: '【Snowflake】Macでsnowsqlを設定してみた | 「Failed to initialize log. No logging is enabled: [Errno 13] Permission denied」の対処方法'
-slug: snwoflake-snowsql
+slug: snowflake-snowsql
 status: publish
 date: 2021-10-25T19:30:00
 modified: 2021-10-22T12:40:03

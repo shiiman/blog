@@ -10,8 +10,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const eyecatchFilename = "eyecatch.png"
-
 var postCmd = &cobra.Command{
 	Use:   "post <file>",
 	Short: "投稿を作成または更新",
@@ -73,14 +71,14 @@ func runPost(cmd *cobra.Command, args []string) error {
 
 	// ドライラン
 	if postDryRun {
-		showDryRunPreview(
-			article.FrontMatter.Title,
-			article.FrontMatter.Slug,
-			status,
-			htmlContent,
-			article.FrontMatter.Categories,
-			article.FrontMatter.Tags,
-		)
+		showDryRunPreview(dryRunInfo{
+			Title:      article.FrontMatter.Title,
+			Slug:       article.FrontMatter.Slug,
+			Status:     status,
+			HTML:       htmlContent,
+			Categories: article.FrontMatter.Categories,
+			Tags:       article.FrontMatter.Tags,
+		})
 		return nil
 	}
 

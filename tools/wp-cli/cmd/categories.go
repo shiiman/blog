@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"text/tabwriter"
 
 	"github.com/fatih/color"
@@ -143,9 +144,7 @@ func runCreateCategory(cmd *cobra.Command, args []string) error {
 }
 
 func runUpdateCategory(cmd *cobra.Command, args []string) error {
-	idStr := args[0]
-	var id int
-	_, err := fmt.Sscanf(idStr, "%d", &id)
+	id, err := strconv.Atoi(args[0])
 	if err != nil {
 		return fmt.Errorf("ID形式エラー: %w", err)
 	}
@@ -205,9 +204,7 @@ func runCreateTag(cmd *cobra.Command, args []string) error {
 }
 
 func runUpdateTag(cmd *cobra.Command, args []string) error {
-	idStr := args[0]
-	var id int
-	_, err := fmt.Sscanf(idStr, "%d", &id)
+	id, err := strconv.Atoi(args[0])
 	if err != nil {
 		return fmt.Errorf("ID形式エラー: %w", err)
 	}

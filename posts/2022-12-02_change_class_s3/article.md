@@ -1,7 +1,7 @@
 ---
 id: 1808
 title: 【AWS】S3ストレージクラス変更時の注意点
-slug: change_class_s3
+slug: change-class-s3
 status: publish
 date: 2022-12-02T07:00:00
 modified: 2022-12-01T19:12:48

@@ -34,7 +34,3 @@ func Execute() {
 	}
 }
 
-func init() {
-	// グローバルフラグを追加
-	rootCmd.PersistentFlags().BoolP("verbose", "v", false, "詳細出力を有効にする")
-}

@@ -14,6 +14,9 @@ import (
 	"github.com/shiimanblog/wp-cli/internal/wp"
 )
 
+// supportedEyecatchExts はサポートするアイキャッチ画像の拡張子（優先順）
+var supportedEyecatchExts = []string{".png", ".jpg", ".jpeg", ".webp", ".gif"}
+
 const allowedStatusHint = "draft/publish/pending/private"
 
 var allowedStatuses = map[string]struct{}{
@@ -59,36 +62,41 @@ func determinePageStatus(frontMatterStatus string) (string, error) {
 	return normalizeAndValidateStatus(frontMatterStatus, false)
 }
 
-// showDryRunPreview はドライランモードで記事の内容をプレビュー表示する
-func showDryRunPreview(title, slug, status, htmlContent string, categories, tags []int) {
-	color.Yellow("=== ドライラン モード ===")
-	color.White("タイトル: %s", title)
-	color.White("スラッグ: %s", slug)
-	color.White("ステータス: %s", status)
-	if len(categories) > 0 {
-		color.White("カテゴリ: %v", categories)
-	}
-	if len(tags) > 0 {
-		color.White("タグ: %v", tags)
-	}
-	color.White("\n--- 本文（HTML）プレビュー ---")
-	preview := htmlContent
-	if len(preview) > 500 {
-		preview = preview[:500] + "..."
-	}
-	color.White("%s", preview)
+// dryRunInfo はドライランプレビューの表示情報を保持する
+type dryRunInfo struct {
+	UpdateID       int    // 更新対象ID（0の場合は表示しない）
+	Title          string
+	Slug           string
+	Status         string
+	HTML           string
+	Categories     []int
+	Tags           []int
+	Parent         int
+	MenuOrder      int
+	ShowPageFields bool // 親ページ/メニュー順序を表示するか
 }
 
-// showPageDryRunPreview は固定ページ用のドライランプレビューを表示する
-func showPageDryRunPreview(title, slug, status, htmlContent string, parent, menuOrder int) {
+// showDryRunPreview はドライランモードで記事の内容をプレビュー表示する
+func showDryRunPreview(info dryRunInfo) {
 	color.Yellow("=== ドライラン モード ===")
-	color.White("タイトル: %s", title)
-	color.White("スラッグ: %s", slug)
-	color.White("ステータス: %s", status)
-	color.White("親ページID: %d", parent)
-	color.White("メニュー順序: %d", menuOrder)
+	if info.UpdateID > 0 {
+		color.White("更新対象ID: %d", info.UpdateID)
+	}
+	color.White("タイトル: %s", info.Title)
+	color.White("スラッグ: %s", info.Slug)
+	color.White("ステータス: %s", info.Status)
+	if len(info.Categories) > 0 {
+		color.White("カテゴリ: %v", info.Categories)
+	}
+	if len(info.Tags) > 0 {
+		color.White("タグ: %v", info.Tags)
+	}
+	if info.ShowPageFields {
+		color.White("親ページID: %d", info.Parent)
+		color.White("メニュー順序: %d", info.MenuOrder)
+	}
 	color.White("\n--- 本文（HTML）プレビュー ---")
-	preview := htmlContent
+	preview := info.HTML
 	if len(preview) > 500 {
 		preview = preview[:500] + "..."
 	}
@@ -102,6 +110,18 @@ func setupClient() (*wp.Client, error) {
 		return nil, fmt.Errorf("設定エラー: %w", err)
 	}
 	return wp.NewClient(cfg), nil
+}
+
+// writeArticleFile はArticleをファイルに書き込む共通ヘルパー
+func writeArticleFile(filePath string, article *types.Article) error {
+	content, err := converter.GenerateArticleFile(article)
+	if err != nil {
+		return fmt.Errorf("記事ファイル生成に失敗: %w", err)
+	}
+	if err := os.WriteFile(filePath, []byte(content), 0600); err != nil {
+		return fmt.Errorf("記事ファイル保存に失敗: %w", err)
+	}
+	return nil
 }
 
 // syncPostToLocal は投稿結果をローカルMarkdownに同期し、必要に応じて公開ディレクトリへ移動する
@@ -126,14 +146,9 @@ func syncPostToLocal(filePath string, post *types.Post, moveOnPublish bool) (str
 		}
 	}
 
-	content, err := converter.GenerateArticleFile(article)
-	if err != nil {
-		return currentPath, fmt.Errorf("記事ファイル生成に失敗: %w", err)
+	if err := writeArticleFile(currentPath, article); err != nil {
+		return currentPath, err
 	}
-	if err := os.WriteFile(currentPath, []byte(content), 0600); err != nil {
-		return currentPath, fmt.Errorf("記事ファイル保存に失敗: %w", err)
-	}
-
 	return currentPath, nil
 }
 
@@ -152,27 +167,55 @@ func syncPageToLocal(filePath string, page *types.Page) (string, error) {
 	article.FrontMatter.Parent = page.Parent
 	article.FrontMatter.MenuOrder = page.MenuOrder
 
-	content, err := converter.GenerateArticleFile(article)
-	if err != nil {
-		return filePath, fmt.Errorf("記事ファイル生成に失敗: %w", err)
+	if err := writeArticleFile(filePath, article); err != nil {
+		return filePath, err
 	}
-	if err := os.WriteFile(filePath, []byte(content), 0600); err != nil {
-		return filePath, fmt.Errorf("記事ファイル保存に失敗: %w", err)
-	}
-
 	return filePath, nil
+}
+
+// findEyecatchFile はassetsディレクトリからアイキャッチ画像ファイルを検索する
+func findEyecatchFile(assetsDir string) string {
+	for _, ext := range supportedEyecatchExts {
+		path := filepath.Join(assetsDir, "eyecatch"+ext)
+		if _, err := os.Stat(path); err == nil {
+			return path
+		}
+	}
+	return ""
+}
+
+// detectMIMEType はファイル拡張子からMIMEタイプを判定する
+func detectMIMEType(filename string) string {
+	ext := strings.ToLower(filepath.Ext(filename))
+	switch ext {
+	case ".png":
+		return "image/png"
+	case ".jpg", ".jpeg":
+		return "image/jpeg"
+	case ".webp":
+		return "image/webp"
+	case ".gif":
+		return "image/gif"
+	default:
+		return "application/octet-stream"
+	}
 }
 
 // uploadEyecatchIfExists はアイキャッチ画像が存在する場合にアップロードする
 // forceUpload が true の場合は、既にFeaturedMediaが設定されていても再アップロードする
 func uploadEyecatchIfExists(ctx context.Context, client *wp.Client, articleDir string, currentFeaturedMediaID int, forceUpload bool) (int, error) {
-	eyecatchPath := filepath.Join(articleDir, "assets", eyecatchFilename)
+	assetsDir := filepath.Join(articleDir, "assets")
+	eyecatchPath := findEyecatchFile(assetsDir)
 
-	// ファイル存在確認とサイズチェック
+	if eyecatchPath == "" {
+		// アイキャッチ画像が存在しない場合は現在のIDをそのまま返す
+		return currentFeaturedMediaID, nil
+	}
+
+	// サイズチェック
 	const maxEyecatchSize = 20 * 1024 * 1024 // 20MB
 	info, err := os.Stat(eyecatchPath)
 	if err != nil {
-		// ファイルが存在しない場合は現在のIDをそのまま返す
 		return currentFeaturedMediaID, nil
 	}
 	if info.Size() > maxEyecatchSize {
@@ -196,7 +239,10 @@ func uploadEyecatchIfExists(ctx context.Context, client *wp.Client, articleDir s
 		return 0, fmt.Errorf("アイキャッチ画像の読み込みに失敗: %w", err)
 	}
 
-	media, err := client.UploadMedia(ctx, eyecatchFilename, imageData, "image/png")
+	filename := filepath.Base(eyecatchPath)
+	mimeType := detectMIMEType(filename)
+
+	media, err := client.UploadMedia(ctx, filename, imageData, mimeType)
 	if err != nil {
 		return 0, fmt.Errorf("アイキャッチ画像のアップロードに失敗: %w", err)
 	}

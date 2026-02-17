@@ -3,8 +3,11 @@ id: 2231
 title: "マルチエージェントMCPを作ってみた"
 slug: "multi-agent-mcp-workflow"
 status: publish
+date: "2026-02-08T00:00:00+09:00"
+modified: "2026-02-08T00:00:00+09:00"
 excerpt: "Zenn記事とmulti-agent-shogunを土台に、multi-agent-mcpとmulti-flow/multi-issue-flowを実装して見えた差分を整理。特に複数AI CLI対応、復旧機構、Issue/PR連携の価値を実例で解説します。"
 categories: [1]
+tags: [6]
 featured_media: 2232
 ---
 

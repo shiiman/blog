@@ -50,7 +50,7 @@ go build -o wp-cli .
 - `/blog-write` always creates draft posts in `drafts/`.
 
 ## Article Guidelines
-- Create titles in Japanese (max 50 characters).
+- Create titles in Japanese (70 chars max).
 - Include SEO-optimized excerpts.
 - Use proper heading hierarchy (H2, H3, H4).
 - Add code blocks with language specifications.

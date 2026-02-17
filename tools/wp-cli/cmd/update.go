@@ -68,21 +68,18 @@ func runUpdate(cmd *cobra.Command, args []string) error {
 
 	// ドライラン
 	if updateDryRun {
-		color.Yellow("=== ドライラン モード ===")
-		color.White("更新対象ID: %d", id)
-		color.White("タイトル: %s", article.FrontMatter.Title)
-		color.White("スラッグ: %s", article.FrontMatter.Slug)
-		color.White("ステータス: %s", status)
-		if !updatePage {
-			color.White("カテゴリ: %v", article.FrontMatter.Categories)
-			color.White("タグ: %v", article.FrontMatter.Tags)
-		}
-		color.White("\n--- 本文（HTML）プレビュー ---")
-		preview := htmlContent
-		if len(preview) > 500 {
-			preview = preview[:500] + "..."
-		}
-		color.White("%s", preview)
+		showDryRunPreview(dryRunInfo{
+			UpdateID:       id,
+			Title:          article.FrontMatter.Title,
+			Slug:           article.FrontMatter.Slug,
+			Status:         status,
+			HTML:           htmlContent,
+			Categories:     article.FrontMatter.Categories,
+			Tags:           article.FrontMatter.Tags,
+			Parent:         article.FrontMatter.Parent,
+			MenuOrder:      article.FrontMatter.MenuOrder,
+			ShowPageFields: updatePage,
+		})
 		return nil
 	}
 

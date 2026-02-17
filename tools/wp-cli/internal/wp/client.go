@@ -242,19 +242,41 @@ func (c *Client) UpdatePage(ctx context.Context, id int, req *types.UpdatePageRe
 	return &page, nil
 }
 
-// GetCategories はカテゴリ一覧を取得する
+// getAllPaginated はページネーションを使って全件を取得する汎用関数
+func getAllPaginated[T any](ctx context.Context, c *Client, endpoint string, parseErrMsg string) ([]T, error) {
+	var all []T
+	page := 1
+	const perPage = 100
+
+	for {
+		paginatedEndpoint := fmt.Sprintf("%s?per_page=%d&page=%d", endpoint, perPage, page)
+		body, err := c.doRequest(ctx, "GET", paginatedEndpoint, nil)
+		if err != nil {
+			if page > 1 {
+				// 2ページ目以降のエラーはページ範囲外と判断して終了
+				break
+			}
+			return nil, err
+		}
+
+		var items []T
+		if err := json.Unmarshal(body, &items); err != nil {
+			return nil, fmt.Errorf("%s: %w", parseErrMsg, err)
+		}
+
+		all = append(all, items...)
+		if len(items) < perPage {
+			break
+		}
+		page++
+	}
+
+	return all, nil
+}
+
+// GetCategories はカテゴリ一覧を取得する（ページネーション対応）
 func (c *Client) GetCategories(ctx context.Context) ([]types.Category, error) {
-	body, err := c.doRequest(ctx, "GET", "/categories?per_page=100", nil)
-	if err != nil {
-		return nil, err
-	}
-
-	var categories []types.Category
-	if err := json.Unmarshal(body, &categories); err != nil {
-		return nil, fmt.Errorf("カテゴリ一覧のパースに失敗: %w", err)
-	}
-
-	return categories, nil
+	return getAllPaginated[types.Category](ctx, c, "/categories", "カテゴリ一覧のパースに失敗")
 }
 
 // CreateCategory は新しいカテゴリを作成する
@@ -289,19 +311,9 @@ func (c *Client) UpdateCategory(ctx context.Context, id int, req *types.UpdateCa
 	return &category, nil
 }
 
-// GetTags はタグ一覧を取得する
+// GetTags はタグ一覧を取得する（ページネーション対応）
 func (c *Client) GetTags(ctx context.Context) ([]types.Tag, error) {
-	body, err := c.doRequest(ctx, "GET", "/tags?per_page=100", nil)
-	if err != nil {
-		return nil, err
-	}
-
-	var tags []types.Tag
-	if err := json.Unmarshal(body, &tags); err != nil {
-		return nil, fmt.Errorf("タグ一覧のパースに失敗: %w", err)
-	}
-
-	return tags, nil
+	return getAllPaginated[types.Tag](ctx, c, "/tags", "タグ一覧のパースに失敗")
 }
 
 // DeletePage は固定ページを削除する

@@ -3,6 +3,8 @@ id: 2213
 title: "AIのグローバル設定をdotfilesで管理する方法：PC移行でも自分専用のAIアシスタントを持ち歩く"
 slug: "ai-settings-dotfiles"
 status: publish
+date: "2026-01-14T00:00:00+09:00"
+modified: "2026-01-14T00:00:00+09:00"
 excerpt: "ClaudeやGeminiなどのAIアシスタントのカスタム指示（System Instructions）をdotfilesで管理し、複数のPCで環境を統一する方法を紹介します。シンボリックリンクを活用して、開発環境セットアップと一緒にAI設定も自動化しましょう。"
 categories: [18, 133]
 tags: [114]

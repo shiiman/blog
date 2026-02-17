@@ -164,10 +164,26 @@ func GenerateArticleFile(article *types.Article) (string, error) {
 	return fmt.Sprintf("---\n%s---\n\n%s", string(fmBytes), article.Content), nil
 }
 
+// convertExcerpt はHTML形式のExcerptをMarkdownに変換する
+func convertExcerpt(rendered string) (string, error) {
+	if rendered == "" {
+		return "", nil
+	}
+	excerpt, err := HTMLToMarkdown(rendered)
+	if err != nil {
+		return "", fmt.Errorf("Excerptの変換に失敗: %w", err)
+	}
+	return strings.TrimSpace(excerpt), nil
+}
+
 // PostToArticle はWordPress投稿をArticleに変換する
 func PostToArticle(post *types.Post) (*types.Article, error) {
-	// HTMLをMarkdownに変換
 	mdContent, err := HTMLToMarkdown(post.Content.Rendered)
+	if err != nil {
+		return nil, err
+	}
+
+	excerpt, err := convertExcerpt(post.Excerpt.Rendered)
 	if err != nil {
 		return nil, err
 	}
@@ -177,17 +193,12 @@ func PostToArticle(post *types.Post) (*types.Article, error) {
 		Title:         post.Title.Rendered,
 		Slug:          post.Slug,
 		Status:        post.Status,
+		Excerpt:       excerpt,
 		Categories:    post.Categories,
 		Tags:          post.Tags,
 		FeaturedMedia: post.FeaturedMedia,
 		Date:          post.Date.Format("2006-01-02T15:04:05"),
 		Modified:      post.Modified.Format("2006-01-02T15:04:05"),
-	}
-
-	// Excerptがある場合はHTMLタグを除去
-	if post.Excerpt.Rendered != "" {
-		excerpt, _ := HTMLToMarkdown(post.Excerpt.Rendered)
-		fm.Excerpt = strings.TrimSpace(excerpt)
 	}
 
 	return &types.Article{
@@ -198,8 +209,12 @@ func PostToArticle(post *types.Post) (*types.Article, error) {
 
 // PageToArticle はWordPress固定ページをArticleに変換する
 func PageToArticle(page *types.Page) (*types.Article, error) {
-	// HTMLをMarkdownに変換
 	mdContent, err := HTMLToMarkdown(page.Content.Rendered)
+	if err != nil {
+		return nil, err
+	}
+
+	excerpt, err := convertExcerpt(page.Excerpt.Rendered)
 	if err != nil {
 		return nil, err
 	}
@@ -209,16 +224,11 @@ func PageToArticle(page *types.Page) (*types.Article, error) {
 		Title:     page.Title.Rendered,
 		Slug:      page.Slug,
 		Status:    page.Status,
+		Excerpt:   excerpt,
 		Parent:    page.Parent,
 		MenuOrder: page.MenuOrder,
 		Date:      page.Date.Format("2006-01-02T15:04:05"),
 		Modified:  page.Modified.Format("2006-01-02T15:04:05"),
-	}
-
-	// Excerptがある場合はHTMLタグを除去
-	if page.Excerpt.Rendered != "" {
-		excerpt, _ := HTMLToMarkdown(page.Excerpt.Rendered)
-		fm.Excerpt = strings.TrimSpace(excerpt)
 	}
 
 	return &types.Article{

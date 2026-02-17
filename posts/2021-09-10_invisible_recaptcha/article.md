@@ -1,7 +1,7 @@
 ---
 id: 215
 title: 【WordPress】おすすめのプラグイン Part 4 〜 Invisible reCaptcha 〜
-slug: invisible_recaptcha
+slug: invisible-recaptcha
 status: publish
 date: 2021-09-10T19:30:00
 modified: 2021-09-08T02:16:28

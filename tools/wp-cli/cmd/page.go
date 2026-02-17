@@ -52,14 +52,15 @@ func runPage(cmd *cobra.Command, args []string) error {
 
 	// ドライラン
 	if pageDryRun {
-		showPageDryRunPreview(
-			article.FrontMatter.Title,
-			article.FrontMatter.Slug,
-			status,
-			htmlContent,
-			article.FrontMatter.Parent,
-			article.FrontMatter.MenuOrder,
-		)
+		showDryRunPreview(dryRunInfo{
+			Title:          article.FrontMatter.Title,
+			Slug:           article.FrontMatter.Slug,
+			Status:         status,
+			HTML:           htmlContent,
+			Parent:         article.FrontMatter.Parent,
+			MenuOrder:      article.FrontMatter.MenuOrder,
+			ShowPageFields: true,
+		})
 		return nil
 	}
 

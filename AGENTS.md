@@ -12,7 +12,6 @@ See `CLAUDE.md` for full project documentation (directory structure, workflow, a
 Project-local skills are defined in `.agents/skills/`:
 
 - `blog-write` - Write a new blog article
-- `blog-import` - Import existing articles from WordPress
 - `blog-publish` - Publish article to WordPress (draft by default)
 - `blog-update` - Update existing article on WordPress
 

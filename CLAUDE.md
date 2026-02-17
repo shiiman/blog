@@ -63,6 +63,7 @@ go build -o wp-cli .
 - Include SEO-optimized excerpts
 - Use proper heading hierarchy (H2, H3, H4)
 - Add code blocks with language specification
+- Slugs should use hyphen-separated format (e.g., `my-article-title`)
 
 ## Front Matter Format
 

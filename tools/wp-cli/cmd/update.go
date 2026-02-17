@@ -105,7 +105,16 @@ func runUpdate(cmd *cobra.Command, args []string) error {
 	}
 
 	if updatePage {
-		return updatePageContent(ctx, client, id, article, htmlContent, status)
+		page, err := updatePageContent(ctx, client, id, article, htmlContent, status)
+		if err != nil {
+			return err
+		}
+		syncedPath, err := syncPageToLocal(filePath, page)
+		if err != nil {
+			return err
+		}
+		color.Green("  記事ファイルを同期しました: %s", syncedPath)
+		return nil
 	}
 
 	post, err := updatePostContent(ctx, client, id, article, htmlContent, status, featuredMediaID)
@@ -147,7 +156,7 @@ func updatePostContent(ctx context.Context, client *wp.Client, id int, article *
 	return post, nil
 }
 
-func updatePageContent(ctx context.Context, client *wp.Client, id int, article *types.Article, htmlContent, status string) error {
+func updatePageContent(ctx context.Context, client *wp.Client, id int, article *types.Article, htmlContent, status string) (*types.Page, error) {
 	req := &types.UpdatePageRequest{
 		Title:     article.FrontMatter.Title,
 		Content:   htmlContent,
@@ -164,9 +173,9 @@ func updatePageContent(ctx context.Context, client *wp.Client, id int, article *
 
 	page, err := client.UpdatePage(ctx, id, req)
 	if err != nil {
-		return fmt.Errorf("固定ページの更新に失敗: %w", err)
+		return nil, fmt.Errorf("固定ページの更新に失敗: %w", err)
 	}
 
 	printPageResult(page, true)
-	return nil
+	return page, nil
 }

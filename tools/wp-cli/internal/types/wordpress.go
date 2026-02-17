@@ -171,6 +171,20 @@ type UpdateCategoryRequest struct {
 	Parent      int    `json:"parent,omitempty"`
 }
 
+// CreateTagRequest はタグ作成リクエストを表す
+type CreateTagRequest struct {
+	Name        string `json:"name"`
+	Slug        string `json:"slug,omitempty"`
+	Description string `json:"description,omitempty"`
+}
+
+// UpdateTagRequest はタグ更新リクエストを表す
+type UpdateTagRequest struct {
+	Name        string `json:"name,omitempty"`
+	Slug        string `json:"slug,omitempty"`
+	Description string `json:"description,omitempty"`
+}
+
 // FrontMatter はMarkdownファイルのフロントマターを表す
 type FrontMatter struct {
 	ID            int    `yaml:"id,omitempty"`

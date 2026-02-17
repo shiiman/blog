@@ -232,3 +232,47 @@ func TestGetAuthHeader_パスワードスペース除去(t *testing.T) {
 		t.Errorf("デコード結果 = %q, want %q", string(decoded), expected)
 	}
 }
+
+func TestSanitizeFilename(t *testing.T) {
+	tests := []struct {
+		name  string
+		input string
+		want  string
+	}{
+		{name: "通常のファイル名", input: "eyecatch.png", want: "eyecatch.png"},
+		{name: "改行を除去", input: "file\nname.png", want: "filename.png"},
+		{name: "CRLFを除去", input: "file\r\nname.png", want: "filename.png"},
+		{name: "引用符を除去", input: `file"name.png`, want: "filename.png"},
+		{name: "スラッシュを除去", input: "path/to/file.png", want: "pathtofile.png"},
+		{name: "バックスラッシュを除去", input: `path\to\file.png`, want: "pathtofile.png"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := sanitizeFilename(tt.input)
+			if got != tt.want {
+				t.Errorf("sanitizeFilename(%q) = %q, want %q", tt.input, got, tt.want)
+			}
+		})
+	}
+}
+
+func TestUploadMedia_ファイル名サニタイズ(t *testing.T) {
+	client, _ := setupTestClient(t, func(w http.ResponseWriter, r *http.Request) {
+		disposition := r.Header.Get("Content-Disposition")
+		// 改行やパス区切り文字がサニタイズされていることを確認
+		if strings.Contains(disposition, "\n") || strings.Contains(disposition, "/") {
+			t.Errorf("Content-Dispositionがサニタイズされていない: %q", disposition)
+		}
+
+		media := types.Media{ID: 1}
+		w.WriteHeader(http.StatusCreated)
+		_ = json.NewEncoder(w).Encode(media)
+	})
+
+	ctx := context.Background()
+	_, err := client.UploadMedia(ctx, "path/to/evil\nfile.png", []byte("data"), "image/png")
+	if err != nil {
+		t.Fatalf("予期しないエラー: %v", err)
+	}
+}

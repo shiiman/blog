@@ -1,6 +1,8 @@
 package config
 
 import (
+	"os"
+	"path/filepath"
 	"testing"
 )
 
@@ -122,5 +124,57 @@ func TestLoadConfig_全環境変数未設定(t *testing.T) {
 	_, err := Load()
 	if err == nil {
 		t.Error("全環境変数未設定でエラーが発生するべき")
+	}
+}
+
+func TestFindEnvFile_gitディレクトリで停止(t *testing.T) {
+	// 一時ディレクトリ構造を作成: root/.git/ + root/sub/
+	root := t.TempDir()
+	gitDir := filepath.Join(root, ".git")
+	subDir := filepath.Join(root, "sub")
+	if err := os.MkdirAll(gitDir, 0755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(subDir, 0755); err != nil {
+		t.Fatal(err)
+	}
+
+	// root/.envを作成
+	envPath := filepath.Join(root, ".env")
+	if err := os.WriteFile(envPath, []byte("TEST=1"), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	// subDirに移動して探索
+	t.Chdir(subDir)
+
+	result := findEnvFile()
+	if result != envPath {
+		t.Errorf("findEnvFile() = %q, want %q", result, envPath)
+	}
+}
+
+func TestFindEnvFile_深さ制限で停止(t *testing.T) {
+	// maxEnvSearchDepth+1階層の深いディレクトリを作成（.gitなし）
+	root := t.TempDir()
+	deepDir := root
+	for i := 0; i < maxEnvSearchDepth+1; i++ {
+		deepDir = filepath.Join(deepDir, "sub")
+	}
+	if err := os.MkdirAll(deepDir, 0755); err != nil {
+		t.Fatal(err)
+	}
+
+	// rootに.envを作成（深すぎて見つからないはず）
+	envPath := filepath.Join(root, ".env")
+	if err := os.WriteFile(envPath, []byte("TEST=1"), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	t.Chdir(deepDir)
+
+	result := findEnvFile()
+	if result != "" {
+		t.Errorf("深すぎるディレクトリで.envが見つかるべきでない: %q", result)
 	}
 }

@@ -123,8 +123,12 @@ blog/
 │       └── assets/         # 記事用アセット
 │           └── eyecatch.png
 ├── pages/                  # インポート済み固定ページ（slug/）
+│   ├── contact/            # お問い合わせ
+│   ├── mahjong/            # 麻雀点数計算
 │   ├── poker/              # ポーカータイマー
-│   └── mahjong/            # 麻雀点数計算
+│   ├── privacy-policy/     # プライバシーポリシー
+│   ├── profile/            # プロフィール
+│   └── sitemap/            # サイトマップ
 ├── drafts/                 # 新規下書き記事
 ├── templates/              # 記事テンプレート
 ├── tools/wp-cli/           # Go製CLIツール

@@ -38,14 +38,32 @@ var tagsCmd = &cobra.Command{
 	Use:   "tags",
 	Short: "タグ一覧を表示",
 	Long: `WordPressのタグ一覧を表示します。
+サブコマンドでタグの作成・更新も可能です。
 
 例:
-  wp-cli tags`,
+  wp-cli tags
+  wp-cli tags create "新しいタグ"
+  wp-cli tags update 10 --name "更新タグ"`,
 	RunE: runTags,
+}
+
+var createTagCmd = &cobra.Command{
+	Use:   "create [name]",
+	Short: "新しいタグを作成",
+	Args:  cobra.ExactArgs(1),
+	RunE:  runCreateTag,
+}
+
+var updateTagCmd = &cobra.Command{
+	Use:   "update [id]",
+	Short: "既存のタグを更新",
+	Args:  cobra.ExactArgs(1),
+	RunE:  runUpdateTag,
 }
 
 var parentID int
 var categoryName string
+var tagName string
 
 func init() {
 	categoriesCmd.AddCommand(createCategoryCmd)
@@ -54,6 +72,10 @@ func init() {
 	categoriesCmd.AddCommand(updateCategoryCmd)
 	updateCategoryCmd.Flags().IntVarP(&parentID, "parent", "p", 0, "親カテゴリのID")
 	updateCategoryCmd.Flags().StringVarP(&categoryName, "name", "n", "", "カテゴリ名")
+
+	tagsCmd.AddCommand(createTagCmd)
+	tagsCmd.AddCommand(updateTagCmd)
+	updateTagCmd.Flags().StringVarP(&tagName, "name", "n", "", "タグ名")
 
 	rootCmd.AddCommand(categoriesCmd)
 	rootCmd.AddCommand(tagsCmd)
@@ -152,6 +174,66 @@ func runUpdateCategory(cmd *cobra.Command, args []string) error {
 	fmt.Printf("  名前: %s\n", category.Name)
 	fmt.Printf("  スラッグ: %s\n", category.Slug)
 	fmt.Printf("  親ID: %d\n", category.Parent)
+	return nil
+}
+
+func runCreateTag(cmd *cobra.Command, args []string) error {
+	name := args[0]
+	client, err := setupClient()
+	if err != nil {
+		return err
+	}
+
+	ctx := cmd.Context()
+
+	color.Cyan("タグ '%s' を作成中...", name)
+
+	req := &types.CreateTagRequest{
+		Name: name,
+	}
+
+	tag, err := client.CreateTag(ctx, req)
+	if err != nil {
+		return fmt.Errorf("タグの作成に失敗: %w", err)
+	}
+
+	color.Green("タグが作成されました！")
+	fmt.Printf("  ID: %d\n", tag.ID)
+	fmt.Printf("  名前: %s\n", tag.Name)
+	fmt.Printf("  スラッグ: %s\n", tag.Slug)
+	return nil
+}
+
+func runUpdateTag(cmd *cobra.Command, args []string) error {
+	idStr := args[0]
+	var id int
+	_, err := fmt.Sscanf(idStr, "%d", &id)
+	if err != nil {
+		return fmt.Errorf("ID形式エラー: %w", err)
+	}
+
+	client, err := setupClient()
+	if err != nil {
+		return err
+	}
+
+	ctx := cmd.Context()
+
+	color.Cyan("タグID %d を更新中...", id)
+
+	req := &types.UpdateTagRequest{
+		Name: tagName,
+	}
+
+	tag, err := client.UpdateTag(ctx, id, req)
+	if err != nil {
+		return fmt.Errorf("タグの更新に失敗: %w", err)
+	}
+
+	color.Green("タグが更新されました！")
+	fmt.Printf("  ID: %d\n", tag.ID)
+	fmt.Printf("  名前: %s\n", tag.Name)
+	fmt.Printf("  スラッグ: %s\n", tag.Slug)
 	return nil
 }
 

@@ -59,7 +59,7 @@ func processHtmlAndMarkdownMixed(content string) string {
 		trimmedAfter := strings.TrimSpace(afterScript)
 
 		// </script>の後にMarkdownコンテンツがある場合
-		if len(trimmedAfter) > 0 && (strings.HasPrefix(trimmedAfter, "#") || strings.HasPrefix(trimmedAfter, "-") || strings.HasPrefix(trimmedAfter, "1.")) {
+		if len(trimmedAfter) > 0 && isMarkdownPrefix(trimmedAfter) {
 			htmlPart := content[:scriptEndIdx+len("</script>")]
 			mdPart := afterScript
 
@@ -80,6 +80,24 @@ func processHtmlAndMarkdownMixed(content string) string {
 
 	// Markdown部分がない場合はそのままHTMLブロックでラップ
 	return wrapInGutenbergBlocks(content)
+}
+
+// isMarkdownPrefix はテキストがMarkdownコンテンツで始まるかを判定する
+func isMarkdownPrefix(s string) bool {
+	prefixes := []string{
+		"#",   // 見出し
+		"-",   // リスト
+		"*",   // リスト
+		"1.",  // 番号付きリスト
+		">",   // 引用
+		"```", // コードブロック
+	}
+	for _, p := range prefixes {
+		if strings.HasPrefix(s, p) {
+			return true
+		}
+	}
+	return false
 }
 
 // wrapInGutenbergBlocks はHTMLコンテンツをGutenbergブロック形式でラップする

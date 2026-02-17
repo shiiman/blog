@@ -5,6 +5,7 @@ categories: [1]
 tags: []
 slug: "url-slug-here"
 status: draft
+# date: "YYYY-MM-DDTHH:MM:SS"  # 公開日時（指定する場合のみ）
 # featured_media: 0   # アイキャッチ画像のメディアID（投稿後に自動設定）
 # id: 0               # WordPress投稿ID（投稿後に自動設定）
 ---

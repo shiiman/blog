@@ -207,6 +207,30 @@ func TestTruncate(t *testing.T) {
 			maxLen: 10,
 			want:   "",
 		},
+		{
+			name:   "maxLen=3はそのまま切り詰め",
+			input:  "hello",
+			maxLen: 3,
+			want:   "hel",
+		},
+		{
+			name:   "maxLen=1はそのまま切り詰め",
+			input:  "hello",
+			maxLen: 1,
+			want:   "h",
+		},
+		{
+			name:   "maxLen=0は空文字列",
+			input:  "hello",
+			maxLen: 0,
+			want:   "",
+		},
+		{
+			name:   "maxLen=2はそのまま切り詰め",
+			input:  "hello",
+			maxLen: 2,
+			want:   "he",
+		},
 	}
 
 	for _, tt := range tests {
@@ -240,6 +264,29 @@ func TestFormatStatus(t *testing.T) {
 			// unknownステータスはそのまま返される
 			if tt.status == "unknown" && got != "unknown" {
 				t.Errorf("formatStatus(%q) = %q, want %q", tt.status, got, "unknown")
+			}
+		})
+	}
+}
+
+func TestSanitizeSlug(t *testing.T) {
+	tests := []struct {
+		name  string
+		input string
+		want  string
+	}{
+		{name: "通常のスラッグ", input: "my-article", want: "my-article"},
+		{name: "スラッシュ除去", input: "../../etc/passwd", want: "etcpasswd"},
+		{name: "バックスラッシュ除去", input: `my\article`, want: "myarticle"},
+		{name: "ドット連続除去", input: "my..article", want: "myarticle"},
+		{name: "複合パストラバーサル", input: "../../../tmp/evil", want: "tmpevil"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := sanitizeSlug(tt.input)
+			if got != tt.want {
+				t.Errorf("sanitizeSlug(%q) = %q, want %q", tt.input, got, tt.want)
 			}
 		})
 	}

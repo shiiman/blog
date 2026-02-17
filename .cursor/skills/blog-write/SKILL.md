@@ -38,10 +38,19 @@ description: 技術ブログ記事を執筆する。「記事を書いて」「�
 mkdir -p drafts/$(date +%Y-%m-%d)_slug
 ```
 
-### 5. 次のステップ案内
+### 5. アイキャッチ画像の自動生成
+
+記事保存後、同一フロー内で `assets/eyecatch.png` を自動生成:
+
+- 記事のタイトル・キーワード・トーンを分析
+- `drafts/YYYY-MM-DD_slug/assets/eyecatch.png` に保存
+- 生成失敗時は記事作成を成功扱いで継続し、警告を出して `/eyecatch-create` で再生成を案内
+
+### 6. 次のステップ案内
 
 記事作成後、以下を案内:
 - `/blog-publish` で WordPressに公開
+- アイキャッチを再生成したい場合は `/eyecatch-create` を実行
 - 記事内容の確認・編集方法
 - カテゴリ・タグIDの確認方法（`wp-cli categories`, `wp-cli tags`）
 
@@ -63,5 +72,5 @@ status: draft
 - 記事タイトルは SEO を意識（50文字以内推奨）
 - Front Matter の categories/tags は ID で指定
 - コードブロックには言語を明示（```python など）
-- 画像は `drafts/YYYY-MM-DD_slug/assets/` に配置
+- 画像は `drafts/YYYY-MM-DD_slug/assets/eyecatch.png` に配置（`blog-write` で自動生成）
 - `blog-write` は下書き作成専用（公開は `blog-publish` を使う）

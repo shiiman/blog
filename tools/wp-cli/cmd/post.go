@@ -27,13 +27,11 @@ var postCmd = &cobra.Command{
 	RunE: runPost,
 }
 
-var postPublish bool
 var postDraft bool
 var postDryRun bool
 
 func init() {
 	rootCmd.AddCommand(postCmd)
-	postCmd.Flags().BoolVarP(&postPublish, "publish", "p", false, "公開状態で投稿（互換オプション。デフォルトで公開）")
 	postCmd.Flags().BoolVar(&postDraft, "draft", false, "下書き状態で投稿")
 	postCmd.Flags().BoolVar(&postDryRun, "dry-run", false, "投稿せずに内容を確認")
 }

@@ -1,8 +1,8 @@
 # wp-cli Makefile
 
 BINARY_NAME := wp-cli
-GO := go
-GOLANGCI_LINT := golangci-lint
+GO := env -u GOROOT go
+GOLANGCI_LINT := env -u GOROOT golangci-lint
 LINT_CONFIG := ../../.golangci.yml
 
 .PHONY: all build test lint clean

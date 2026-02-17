@@ -52,8 +52,9 @@ go build -o wp-cli .
 ### 変更点（運用ルール統一）
 
 - `blog-write` は下書き作成専用（`drafts/` + `status: draft`）
+  - Gemini/Cursor は `blog-write` 内で `assets/eyecatch.png` も自動生成
 - `blog-publish` は公開専用（`wp-cli post` はデフォルト公開）
-- `blog-update` は既存記事更新専用（`wp-cli update --publish` は廃止）
+- `blog-update` は既存記事更新専用
 
 ### スキル/ワークフロー（推奨）
 
@@ -72,10 +73,10 @@ go build -o wp-cli .
 
 > **Note**: Codexのプロジェクトローカルスキルは `.agents/skills/` に配置します。
 
-#### アイキャッチ画像生成（Cursor/Antigravity のみ）
+#### アイキャッチ画像再生成（Cursor/Antigravity のみ）
 
 ```bash
-# アイキャッチ画像を生成
+# アイキャッチ画像を再生成（必要時のみ）
 /eyecatch-create
 ```
 
@@ -86,6 +87,7 @@ go build -o wp-cli .
 ```bash
 # 投稿一覧
 ./tools/wp-cli/wp-cli list posts
+./tools/wp-cli/wp-cli list posts --status=draft  # status: draft|publish|pending|private
 
 # 記事インポート
 ./tools/wp-cli/wp-cli import posts
@@ -102,6 +104,9 @@ go build -o wp-cli .
 
 # 固定ページ更新
 ./tools/wp-cli/wp-cli update pages/poker/page.md --page
+
+# 固定ページ作成（公開する場合はFront Matterで status: publish を指定）
+./tools/wp-cli/wp-cli page drafts/about/page.md
 
 # カテゴリ・タグ一覧
 ./tools/wp-cli/wp-cli categories
@@ -177,12 +182,14 @@ menu_order: 0
 # 1. 記事を作成
 /blog-write
 
-# 2. アイキャッチ画像を生成（AIが記事内容を分析して自動生成）
+# 2. 必要ならアイキャッチ画像を再生成
 /eyecatch-create
 
 # 3. 公開（アイキャッチは自動でアップロード・設定）
 ./tools/wp-cli/wp-cli post drafts/2026-01-03_my-article/article.md
 ```
+
+`/blog-write` 実行時に、記事本文の作成と同時に `assets/eyecatch.png` が自動生成されます。生成に失敗した場合でも `article.md` は保存されるため、必要に応じて `/eyecatch-create` で再生成してください。
 
 **デザインルール:**
 - アスペクト比: 16:9 (1280x720)
@@ -235,6 +242,19 @@ go: module requires Go >= 1.24
 ```
 
 **対処法:** Go のバージョンが古いです。`go version` で確認し、1.24以上にアップデートしてください。
+
+### Goツールチェーンの不整合エラー
+
+```
+compile: version "go1.25.5" does not match go tool version "go1.25.7"
+```
+
+**原因:** `GOROOT` が古いGoに固定されている状態で、`GOTOOLCHAIN=auto` が新しいツールチェーンを選択すると発生します。
+
+**対処法:**
+1. 現在のシェルで `unset GOROOT` を実行
+2. `mise` 利用時は `mise settings set go_set_goroot false` を実行（恒久対策）
+3. 新しいシェルを開き直して `go test ./...` を再実行
 
 ### .env 未設定時のエラー
 

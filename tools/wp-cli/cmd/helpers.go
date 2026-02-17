@@ -14,6 +14,15 @@ import (
 	"github.com/shiimanblog/wp-cli/internal/wp"
 )
 
+const allowedStatusHint = "draft/publish/pending/private"
+
+var allowedStatuses = map[string]struct{}{
+	"draft":   {},
+	"publish": {},
+	"pending": {},
+	"private": {},
+}
+
 // determinePostStatus はpostコマンド向けにステータスを決定する
 // write=draft / publish=publish の責務分離に合わせ、
 // postはデフォルトで公開、--draft指定時のみ下書きにする。
@@ -24,16 +33,30 @@ func determinePostStatus(draftFlag bool) string {
 	return "publish"
 }
 
+// normalizeAndValidateStatus はstatus値を正規化して許可値か検証する。
+func normalizeAndValidateStatus(status string, allowEmpty bool) (string, error) {
+	normalized := strings.ToLower(strings.TrimSpace(status))
+	if normalized == "" {
+		if allowEmpty {
+			return "", nil
+		}
+		return "", fmt.Errorf("status は %s のいずれかを指定してください", allowedStatusHint)
+	}
+
+	if _, ok := allowedStatuses[normalized]; !ok {
+		return "", fmt.Errorf("status は %s のいずれかを指定してください (入力値: %q)", allowedStatusHint, status)
+	}
+
+	return normalized, nil
+}
+
 // determinePageStatus はpageコマンド向けにステータスを決定する
-func determinePageStatus(publishFlag bool, frontMatterStatus string) string {
-	status := "draft"
-	if publishFlag {
-		status = "publish"
+// Front Matterで明示されたstatusを優先し、未指定時はdraftにする。
+func determinePageStatus(frontMatterStatus string) (string, error) {
+	if strings.TrimSpace(frontMatterStatus) == "" {
+		return "draft", nil
 	}
-	if frontMatterStatus != "" && !publishFlag {
-		status = frontMatterStatus
-	}
-	return status
+	return normalizeAndValidateStatus(frontMatterStatus, false)
 }
 
 // showDryRunPreview はドライランモードで記事の内容をプレビュー表示する

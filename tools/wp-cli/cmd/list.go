@@ -34,6 +34,12 @@ func init() {
 }
 
 func runList(cmd *cobra.Command, args []string) error {
+	normalizedStatus, err := normalizeAndValidateStatus(listStatus, true)
+	if err != nil {
+		return fmt.Errorf("list --status が不正です: %w", err)
+	}
+	listStatus = normalizedStatus
+
 	client, err := setupClient()
 	if err != nil {
 		return err

@@ -3,7 +3,9 @@ id: 547
 title: 【E.G.G.】プログラムに参加してProfessional Cloud Developer資格を取得した話 | GCP資格
 slug: egg
 status: publish
-excerpt: こんばんは、しーまんです。 今回はE.G.G. Japanというプログラムに参加して、GCP資格であるProfessional Cloud Developerの資格を取得しましたので、その内容などをまとめていきたいと思い \[…\]
+date: 2022-01-14T19:30:00
+modified: 2022-01-20T16:35:35
+excerpt: Google主催のE.G.G. Japanプログラムに参加し、GCP資格Professional Cloud Developerを取得した体験談です。
 categories:
     - 20
     - 18
@@ -12,8 +14,6 @@ tags:
     - 93
     - 94
 featured_media: 1433
-date: 2022-01-14T19:30:00
-modified: 2022-01-20T16:35:35
 ---
 
 こんばんは、しーまんです。

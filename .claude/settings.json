@@ -40,8 +40,26 @@
     ],
     "deny": [
       "Read(.env)",
+      "Read(*.env*)",
       "Write(.env)",
-      "Edit(.env)"
+      "Write(*.env*)",
+      "Edit(.env)",
+      "Edit(*.env*)",
+      "Bash(cat *.env*)",
+      "Bash(less *.env*)",
+      "Bash(more *.env*)",
+      "Bash(head *.env*)",
+      "Bash(tail *.env*)",
+      "Bash(grep *.env*)",
+      "Bash(sed *.env*)",
+      "Bash(awk *.env*)",
+      "Bash(source *.env*)",
+      "Bash(. *.env*)",
+      "Bash(cp *.env*)",
+      "Bash(mv *.env*)",
+      "Bash(open *.env*)",
+      "Bash(printf *.env*)",
+      "Bash(echo *.env*)"
     ]
   }
 }

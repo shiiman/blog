@@ -9,6 +9,7 @@ import (
 
 func TestRootCommand_RejectsPublishFlagForPost(t *testing.T) {
 	rootCmd.SetArgs([]string{"post", "dummy.md", "--publish"})
+	t.Cleanup(func() { rootCmd.SetArgs(nil) })
 	_, err := rootCmd.ExecuteC()
 	if err == nil {
 		t.Fatal("post --publish は未知フラグエラーになるべき")
@@ -20,6 +21,7 @@ func TestRootCommand_RejectsPublishFlagForPost(t *testing.T) {
 
 func TestRootCommand_RejectsPublishFlagForPage(t *testing.T) {
 	rootCmd.SetArgs([]string{"page", "dummy.md", "--publish"})
+	t.Cleanup(func() { rootCmd.SetArgs(nil) })
 	_, err := rootCmd.ExecuteC()
 	if err == nil {
 		t.Fatal("page --publish は未知フラグエラーになるべき")
@@ -30,6 +32,9 @@ func TestRootCommand_RejectsPublishFlagForPage(t *testing.T) {
 }
 
 func TestRunPage_InvalidStatusFailsBeforeAPI(t *testing.T) {
+	prevPageDryRun := pageDryRun
+	t.Cleanup(func() { pageDryRun = prevPageDryRun })
+
 	filePath := writeTempArticle(t, `---
 title: "test"
 slug: "test"
@@ -49,6 +54,17 @@ body
 }
 
 func TestRunUpdate_InvalidStatusFailsBeforeAPI(t *testing.T) {
+	prevUpdateID := updateID
+	prevUpdateDryRun := updateDryRun
+	prevUpdatePage := updatePage
+	prevUpdateForceEyecatch := updateForceEyecatch
+	t.Cleanup(func() {
+		updateID = prevUpdateID
+		updateDryRun = prevUpdateDryRun
+		updatePage = prevUpdatePage
+		updateForceEyecatch = prevUpdateForceEyecatch
+	})
+
 	filePath := writeTempArticle(t, `---
 id: 1
 title: "test"

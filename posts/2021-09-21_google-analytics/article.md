@@ -3,14 +3,14 @@ id: 716
 title: 【2021年9月】初心者用 Google Analytics 登録と設定 | Cocoon
 slug: google-analytics
 status: publish
-excerpt: こんばんは、しーまんです！ 今回はGoogle Analyticsというツールを紹介していきたいと思います。 Google AnalyticsとはGoogleが提供する無料で高機能なアクセス解析ツールです。webサイトを \[…\]
+date: 2021-09-21T19:30:00
+modified: 2021-09-15T01:50:28
+excerpt: Google Analyticsの登録からCocoonテーマへの設定方法まで、WordPressサイトのアクセス解析導入手順を紹介します。
 categories:
     - 13
 tags:
     - 48
 featured_media: 719
-date: 2021-09-21T19:30:00
-modified: 2021-09-15T01:50:28
 ---
 
 こんばんは、しーまんです！

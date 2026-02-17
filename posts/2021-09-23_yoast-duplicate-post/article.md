@@ -3,7 +3,9 @@ id: 766
 title: 【WordPress】おすすめプラグイン part 9 〜 Yoast Duplicate Post 〜
 slug: yoast-duplicate-post
 status: publish
-excerpt: こんばんは、しーまんです！ 皆さんは前に作成した記事を元に新しい記事を書くことはありませんでしょうか。私は結構テンプレート化出来るところはテンプレート化したい派なので前の記事を参考に新しい記事を書くことがよくあります。 \[…\]
+date: 2021-09-23T19:30:00
+modified: 2021-09-15T16:26:42
+excerpt: WordPressの記事複製プラグイン「Yoast Duplicate Post」の導入方法を紹介。テンプレート化して効率的に記事作成できます。
 categories:
     - 10
     - 3
@@ -12,8 +14,6 @@ tags:
     - 23
     - 50
 featured_media: 767
-date: 2021-09-23T19:30:00
-modified: 2021-09-15T16:26:42
 ---
 
 こんばんは、しーまんです！

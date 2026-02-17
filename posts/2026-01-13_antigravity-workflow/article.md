@@ -3,9 +3,9 @@ id: 2205
 title: "Antigravity (Gemini) で加速するブログ執筆。執筆からアイキャッチ生成、投稿までを一括管理する最強ワークフロー"
 slug: "antigravity-unified-workflow"
 status: publish
-categories: [18, 133]
-tags: [10, 20]
 excerpt: "ブログ運営の面倒な作業をAIエージェントに一任しませんか？Antigravity（Gemini）を活用して、記事の執筆支援、コンテキストに沿ったアイキャッチ画像の生成、そしてWordPressへの反映を一括で行う、エンジニアのための究極の効率化ワークフローを紹介します。"
+categories: [18, 133]
+tags: [6]
 ---
 
 ## 技術ブログ運営の「3つの壁」

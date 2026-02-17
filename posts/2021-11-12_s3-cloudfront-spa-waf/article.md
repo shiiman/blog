@@ -3,7 +3,9 @@ id: 1256
 title: 【AWS】S3+CloudFrontでSPA対応する方法とWAFのIP制限干渉を解決する方法！
 slug: s3-cloudfront-spa-waf
 status: publish
-excerpt: こんばんは、しーまんです。 今回はAWSでSPAのWebサイトを構築する際にハマった点を解説していきたいと思います。 サーバを立てずにサッと簡単なWebサイトを構築する際はよく用いる方法ですので、参考にしていただければと \[…\]
+date: 2021-11-12T19:30:00
+modified: 2021-11-11T17:24:34
+excerpt: AWSでS3+CloudFrontを使ったSPA構築時のルーティング問題と、WAFのIP制限との干渉を解決する方法を解説します。
 categories:
     - 19
     - 18
@@ -14,8 +16,6 @@ tags:
     - 83
     - 84
 featured_media: 1262
-date: 2021-11-12T19:30:00
-modified: 2021-11-11T17:24:34
 ---
 
 こんばんは、しーまんです。

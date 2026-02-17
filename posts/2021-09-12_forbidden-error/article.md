@@ -3,7 +3,9 @@ id: 4
 title: Cocoon設定 Forbidden Accessになる理由は〇〇だった!!
 slug: forbidden-error
 status: publish
-excerpt: 私はWordPressのテーマ設定でCocoonを使用しています。 ブログを始めたばかりの初心者である私はいろいろな記事をみてCocooの設定を試していました。そんな時に、設定をして「変更を保存」とすると 閲覧できません \[…\]
+date: 2021-09-12T19:30:00
+modified: 2021-09-24T21:49:11
+excerpt: CocoonのWordPress設定保存時に発生する「Forbidden Access」エラーの原因と解決方法を紹介します。
 categories:
     - 11
     - 3
@@ -12,8 +14,6 @@ tags:
     - 7
     - 31
 featured_media: 555
-date: 2021-09-12T19:30:00
-modified: 2021-09-24T21:49:11
 ---
 
 私はWordPressのテーマ設定でCocoonを使用しています。

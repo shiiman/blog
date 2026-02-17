@@ -3,7 +3,9 @@ id: 1287
 title: 【Golang】OAuth2.0を実装する方法/Google認証
 slug: golang-oauth2
 status: publish
-excerpt: こんにちは、しーまんです。 今回はいつもと違い、サムザップ Advent Calendar 2021の12/3の記事です。毎年恒例のアドベントカレンダー用の記事になります。 とはいえ、特に変わったところはなく普通に技術記 \[…\]
+date: 2021-12-03T12:00:00
+modified: 2022-11-04T17:41:25
+excerpt: GolangでGoogleのOAuth2.0認証を実装する方法をサンプルコード付きで解説。アドベントカレンダー2021の記事です。
 categories:
     - 18
     - 60
@@ -11,8 +13,6 @@ tags:
     - 85
     - 86
 featured_media: 1290
-date: 2021-12-03T12:00:00
-modified: 2022-11-04T17:41:25
 ---
 
 こんにちは、しーまんです。

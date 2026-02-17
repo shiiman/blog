@@ -3,7 +3,9 @@ id: 1210
 title: 【Snowflake】AWS S3からデータをロードし操作する方法 | 初期設定
 slug: snowflake-s3
 status: publish
-excerpt: こんばんは、しーまんです。 Snowflakeでは外部のデータをロードすることでその恩恵を最大限活かすことができます。今回はS3に配置されたCSVのデータをSnowflake上にロードする方法を紹介していきます。 外部連 \[…\]
+date: 2021-10-26T19:30:00
+modified: 2021-10-22T14:36:50
+excerpt: AWS S3に配置されたCSVデータをSnowflakeにロードする方法を、外部ステージの設定からCOPYコマンドまで解説します。
 categories:
     - 18
     - 77
@@ -11,8 +13,6 @@ tags:
     - 78
     - 79
 featured_media: 1215
-date: 2021-10-26T19:30:00
-modified: 2021-10-22T14:36:50
 ---
 
 こんばんは、しーまんです。

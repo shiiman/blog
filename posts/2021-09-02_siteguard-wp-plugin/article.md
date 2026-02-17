@@ -3,7 +3,9 @@ id: 120
 title: 【WordPress】おすすめのプラグイン Part 2 〜 SiteGuard WP Plugin 〜
 slug: siteguard-wp-plugin
 status: publish
-excerpt: みなさん自身のサイトのセキュリティー対策は万全でしょうか？セキュリティーってなんか難しいイメージありますよね。 でもWordPressは結構セキュリティーホールになりやすいのでしっかり対策をしないと、個人情報を抜かれてし \[…\]
+date: 2021-09-02T19:30:00
+modified: 2021-09-24T21:42:36
+excerpt: WordPress管理画面のセキュリティを強化するプラグイン「SiteGuard WP Plugin」の導入手順と設定方法を解説します。
 categories:
     - 10
     - 3
@@ -12,8 +14,6 @@ tags:
     - 23
     - 25
 featured_media: 121
-date: 2021-09-02T19:30:00
-modified: 2021-09-24T21:42:36
 ---
 
 みなさん自身のサイトのセキュリティー対策は万全でしょうか？

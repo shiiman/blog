@@ -3,14 +3,14 @@ id: 1692
 title: Google AdSence登録手順
 slug: google-adsence
 status: publish
-excerpt: こんばんは、しーまんです。 皆さんはGoogle AdSenceの審査に通っておりますでしょうか？ 私は去年ブログ開設時に登録申請4回ほどして、すべてお祈りメールが来たので結構諦めておりました。しかし、今回半年ぶりに申請 \[…\]
+date: 2022-07-04T19:30:00
+modified: 2022-07-03T14:40:37
+excerpt: Google AdSenseの登録手順と審査に通るまでの経緯を紹介。半年ぶりの申請で審査通過した体験談です。
 categories:
     - 12
 tags:
     - 119
 featured_media: 1693
-date: 2022-07-04T19:30:00
-modified: 2022-07-03T14:40:37
 ---
 
 こんばんは、しーまんです。

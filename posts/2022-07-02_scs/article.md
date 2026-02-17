@@ -3,7 +3,9 @@ id: 1666
 title: 【2022年】Certified Security – Specialty資格を取得した話 | AWS資格
 slug: scs
 status: publish
-excerpt: こんばんは、しーまんです。 最近私は業務で同僚に対してインフラ及びAWSについての勉強会を開催しています。そんな中教える私としても、自分自身の知識をアップさせるいい機会だと思い、AWS資格チャレンジをしようと思いました。 \[…\]
+date: 2022-07-02T19:30:00
+modified: 2022-08-07T22:29:35
+excerpt: AWS Certified Security – Specialty資格を取得した体験談。勉強方法や試験のポイントを紹介します。
 categories:
     - 19
     - 18
@@ -11,8 +13,6 @@ tags:
     - 81
     - 116
 featured_media: 1667
-date: 2022-07-02T19:30:00
-modified: 2022-08-07T22:29:35
 ---
 
 こんばんは、しーまんです。

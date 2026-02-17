@@ -3,7 +3,9 @@ id: 217
 title: 【Cocoon】WordPressでテーマ導入してみよう / 初期設定もバッチリ紹介！
 slug: cocoon-initial-setting
 status: publish
-excerpt: WordPressを立ち上げて、ある程度セキュリティーの設定をしたら、サイトの見た目を整えたくなりますよね。 今回はCocoonというテーマを使って、サイトデザインを行っていきます。この記事を読むことでCocoonの初期 \[…\]
+date: 2021-09-04T19:30:00
+modified: 2021-09-24T21:43:39
+excerpt: WordPressの無料テーマ「Cocoon」の導入手順と、スキン設定やヘッダー・フッターなどの初期設定方法を詳しく紹介します。
 categories:
     - 4
     - 11
@@ -13,8 +15,6 @@ tags:
     - 23
     - 31
 featured_media: 218
-date: 2021-09-04T19:30:00
-modified: 2021-09-24T21:43:39
 ---
 
 WordPressを立ち上げて、ある程度セキュリティーの設定をしたら、

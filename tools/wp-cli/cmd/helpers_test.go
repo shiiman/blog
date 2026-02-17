@@ -35,35 +35,136 @@ func TestDeterminePostStatus(t *testing.T) {
 func TestDeterminePageStatus(t *testing.T) {
 	tests := []struct {
 		name              string
-		publishFlag       bool
 		frontMatterStatus string
 		want              string
+		wantErr           bool
 	}{
 		{
-			name:              "デフォルトはdraft",
-			publishFlag:       false,
+			name:              "status未指定はdraft",
 			frontMatterStatus: "",
 			want:              "draft",
 		},
 		{
-			name:              "publishフラグが優先",
-			publishFlag:       true,
-			frontMatterStatus: "draft",
+			name:              "status=publishを採用",
+			frontMatterStatus: "publish",
 			want:              "publish",
 		},
 		{
-			name:              "publishフラグなしでフロントマターステータスを使用",
-			publishFlag:       false,
+			name:              "status=pendingを採用",
 			frontMatterStatus: "pending",
 			want:              "pending",
+		},
+		{
+			name:              "statusの前後空白と大文字を正規化",
+			frontMatterStatus: " Publish ",
+			want:              "publish",
+		},
+		{
+			name:              "status不正値はエラー",
+			frontMatterStatus: "publsih",
+			wantErr:           true,
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := determinePageStatus(tt.publishFlag, tt.frontMatterStatus)
+			got, err := determinePageStatus(tt.frontMatterStatus)
+			if tt.wantErr {
+				if err == nil {
+					t.Errorf("determinePageStatus(%q) はエラーになるべき", tt.frontMatterStatus)
+				}
+				return
+			}
+			if err != nil {
+				t.Errorf("determinePageStatus(%q) が予期せずエラー: %v", tt.frontMatterStatus, err)
+				return
+			}
 			if got != tt.want {
-				t.Errorf("determinePageStatus(%v, %q) = %q, want %q", tt.publishFlag, tt.frontMatterStatus, got, tt.want)
+				t.Errorf("determinePageStatus(%q) = %q, want %q", tt.frontMatterStatus, got, tt.want)
+			}
+		})
+	}
+}
+
+func TestNormalizeAndValidateStatus(t *testing.T) {
+	tests := []struct {
+		name       string
+		status     string
+		allowEmpty bool
+		want       string
+		wantErr    bool
+	}{
+		{
+			name:       "draftは許可",
+			status:     "draft",
+			allowEmpty: false,
+			want:       "draft",
+		},
+		{
+			name:       "publishは許可",
+			status:     "publish",
+			allowEmpty: false,
+			want:       "publish",
+		},
+		{
+			name:       "pendingは許可",
+			status:     "pending",
+			allowEmpty: false,
+			want:       "pending",
+		},
+		{
+			name:       "privateは許可",
+			status:     "private",
+			allowEmpty: false,
+			want:       "private",
+		},
+		{
+			name:       "前後空白と大文字を正規化",
+			status:     " Publish ",
+			allowEmpty: false,
+			want:       "publish",
+		},
+		{
+			name:       "空文字はallowEmpty=trueで許可",
+			status:     "",
+			allowEmpty: true,
+			want:       "",
+		},
+		{
+			name:       "空文字はallowEmpty=falseでエラー",
+			status:     "",
+			allowEmpty: false,
+			wantErr:    true,
+		},
+		{
+			name:       "誤字はエラー",
+			status:     "publsih",
+			allowEmpty: false,
+			wantErr:    true,
+		},
+		{
+			name:       "未知statusはエラー",
+			status:     "archived",
+			allowEmpty: false,
+			wantErr:    true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, err := normalizeAndValidateStatus(tt.status, tt.allowEmpty)
+			if tt.wantErr {
+				if err == nil {
+					t.Errorf("normalizeAndValidateStatus(%q, %v) はエラーになるべき", tt.status, tt.allowEmpty)
+				}
+				return
+			}
+			if err != nil {
+				t.Errorf("normalizeAndValidateStatus(%q, %v) が予期せずエラー: %v", tt.status, tt.allowEmpty, err)
+				return
+			}
+			if got != tt.want {
+				t.Errorf("normalizeAndValidateStatus(%q, %v) = %q, want %q", tt.status, tt.allowEmpty, got, tt.want)
 			}
 		})
 	}

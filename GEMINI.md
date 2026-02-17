@@ -17,8 +17,8 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 
 ## Skills
 The following workflows are defined in `.agent/workflows/`:
-- `/blog-write` - Create a new blog post as a draft
-- `/eyecatch-create` - Generate an eyecatch image for the blog post
+- `/blog-write` - Create a new blog post as a draft and auto-generate eyecatch
+- `/eyecatch-create` - Re-generate an eyecatch image when manual retry is needed
 - `/blog-publish` - Publish a post to WordPress
 - `/blog-update` - Update an existing post on WordPress
 
@@ -29,9 +29,9 @@ For Codex, project-local skills are defined in `.agents/skills/`:
 
 
 ## Workflow
-1. Use `/blog-write` to create new article in `drafts/`
+1. Use `/blog-write` to create new article in `drafts/` (`article.md` + auto-generated `assets/eyecatch.png`)
 2. Review and edit the article
-3. Use `/eyecatch-create` to generate an eyecatch image
+3. If eyecatch needs retry or regeneration, use `/eyecatch-create`
 4. Use `/blog-publish` to publish to WordPress
 5. Use `/blog-update` to update existing articles
 6. Finalize in WordPress dashboard

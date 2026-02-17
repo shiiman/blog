@@ -58,7 +58,10 @@ func runUpdate(cmd *cobra.Command, args []string) error {
 	}
 
 	// ステータスはFront Matterを維持（updateは更新専用）
-	status := article.FrontMatter.Status
+	status, err := normalizeAndValidateStatus(article.FrontMatter.Status, true)
+	if err != nil {
+		return fmt.Errorf("update の Front Matter status が不正です: %w", err)
+	}
 
 	// MarkdownをHTMLに変換
 	htmlContent := converter.MarkdownToHTML(article.Content)

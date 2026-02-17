@@ -23,7 +23,7 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 ## Skills
 
 - `/blog-write` - Write a new blog article
-- `/blog-publish` - Publish article to WordPress (draft by default)
+- `/blog-publish` - Publish article to WordPress
 - `/blog-update` - Update existing article on WordPress
 
 For Codex, project-local skills are defined in `.agents/skills/`:
@@ -35,7 +35,7 @@ For Codex, project-local skills are defined in `.agents/skills/`:
 
 1. Use `/blog-write` to create new article in `drafts/`
 2. Review and edit the article
-3. Use `/blog-publish` to post to WordPress as draft
+3. Use `/blog-publish` to publish to WordPress
 4. Use `/blog-update` to update existing articles
 5. Finalize in WordPress dashboard
 
@@ -53,7 +53,7 @@ go build -o wp-cli .
 
 - NEVER read or expose `.env` file contents
 - Application passwords should be managed via environment variables
-- Default posting status is "draft" for safety
+- `/blog-write` always creates draft posts in `drafts/`
 
 ## Article Guidelines
 

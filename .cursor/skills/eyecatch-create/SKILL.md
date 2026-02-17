@@ -77,4 +77,5 @@ mv assets/eyecatch.png [記事ディレクトリ]/assets/eyecatch.png
 ## 注意事項
 
 - `wp-cli post` や `wp-cli update` コマンドは、`assets/eyecatch.png` が存在する場合、自動的に WordPress にアップロードしてアイキャッチに設定します
+- 既に `featured_media` が設定済みの記事で画像を差し替える場合は、`wp-cli update <file> --force-eyecatch` を使用してください
 - 画像が気に入らない場合は、再度このスキルを実行して再生成可能です

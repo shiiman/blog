@@ -5,7 +5,7 @@ description: 既存記事の修正をWordPressに反映する。「記事を更�
 
 # Update Blog Skill
 
-ローカルで編集したMarkdown記事の内容をWordPressに反映します。
+ローカルで編集した既存Markdown記事の内容をWordPressに反映します（更新専用）。
 
 ## 前提条件
 
@@ -45,11 +45,11 @@ head -20 posts/YYYY-MM-DD_slug/article.md
 # IDを明示的に指定
 ./tools/wp-cli/wp-cli update drafts/article.md --id=123
 
-# 同時に公開状態に変更
-./tools/wp-cli/wp-cli update posts/article.md --publish
-
 # ドライランで確認
 ./tools/wp-cli/wp-cli update posts/article.md --dry-run
+
+# アイキャッチ画像を再アップロード
+./tools/wp-cli/wp-cli update posts/article.md --force-eyecatch
 ```
 
 ### 4. 結果報告
@@ -71,11 +71,11 @@ head -20 posts/YYYY-MM-DD_slug/article.md
 # ID指定
 ./tools/wp-cli/wp-cli update <file> --id=123
 
-# 公開状態に変更
-./tools/wp-cli/wp-cli update <file> --publish
-
 # ドライラン
 ./tools/wp-cli/wp-cli update <file> --dry-run
+
+# アイキャッチ画像を再アップロード
+./tools/wp-cli/wp-cli update <file> --force-eyecatch
 ```
 
 ## Front Matter形式
@@ -97,4 +97,5 @@ tags: [10, 20]
 
 - `id` フィールドがないと更新できない
 - 更新前にドライラン（`--dry-run`）で確認を推奨
-- ステータスを変更しない場合は `--publish` を付けない
+- `blog-update` は既存記事の更新専用（公開は `blog-publish` を使用）
+- 既に `featured_media` が設定済みで画像を差し替える場合は `--force-eyecatch` を使う

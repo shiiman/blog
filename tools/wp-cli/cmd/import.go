@@ -60,6 +60,9 @@ func runImport(cmd *cobra.Command, args []string) error {
 		if err != nil {
 			return fmt.Errorf("無効な投稿ID: %s", args[1])
 		}
+		if id <= 0 {
+			return fmt.Errorf("投稿IDは正の整数を指定してください: %d", id)
+		}
 		return importPost(ctx, client, id)
 	case "pages":
 		return importPages(ctx, client)
@@ -70,6 +73,9 @@ func runImport(cmd *cobra.Command, args []string) error {
 		id, err := strconv.Atoi(args[1])
 		if err != nil {
 			return fmt.Errorf("無効な固定ページID: %s", args[1])
+		}
+		if id <= 0 {
+			return fmt.Errorf("固定ページIDは正の整数を指定してください: %d", id)
 		}
 		return importPage(ctx, client, id)
 	default:
@@ -130,7 +136,7 @@ func importPosts(ctx context.Context, client *wp.Client) error {
 				return
 			}
 
-			dirName := fullPost.Date.Format("2006-01-02") + "_" + fullPost.Slug
+			dirName := fullPost.Date.Format("2006-01-02") + "_" + sanitizeSlug(fullPost.Slug)
 			results[idx] = importResult{
 				id:      postID,
 				article: article,
@@ -181,7 +187,7 @@ func importPost(ctx context.Context, client *wp.Client, id int) error {
 	}
 
 	// ディレクトリ名: YYYY-MM-DD_slug
-	dirName := post.Date.Format("2006-01-02") + "_" + post.Slug
+	dirName := post.Date.Format("2006-01-02") + "_" + sanitizeSlug(post.Slug)
 	dirPath := filepath.Join(outputDir, dirName)
 
 	if err := saveArticle(dirPath, "article.md", article); err != nil {
@@ -237,7 +243,7 @@ func importPages(ctx context.Context, client *wp.Client) error {
 			results[idx] = importResult{
 				id:      pageID,
 				article: article,
-				dirPath: filepath.Join(outputDir, fullPage.Slug),
+				dirPath: filepath.Join(outputDir, sanitizeSlug(fullPage.Slug)),
 				title:   fullPage.Title.Rendered,
 			}
 		}(i, page.ID)
@@ -284,7 +290,7 @@ func importPage(ctx context.Context, client *wp.Client, id int) error {
 	}
 
 	// ディレクトリ名: slug
-	dirPath := filepath.Join(outputDir, page.Slug)
+	dirPath := filepath.Join(outputDir, sanitizeSlug(page.Slug))
 
 	if err := saveArticle(dirPath, "page.md", article); err != nil {
 		return fmt.Errorf("固定ページの保存に失敗: %w", err)

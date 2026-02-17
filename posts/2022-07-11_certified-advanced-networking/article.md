@@ -1,6 +1,6 @@
 ---
 id: 1717
-title: 【2022年】Certified Advanced Networking &#8211; Specialty資格を取得した話 | AWS資格
+title: 【2022年】Certified Advanced Networking – Specialty資格を取得した話 | AWS資格
 slug: certified-advanced-networking
 status: publish
 excerpt: こんばんは、しーまんです。 前回のAWS資格 Certified Security – Specialty の取得から1週間。次のAWS資格にチャレンジしましたので、今回はそちらについて書きたいなと思っており \[…\]

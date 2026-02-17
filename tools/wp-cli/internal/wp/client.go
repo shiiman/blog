@@ -304,10 +304,64 @@ func (c *Client) GetTags(ctx context.Context) ([]types.Tag, error) {
 	return tags, nil
 }
 
+// DeletePage は固定ページを削除する
+func (c *Client) DeletePage(ctx context.Context, id int, force bool) error {
+	endpoint := fmt.Sprintf("/pages/%d", id)
+	if force {
+		endpoint += "?force=true"
+	}
+
+	_, err := c.doRequest(ctx, "DELETE", endpoint, nil)
+	return err
+}
+
+// CreateTag は新しいタグを作成する
+func (c *Client) CreateTag(ctx context.Context, req *types.CreateTagRequest) (*types.Tag, error) {
+	body, err := c.doRequest(ctx, "POST", "/tags", req)
+	if err != nil {
+		return nil, err
+	}
+
+	var tag types.Tag
+	if err := json.Unmarshal(body, &tag); err != nil {
+		return nil, fmt.Errorf("タグのパースに失敗: %w", err)
+	}
+
+	return &tag, nil
+}
+
+// UpdateTag は既存のタグを更新する
+func (c *Client) UpdateTag(ctx context.Context, id int, req *types.UpdateTagRequest) (*types.Tag, error) {
+	endpoint := fmt.Sprintf("/tags/%d", id)
+
+	body, err := c.doRequest(ctx, "POST", endpoint, req)
+	if err != nil {
+		return nil, err
+	}
+
+	var tag types.Tag
+	if err := json.Unmarshal(body, &tag); err != nil {
+		return nil, fmt.Errorf("タグのパースに失敗: %w", err)
+	}
+
+	return &tag, nil
+}
+
+// sanitizeFilename はファイル名から改行、引用符、パス区切り文字を除去する
+func sanitizeFilename(filename string) string {
+	r := strings.NewReplacer(
+		"\n", "", "\r", "",
+		"\"", "",
+		"/", "", "\\", "",
+	)
+	return r.Replace(filename)
+}
+
 // UploadMedia はメディアをアップロードする
 func (c *Client) UploadMedia(ctx context.Context, filename string, data []byte, mimeType string) (*types.Media, error) {
+	safe := sanitizeFilename(filename)
 	extraHeaders := map[string]string{
-		"Content-Disposition": fmt.Sprintf(`attachment; filename="%s"`, filename),
+		"Content-Disposition": fmt.Sprintf(`attachment; filename="%s"`, safe),
 	}
 
 	respBody, err := c.doRawRequest(ctx, "POST", "/media", bytes.NewReader(data), mimeType, extraHeaders)

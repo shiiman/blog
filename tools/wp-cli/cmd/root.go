@@ -21,8 +21,11 @@ var rootCmd = &cobra.Command{
   - カテゴリ・タグの一覧表示
 
 使用前に .env ファイルにWordPress APIの認証情報を設定してください。`,
-	Version: "1.0.0",
+	Version: version,
 }
+
+// version はビルド時に -ldflags で注入される（例: -ldflags "-X github.com/shiimanblog/wp-cli/cmd.version=1.2.0"）
+var version = "dev"
 
 // Execute はルートコマンドを実行する
 func Execute() {

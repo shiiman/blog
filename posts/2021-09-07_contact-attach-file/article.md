@@ -6,15 +6,8 @@ status: publish
 date: 2021-09-07T19:30:00
 modified: 2021-09-08T01:37:08
 excerpt: Contact Form 7のお問い合わせフォームにファイル添付機能を追加する方法を、設定手順とともに解説します。
-categories:
-    - 4
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-    - 28
-    - 34
+categories: [4, 10, 3]
+tags: [6, 23, 28, 34]
 featured_media: 327
 ---
 

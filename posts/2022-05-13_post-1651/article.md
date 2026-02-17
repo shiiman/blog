@@ -6,11 +6,8 @@ status: publish
 date: 2022-05-13T19:30:00
 modified: 2022-10-28T17:58:29
 excerpt: AWS Fargate Spotを導入してコンテナ費用を約7割削減した実践例を紹介。導入手順と注意点を解説します。
-categories:
-    - 19
-    - 18
-tags:
-    - 115
+categories: [19, 18]
+tags: [115]
 featured_media: 1644
 ---
 

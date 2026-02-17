@@ -6,12 +6,8 @@ status: publish
 date: 2021-09-16T19:30:00
 modified: 2021-09-13T21:13:16
 excerpt: WordPressブログ開設1ヶ月で厳選した、初心者におすすめのプラグイン6選を紹介。セキュリティからSEO対策まで網羅します。
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
+categories: [10, 3]
+tags: [6, 23]
 featured_media: 614
 ---
 

@@ -6,15 +6,8 @@ status: publish
 date: 2021-09-06T19:30:00
 modified: 2021-09-08T01:34:48
 excerpt: WordPressプラグイン「Contact Form 7」を使って、5分でお問い合わせフォームを作成する方法を初心者向けに解説します。
-categories:
-    - 4
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-    - 28
-    - 34
+categories: [4, 10, 3]
+tags: [6, 23, 28, 34]
 featured_media: 292
 ---
 

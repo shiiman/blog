@@ -6,12 +6,8 @@ status: publish
 date: 2022-03-11T19:30:00
 modified: 2022-03-09T15:02:12
 excerpt: Macの初期設定をシェルスクリプトで自動化する方法を紹介。Homebrewとdefaultsコマンドでワンライナー完結を実現します。
-categories:
-    - 106
-    - 18
-tags:
-    - 113
-    - 114
+categories: [106, 18]
+tags: [113, 114]
 featured_media: 1628
 ---
 

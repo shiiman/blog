@@ -6,11 +6,8 @@ status: publish
 date: 2021-10-06T19:30:00
 modified: 2021-10-05T10:18:47
 excerpt: つみたてNISA開始15ヶ月目の運用実績を公開。S&P500とオールカントリーの積立状況と損益を紹介します。
-categories:
-    - 16
-    - 14
-tags:
-    - 69
+categories: [16, 14]
+tags: [69]
 featured_media: 1102
 ---
 

@@ -6,14 +6,8 @@ status: publish
 date: 2021-10-08T19:30:00
 modified: 2021-10-07T20:13:57
 excerpt: 税理士・大河内薫氏の著書「マネリテ学園」の書評。お金の基礎知識をマンガ形式で学べる入門書を紹介します。
-categories:
-    - 17
-tags:
-    - 70
-    - 71
-    - 72
-    - 73
-    - 74
+categories: [17]
+tags: [70, 71, 72, 73, 74]
 featured_media: 1138
 ---
 

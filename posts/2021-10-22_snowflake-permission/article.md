@@ -6,11 +6,8 @@ status: publish
 date: 2021-10-22T19:30:00
 modified: 2021-10-22T01:04:14
 excerpt: Snowflakeのユーザー作成からロール・権限設定まで、アクセス制御の基本をわかりやすく解説します。
-categories:
-    - 18
-    - 77
-tags:
-    - 78
+categories: [18, 77]
+tags: [78]
 featured_media: 1191
 ---
 

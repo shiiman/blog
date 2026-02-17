@@ -6,11 +6,8 @@ status: publish
 date: 2021-12-10T19:30:00
 modified: 2021-12-09T17:57:28
 excerpt: iDeCo開始14ヶ月目の運用実績を公開。年末調整後の確定申告準備についても触れます。
-categories:
-    - 16
-    - 14
-tags:
-    - 70
+categories: [16, 14]
+tags: [70]
 featured_media: 1325
 ---
 

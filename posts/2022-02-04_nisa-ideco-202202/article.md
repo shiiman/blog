@@ -6,12 +6,8 @@ status: publish
 date: 2022-02-04T19:30:00
 modified: 2022-02-03T11:09:55
 excerpt: つみたてNISA19ヶ月目・iDeCo16ヶ月目の運用実績を公開。米国株相場の荒れの中での積立状況を報告します。
-categories:
-    - 16
-    - 14
-tags:
-    - 69
-    - 70
+categories: [16, 14]
+tags: [69, 70]
 featured_media: 1559
 ---
 

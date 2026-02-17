@@ -6,11 +6,8 @@ status: publish
 date: 2021-09-11T19:30:00
 modified: 2021-09-09T15:42:33
 excerpt: GitHubアカウントの新規登録方法を、二段階認証の設定まで画像つきで初心者にもわかりやすく解説します。
-categories:
-    - 18
-    - 40
-tags:
-    - 41
+categories: [18, 40]
+tags: [41]
 featured_media: 511
 ---
 

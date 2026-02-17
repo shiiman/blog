@@ -6,12 +6,8 @@ status: publish
 date: 2022-07-02T19:30:00
 modified: 2022-08-07T22:29:35
 excerpt: AWS Certified Security – Specialty資格を取得した体験談。勉強方法や試験のポイントを紹介します。
-categories:
-    - 19
-    - 18
-tags:
-    - 81
-    - 116
+categories: [19, 18]
+tags: [81, 116]
 featured_media: 1667
 ---
 

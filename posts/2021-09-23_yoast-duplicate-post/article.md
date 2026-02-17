@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-23T19:30:00
 modified: 2021-09-15T16:26:42
 excerpt: WordPressの記事複製プラグイン「Yoast Duplicate Post」の導入方法を紹介。テンプレート化して効率的に記事作成できます。
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-    - 50
+categories: [10, 3]
+tags: [6, 23, 50]
 featured_media: 767
 ---
 

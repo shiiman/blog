@@ -6,11 +6,8 @@ status: publish
 date: 2022-12-02T07:00:00
 modified: 2022-12-01T19:12:48
 excerpt: S3ストレージクラスの変更時に気をつけるべき注意点を、Terraformでの実装例とともに紹介します。
-categories:
-    - 19
-    - 18
-tags:
-    - 79
+categories: [19, 18]
+tags: [79]
 featured_media: 1810
 ---
 

@@ -6,11 +6,8 @@ status: publish
 date: 2021-11-11T19:30:00
 modified: 2021-12-09T17:27:49
 excerpt: iDeCo開始13ヶ月目の運用実績を公開。年末調整でのiDeCo控除申請についても触れます。
-categories:
-    - 16
-    - 14
-tags:
-    - 70
+categories: [16, 14]
+tags: [70]
 featured_media: 1253
 ---
 

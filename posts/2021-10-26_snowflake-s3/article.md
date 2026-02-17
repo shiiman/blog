@@ -6,12 +6,8 @@ status: publish
 date: 2021-10-26T19:30:00
 modified: 2021-10-22T14:36:50
 excerpt: AWS S3に配置されたCSVデータをSnowflakeにロードする方法を、外部ステージの設定からCOPYコマンドまで解説します。
-categories:
-    - 18
-    - 77
-tags:
-    - 78
-    - 79
+categories: [18, 77]
+tags: [78, 79]
 featured_media: 1215
 ---
 

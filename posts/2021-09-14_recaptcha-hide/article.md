@@ -6,11 +6,8 @@ status: publish
 date: 2021-09-14T19:30:00
 modified: 2021-09-12T23:59:37
 excerpt: Invisible reCaptcha導入後に全ページに表示されるバッジを、必要なページ以外で非表示にするCSS設定方法を解説します。
-categories:
-    - 3
-tags:
-    - 38
-    - 42
+categories: [3]
+tags: [38, 42]
 featured_media: 583
 ---
 

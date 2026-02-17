@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-08T19:30:00
 modified: 2021-09-08T01:38:08
 excerpt: Dockerとnginxのリバースプロキシを使って、ローカル環境でマイクロサービスのURIパスルーティングを実現する方法を紹介します。
-categories:
-    - 18
-    - 22
-tags:
-    - 35
-    - 36
-    - 37
+categories: [18, 22]
+tags: [35, 36, 37]
 featured_media: 438
 ---
 

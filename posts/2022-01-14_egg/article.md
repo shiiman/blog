@@ -6,13 +6,8 @@ status: publish
 date: 2022-01-14T19:30:00
 modified: 2022-01-20T16:35:35
 excerpt: Google主催のE.G.G. Japanプログラムに参加し、GCP資格Professional Cloud Developerを取得した体験談です。
-categories:
-    - 20
-    - 18
-tags:
-    - 92
-    - 93
-    - 94
+categories: [20, 18]
+tags: [92, 93, 94]
 featured_media: 1433
 ---
 

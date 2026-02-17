@@ -6,12 +6,8 @@ status: publish
 date: 2021-09-18T19:30:00
 modified: 2021-09-14T15:11:34
 excerpt: WordPress上でテキストやコードのワンクリックコピー機能を実現するプラグイン「Copy Anything to Clipboard」の設定方法を紹介します。
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 45
+categories: [10, 3]
+tags: [6, 45]
 featured_media: 660
 ---
 

@@ -6,11 +6,8 @@ status: publish
 date: 2021-09-27T19:30:00
 modified: 2021-09-24T17:32:09
 excerpt: SEO対策に必須のGoogleキーワードプランナーの登録方法を、初心者向けに画像つきで解説します。
-categories:
-    - 13
-    - 3
-tags:
-    - 54
+categories: [13, 3]
+tags: [54]
 featured_media: 873
 ---
 

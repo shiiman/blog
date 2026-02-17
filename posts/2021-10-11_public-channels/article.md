@@ -6,15 +6,8 @@ status: publish
 date: 2021-10-11T19:30:00
 modified: 2022-06-30T18:00:20
 excerpt: GASとSlack APIを使って、Slackのpublicチャンネル一覧をスプレッドシートに出力する方法を紹介します。
-categories:
-    - 18
-    - 64
-    - 65
-tags:
-    - 66
-    - 67
-    - 68
-    - 75
+categories: [18, 64, 65]
+tags: [66, 67, 68, 75]
 featured_media: 1156
 ---
 

@@ -6,11 +6,8 @@ status: publish
 date: 2021-12-14T19:30:00
 modified: 2021-12-10T11:31:25
 excerpt: スマホアプリ案件数が国内最多級のアフィリエイトASP「Zucks」の特徴と登録方法を解説します。
-categories:
-    - 12
-    - 3
-tags:
-    - 88
+categories: [12, 3]
+tags: [88]
 featured_media: 1367
 ---
 

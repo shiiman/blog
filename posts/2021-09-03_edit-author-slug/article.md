@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-03T19:30:00
 modified: 2021-09-02T14:23:19
 excerpt: WordPressのセキュリティ対策として、ユーザー名の漏洩を防ぐプラグイン「Edit Author Slug」の導入と設定方法を紹介します。
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 23
-    - 26
+categories: [10, 3]
+tags: [6, 23, 26]
 featured_media: 145
 ---
 

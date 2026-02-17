@@ -6,10 +6,8 @@ status: publish
 date: 2021-09-21T19:30:00
 modified: 2021-09-15T01:50:28
 excerpt: Google Analyticsの登録からCocoonテーマへの設定方法まで、WordPressサイトのアクセス解析導入手順を紹介します。
-categories:
-    - 13
-tags:
-    - 48
+categories: [13]
+tags: [48]
 featured_media: 719
 ---
 

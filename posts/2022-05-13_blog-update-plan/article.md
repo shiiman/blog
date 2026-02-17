@@ -6,10 +6,8 @@ status: publish
 date: 2022-05-13T20:00:00
 modified: 2022-05-13T12:39:11
 excerpt: ブログの更新頻度についてのお知らせ。定期更新をやめ、気が向いたタイミングで自由に投稿するスタイルに変更します。
-categories:
-    - 2
-tags:
-    - 6
+categories: [2]
+tags: [6]
 ---
 
 ## 今後の更新について

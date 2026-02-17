@@ -6,11 +6,8 @@ status: publish
 date: 2021-11-09T19:30:00
 modified: 2021-11-08T19:42:21
 excerpt: つみたてNISA開始16ヶ月目の運用実績を公開。引き続き積立投資の成果を毎月報告します。
-categories:
-    - 16
-    - 14
-tags:
-    - 69
+categories: [16, 14]
+tags: [69]
 featured_media: 1243
 ---
 

@@ -6,11 +6,8 @@ status: publish
 date: 2021-09-13T19:30:00
 modified: 2021-09-12T18:21:43
 excerpt: Cocoonで画像クリック時にポップアップ拡大表示させる設定方法を、3分でできる簡単な手順で紹介します。
-categories:
-    - 11
-    - 3
-tags:
-    - 31
+categories: [11, 3]
+tags: [31]
 featured_media: 570
 ---
 

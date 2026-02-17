@@ -6,12 +6,8 @@ status: publish
 date: 2021-09-17T19:30:00
 modified: 2021-09-14T00:46:53
 excerpt: WordPressのバックアッププラグイン「UpdraftPlus」の導入・設定方法を紹介。自動バックアップで万が一に備えます。
-categories:
-    - 10
-    - 3
-tags:
-    - 6
-    - 44
+categories: [10, 3]
+tags: [6, 44]
 featured_media: 638
 ---
 

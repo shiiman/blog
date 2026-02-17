@@ -6,13 +6,8 @@ status: publish
 date: 2021-09-28T19:30:00
 modified: 2021-09-24T21:27:52
 excerpt: アフィリエイト初心者におすすめの最大手ASP「A8.net」の登録方法を、画像つきでわかりやすく解説します。
-categories:
-    - 12
-    - 3
-tags:
-    - 55
-    - 56
-    - 57
+categories: [12, 3]
+tags: [55, 56, 57]
 featured_media: 921
 ---
 

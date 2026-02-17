@@ -6,11 +6,8 @@ status: publish
 date: 2021-09-30T19:30:00
 modified: 2021-10-30T19:01:45
 excerpt: Golangでデフォルト引数を実現するFunctional Options Patternの使い方をサンプルコード付きで解説します。
-categories:
-    - 18
-    - 60
-tags:
-    - 59
+categories: [18, 60]
+tags: [59]
 featured_media: 1027
 ---
 

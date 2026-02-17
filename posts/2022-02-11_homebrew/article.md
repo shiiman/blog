@@ -6,13 +6,8 @@ status: publish
 date: 2022-02-11T19:30:00
 modified: 2022-02-11T12:27:06
 excerpt: MacのパッケージマネージャーHomebrewとmasの導入方法を解説。PCの初期設定を効率化する第一歩を紹介します。
-categories:
-    - 106
-    - 18
-tags:
-    - 107
-    - 108
-    - 109
+categories: [106, 18]
+tags: [107, 108, 109]
 featured_media: 1591
 ---
 

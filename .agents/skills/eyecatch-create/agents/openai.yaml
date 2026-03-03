@@ -1,0 +1,4 @@
+interface:
+  display_name: "Eyecatch Create"
+  short_description: "Generate a blog eyecatch image from article content"
+  default_prompt: "Use $eyecatch-create to generate a 16:9 eyecatch image from a Markdown article with google-genmedia-mcp, pick the latest image from .google-genmedia-mcp/output/ (tie-break: png>jpg>jpeg>webp only when mtime is equal), and save it to assets/eyecatch.png."

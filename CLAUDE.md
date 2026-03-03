@@ -25,6 +25,7 @@ Technical blog management system for shiimanblog.com (WordPress on ConoHa).
 - `/blog-write` - Write a new blog article
 - `/blog-publish` - Publish article to WordPress
 - `/blog-update` - Update existing article on WordPress
+- `/eyecatch-create` - Generate eyecatch image for blog article
 
 For Codex, project-local skills are defined in `.agents/skills/`:
 - `blog-write`
@@ -35,7 +36,7 @@ For Codex, project-local skills are defined in `.agents/skills/`:
 
 1. Use `/blog-write` to create new article in `drafts/`
 2. Review and edit the article
-3. Place eyecatch image manually (`drafts/.../assets/eyecatch.png`) when needed
+3. Use `/eyecatch-create` to generate eyecatch image (`drafts/.../assets/eyecatch.png`)
 4. Use `/blog-publish` to publish to WordPress
 5. Use `/blog-update` to update existing articles
 6. Finalize in WordPress dashboard
@@ -55,7 +56,7 @@ go build -o wp-cli .
 - NEVER read or expose `.env` file contents
 - Application passwords should be managed via environment variables
 - `/blog-write` always creates draft posts in `drafts/`
-- Claude の `/blog-write` はアイキャッチ画像を自動生成しない（必要時は手動配置）
+- `/blog-write` はアイキャッチ画像を自動生成しない（`/eyecatch-create` を使用）
 
 ## Article Guidelines
 

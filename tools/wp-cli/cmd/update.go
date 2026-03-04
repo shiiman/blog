@@ -119,7 +119,7 @@ func runUpdate(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	syncedPath, err := syncPostToLocal(filePath, post, false)
+	syncedPath, err := syncPostToLocal(filePath, post, true)
 	if err != nil {
 		return err
 	}

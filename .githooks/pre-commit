@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+violations=()
+# ステージ済みの Added/Modified を NUL 区切りで列挙（スペース/日本語パス対応）
+while IFS= read -r -d '' f; do
+  # .gitattributes で filter=lfs の対象か
+  [ "$(git check-attr filter -- "$f" | sed 's/.*: //')" = "lfs" ] || continue
+  # ステージ内容の先頭行が LFS ポインタ署名でなければ実体混入
+  if [ "$(git cat-file blob ":$f" 2>/dev/null | head -1)" != \
+       "version https://git-lfs.github.com/spec/v1" ]; then
+    violations+=("$f")
+  fi
+done < <(git diff --cached -z --name-only --diff-filter=AM)
+
+if [ ${#violations[@]} -gt 0 ]; then
+  echo "❌ LFS追跡対象なのに実体がステージされています:" >&2
+  printf '   - %s\n' "${violations[@]}" >&2
+  echo "" >&2
+  echo "次で正規化してから再コミットしてください:" >&2
+  echo "   git add --renormalize ${violations[*]}" >&2
+  exit 1
+fi

@@ -40,7 +40,17 @@ WP_USERNAME=your-username
 WP_APP_PASSWORD=xxxx xxxx xxxx xxxx xxxx xxxx
 ```
 
-### 3. CLIツールのビルド
+### 3. Git フックのインストール
+
+画像（`backlog/**`, `posts/**/assets/*`）は Git LFS で管理しています。clone 後に一度フックをインストールしてください。
+
+```bash
+make install-hooks
+```
+
+このフックは、LFS 追跡対象のファイルが実体（非ポインタ）のままコミットされるのを検出して中止します。ブロックされた場合は、表示される `git add --renormalize <files>` を実行してから再コミットしてください。
+
+### 4. CLIツールのビルド
 
 ```bash
 cd tools/wp-cli

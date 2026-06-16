@@ -3,7 +3,7 @@
 
 WP_CLI_DIR := tools/wp-cli
 
-.PHONY: all build test lint clean
+.PHONY: all build test lint clean install-hooks
 
 ## all: ビルド、テスト、リントを全て実行
 all: lint test build
@@ -23,3 +23,9 @@ lint:
 ## clean: ビルド成果物を削除
 clean:
 	$(MAKE) -C $(WP_CLI_DIR) clean
+
+## install-hooks: pre-commit フックをインストール
+install-hooks:
+	cp .githooks/pre-commit .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+	@echo "pre-commit フックをインストールしました"

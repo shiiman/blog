@@ -331,6 +331,8 @@ npm run preview    # 検索・コメント（giscus）の確認
 npm run pages:dev  # 問い合わせ Functions の確認（http://localhost:8788/contact/）
 ```
 
+> 初回の `npm run pages:dev` で wrangler の依存（workerd）のビルド承認を求められた場合は `npm approve-builds` を実行してください（`npm run build` / `npm test` には不要）。
+
 ## ライセンス
 
 Private

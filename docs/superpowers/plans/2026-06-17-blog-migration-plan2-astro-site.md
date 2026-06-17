@@ -1747,7 +1747,7 @@ git commit -m "feat: サイトマップ/robots.txt/404ページを追加"
 
 **Files:**
 - Create: `scripts/lib/cleanup-tracking.ts`, `scripts/lib/cleanup-tracking.test.ts`, `scripts/cleanup-tracking-images.ts`
-- Modify（生成）: `posts/*/article.md`（該当8ファイル）
+- Modify（生成）: `posts/*/article.md`（該当13ファイル）
 
 > 対象は不可視のトラッキング画像のみ（a8.net / valuecommerce gifbanner / accesstrade rr）。リンクカードのファビコン・OGP 画像など可視要素は除去しない。
 
@@ -1840,7 +1840,7 @@ main().catch((e) => {
 - [ ] **Step 6: クリーニングを実行**
 
 Run: `npm run cleanup:tracking`
-Expected: `changed files: 8`（A8 等を含む 8 ファイル）。
+Expected: `changed files: 13`（a8.net 8 + valuecommerce gifbanner 4 + accesstrade rr 1 を含む計 13 ファイル。重複込みの実数）。
 
 Run:
 ```bash

@@ -173,8 +173,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 - [Amazon](https://amzn.to/3n4fSmr?tag=bayguh03-22&linkCode=as1&creative=6339)
 - [楽天市場](https://hb.afl.rakuten.co.jp/hgc/g00rd1d9.9sgvod17.g00rd1d9.9sgvp260/Rinker_t_20220106201833?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbooxstore%2Fbk-4865941959%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbooxstore%2Fi%2F12339595%2F&rafcid=wsc_i_is_1092786925357492404)
-- [Yahooショッピング](https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887371004&vc_url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DGCP%25E3%2581%25AE%25E6%2595%2599%25E7%25A7%2591%25E6%259B%25B8)![](https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887371004)
-
+- [Yahooショッピング](https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887371004&vc_url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DGCP%25E3%2581%25AE%25E6%2595%2599%25E7%25A7%2591%25E6%259B%25B8)
 ![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220106201919?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16301778%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19993071%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [GCPの教科書II　【コンテナ開発編】　KubernetesとGKE、Cloud Run、サービスメッシュを詳解 \[ クラウドエース株式会社 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220106201919?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16301778%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19993071%2F&rafcid=wsc_i_is_1092786925357492404)
@@ -185,8 +184,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 - [Amazon](https://amzn.to/31w6sZv?tag=bayguh03-22&linkCode=as1&creative=6339)
 - [楽天市場](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220106201919?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16301778%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19993071%2F&rafcid=wsc_i_is_1092786925357492404)
-- [Yahooショッピング](https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887371004&vc_url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DGCP%25E3%2581%25AE%25E6%2595%2599%25E7%25A7%2591%25E6%259B%25B82)![](https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887371004)
-
+- [Yahooショッピング](https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887371004&vc_url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DGCP%25E3%2581%25AE%25E6%2595%2599%25E7%25A7%2591%25E6%259B%25B82)
 ![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220106201944?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16943217%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20511419%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [GCPの教科書III【Cloud AIプロダクト編】　機械学習API、AutoML、BigQuery ML、AI Platformを詳解 \[ クラウドエース株式会社 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220106201944?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16943217%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20511419%2F&rafcid=wsc_i_is_1092786925357492404)
@@ -197,8 +195,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 - [Amazon](https://amzn.to/3zylj1T?tag=bayguh03-22&linkCode=as1&creative=6339)
 - [楽天市場](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220106201944?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16943217%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20511419%2F&rafcid=wsc_i_is_1092786925357492404)
-- [Yahooショッピング](https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887371004&vc_url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DGCP%25E3%2581%25AE%25E6%2595%2599%25E7%25A7%2591%25E6%259B%25B83)![](https://ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887371004)
-
+- [Yahooショッピング](https://ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887371004&vc_url=https%3A%2F%2Fshopping.yahoo.co.jp%2Fsearch%3Fp%3DGCP%25E3%2581%25AE%25E6%2595%2599%25E7%25A7%2591%25E6%259B%25B83)
 体系的な知識が身についたら、あとはひたすら問題を解くことが大切です。
 
 模擬試験は無料で何回でも受けられるので、少なくても2回は受けてみましょう。

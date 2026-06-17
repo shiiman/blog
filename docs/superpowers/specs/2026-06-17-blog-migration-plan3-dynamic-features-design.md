@@ -138,9 +138,9 @@
 | `CONTACT_TO_EMAIL` | 設定 | Functions | 受信先（問い合わせ通知先） |
 
 - 管理方針:
-  - ローカル: `PUBLIC_*` は `.env`、秘密値は `.dev.vars`（いずれも gitignore）
+  - ローカル: `PUBLIC_*` は `.env`、秘密値は `.dev.vars`（いずれも gitignore）。**両ファイルともユーザーが手動作成**する
   - 本番: Cloudflare Pages のプロジェクト環境変数（秘密値は暗号化扱い）。投入は計画4
-  - リポジトリには `.env.example`（`PUBLIC_*` キー名）と `.dev.vars.example`（秘密値キー名）のみコミット
+  - **必要なキー名の一覧は `README.md` に明記**（`.env*` はツールの権限制約で読み書きしないため、`.env.example`/`.dev.vars.example` は作らず README で代替）
 - `.env` の内容は読まない・出力しない（CLAUDE.md 準拠）
 
 ---

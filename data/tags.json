@@ -1,0 +1,402 @@
+{
+  "5": {
+    "name": "conohawing",
+    "slug": "conohawing"
+  },
+  "6": {
+    "name": "wordpress",
+    "slug": "wordpress"
+  },
+  "7": {
+    "name": "conoha wing",
+    "slug": "conoha-wing"
+  },
+  "23": {
+    "name": "plugin",
+    "slug": "plugin"
+  },
+  "24": {
+    "name": "BackWPup",
+    "slug": "backwpup"
+  },
+  "25": {
+    "name": "SiteGuard WP Plugin",
+    "slug": "siteguard-wp-plugin"
+  },
+  "26": {
+    "name": "Edit Author Slug",
+    "slug": "edit-author-slug"
+  },
+  "27": {
+    "name": "sitemap",
+    "slug": "sitemap"
+  },
+  "28": {
+    "name": "contact",
+    "slug": "contact"
+  },
+  "29": {
+    "name": "privacy policy",
+    "slug": "privacy-policy"
+  },
+  "31": {
+    "name": "cocoon",
+    "slug": "cocoon"
+  },
+  "34": {
+    "name": "contact form 7",
+    "slug": "contact-form-7"
+  },
+  "35": {
+    "name": "docker",
+    "slug": "docker"
+  },
+  "36": {
+    "name": "microservice",
+    "slug": "microservice"
+  },
+  "37": {
+    "name": "ingress",
+    "slug": "ingress"
+  },
+  "38": {
+    "name": "invisible reCaptcha",
+    "slug": "invisible-recaptcha"
+  },
+  "41": {
+    "name": "github",
+    "slug": "github"
+  },
+  "42": {
+    "name": "worfpress",
+    "slug": "worfpress"
+  },
+  "43": {
+    "name": "404",
+    "slug": "404"
+  },
+  "44": {
+    "name": "Updraft Plus",
+    "slug": "updraft-plus"
+  },
+  "45": {
+    "name": "copy anything to clipboard",
+    "slug": "copy-anything-to-clipboard"
+  },
+  "46": {
+    "name": "jetpack",
+    "slug": "jetpack"
+  },
+  "47": {
+    "name": "Google Search Console",
+    "slug": "google-search-console"
+  },
+  "48": {
+    "name": "Google Analytics",
+    "slug": "google-analytics"
+  },
+  "49": {
+    "name": "Site Kit",
+    "slug": "site-kit"
+  },
+  "50": {
+    "name": "Yoast Duplicate Post",
+    "slug": "yoast-duplicate-post"
+  },
+  "51": {
+    "name": "メール",
+    "slug": "%e3%83%a1%e3%83%bc%e3%83%ab"
+  },
+  "53": {
+    "name": "マネーフォワードME",
+    "slug": "%e3%83%9e%e3%83%8d%e3%83%bc%e3%83%95%e3%82%a9%e3%83%af%e3%83%bc%e3%83%89me"
+  },
+  "54": {
+    "name": "キーワードプランナー",
+    "slug": "%e3%82%ad%e3%83%bc%e3%83%af%e3%83%bc%e3%83%89%e3%83%97%e3%83%a9%e3%83%b3%e3%83%8a%e3%83%bc"
+  },
+  "55": {
+    "name": "A8.net",
+    "slug": "a8-net"
+  },
+  "56": {
+    "name": "アフェリエイト",
+    "slug": "%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88"
+  },
+  "57": {
+    "name": "ASP",
+    "slug": "asp"
+  },
+  "58": {
+    "name": "バリューコマース",
+    "slug": "%e3%83%90%e3%83%aa%e3%83%a5%e3%83%bc%e3%82%b3%e3%83%9e%e3%83%bc%e3%82%b9"
+  },
+  "59": {
+    "name": "golang",
+    "slug": "golang"
+  },
+  "61": {
+    "name": "struct",
+    "slug": "struct"
+  },
+  "62": {
+    "name": "json",
+    "slug": "json"
+  },
+  "66": {
+    "name": "slack",
+    "slug": "slack"
+  },
+  "67": {
+    "name": "bot",
+    "slug": "bot"
+  },
+  "68": {
+    "name": "GAS",
+    "slug": "gas"
+  },
+  "69": {
+    "name": "つみたてNISA",
+    "slug": "%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa"
+  },
+  "70": {
+    "name": "ideco",
+    "slug": "ideco"
+  },
+  "71": {
+    "name": "マネリテ学園",
+    "slug": "%e3%83%9e%e3%83%8d%e3%83%aa%e3%83%86%e5%ad%a6%e5%9c%92"
+  },
+  "72": {
+    "name": "大河内 薫",
+    "slug": "%e5%a4%a7%e6%b2%b3%e5%86%85-%e8%96%ab"
+  },
+  "73": {
+    "name": "NISA",
+    "slug": "nisa"
+  },
+  "74": {
+    "name": "税金",
+    "slug": "%e7%a8%8e%e9%87%91"
+  },
+  "75": {
+    "name": "spreadsheet",
+    "slug": "spreadsheet"
+  },
+  "76": {
+    "name": "cast",
+    "slug": "cast"
+  },
+  "78": {
+    "name": "Snowflake",
+    "slug": "snowflake"
+  },
+  "79": {
+    "name": "S3",
+    "slug": "s3"
+  },
+  "80": {
+    "name": "snowsql",
+    "slug": "snowsql"
+  },
+  "81": {
+    "name": "AWS",
+    "slug": "aws"
+  },
+  "82": {
+    "name": "cloudfront",
+    "slug": "cloudfront"
+  },
+  "83": {
+    "name": "waf",
+    "slug": "waf"
+  },
+  "84": {
+    "name": "spa",
+    "slug": "spa"
+  },
+  "85": {
+    "name": "OAuth2.0",
+    "slug": "oauth2-0"
+  },
+  "86": {
+    "name": "Google認証",
+    "slug": "google%e8%aa%8d%e8%a8%bc"
+  },
+  "87": {
+    "name": "Smart-C",
+    "slug": "smart-c"
+  },
+  "88": {
+    "name": "Zucks",
+    "slug": "zucks"
+  },
+  "89": {
+    "name": "アクセストレード",
+    "slug": "%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%83%89"
+  },
+  "90": {
+    "name": "新年",
+    "slug": "%e6%96%b0%e5%b9%b4"
+  },
+  "91": {
+    "name": "目標設定",
+    "slug": "%e7%9b%ae%e6%a8%99%e8%a8%ad%e5%ae%9a"
+  },
+  "92": {
+    "name": "egg",
+    "slug": "egg"
+  },
+  "93": {
+    "name": "gcp",
+    "slug": "gcp"
+  },
+  "94": {
+    "name": "pcd",
+    "slug": "pcd"
+  },
+  "95": {
+    "name": "マンガ",
+    "slug": "%e3%83%9e%e3%83%b3%e3%82%ac"
+  },
+  "96": {
+    "name": "異世界",
+    "slug": "%e7%95%b0%e4%b8%96%e7%95%8c"
+  },
+  "97": {
+    "name": "snowpipe",
+    "slug": "snowpipe"
+  },
+  "98": {
+    "name": "firelens",
+    "slug": "firelens"
+  },
+  "99": {
+    "name": "fluentbit",
+    "slug": "fluentbit"
+  },
+  "100": {
+    "name": "firehose",
+    "slug": "firehose"
+  },
+  "102": {
+    "name": "楽天銀行",
+    "slug": "%e6%a5%bd%e5%a4%a9%e9%8a%80%e8%a1%8c"
+  },
+  "103": {
+    "name": "楽天証券",
+    "slug": "%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8"
+  },
+  "104": {
+    "name": "イオン銀行",
+    "slug": "%e3%82%a4%e3%82%aa%e3%83%b3%e9%8a%80%e8%a1%8c"
+  },
+  "105": {
+    "name": "あおぞら銀行",
+    "slug": "%e3%81%82%e3%81%8a%e3%81%9e%e3%82%89%e9%8a%80%e8%a1%8c"
+  },
+  "107": {
+    "name": "homebrew",
+    "slug": "homebrew"
+  },
+  "108": {
+    "name": "brew",
+    "slug": "brew"
+  },
+  "109": {
+    "name": "mas",
+    "slug": "mas"
+  },
+  "110": {
+    "name": "bash",
+    "slug": "bash"
+  },
+  "111": {
+    "name": "zsh",
+    "slug": "zsh"
+  },
+  "112": {
+    "name": "fish",
+    "slug": "fish"
+  },
+  "113": {
+    "name": "mac",
+    "slug": "mac"
+  },
+  "114": {
+    "name": "dotfiles",
+    "slug": "dotfiles"
+  },
+  "115": {
+    "name": "fargate spot",
+    "slug": "fargate-spot"
+  },
+  "116": {
+    "name": "SCS",
+    "slug": "scs"
+  },
+  "117": {
+    "name": "catalina",
+    "slug": "catalina"
+  },
+  "118": {
+    "name": "monterey",
+    "slug": "monterey"
+  },
+  "119": {
+    "name": "Google AdSence",
+    "slug": "google-adsence"
+  },
+  "120": {
+    "name": "ANS",
+    "slug": "ans"
+  },
+  "121": {
+    "name": "Blue-Green",
+    "slug": "blue-green"
+  },
+  "122": {
+    "name": "code deploy",
+    "slug": "code-deploy"
+  },
+  "123": {
+    "name": "ALB",
+    "slug": "alb"
+  },
+  "124": {
+    "name": "Athena",
+    "slug": "athena"
+  },
+  "125": {
+    "name": "terraform",
+    "slug": "terraform"
+  },
+  "126": {
+    "name": "Cloud Front",
+    "slug": "cloud-front"
+  },
+  "127": {
+    "name": "API Gatewat",
+    "slug": "api-gatewat"
+  },
+  "128": {
+    "name": "spot pod",
+    "slug": "spot-pod"
+  },
+  "129": {
+    "name": "autopilot",
+    "slug": "autopilot"
+  },
+  "130": {
+    "name": "gke",
+    "slug": "gke"
+  },
+  "131": {
+    "name": "個人事業主",
+    "slug": "%e5%80%8b%e4%ba%ba%e4%ba%8b%e6%a5%ad%e4%b8%bb"
+  },
+  "132": {
+    "name": "フリーランス",
+    "slug": "%e3%83%95%e3%83%aa%e3%83%bc%e3%83%a9%e3%83%b3%e3%82%b9"
+  }
+}

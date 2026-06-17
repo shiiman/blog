@@ -1770,6 +1770,10 @@ describe('stripTrackingImages', () => {
     const input = 'x ![](https://h.accesstrade.net/sp/rr?rk=01001aqe00lqea) y'
     expect(stripTrackingImages(input)).toBe('x  y')
   })
+  it('プロトコル相対URLのトラッキング画像も除去しリンクは保持する', () => {
+    const input = '[![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=1&pid=2)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=1&pid=2)'
+    expect(stripTrackingImages(input)).toBe('[バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=1&pid=2)')
+  })
   it('通常の画像やリンクは保持する', () => {
     const input = '![alt](./assets/foo.png)\n[a8リンク](https://px.a8.net/abc)'
     expect(stripTrackingImages(input)).toBe(input)
@@ -1785,16 +1789,23 @@ Expected: FAIL
 - [ ] **Step 3: `scripts/lib/cleanup-tracking.ts` を実装**
 
 ```ts
-// 不可視トラッキング画像のホスト/パターン（画像記法のみ対象）
-const TRACKING_HOSTS = ['px.a8.net', 'ad.jp.ap.valuecommerce.com', 'h.accesstrade.net']
+// 不可視トラッキング/計測ピクセル画像のホスト（画像記法 ![]() のみ対象。
+// リンク記法 [text](...) は対象外なのでアフィリエイトリンクは保持される）。
+// valuecommerce は ad=計測gif / ck=referral計測pixel の双方が画像で混入する。
+const TRACKING_HOSTS = [
+  'px.a8.net',
+  'ad.jp.ap.valuecommerce.com',
+  'ck.jp.ap.valuecommerce.com',
+  'h.accesstrade.net',
+]
 
-/** 本文から不可視トラッキング画像の Markdown 記法だけを除去する */
+/** 本文から不可視トラッキング画像の Markdown 記法だけを除去する（http/https/プロトコル相対の全てに対応） */
 export function stripTrackingImages(body: string): string {
   let out = body
   for (const host of TRACKING_HOSTS) {
-    // ![...](https?://<host>...) を、直前の改行ごと（無ければ単体で）除去
+    // ![...]((https?:)?//<host>...) を、直前の改行ごと（無ければ単体で）除去
     const escaped = host.replace(/[.]/g, '\\.')
-    const re = new RegExp(`\\n?!\\[[^\\]]*\\]\\(https?:\\/\\/${escaped}[^)]*\\)`, 'g')
+    const re = new RegExp(`\\n?!\\[[^\\]]*\\]\\((?:https?:)?\\/\\/${escaped}[^)]*\\)`, 'g')
     out = out.replace(re, '')
   }
   return out
@@ -1840,13 +1851,13 @@ main().catch((e) => {
 - [ ] **Step 6: クリーニングを実行**
 
 Run: `npm run cleanup:tracking`
-Expected: `changed files: 13`（a8.net 8 + valuecommerce gifbanner 4 + accesstrade rr 1 を含む計 13 ファイル。重複込みの実数）。
+Expected: 実数を報告（画像記法 `![]()` に計測ピクセルを含むファイルのみが対象。アフィリエイトの「リンク」記法は保持される）。
 
-Run:
+検証（画像記法のトラッキングピクセルが残っていないこと。リンク記法は残ってよい）:
 ```bash
-grep -rl "px.a8.net\|valuecommerce.com/servlet/gifbanner\|h.accesstrade.net/sp/rr" posts/ | wc -l
+grep -rhoE '!\[[^]]*\]\((https?:)?//[^)]*\)' posts/ | grep -iE 'a8\.net|valuecommerce|accesstrade' | wc -l
 ```
-Expected: `0`
+Expected: `0`（画像記法の計測ピクセルは全除去）。なお `[text](url)` のアフィリエイトリンクは保持されるため URL 文字列自体は本文に残る（これは正常）。
 
 - [ ] **Step 7: ビルドが引き続き通ることを確認**
 

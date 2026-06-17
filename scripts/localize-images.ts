@@ -1,29 +1,29 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
-import { basename, extname } from 'node:path'
+import { extname } from 'node:path'
 import matter from 'gray-matter'
 import {
-  normalizeLightbox, stripTrackingPixels, extractImageUrls, toOriginalUrl, rewriteImageUrls,
+  normalizeLightbox, stripTrackingPixels, extractImageUrls, toOriginalUrl, rewriteImageUrls, buildLocalNames,
 } from './lib/images'
 import { listContentDirs } from './lib/content-roots'
 
-/** DL失敗したURLを蓄積するリスト */
+/** DL失敗したURLを蓄積するリスト（status / 記事ディレクトリ / URL のタブ区切り） */
 const missingUrls: string[] = []
 
 /** URL からファイルをダウンロードして dest へ保存する。失敗時は missingUrls に追記してスキップ */
-async function download(url: string, dest: string): Promise<boolean> {
+async function download(url: string, dest: string, dir: string): Promise<boolean> {
   try {
     const res = await fetch(url)
     if (!res.ok) {
-      console.warn(`  ⚠ DL失敗 (${res.status}): ${url}`)
-      missingUrls.push(`${res.status}\t${url}`)
+      console.warn(`  ⚠ DL失敗 (${res.status}) ${dir}: ${url}`)
+      missingUrls.push(`${res.status}\t${dir}\t${url}`)
       return false
     }
     await writeFile(dest, Buffer.from(await res.arrayBuffer()))
     return true
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e)
-    console.warn(`  ⚠ DLエラー: ${url} — ${msg}`)
-    missingUrls.push(`ERR\t${url}`)
+    console.warn(`  ⚠ DLエラー ${dir}: ${url} — ${msg}`)
+    missingUrls.push(`ERR\t${dir}\t${url}`)
     return false
   }
 }
@@ -34,12 +34,12 @@ async function processOne(dir: string, file: string, featured: Record<string, st
   let body = stripTrackingPixels(normalizeLightbox(content))
 
   const urls = [...new Set(extractImageUrls(body).map(toOriginalUrl))]
+  const names = buildLocalNames(urls)
   const map: Record<string, string> = {}
   if (urls.length > 0) await mkdir(`${dir}/assets`, { recursive: true })
   for (const url of urls) {
-    const name = basename(new URL(url).pathname)
-    const dest = `${dir}/assets/${name}`
-    const ok = await download(url, dest)
+    const name = names[url]
+    const ok = await download(url, `${dir}/assets/${name}`, dir)
     if (ok) map[url] = `./assets/${name}`
     // DL失敗時は map に登録しない → 本文の URL はそのまま残る
   }
@@ -50,7 +50,7 @@ async function processOne(dir: string, file: string, featured: Record<string, st
   if (eyeUrl) {
     const ext = extname(new URL(eyeUrl).pathname) || '.png'
     await mkdir(`${dir}/assets`, { recursive: true })
-    await download(toOriginalUrl(eyeUrl), `${dir}/assets/eyecatch${ext}`)
+    await download(toOriginalUrl(eyeUrl), `${dir}/assets/eyecatch${ext}`, dir)
   }
 
   await writeFile(`${dir}/${file}`, matter.stringify(body, data))

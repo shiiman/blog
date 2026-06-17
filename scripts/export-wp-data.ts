@@ -6,15 +6,27 @@ import { listContentDirs } from './lib/content-roots'
 const SITE = 'https://shiimanblog.com'
 const DATA_DIR = 'data'
 
+type Term = { id: number; name: string; slug: string }
+
+/** REST レスポンス項目が想定のタクソノミー形だと実行時に検証する */
+function assertTerm(item: unknown, endpoint: string): asserts item is Term {
+  const t = item as Record<string, unknown>
+  if (typeof t?.id !== 'number' || typeof t?.name !== 'string' || typeof t?.slug !== 'string') {
+    throw new Error(`想定外のタクソノミー項目 (${endpoint}): ${JSON.stringify(item)}`)
+  }
+}
+
 /** ページングしながら REST エンドポイントの全件を取得する */
-async function fetchAll(endpoint: string): Promise<{ id: number; name: string; slug: string }[]> {
-  const items: { id: number; name: string; slug: string }[] = []
+async function fetchAll(endpoint: string): Promise<Term[]> {
+  const items: Term[] = []
   for (let page = 1; ; page++) {
     const res = await fetch(`${SITE}/wp-json/wp/v2/${endpoint}?per_page=100&page=${page}`)
     if (res.status === 400) break // ページ超過時にWPは400を返す
     if (!res.ok) throw new Error(`取得失敗 ${endpoint} p${page}: ${res.status}`)
-    const batch = (await res.json()) as { id: number; name: string; slug: string }[]
+    const batch = (await res.json()) as unknown
+    if (!Array.isArray(batch)) throw new Error(`想定外レスポンス (${endpoint} p${page}): 配列ではありません`)
     if (batch.length === 0) break
+    for (const item of batch) assertTerm(item, endpoint)
     items.push(...batch)
     if (batch.length < 100) break
   }
@@ -65,7 +77,11 @@ async function main() {
       console.warn(`media ${id}: ${res.status}（スキップ）`)
       continue
     }
-    const m = (await res.json()) as { source_url: string }
+    const m = (await res.json()) as { source_url?: unknown }
+    if (typeof m.source_url !== 'string') {
+      console.warn(`media ${id}: source_url が不正（スキップ）`)
+      continue
+    }
     media[String(id)] = m.source_url
   }
   await writeFile(`${DATA_DIR}/featured-media.json`, JSON.stringify(media, null, 2) + '\n')

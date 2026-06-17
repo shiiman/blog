@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import {
-  toOriginalUrl, extractImageUrls, normalizeLightbox, stripTrackingPixels, rewriteImageUrls,
+  toOriginalUrl, extractImageUrls, normalizeLightbox, stripTrackingPixels, rewriteImageUrls, buildLocalNames,
 } from './images'
 
 describe('toOriginalUrl', () => {
@@ -11,6 +11,10 @@ describe('toOriginalUrl', () => {
   it('接尾辞が無ければそのまま', () => {
     expect(toOriginalUrl('https://shiimanblog.com/wp-content/uploads/2021/09/3.png'))
       .toBe('https://shiimanblog.com/wp-content/uploads/2021/09/3.png')
+  })
+  it('クエリ文字列を除去する', () => {
+    expect(toOriginalUrl('https://shiimanblog.com/wp-content/uploads/2021/08/4-1.jpg?w=1024'))
+      .toBe('https://shiimanblog.com/wp-content/uploads/2021/08/4-1.jpg')
   })
 })
 
@@ -42,5 +46,31 @@ describe('rewriteImageUrls', () => {
     const map = { 'https://shiimanblog.com/wp-content/uploads/2021/08/4-1.jpg': './assets/4-1.jpg' }
     const md = '![](https://shiimanblog.com/wp-content/uploads/2021/08/4-1-1024x545.jpg)'
     expect(rewriteImageUrls(md, map)).toBe('![](./assets/4-1.jpg)')
+  })
+  it('クエリ付きURLも置換しクエリを残さない', () => {
+    const map = { 'https://shiimanblog.com/wp-content/uploads/2021/08/4-1.jpg': './assets/4-1.jpg' }
+    const md = '![](https://shiimanblog.com/wp-content/uploads/2021/08/4-1.jpg?w=1024)'
+    expect(rewriteImageUrls(md, map)).toBe('![](./assets/4-1.jpg)')
+  })
+})
+
+describe('buildLocalNames', () => {
+  it('衝突が無ければ basename をそのまま使う', () => {
+    expect(buildLocalNames([
+      'https://shiimanblog.com/wp-content/uploads/2021/08/a.jpg',
+      'https://shiimanblog.com/wp-content/uploads/2021/09/b.png',
+    ])).toEqual({
+      'https://shiimanblog.com/wp-content/uploads/2021/08/a.jpg': 'a.jpg',
+      'https://shiimanblog.com/wp-content/uploads/2021/09/b.png': 'b.png',
+    })
+  })
+  it('同名 basename が衝突する場合はパスをフラット化して一意化する', () => {
+    expect(buildLocalNames([
+      'https://shiimanblog.com/wp-content/uploads/2020/01/photo.jpg',
+      'https://shiimanblog.com/wp-content/uploads/2021/03/photo.jpg',
+    ])).toEqual({
+      'https://shiimanblog.com/wp-content/uploads/2020/01/photo.jpg': '2020-01-photo.jpg',
+      'https://shiimanblog.com/wp-content/uploads/2021/03/photo.jpg': '2021-03-photo.jpg',
+    })
   })
 })

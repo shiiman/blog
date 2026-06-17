@@ -1,0 +1,17 @@
+# 本番用シークレット（Cloudflare Pages Functions が参照）
+# cp .prd.vars.example .prd.vars して実値を入力し、npm run setup:cf-secrets を実行
+#
+# .dev.vars  → ローカル開発（npm run pages:dev / wrangler）用
+# .prd.vars  → 本番 Cloudflare Pages への投入用（npm run setup:cf-secrets）
+
+# Cloudflare Turnstile（本番ドメイン用に新規作成したシークレットキー）
+TURNSTILE_SECRET_KEY=
+
+# Resend（.dev.vars と同じキーで可）
+RESEND_API_KEY=
+
+# 送信元メール（Phase E2 の Resend ドメイン認証後に noreply@shiimanblog.com へ変更）
+CONTACT_FROM_EMAIL=
+
+# 問い合わせ通知の受信先
+CONTACT_TO_EMAIL=

@@ -1892,7 +1892,7 @@ Run:
 ```bash
 # 記事85 + 固定ページ4 + アーカイブ + トップ/RSS/sitemap/404 の主要URLを確認
 echo "posts(dirs with index.html under category paths):"; \
-node -e "const m=require('./data/permalinks.json');const fs=require('fs');let ok=0,ng=0;for(const id in m){const p='dist'+m[id].path+'index.html';fs.existsSync(p)?ok++:(ng++,console.log('MISSING',p));}console.log('ok='+ok,'missing='+ng)"
+node -e "const m=require('./data/permalinks.json');const fs=require('fs');let ok=0,ng=0;for(const id in m){const p='dist'+decodeURIComponent(m[id].path)+'index.html';fs.existsSync(p)?ok++:(ng++,console.log('MISSING',p));}console.log('ok='+ok,'missing='+ng)"
 for p in contact privacy-policy profile sitemap; do test -f "dist/$p/index.html" && echo "page $p OK" || echo "page $p MISSING"; done
 test -f dist/index.html && test -f dist/rss.xml && test -f dist/sitemap-index.xml && test -f dist/404.html && echo "core OK"
 ```
@@ -1902,7 +1902,7 @@ Expected: `ok=85 missing=0`、各 `page ... OK`、`core OK`。
 
 Run:
 ```bash
-node -e "const m=require('./data/permalinks.json');const fs=require('fs');let ng=0;for(const id in m){if(!fs.existsSync('dist'+m[id].path+'index.html')){ng++;console.log('URL不一致:',m[id].path)}}process.exit(ng?1:0)" && echo "URL保持 OK"
+node -e "const m=require('./data/permalinks.json');const fs=require('fs');let ng=0;for(const id in m){if(!fs.existsSync('dist'+decodeURIComponent(m[id].path)+'index.html')){ng++;console.log('URL不一致:',m[id].path)}}process.exit(ng?1:0)" && echo "URL保持 OK"
 ```
 Expected: `URL保持 OK`
 

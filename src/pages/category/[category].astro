@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import PostCard from '../../components/PostCard.astro'
+import { getPublishedPosts, type PublishedPost } from '../../lib/posts'
+import { resolveCategory } from '../../lib/taxonomy'
+import type { GetStaticPaths } from 'astro'
+
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts()
+  // urlSlug でグルーピング（記事の全カテゴリを対象）
+  const groups = new Map<string, { name: string; posts: PublishedPost[] }>()
+  for (const post of posts) {
+    for (const stored of post.entry.data.categories) {
+      const { name, urlSlug } = resolveCategory(stored)
+      if (!groups.has(urlSlug)) groups.set(urlSlug, { name, posts: [] })
+      groups.get(urlSlug)!.posts.push(post)
+    }
+  }
+  return [...groups.entries()].map(([urlSlug, g]) => ({
+    params: { category: urlSlug },
+    props: { name: g.name, posts: g.posts },
+  }))
+}) satisfies GetStaticPaths
+
+const { name, posts } = Astro.props
+---
+<BaseLayout title={`カテゴリ: ${name} - shiimanblog`} description={`${name}の記事一覧`}>
+  <h1 class="archive-title">カテゴリ: {name}</h1>
+  <div class="list">
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+</BaseLayout>
+
+<style>
+  .archive-title { font-size: 1.5rem; margin: 1rem 0 1.5rem; }
+</style>

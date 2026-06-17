@@ -72,6 +72,9 @@ export const onRequestPost = async (context: {
   })
 
   if (!sendRes.ok) {
+    // 本番調査用に Resend のステータスとレスポンスボディを記録
+    const errBody = await sendRes.text().catch(() => '')
+    console.error('Resend error:', sendRes.status, errBody)
     return json({ ok: false, message: '送信に失敗しました。時間をおいて再度お試しください。' }, 502)
   }
 

@@ -23,11 +23,14 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? ''
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null
   const status = document.getElementById('contact-status') as HTMLElement | null
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault()
     if (!status) return
     status.textContent = '送信中...'
+    // 送信中は二重送信を防ぐためボタンを無効化
+    if (submitBtn) submitBtn.disabled = true
     const fd = new FormData(form)
     const payload = {
       name: fd.get('name'),
@@ -51,6 +54,9 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? ''
       }
     } catch {
       status.textContent = '送信に失敗しました。時間をおいて再度お試しください。'
+    } finally {
+      // 成功・失敗・例外いずれの場合もボタンを再有効化
+      if (submitBtn) submitBtn.disabled = false
     }
   })
 </script>

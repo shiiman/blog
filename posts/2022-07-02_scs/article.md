@@ -3,11 +3,15 @@ id: 1666
 title: 【2022年】Certified Security – Specialty資格を取得した話 | AWS資格
 slug: scs
 status: publish
-date: 2022-07-02T19:30:00
-modified: 2022-08-07T22:29:35
+date: 2022-07-02T19:30:00.000Z
+modified: 2022-08-07T22:29:35.000Z
 excerpt: AWS Certified Security – Specialty資格を取得した体験談。勉強方法や試験のポイントを紹介します。
-categories: [19, 18]
-tags: [81, 116]
+categories:
+  - 19
+  - 18
+tags:
+  - 81
+  - 116
 featured_media: 1667
 ---
 
@@ -51,7 +55,7 @@ AWS資格についてはレベルや内容毎に4つに分類されており、
 
 * * *
 
-[![AWS資格リスト](https://shiimanblog.com/wp-content/uploads/2022/07/exam_list-800x551.jpg)](https://shiimanblog.com/wp-content/uploads/2022/07/exam_list.jpg)
+![AWS資格リスト](./assets/exam_list.jpg)
 
 * * *
 
@@ -133,11 +137,11 @@ Udemyは基本的に英語なのですが、ブラウザでGoogle翻訳をかけ
 
 書籍の中でおすすめなのは以下の2冊ですので、体系的に書籍で学びたい方はぜひ参考にしてみてください。
 
- [![](//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4839970947&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=bayguh03-22&language=ja_JP)](https://www.amazon.co.jp/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86%E3%81%8B%E3%82%89%E6%94%BB%E7%95%A5%E3%81%99%E3%82%8B%E3%80%8EAWS%E8%AA%8D%E5%AE%9A-%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E5%B0%82%E9%96%80%E7%9F%A5%E8%AD%98%E3%80%8F-NRI%E3%83%8D%E3%83%83%E3%83%88%E3%82%B3%E3%83%A0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/dp/4839970947?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=JXCA7JLUGEVK&keywords=aws+%E8%B3%87%E6%A0%BC+Certified+Security+-+Specialty&qid=1656735209&sprefix=aws+%E8%B3%87%E6%A0%BC+certified+security+-+specialty%2Caps%2C174&sr=8-1&linkCode=li3&tag=bayguh03-22&linkId=63207cb86311b9291dcec094a29551da&language=ja_JP&ref_=as_li_ss_il)
+ ![](https://www.amazon.co.jp/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86%E3%81%8B%E3%82%89%E6%94%BB%E7%95%A5%E3%81%99%E3%82%8B%E3%80%8EAWS%E8%AA%8D%E5%AE%9A-%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E5%B0%82%E9%96%80%E7%9F%A5%E8%AD%98%E3%80%8F-NRI%E3%83%8D%E3%83%83%E3%83%88%E3%82%B3%E3%83%A0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/dp/4839970947?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=JXCA7JLUGEVK&keywords=aws+%E8%B3%87%E6%A0%BC+Certified+Security+-+Specialty&qid=1656735209&sprefix=aws+%E8%B3%87%E6%A0%BC+certified+security+-+specialty%2Caps%2C174&sr=8-1&linkCode=li3&tag=bayguh03-22&linkId=63207cb86311b9291dcec094a29551da&language=ja_JP&ref_=as_li_ss_il)
 
 [要点整理から攻略する『AWS認定 セキュリティ-専門知識』](https://amzn.to/3I8mRnD)
 
- [![](//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B09RH137K4&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=bayguh03-22&language=ja_JP)](https://www.amazon.co.jp/1%E9%80%B1%E9%96%93%E3%81%A7%E6%94%BB%E7%95%A5%EF%BC%81AWS%E8%AA%8D%E5%AE%9A%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E5%B0%82%E9%96%80%E7%9F%A5%E8%AD%98-%E6%9C%AC%E7%95%AA%E7%94%A8%E5%95%8F%E9%A1%8C%E9%9B%86-140%E5%95%8F%EF%BC%8865%E5%95%8F-AWS%E8%AA%8D%E5%AE%9A%E6%9C%AC%E7%95%AA%E7%94%A8%E5%95%8F%E9%A1%8C%E9%9B%86%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-ebook/dp/B09RH137K4?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=JXCA7JLUGEVK&keywords=aws+%E8%B3%87%E6%A0%BC+Certified+Security+-+Specialty&qid=1656735209&sprefix=aws+%E8%B3%87%E6%A0%BC+certified+security+-+specialty%2Caps%2C174&sr=8-2&linkCode=li3&tag=bayguh03-22&linkId=012213bc96650ed524c4ddd1b7c1d0ba&language=ja_JP&ref_=as_li_ss_il)
+ ![](https://www.amazon.co.jp/1%E9%80%B1%E9%96%93%E3%81%A7%E6%94%BB%E7%95%A5%EF%BC%81AWS%E8%AA%8D%E5%AE%9A%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3-%E5%B0%82%E9%96%80%E7%9F%A5%E8%AD%98-%E6%9C%AC%E7%95%AA%E7%94%A8%E5%95%8F%E9%A1%8C%E9%9B%86-140%E5%95%8F%EF%BC%8865%E5%95%8F-AWS%E8%AA%8D%E5%AE%9A%E6%9C%AC%E7%95%AA%E7%94%A8%E5%95%8F%E9%A1%8C%E9%9B%86%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-ebook/dp/B09RH137K4?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=JXCA7JLUGEVK&keywords=aws+%E8%B3%87%E6%A0%BC+Certified+Security+-+Specialty&qid=1656735209&sprefix=aws+%E8%B3%87%E6%A0%BC+certified+security+-+specialty%2Caps%2C174&sr=8-2&linkCode=li3&tag=bayguh03-22&linkId=012213bc96650ed524c4ddd1b7c1d0ba&language=ja_JP&ref_=as_li_ss_il)
 
 [1週間で攻略！AWS認定セキュリティ – 専門知識 本番用問題集 140問（65問 × 2セット + 10問） 詳解付き AWS認定本番用問題集シリーズ](https://amzn.to/3a6UM3M)
 

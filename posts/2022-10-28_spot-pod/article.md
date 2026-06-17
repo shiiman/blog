@@ -3,11 +3,16 @@ id: 1793
 title: 【GCP】GKE Autopilot Spot Podを導入してPod料金を60〜91%削減した話
 slug: spot-pod
 status: publish
-date: 2022-10-28T19:30:00
-modified: 2022-10-28T18:22:38
+date: 2022-10-28T19:30:00.000Z
+modified: 2022-10-28T18:22:38.000Z
 excerpt: GKE AutopilotのSpot Podを導入してPod料金を60〜91%削減した実践例。導入手順と注意点を紹介します。
-categories: [20, 18]
-tags: [128, 129, 130]
+categories:
+  - 20
+  - 18
+tags:
+  - 128
+  - 129
+  - 130
 featured_media: 1794
 ---
 
@@ -108,7 +113,7 @@ spec:
 
 Spot Podを導入したタイミングから「 **GCP使用料金**」が下がっていることが確認できると思います。
 
-[![price](https://shiimanblog.com/wp-content/uploads/2022/10/image.png)](https://shiimanblog.com/wp-content/uploads/2022/10/image.png)
+![price](./assets/image.png)
 
 ## まとめ
 

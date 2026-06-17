@@ -3,11 +3,14 @@ id: 1318
 title: 【つみたてNISA】17ヶ月目の運用実績公開！| 2021年12月
 slug: nisa-202112
 status: publish
-date: 2021-12-09T19:30:00
-modified: 2021-12-09T17:27:02
+date: 2021-12-09T19:30:00.000Z
+modified: 2021-12-09T17:27:02.000Z
 excerpt: つみたてNISA開始17ヶ月目の運用実績を公開。2021年最後の積立投資の成果を報告します。
-categories: [16, 14]
-tags: [69]
+categories:
+  - 16
+  - 14
+tags:
+  - 69
 featured_media: 1319
 ---
 
@@ -25,7 +28,7 @@ featured_media: 1319
 
 つみたてNISAに関しては前回の記事で軽く説明をしておりますので、つみたてNISAってなに？という方は下記を参考にしてみてください。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/10/eyecatch_tumitate_nisa-320x180.png)\
+[![](./assets/eyecatch_tumitate_nisa.png)\
 \
 【つみたてNISA】15ヶ月目の運用実績公開！\| 2021年10月\
 \
@@ -73,7 +76,7 @@ shiimanblog.com\
 
 10月の最終営業日と11月の最終営業日の実績値になります。
 
-**2021年**10月11月投資額**734,000** 円**767,000** 円積み立てNISA資産**978,359** 円**1,026,082** 円トータルリターン**+244,359** 円( **+33.29**%)**+259,082** 円( **+33.77**%)[![つみたてNISA - 11月](https://shiimanblog.com/wp-content/uploads/2021/12/tumitate_nisa17-800x291.png)](https://shiimanblog.com/wp-content/uploads/2021/12/tumitate_nisa17.png)
+**2021年**10月11月投資額**734,000** 円**767,000** 円積み立てNISA資産**978,359** 円**1,026,082** 円トータルリターン**+244,359** 円( **+33.29**%)**+259,082** 円( **+33.77**%)![つみたてNISA - 11月](./assets/tumitate_nisa17.png)
 
 11月末の状態を見ても引き続き好調を維持しているのが見て取れます！
 

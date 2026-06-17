@@ -3,11 +3,14 @@ id: 1459
 title: 【2021年】おすすめ異世界冒険マンガ21選!!
 slug: manga2021
 status: publish
-date: 2022-01-21T19:30:00
-modified: 2022-01-19T17:08:55
+date: 2022-01-21T19:30:00.000Z
+modified: 2022-01-19T17:08:55.000Z
 excerpt: 2021年に読んだおすすめの異世界冒険マンガ21作品を、あらすじとともに一挙紹介します。
-categories: [17]
-tags: [95, 96]
+categories:
+  - 17
+tags:
+  - 95
+  - 96
 featured_media: 1461
 ---
 
@@ -57,7 +60,7 @@ featured_media: 1461
 
 基本的には転生して学園生活を送る中で色々な刺客に対して、苦もなく跳ね返す。「俺TUEEE」系のマンガだと思います。そういった王道な転生マンガが好きな方は読んでみてください。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2820/9784088912820.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119114331?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15823488%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19520164%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119114331?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15823488%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19520164%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [劣等眼の転生魔術師 ～虐げられた元勇者は未来の世界を余裕で生き抜く～ 1 （ヤングジャンプコミックス） \[ 峠 比呂 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119114331?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15823488%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19520164%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -77,7 +80,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 このマンガではどんな才能も使い方次第で優秀だと思われる才能に勝ることもあるということが伝わる様になっています。努力を主題にして世界最強を目指すところがとても好感持てますね。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4860/9784803014860.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119114600?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16578940%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20233409%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119114600?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16578940%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20233409%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [世界最強の努力家～誰も知らない【努力】の才能を授かったので俺だけが出来る規格外の努力で最強になる～（1） （アース・スター　コミックス） \[ 遠田マリモ \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119114600?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16578940%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20233409%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -99,7 +102,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 さすがアニメ化になるだけはあるなって作品ですので、ぜひ読んでみてください。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/1361/9784815611361_1_5.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119114813?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16965595%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20527007%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119114813?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16965595%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20527007%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [失格紋の最強賢者14 ～世界最強の賢者が更に強くなるために転生しました～ ～世界最強の賢者が更に強くなるために転生しました～ （GAノベル） \[ 進行諸島 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119114813?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16965595%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20527007%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -121,7 +124,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 魔法戦闘がとてもきれいで完全に主人公無双です。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9980/9784757569980.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119114922?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16495473%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20163574%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119114922?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16495473%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20163574%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [殲滅魔導の最強賢者 無才の賢者、魔導を極め最強へ至る（1） （GCUP!） \[ 進行諸島 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119114922?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16495473%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20163574%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -141,7 +144,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 強すぎて制御出来ない力をだんだん自分のものにするというストーリーですね。実は皆さんも自身の才能が強すぎて制御出来ていないだけかも知れません(笑)自分の可能性を一緒に探ってみてはいかがでしょうか。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/7064/9784049137064.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115014?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16638044%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20280546%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115014?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16638044%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20280546%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [真の実力はギリギリまで隠していようと思う 1 （電撃コミックスNEXT） \[ 猫夜叉 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119115014?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16638044%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20280546%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -161,7 +164,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 普通の異世界転生と違い回復の才能を持って転生されています。しかしガムシャラな努力で何故か最前線での戦いもできるようになっているのが面白いところです！
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0544/9784040690544.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115129?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F14593209%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F18297286%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115129?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F14593209%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F18297286%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [治癒魔法の間違った使い方　～戦場を駆ける回復要員～　4 （MFブックス） \[ くろかた \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119115129?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F14593209%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F18297286%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -181,7 +184,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 ほんとに色々な転生ものがあるなと思った作品ですね。主人公の能力は調理！魔物を調理して食べたらスキルが身に付く。こんな設定よく考えるなと関心しました。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenkobo-ebooks/cabinet/1869/2000006761869.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_i_20220119115220?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fcb4e73f8537a35b3b913cc9f21c0c68f%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F17704666%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_i_20220119115220?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fcb4e73f8537a35b3b913cc9f21c0c68f%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F17704666%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [ガベージブレイブ 【異世界に召喚され捨てられた勇者の復讐物語】（サーガフォレスト）【電子書籍】\[ なんじゃもんじゃ \]](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_t_20220119115220?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2Fcb4e73f8537a35b3b913cc9f21c0c68f%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F17704666%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -203,7 +206,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 自身もものすごく強いですが、スライムやプライドウルフなどの個性的なキャラがとても癒やされます。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8410/9784757558410.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115318?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15594795%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19279543%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115318?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15594795%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19279543%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [転生賢者の異世界ライフ（1） 第二の職業を得て、世界最強になりました （ガンガンコミックス　UP！） \[ 進行諸島 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119115318?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F15594795%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19279543%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -223,7 +226,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 転生ものではないが、世間では落ちこぼれとして蔑まれていても、何か別の方法でのし上がることは可能だということが分かる。そういった苦労の上の逆転劇は読んでいて楽しいです！
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6859/9784757566859.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115435?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16327520%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20012021%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115435?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16327520%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20012021%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [最速無双のB級魔法使い（1） 一発撃たれる前に千発撃ち返す！ （ガンガンコミックス　ONLINE） \[ CK \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119115435?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16327520%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20012021%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -243,7 +246,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 最後の敵と戦ってから10年後の世界の話が繰り広げられます。平和になったはずの世界にも新たな問題が続々と降り注いでいき、また新たなストーリーが綴られるのが面白いですね。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenkobo-ebooks/cabinet/1321/2000007721321.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_i_20220119115519?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2F6962881c13d536eabf9a7ce057950b8e%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F18549476%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_i_20220119115519?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2F6962881c13d536eabf9a7ce057950b8e%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F18549476%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [ここは俺に任せて先に行けと言ってから10年がたったら伝説になっていた。 1巻【電子書籍】\[ えぞぎんぎつね \]](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_t_20220119115519?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2F6962881c13d536eabf9a7ce057950b8e%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F18549476%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -263,7 +266,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 奪われた力を見つける旅をしながら各地で起こっている問題を解消し、パーティの裏切りの原因を探る旅が続きます。強いだけでなく謎の真相に近づいていくストーリーもいいですね。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/1273/9784757571273.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115616?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16613159%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20260834%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115616?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16613159%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20260834%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [漆黒使いの最強勇者　仲間全員に裏切られたので最強の魔物と組みます（6） （ガンガンコミックスUP！） \[ 瀬戸メグル \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119115616?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16613159%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20260834%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -283,7 +286,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 「失格紋の最強賢者」の作者と同じ進行諸島さんの作品です。戦闘や魔法を徐々に試しながら使えるようになっていく感じがRPG好きにはたまらないですね。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8358/9784757568358.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115727?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16405316%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20084499%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115727?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16405316%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20084499%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [異世界転移したのでチートを生かして魔法剣士やることにする（1） （GCUP!） \[ 進行諸島 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119115727?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16405316%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20084499%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -303,7 +306,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 最新巻では役割の外の世界が描かれていて深みが増しています。LV999より先の限界突破はあるのでしょうか。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6291/9784041096291.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115815?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16607323%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20256251%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119115815?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16607323%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20256251%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [LV999の村人　（9） （角川コミックス・エース） \[ 岩元　健一 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119115815?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16607323%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20256251%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -323,7 +326,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 普通に生きようとしても全然普通ではないレクスがとてもかわいい、強くてニューゲームの典型的なストーリーですね。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/rakutenkobo-ebooks/cabinet/5069/2000008865069.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_i_20220119120141?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2F441d66c7dc50362e8958097bd1f8fee9%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F19468899%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_i_20220119120141?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2F441d66c7dc50362e8958097bd1f8fee9%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F19468899%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [二度転生した少年はSランク冒険者として平穏に過ごす　〜前世が賢者で英雄だったボクは来世では地味に生きる〜 3巻【電子書籍】\[ 十一屋翠 \]](https://hb.afl.rakuten.co.jp/hgc/g00reb49.9sgvo622.g00reb49.9sgvp4da/Rinker_t_20220119120141?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2F441d66c7dc50362e8958097bd1f8fee9%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frakutenkobo-ebooks%2Fi%2F19468899%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -343,7 +346,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 めちゃめちゃ長い年月をかけて強さを手に入れつつある状態になりましたね。すぐに報われない主人公はなかなか無かったパターンだと思います。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8420/9784049128420.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120230?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16084136%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19802107%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120230?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16084136%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19802107%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [役立たずスキルに人生を注ぎ込み25年、今さら最強の冒険譚 1 （電撃コミックスNEXT） \[ ガンテツ \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119120230?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16084136%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19802107%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -363,7 +366,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 レベル上げアイテムはかなりチート過ぎると思いましたね。折角アイテムボックスに色々アイテムが格納されている仕様なんだからもっともっと色々なアイテムを使ってほしいところです。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8216/9784040658216.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120521?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16007588%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19728313%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120521?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16007588%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19728313%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [召喚された賢者は異世界を往く　～最強なのは不要在庫のアイテムでした～　1 （MFC） \[ 小林　こー \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119120521?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16007588%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19728313%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -383,7 +386,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 webから生まれた作品らしいですが、村人が圧倒的なステータス差を埋めるために色々奔走するは面白いです。ただ後半は目的が分かりづらくなってきたなぁという印象が少しあります。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/1703/9784040741703_1_3.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120604?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16750515%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20366807%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120604?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16750515%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20366807%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [村人ですが何か？　9 （ドラゴンコミックスエイジ） \[ 鯖夢 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119120604?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16750515%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20366807%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -403,7 +406,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 やはりスライムって扱いやすいんですかね。最弱のイメージがあるスライムに特殊能力をつけて冒険を面白くしています。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6101/9784757566101.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120645?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16254221%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19956478%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120645?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16254221%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19956478%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [神達に拾われた男（5） （ガンガンコミックス　UP！） \[ Roy \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119120645?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16254221%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F19956478%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -423,7 +426,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 未来に転生するものってやっぱり魔法が衰退しているって設定が多いですね。こちらも漏れずその設定で、圧倒的な魔法で周りを驚かせます。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2731/9784049132731.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120734?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16358353%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20038250%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120734?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16358353%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20038250%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [魔王学院の不適合者7 ～史上最強の魔王の始祖、転生して子孫たちの学校へ通う～（8） （電撃文庫） \[ 秋 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119120734?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16358353%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20038250%2F&rafcid=wsc_i_is_1092786925357492404)
 
@@ -445,7 +448,7 @@ created by [Rinker](https://oyakosodate.com/rinker/)
 
 今までみてきたマンガもそうですが、やはり一旦主人公は蔑まれたり、切り捨てられたりして落とされるんですよね。ですがいつの間にかすごい力で形勢逆転。今回は即死能力。圧倒的過ぎる能力ですね。
 
-[![](https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4747/9784803014747.jpg?_ex=128x128)](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120814?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16490939%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20159439%2F&rafcid=wsc_i_is_1092786925357492404)
+![](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_i_20220119120814?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16490939%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20159439%2F&rafcid=wsc_i_is_1092786925357492404)
 
 [即死チートが最強すぎて、異世界のやつらがまるで相手にならないんですが。-ΑΩ-（5） （アース・スターコミックス） \[ 納都花丸 \]](https://hb.afl.rakuten.co.jp/hgc/g00q0729.9sgvo603.g00q0729.9sgvp499/Rinker_t_20220119120814?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16490939%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbook%2Fi%2F20159439%2F&rafcid=wsc_i_is_1092786925357492404)
 

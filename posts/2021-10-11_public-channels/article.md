@@ -3,11 +3,18 @@ id: 1154
 title: 【slack】GASを使ってslackのpublicチャンネル一覧をスプレッドシートに出力する方法
 slug: public-channels
 status: publish
-date: 2021-10-11T19:30:00
-modified: 2022-06-30T18:00:20
+date: 2021-10-11T19:30:00.000Z
+modified: 2022-06-30T18:00:20.000Z
 excerpt: GASとSlack APIを使って、Slackのpublicチャンネル一覧をスプレッドシートに出力する方法を紹介します。
-categories: [18, 64, 65]
-tags: [66, 67, 68, 75]
+categories:
+  - 18
+  - 64
+  - 65
+tags:
+  - 66
+  - 67
+  - 68
+  - 75
 featured_media: 1156
 ---
 
@@ -27,7 +34,7 @@ Slackは手軽にチャンネルを増やすことが出来る一方、手軽す
 
 ボットの作成方法については以前の記事で解説しておりますので、そちらをご確認ください。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/10/eyecatch_slackbot-320x180.png)\
+[![](./assets/eyecatch_slackbot.png)\
 \
 【2021年】ボットを作成してSlack APIをGASから叩く方法 \| SlackAppライブラリ未使用\
 \
@@ -46,7 +53,7 @@ shiimanblog.com\
 
 まず連携させたいスプレッドシートを開きメニューから「ツール」->「スクリプト エディタ」を選択します。するとGASのエディタが開きますので、こちらでプログラムを入力していきます。
 
-[![GAS - 設定1](https://shiimanblog.com/wp-content/uploads/2021/10/gas1-1.png)](https://shiimanblog.com/wp-content/uploads/2021/10/gas1-1.png)
+![GAS - 設定1](./assets/gas1-1.png)
 
 ## 作成するコード
 
@@ -282,7 +289,7 @@ function getChannelObject(types, cursor) {
 
 こちらを実行することで、以下のようにスプレッドシートにSlackのチャンネルの情報を一覧化させることができます。
 
-[![GAS - 設定2](https://shiimanblog.com/wp-content/uploads/2021/10/gas2-1-800x407.png)](https://shiimanblog.com/wp-content/uploads/2021/10/gas2-1.png)
+![GAS - 設定2](./assets/gas2-1.png)
 
 ## 定期実行
 
@@ -294,7 +301,7 @@ function getChannelObject(types, cursor) {
 
 まず左のメニューから「トリガー」を選択し遷移します。
 
-[![GAS - 設定3](https://shiimanblog.com/wp-content/uploads/2021/10/gas3.png)](https://shiimanblog.com/wp-content/uploads/2021/10/gas3.png)
+![GAS - 設定3](./assets/gas3.png)
 
 すると遷移した右下の方に「\+ トリガーを追加」ボタンが表示されていますので、こちらをクリックします。
 
@@ -306,7 +313,7 @@ function getChannelObject(types, cursor) {
 
 時刻を選択: **お好きな時間**
 
-[![GAS - 設定4](https://shiimanblog.com/wp-content/uploads/2021/10/gas4.png)](https://shiimanblog.com/wp-content/uploads/2021/10/gas4.png)
+![GAS - 設定4](./assets/gas4.png)
 
 こちらを設定して保存すれば対象のスクリプトが定時実行されます。
 

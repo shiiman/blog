@@ -3,11 +3,15 @@ id: 1686
 title: 【mac】OSをCatalinaからMontereyにアップデートしたらとんでもないことに&#8230;
 slug: monterey
 status: publish
-date: 2022-07-03T19:30:00
-modified: 2022-07-02T16:42:51
+date: 2022-07-03T19:30:00.000Z
+modified: 2022-07-02T16:42:51.000Z
 excerpt: macOSをCatalinaからMontereyにアップデートした際に発生した問題と、その対処方法を紹介します。
-categories: [106, 18]
-tags: [117, 118]
+categories:
+  - 106
+  - 18
+tags:
+  - 117
+  - 118
 featured_media: 1687
 ---
 

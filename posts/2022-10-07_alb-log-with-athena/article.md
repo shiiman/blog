@@ -3,11 +3,17 @@ id: 1748
 title: 【AWS】Application LoadbalancerのログをAthenaでクエリする方法
 slug: alb-log-with-athena
 status: publish
-date: 2022-10-07T19:30:00
-modified: 2022-10-07T17:57:47
+date: 2022-10-07T19:30:00.000Z
+modified: 2022-10-07T17:57:47.000Z
 excerpt: S3に保存されたALBのアクセスログをAthenaでクエリする方法を、テーブル作成からクエリ実行まで解説します。
-categories: [19, 18, 21]
-tags: [123, 124, 125]
+categories:
+  - 19
+  - 18
+  - 21
+tags:
+  - 123
+  - 124
+  - 125
 featured_media: 1749
 ---
 

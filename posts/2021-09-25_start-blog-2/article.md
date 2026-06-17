@@ -3,11 +3,13 @@ id: 812
 title: ブログ始めるために参考にした書籍4選&Youtuber3名!!
 slug: start-blog-2
 status: publish
-date: 2021-09-25T19:30:00
-modified: 2021-09-21T18:23:35
+date: 2021-09-25T19:30:00.000Z
+modified: 2021-09-21T18:23:35.000Z
 excerpt: ブログを始める際に参考にした書籍4冊とYouTuber3名を、それぞれの特徴と学べる内容とともに紹介します。
-categories: [17]
-tags: [6]
+categories:
+  - 17
+tags:
+  - 6
 featured_media: 829
 ---
 

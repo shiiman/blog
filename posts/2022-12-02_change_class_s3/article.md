@@ -3,11 +3,14 @@ id: 1808
 title: 【AWS】S3ストレージクラス変更時の注意点
 slug: change-class-s3
 status: publish
-date: 2022-12-02T07:00:00
-modified: 2022-12-01T19:12:48
+date: 2022-12-02T07:00:00.000Z
+modified: 2022-12-01T19:12:48.000Z
 excerpt: S3ストレージクラスの変更時に気をつけるべき注意点を、Terraformでの実装例とともに紹介します。
-categories: [19, 18]
-tags: [79]
+categories:
+  - 19
+  - 18
+tags:
+  - 79
 featured_media: 1810
 ---
 
@@ -140,7 +143,7 @@ AWSではログファイルや、分析情報などをS3に保存することは
 
 そんな場合に下記の様なライフサイクルを設定してストレージクラスを変更します。
 
-[![ライフサイクル設定](https://shiimanblog.com/wp-content/uploads/2022/11/lifecycle-800x457.png)](https://shiimanblog.com/wp-content/uploads/2022/11/lifecycle.png)
+![ライフサイクル設定](./assets/lifecycle.png)
 
 こちらの例では90日経過したファイルはストレージクラスを **Glacier** に変更するというものです。
 
@@ -192,7 +195,7 @@ Glacierの場合:
 
 上記の場合、1$=140円計算では **479,640円** かかります。月の請求に上乗せされてしまうのでかなりのインパクトですよね。グラフで表すと下記のようになってしまうことがあります。これだと将来的に削減されるコストの恩恵はありますが、その月のコストは爆増してしまいますね。
 
-[![ストレージクラス変更によるコスト増加](https://shiimanblog.com/wp-content/uploads/2022/11/change_class_cost-800x298.png)](https://shiimanblog.com/wp-content/uploads/2022/11/change_class_cost.png)
+![ストレージクラス変更によるコスト増加](./assets/change_class_cost.png)
 
 こうなるのを防ぐために、まずは不要なファイルは削除しましょう！
 

@@ -3,11 +3,15 @@ id: 1626
 title: 【mac】Macの初期設定をワンライナーで完結させてみた
 slug: mac-setting
 status: publish
-date: 2022-03-11T19:30:00
-modified: 2022-03-09T15:02:12
+date: 2022-03-11T19:30:00.000Z
+modified: 2022-03-09T15:02:12.000Z
 excerpt: Macの初期設定をシェルスクリプトで自動化する方法を紹介。Homebrewとdefaultsコマンドでワンライナー完結を実現します。
-categories: [106, 18]
-tags: [113, 114]
+categories:
+  - 106
+  - 18
+tags:
+  - 113
+  - 114
 featured_media: 1628
 ---
 
@@ -43,7 +47,7 @@ featured_media: 1628
 
 下記記事でおすすめの設定方法を解説しておりますので、参考にして下さい。
 
-[![](https://shiimanblog.com/wp-content/uploads/2022/02/eyecatch_shell-320x180.png)\
+[![](./assets/eyecatch_shell.png)\
 \
 【mac】シェルをカスタマイズしてみた \|【bash】【zsh】【fish】\
 \
@@ -67,7 +71,7 @@ HomeBrewを使用することで、アプリケーションのインストール
 
 こちらも以前の記事で詳しくまとめておりますので、ぜひ御覧ください。
 
-[![](https://shiimanblog.com/wp-content/uploads/2022/02/eyecatch_homebrew-1-320x180.png)\
+[![](./assets/eyecatch_homebrew-1.png)\
 \
 【mac】HomeBrewでパッケージ管理\|macの初期設定を毎回手動でやっている方必見！\
 \

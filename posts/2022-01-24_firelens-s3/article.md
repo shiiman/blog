@@ -3,11 +3,16 @@ id: 1521
 title: 【AWS】Firelensを使用してS3にログをリアルタイムで出力する方法 | 【Fluentbit】【Kinesis Data Firehose】
 slug: firelens-s3
 status: publish
-date: 2022-01-24T19:30:00
-modified: 2022-01-21T17:31:34
+date: 2022-01-24T19:30:00.000Z
+modified: 2022-01-21T17:31:34.000Z
 excerpt: AWSのFireLensとFluentbit、Kinesis Data Firehoseを使って、コンテナログをS3にリアルタイム出力する方法を解説します。
-categories: [19, 18]
-tags: [98, 99, 100]
+categories:
+  - 19
+  - 18
+tags:
+  - 98
+  - 99
+  - 100
 featured_media: 1524
 ---
 
@@ -29,7 +34,7 @@ featured_media: 1524
 
 今回構築するAWSの全体的な設定は下図のようになっています。
 
-[![システム構成図](https://shiimanblog.com/wp-content/uploads/2022/01/firelens_diagram-1-800x287.png)](https://shiimanblog.com/wp-content/uploads/2022/01/firelens_diagram-1.png)
+![システム構成図](./assets/firelens_diagram-1.png)
 
 ログを扱う時は以下の点に注意して設計するようにしましょう。
 
@@ -213,7 +218,7 @@ Firelensを使用するとログを特定する場合 「 **\[コンテナ名\]-
 
 AWSコンソールから「 **Create delivery stream**」を押します。
 
-[![firehose - 設定1](https://shiimanblog.com/wp-content/uploads/2022/01/firehose_setting1-800x178.png)](https://shiimanblog.com/wp-content/uploads/2022/01/firehose_setting1.png)
+![firehose - 設定1](./assets/firehose_setting1.png)
 
 するとdelivery stream作成画面に遷移しますので、下記を設定します。
 
@@ -223,13 +228,13 @@ AWSコンソールから「 **Create delivery stream**」を押します。
 
 「 **Delivery stream name**」に 先程delivery\_streamに設定した名前
 
-[![firehose - 設定2](https://shiimanblog.com/wp-content/uploads/2022/01/firehose_setting2-800x649.png)](https://shiimanblog.com/wp-content/uploads/2022/01/firehose_setting2.png)
+![firehose - 設定2](./assets/firehose_setting2.png)
 
 そして最後に出力先バケットを指定します。
 
 最初に定義したとおり、今回は「 **firelens-test-bucket**」を指定します。
 
-[![firehose - 設定3](https://shiimanblog.com/wp-content/uploads/2022/01/firehose_setting3-800x193.png)](https://shiimanblog.com/wp-content/uploads/2022/01/firehose_setting3.png)
+![firehose - 設定3](./assets/firehose_setting3.png)
 
 S3に出力する場合、ディレクトリを指定したり、圧縮設定をしたりといったことが可能ですので、必要な場合は利用してみましょう！
 

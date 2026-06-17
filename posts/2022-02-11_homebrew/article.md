@@ -3,11 +3,16 @@ id: 1580
 title: 【mac】HomeBrewでパッケージ管理|macの初期設定を毎回手動でやっている方必見！
 slug: homebrew
 status: publish
-date: 2022-02-11T19:30:00
-modified: 2022-02-11T12:27:06
+date: 2022-02-11T19:30:00.000Z
+modified: 2022-02-11T12:27:06.000Z
 excerpt: MacのパッケージマネージャーHomebrewとmasの導入方法を解説。PCの初期設定を効率化する第一歩を紹介します。
-categories: [106, 18]
-tags: [107, 108, 109]
+categories:
+  - 106
+  - 18
+tags:
+  - 107
+  - 108
+  - 109
 featured_media: 1591
 ---
 
@@ -165,7 +170,7 @@ brew bundle dump
 
 下記のようなファイルが出来上がっていると思います。
 
-[![Brewfile](https://shiimanblog.com/wp-content/uploads/2022/02/brewfile.png)](https://shiimanblog.com/wp-content/uploads/2022/02/brewfile.png)
+![Brewfile](./assets/brewfile.png)
 
 **cask** や **mas** については全てのアプリがリスト化されない場合があります。
 

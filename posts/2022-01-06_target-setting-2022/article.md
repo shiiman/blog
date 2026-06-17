@@ -3,11 +3,14 @@ id: 1418
 title: 【2022年】みんなもやってみよう！今年の目標設定〜
 slug: target-setting-2022
 status: publish
-date: 2022-01-06T19:30:00
-modified: 2022-05-13T00:38:40
+date: 2022-01-06T19:30:00.000Z
+modified: 2022-05-13T00:38:40.000Z
 excerpt: 2022年の目標設定を公開。仕事・投資・副業・プライベートの各分野で具体的な目標を設定する方法を紹介します。
-categories: [2]
-tags: [90, 91]
+categories:
+  - 2
+tags:
+  - 90
+  - 91
 featured_media: 1420
 ---
 

@@ -3,19 +3,24 @@ id: 82
 title: 【WordPress】おすすめのプラグイン Part 1 〜 BackWPup 〜
 slug: backwpup
 status: publish
-date: 2021-09-01T19:30:00
-modified: 2021-09-24T21:40:59
+date: 2021-09-01T19:30:00.000Z
+modified: 2021-09-24T21:40:59.000Z
 excerpt: WordPressのバックアップを自動化するプラグイン「BackWPup」の導入から設定方法まで、初心者にもわかりやすく解説します。
-categories: [10, 3]
-tags: [6, 23, 24]
+categories:
+  - 10
+  - 3
+tags:
+  - 6
+  - 23
+  - 24
 featured_media: 84
 ---
 
-前回の記事で [ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM) ![](https://www19.a8.net/0.gif?a8mat=3HKUB1+DBVECY+50+5SI7RM)でWordPressを導入するところまで行いました。
+前回の記事で [ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM) でWordPressを導入するところまで行いました。
 
 ブログ開設までの流れを解説しておりますので、そちらも合わせて御覧ください。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/cw-320x180.png)\
+[![](./assets/cw.png)\
 \
 【2021年8月】初心者がConoHa WINGでWordpressを始めたので手順を1からまとめてみた\
 \
@@ -75,7 +80,7 @@ WordPressのバックアップの設定を出来る **BackWPup** というプラ
 
 よって私は追加で **BackWPup** を設定しています。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/Screenshot-2-1024x417.png)](https://shiimanblog.com/wp-content/uploads/2021/08/Screenshot-2.png)
+![](./assets/Screenshot-2.png)
 
 ## BackWPupの設定手順
 
@@ -91,7 +96,7 @@ WordPressの画面から設定を行っていきます。
 
 すると関連の強いプラグインが表示されます。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/1-1-1024x545.jpg)](https://shiimanblog.com/wp-content/uploads/2021/08/1-1.jpg)
+![](./assets/1-1.jpg)
 
 ### インストール
 
@@ -101,7 +106,7 @@ WordPressの画面から設定を行っていきます。
 
 インストールが終わると「今すぐインストール」ボタンが「有効化」ボタンに変わりますので、そちらをクリックすると有効になります。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/2-1.png)](https://shiimanblog.com/wp-content/uploads/2021/08/2-1.png)
+![](./assets/2-1.png)
 
 ### ジョブの設定
 
@@ -111,7 +116,7 @@ WordPressの画面から設定を行っていきます。
 
 選択画面の上部に新規追加ボタンがありますので、こちらをクリックします。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/3-1024x545.jpg)](https://shiimanblog.com/wp-content/uploads/2021/08/3.jpg)
+![](./assets/3.jpg)
 
 するとバックアップジョブの設定が表示されます。
 
@@ -123,7 +128,7 @@ WordPressの画面から設定を行っていきます。
 
 設定できましたら、忘れずに「設定を保存」ボタンを押しましょう。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/4-998x1024.jpg)](https://shiimanblog.com/wp-content/uploads/2021/08/4.jpg)
+![](./assets/4.jpg)
 
 次に「スケジュール」タブを開きます。
 
@@ -135,7 +140,7 @@ WordPressの画面から設定を行っていきます。
 
 設定できたら「変更を保存」ボタンを押しましょう。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/5-1024x637.jpg)](https://shiimanblog.com/wp-content/uploads/2021/08/5.jpg)
+![](./assets/5.jpg)
 
 ここまで設定できたらバックアップ設定の完了です。
 
@@ -151,7 +156,7 @@ WordPressの画面から設定を行っていきます。
 
 プラグインの導入やアップデート前は必ずバックアップを取る癖をつけましょう。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/6-1024x504.jpg)](https://shiimanblog.com/wp-content/uploads/2021/08/6.jpg)
+![](./assets/6.jpg)
 
 実際にバックアップされたファイルはConoHa ファイルマネージャーから確認することができます。
 
@@ -159,11 +164,11 @@ WordPressの画面から設定を行っていきます。
 [ドメイン]/wp-content/uploads/backwpup-[文字列]-backups
 ```
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/Screenshot-3-1024x658.png)](https://shiimanblog.com/wp-content/uploads/2021/08/Screenshot-3.png)
+![](./assets/Screenshot-3.png)
 
 保存されるディレクトリを変更したい場合は設定から変更可能です。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/08/Screenshot-1-2-1024x541.jpg)](https://shiimanblog.com/wp-content/uploads/2021/08/Screenshot-1-2.jpg)
+![](./assets/Screenshot-1-2.jpg)
 
 ## まとめ
 

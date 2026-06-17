@@ -3,11 +3,15 @@ id: 1287
 title: 【Golang】OAuth2.0を実装する方法/Google認証
 slug: golang-oauth2
 status: publish
-date: 2021-12-03T12:00:00
-modified: 2022-11-04T17:41:25
+date: 2021-12-03T12:00:00.000Z
+modified: 2022-11-04T17:41:25.000Z
 excerpt: GolangでGoogleのOAuth2.0認証を実装する方法をサンプルコード付きで解説。アドベントカレンダー2021の記事です。
-categories: [18, 60]
-tags: [85, 86]
+categories:
+  - 18
+  - 60
+tags:
+  - 85
+  - 86
 featured_media: 1290
 ---
 
@@ -59,7 +63,7 @@ OAuth2.0には [RFC 6749](https://tools.ietf.org/html/rfc6749) (The OAuth 2.0 A
 
 今回は実際に認証アプリを作成する際によく使用される、RFC 6749, [4.1. Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) で定義されている認可フローついてを紹介します。
 
-[![OAuth2.0 - シーケンス図](https://shiimanblog.com/wp-content/uploads/2021/11/1bd64ca7670b2417de6b176be337397a-1-800x762.png)](https://shiimanblog.com/wp-content/uploads/2021/11/1bd64ca7670b2417de6b176be337397a-1.png)
+![OAuth2.0 - シーケンス図](./assets/1bd64ca7670b2417de6b176be337397a-1.png)
 
 図にあるように登場人物は「 **ブラウザ**」「 **クライアントアプリ**」「 **サーバアプリ**」「 **認可サーバ**」の4人です。そして今回Golangの実装を紹介するのは「サーバアプリ」の部分になります。アプリを実際に作成する際は「クライアントアプリ」の実装も必要です。
 
@@ -155,7 +159,7 @@ https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id={client_
 
 クライアントから認証画面にリダイレクトさせるとユーザにスプレッドシートへのアクセスを許可するか確認する画面が開きます。許可がされたら、アプリ側にリダイレクトされるのでクライアントアプリ側でそのアクセスポイントを作成しておきましょう。
 
-[![Google認可](https://shiimanblog.com/wp-content/uploads/2021/11/370389726c4cf5ee3904949f4f72edc7.png)](https://shiimanblog.com/wp-content/uploads/2021/11/370389726c4cf5ee3904949f4f72edc7.png)
+![Google認可](./assets/370389726c4cf5ee3904949f4f72edc7.png)
 
 認可サーバから返却されるcallbackは下記のようなURLになります。
 
@@ -196,7 +200,7 @@ func Link() error {
 
 **google\_authテーブル**
 
-[![認可情報保存テーブル](https://shiimanblog.com/wp-content/uploads/2021/11/table.png)](https://shiimanblog.com/wp-content/uploads/2021/11/table.png)
+![認可情報保存テーブル](./assets/table.png)
 
 ここまでのステップ4までで認証処理は終わりです。
 

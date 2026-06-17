@@ -3,11 +3,17 @@ id: 1782
 title: 【AWS】WAFのログをAthenaでクエリする方法
 slug: waf-log-with-athena
 status: publish
-date: 2022-10-12T19:30:00
-modified: 2022-10-11T12:06:53
+date: 2022-10-12T19:30:00.000Z
+modified: 2022-10-11T12:06:53.000Z
 excerpt: S3に保存されたAWS WAFのログをAthenaでクエリする方法を、テーブル作成からクエリ実行まで解説します。
-categories: [19, 18, 21]
-tags: [83, 124, 125]
+categories:
+  - 19
+  - 18
+  - 21
+tags:
+  - 83
+  - 124
+  - 125
 featured_media: 1784
 ---
 
@@ -17,7 +23,7 @@ featured_media: 1784
 
 まだご覧になっていない方はぜひこちらも御覧ください。
 
- [![](https://shiimanblog.com/wp-content/uploads/2022/10/eyecatch_api_gateway_log_with_athena-320x180.jpg)\
+ [![](./assets/eyecatch_api_gateway_log_with_athena.jpg)\
 \
 【AWS】API GatewayのログをAthenaでクエリする方法\
 \

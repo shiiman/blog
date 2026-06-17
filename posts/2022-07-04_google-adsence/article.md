@@ -3,11 +3,13 @@ id: 1692
 title: Google AdSence登録手順
 slug: google-adsence
 status: publish
-date: 2022-07-04T19:30:00
-modified: 2022-07-03T14:40:37
+date: 2022-07-04T19:30:00.000Z
+modified: 2022-07-03T14:40:37.000Z
 excerpt: Google AdSenseの登録手順と審査に通るまでの経緯を紹介。半年ぶりの申請で審査通過した体験談です。
-categories: [12]
-tags: [119]
+categories:
+  - 12
+tags:
+  - 119
 featured_media: 1693
 ---
 
@@ -31,15 +33,15 @@ Google AdSenceとはその名の通りGoogleが提供する、ご自身のサイ
 
 まずは [ホームページ](https://www.google.com/intl/ja_jp/adsense/start/) にアクセスし、「ご利用開始」ボタンをクリックします。
 
-[![登録 - 1](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration-800x415.jpg)](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration.jpg)
+![登録 - 1](./assets/adsence_registration.jpg)
 
 お申し込み画面に遷移したら、「ご自身のウェブサイトのURL」「メールアドレス」を入力し「保存して次へ」をクリックします。
 
-[![登録 - 2](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration2-800x1119.png)](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration2.png)
+![登録 - 2](./assets/adsence_registration2.png)
 
 次に「国または地域」を選択し、利用規約にチェックを入れて「アカウント作成」をクリックします。
 
-[![登録 - 4](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration3-1-800x1054.png)](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration3-1.png)
+![登録 - 4](./assets/adsence_registration3-1.png)
 
 こちらでアカウントの作成は完了です。
 
@@ -55,7 +57,7 @@ Google AdSenceとはその名の通りGoogleが提供する、ご自身のサイ
 
 こちらで取得したコードをご自身のサイトに埋め込みますので、控えておきましょう。
 
-[![登録 - 5](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration5-1-800x508.jpg)](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration5-1.jpg)
+![登録 - 5](./assets/adsence_registration5-1.jpg)
 
 次にご自身のWord PressのCocoo設定画面に移ります。
 
@@ -63,23 +65,23 @@ Google AdSenceとはその名の通りGoogleが提供する、ご自身のサイ
 
 保存時にエラーになる場合はファイヤーウォール設定などをご確認ください。
 
-私の場合は **[ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM)![](https://www19.a8.net/0.gif?a8mat=3HKUB1+DBVECY+50+5SI7RM)** でWord Pressを実行しているので、そのWAFが原因でエラーになります。そこで設定を行う際は一時的にWAFをOFFにします。
+私の場合は **[ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM)** でWord Pressを実行しているので、そのWAFが原因でエラーになります。そこで設定を行う際は一時的にWAFをOFFにします。
 
-[![登録 - 6](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration6-800x265.png)](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration6.png)
+![登録 - 6](./assets/adsence_registration6.png)
 
 サイトにコードが埋め込めたらAdSence画面に戻り、「サイトコードを貼り付けました」にチェックを入れて「完了」をクリックします。
 
-[![登録 - 7](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration7.png)](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration7.png)
+![登録 - 7](./assets/adsence_registration7.png)
 
 正しくコードが埋め込めていたら、AdSence画面で「 **コードが見つかりました**」と表示されます。
 
-[![登録 - 8](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration8-800x358.png)](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration8.png)
+![登録 - 8](./assets/adsence_registration8.png)
 
 こちらで審査登録はおしまいです。
 
 下記のように「 **お客様のサイトを審査しています**」と表示されるので、結果が出るまで待ちましょう。
 
-[![登録 - 9](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration9-800x200.png)](https://shiimanblog.com/wp-content/uploads/2022/07/adsence_registration9.png)
+![登録 - 9](./assets/adsence_registration9.png)
 
 ## 審査結果確認
 
@@ -89,7 +91,7 @@ Google AdSenceとはその名の通りGoogleが提供する、ご自身のサイ
 
 私の場合はブログの記事や内容などを更新して **4回ほどチャレンジ** しましたが、全部こちらのメールでした。正直「何をどうすればいいねん。」ていう感じでした。
 
-[![登録 - 10](https://shiimanblog.com/wp-content/uploads/2022/07/mail2-800x755.jpg)](https://shiimanblog.com/wp-content/uploads/2022/07/mail2.jpg)
+![登録 - 10](./assets/mail2.jpg)
 
 なので、Google AdSenseの通過は結構諦めていました。
 
@@ -99,7 +101,7 @@ Google AdSenceとはその名の通りGoogleが提供する、ご自身のサイ
 
 もう本当に拍子抜けってくらい簡単に **審査に通ったんです！**
 
-[![登録 - 11](https://shiimanblog.com/wp-content/uploads/2022/07/mail.jpg)](https://shiimanblog.com/wp-content/uploads/2022/07/mail.jpg)
+![登録 - 11](./assets/mail.jpg)
 
 おそらくですが、期間が半年ほど経ったことでクローラーがちゃんと情報を集め終わって、安定的に検索に引っかかるようになったことでアクセスが増え、 **審査基準をクリア** したんじゃないかなと思います。
 

@@ -11,8 +11,11 @@ export interface RedirectsInput {
 }
 
 const STATIC_RULES = [
+  '/feed              /rss.xml   301',
   '/feed/             /rss.xml   301',
-  '/comments/feed/   /rss.xml   301',
+  '/comments/feed     /rss.xml   301',
+  '/comments/feed/    /rss.xml   301',
+  '/*/feed            /rss.xml   301',
   '/*/feed/           /rss.xml   301',
 ]
 

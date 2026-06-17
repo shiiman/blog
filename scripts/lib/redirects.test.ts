@@ -27,10 +27,13 @@ describe('selectRedirectTerms', () => {
 })
 
 describe('buildRedirects', () => {
-  it('静的ルール（/feed/ 系 → /rss.xml）を含む', () => {
+  it('静的ルール（/feed 系 → /rss.xml）を含む（スラッシュあり・なし両方）', () => {
     const text = buildRedirects({ categories: [], tags: [] })
+    expect(text).toContain('/feed ')
     expect(text).toContain('/feed/')
+    expect(text).toContain('/comments/feed ')
     expect(text).toContain('/comments/feed/')
+    expect(text).toContain('/*/feed ')
     expect(text).toContain('/*/feed/')
     expect(text).toContain('/rss.xml')
   })

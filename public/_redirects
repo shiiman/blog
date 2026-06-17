@@ -1,6 +1,9 @@
 # Feeds → RSS
+/feed              /rss.xml   301
 /feed/             /rss.xml   301
-/comments/feed/   /rss.xml   301
+/comments/feed     /rss.xml   301
+/comments/feed/    /rss.xml   301
+/*/feed            /rss.xml   301
 /*/feed/           /rss.xml   301
 
 # Category（日本語slug → enSlug）

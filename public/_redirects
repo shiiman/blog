@@ -1,0 +1,30 @@
+# Feeds → RSS
+/feed/             /rss.xml   301
+/comments/feed/   /rss.xml   301
+/*/feed/           /rss.xml   301
+
+# Category（日本語slug → enSlug）
+/category/%e7%af%80%e7%b4%84/ /category/savings/ 301
+
+# Tag（日本語slug → enSlug）
+/tag/%e3%83%a1%e3%83%bc%e3%83%ab/ /tag/mail/ 301
+/tag/%e3%83%9e%e3%83%8d%e3%83%bc%e3%83%95%e3%82%a9%e3%83%af%e3%83%bc%e3%83%89me/ /tag/moneyforward-me/ 301
+/tag/%e3%82%ad%e3%83%bc%e3%83%af%e3%83%bc%e3%83%89%e3%83%97%e3%83%a9%e3%83%b3%e3%83%8a%e3%83%bc/ /tag/keyword-planner/ 301
+/tag/%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88/ /tag/affiliate/ 301
+/tag/%e3%83%90%e3%83%aa%e3%83%a5%e3%83%bc%e3%82%b3%e3%83%9e%e3%83%bc%e3%82%b9/ /tag/valuecommerce/ 301
+/tag/%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa/ /tag/tsumitate-nisa/ 301
+/tag/%e3%83%9e%e3%83%8d%e3%83%aa%e3%83%86%e5%ad%a6%e5%9c%92/ /tag/manerite-gakuen/ 301
+/tag/%e5%a4%a7%e6%b2%b3%e5%86%85-%e8%96%ab/ /tag/ohkouchi-kaoru/ 301
+/tag/%e7%a8%8e%e9%87%91/ /tag/tax/ 301
+/tag/google%e8%aa%8d%e8%a8%bc/ /tag/google-auth/ 301
+/tag/%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%83%89/ /tag/accesstrade/ 301
+/tag/%e6%96%b0%e5%b9%b4/ /tag/new-year/ 301
+/tag/%e7%9b%ae%e6%a8%99%e8%a8%ad%e5%ae%9a/ /tag/goal-setting/ 301
+/tag/%e3%83%9e%e3%83%b3%e3%82%ac/ /tag/manga/ 301
+/tag/%e7%95%b0%e4%b8%96%e7%95%8c/ /tag/isekai/ 301
+/tag/%e6%a5%bd%e5%a4%a9%e9%8a%80%e8%a1%8c/ /tag/rakuten-bank/ 301
+/tag/%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8/ /tag/rakuten-securities/ 301
+/tag/%e3%82%a4%e3%82%aa%e3%83%b3%e9%8a%80%e8%a1%8c/ /tag/aeon-bank/ 301
+/tag/%e3%81%82%e3%81%8a%e3%81%9e%e3%82%89%e9%8a%80%e8%a1%8c/ /tag/aozora-bank/ 301
+/tag/%e5%80%8b%e4%ba%ba%e4%ba%8b%e6%a5%ad%e4%b8%bb/ /tag/sole-proprietor/ 301
+/tag/%e3%83%95%e3%83%aa%e3%83%bc%e3%83%a9%e3%83%b3%e3%82%b9/ /tag/freelance/ 301

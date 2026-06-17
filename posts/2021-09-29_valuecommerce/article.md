@@ -18,7 +18,7 @@ eyecatch: ./assets/eyecatch.png
 
 こんばんは、しーまんです。
 
-アフェリエイト初心者の方でまだ [![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393810)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) に登録していない方はいますでしょうか？
+アフェリエイト初心者の方でまだ [バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) に登録していない方はいますでしょうか？
 
 バリューコマースは日本で始めてアフェリエイトを始めた老舗のASPです。
 
@@ -26,11 +26,10 @@ eyecatch: ./assets/eyecatch.png
 
 今回はそんなバリューコマースの登録手順を解説していきます。
 
- ![](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393813)
-
+ 
 ## バリューコマースとは
 
-[![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393810)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) は老舗アフェリエイトASPです。一番最初に思いつくのはYahoo!ショッピングの案件でしょう。Yahoo!ショッピングの案件を紹介したい場合 [![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393810)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) は登録必須になります。
+[バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) は老舗アフェリエイトASPです。一番最初に思いつくのはYahoo!ショッピングの案件でしょう。Yahoo!ショッピングの案件を紹介したい場合 [バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) は登録必須になります。
 
 また下記のような大手企業案件も扱っています。
 
@@ -45,11 +44,11 @@ eyecatch: ./assets/eyecatch.png
 
 それでは早速バリューコマースの登録方法を確認していきましょう。
 
-まずは下記から [![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393810)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の登録ページにアクセスします。
+まずは下記から [バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の登録ページにアクセスします。
 
 \\Yahoo!ショッピングなど初心者でも簡単な広告を提供！無料で登録して始めよう！！/
 
-[![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393810)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810)
+[バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810)
 
 登録ページに遷移したら「 **無料会員登録をしてアフェリエイトを始める**」をクリックします。
 
@@ -99,7 +98,7 @@ eyecatch: ./assets/eyecatch.png
 
 登録申請が完了すると審査を行う旨のメールが届きます。
 
-[![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393810)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の **審査には数日かかります** ので、先にメールに記載してあるパスワードの設定を行いましょう。
+[バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の **審査には数日かかります** ので、先にメールに記載してあるパスワードの設定を行いましょう。
 
 メールに記載のある「 **ログイン手順**」のURLにアクセスしましょう。
 
@@ -117,7 +116,7 @@ eyecatch: ./assets/eyecatch.png
 
 ### 審査通過の確認
 
-[![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393810)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の申請をして、パスワードの設定が完了したら、後は **審査結果がメールでくる** まで待ちます。
+[バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の申請をして、パスワードの設定が完了したら、後は **審査結果がメールでくる** まで待ちます。
 
 私の場合は申請してから **3日で結果が来ました**。おそらく数日は状況に応じて前後するはずなので、気長に待ちましょう。
 
@@ -129,7 +128,7 @@ eyecatch: ./assets/eyecatch.png
 
 ## まとめ
 
-今回はアフェリエイト大手の [![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393810)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の登録方法を解説しました。
+今回はアフェリエイト大手の [バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の登録方法を解説しました。
 
 実際の登録の流れや、登録申請から承認までどのくらいの期間がかかるのか。まだ登録していない方にとっては参考になったのではないでしょうか。
 

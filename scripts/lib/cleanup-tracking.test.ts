@@ -18,4 +18,8 @@ describe('stripTrackingImages', () => {
     const input = '![alt](./assets/foo.png)\n[a8リンク](https://px.a8.net/abc)'
     expect(stripTrackingImages(input)).toBe(input)
   })
+  it('プロトコル相対URLのトラッキング画像も除去しリンクは保持する', () => {
+    const input = '[![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=1&pid=2)バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=1&pid=2)'
+    expect(stripTrackingImages(input)).toBe('[バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=1&pid=2)')
+  })
 })

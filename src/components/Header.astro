@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro'
+import SearchOverlay from './SearchOverlay.astro'
 ---
 <header class="site-header">
   <div class="container inner">
@@ -8,10 +9,12 @@ import ThemeToggle from './ThemeToggle.astro'
       <a href="/">記事</a>
       <a href="/profile/">プロフィール</a>
       <a href="/contact/">お問い合わせ</a>
+      <button id="search-open" type="button" class="icon-btn" aria-label="検索" title="検索">🔍</button>
       <ThemeToggle />
     </nav>
   </div>
 </header>
+<SearchOverlay />
 
 <style>
   .site-header { border-bottom: 1px solid var(--border); }
@@ -20,4 +23,10 @@ import ThemeToggle from './ThemeToggle.astro'
   .nav { display: flex; align-items: center; gap: 18px; font-size: 0.9rem; }
   .nav a { color: var(--text-muted); }
   .nav a:hover { color: var(--accent); text-decoration: none; }
+  .icon-btn {
+    background: none; border: 1px solid var(--border); color: var(--text);
+    border-radius: 6px; width: 34px; height: 34px; cursor: pointer;
+    font-size: 14px; line-height: 1;
+  }
+  .icon-btn:hover { background: var(--bg-subtle); }
 </style>

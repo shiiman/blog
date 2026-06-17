@@ -5,6 +5,7 @@ import PostMeta from '../components/PostMeta.astro'
 import TagList from '../components/TagList.astro'
 import TableOfContents from '../components/TableOfContents.astro'
 import PrevNext from '../components/PrevNext.astro'
+import Comments from '../components/Comments.astro'
 import type { MarkdownHeading } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 import type { ResolvedTaxonomy } from '../lib/taxonomy'
@@ -32,6 +33,7 @@ const ogImage = eyecatch?.src
       </div>
       <TagList tags={tags} />
       <PrevNext prev={prev} next={next} />
+      <Comments />
     </article>
     <aside class="sidebar">
       <div class="toc-sticky">

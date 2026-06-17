@@ -1,0 +1,79 @@
+---
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? ''
+---
+<form id="contact-form" class="contact-form">
+  <label>お名前
+    <input name="name" type="text" required maxlength="100" autocomplete="name" />
+  </label>
+  <label>メールアドレス
+    <input name="email" type="email" required maxlength="200" autocomplete="email" />
+  </label>
+  <label>題名
+    <input name="subject" type="text" required maxlength="200" />
+  </label>
+  <label>メッセージ
+    <textarea name="message" required maxlength="5000" rows="6"></textarea>
+  </label>
+  <div class="cf-turnstile" data-sitekey={siteKey}></div>
+  <button type="submit">送信する</button>
+  <p id="contact-status" class="status" role="status" aria-live="polite"></p>
+</form>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null
+  const status = document.getElementById('contact-status') as HTMLElement | null
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    if (!status) return
+    status.textContent = '送信中...'
+    // 送信中は二重送信を防ぐためボタンを無効化
+    if (submitBtn) submitBtn.disabled = true
+    const fd = new FormData(form)
+    const payload = {
+      name: fd.get('name'),
+      email: fd.get('email'),
+      subject: fd.get('subject'),
+      message: fd.get('message'),
+      token: fd.get('cf-turnstile-response'),
+    }
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      const data = await res.json()
+      status.textContent = data.message ?? (res.ok ? '送信しました。' : '送信に失敗しました。')
+      if (res.ok && data.ok) {
+        form.reset()
+        // @ts-ignore Turnstile グローバル
+        window.turnstile?.reset()
+      }
+    } catch {
+      status.textContent = '送信に失敗しました。時間をおいて再度お試しください。'
+    } finally {
+      // 成功・失敗・例外いずれの場合もボタンを再有効化
+      if (submitBtn) submitBtn.disabled = false
+    }
+  })
+</script>
+
+<style>
+  .contact-form { display: flex; flex-direction: column; gap: 14px; margin-top: 1.5rem; }
+  .contact-form label { display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--text-muted); }
+  .contact-form input, .contact-form textarea {
+    font-family: var(--font-sans); font-size: 1rem; padding: 10px 12px;
+    background: var(--bg-subtle); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--accent); }
+  .contact-form button {
+    align-self: flex-start; background: var(--accent); color: #fff;
+    border: none; border-radius: 8px; padding: 10px 20px; font-size: 1rem; cursor: pointer;
+  }
+  .contact-form button:hover { background: var(--accent-hover); }
+  .status { font-size: 0.9rem; color: var(--text-muted); min-height: 1.2em; }
+</style>

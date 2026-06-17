@@ -303,6 +303,36 @@ Error: connection refused / timeout
 - サイトが稼働中か確認: `curl -I https://shiimanblog.com`
 - WordPress REST API が有効か確認: `curl https://shiimanblog.com/wp-json/wp/v2/posts`
 
+## 環境変数（計画3: 動的機能）
+
+`.env`（公開値）と `.dev.vars`（秘密値・ローカル wrangler 用）はいずれも **手動作成**します（gitignore 済み）。本番値の Cloudflare 投入は計画4。
+
+### 公開値（`.env`、ビルドに埋め込まれる）
+| キー | 用途 |
+|---|---|
+| `PUBLIC_TURNSTILE_SITE_KEY` | Turnstile ウィジェット（問い合わせ） |
+| `PUBLIC_GISCUS_REPO` | giscus 対象リポジトリ（例 `shiiman/blog`） |
+| `PUBLIC_GISCUS_REPO_ID` | giscus リポジトリID |
+| `PUBLIC_GISCUS_CATEGORY` | giscus カテゴリ名 |
+| `PUBLIC_GISCUS_CATEGORY_ID` | giscus カテゴリID |
+
+### 秘密値（`.dev.vars`、Functions のみ参照）
+| キー | 用途 |
+|---|---|
+| `TURNSTILE_SECRET_KEY` | Turnstile サーバー検証 |
+| `RESEND_API_KEY` | Resend メール送信 |
+| `CONTACT_FROM_EMAIL` | 送信元（例 `noreply@shiimanblog.com`） |
+| `CONTACT_TO_EMAIL` | 受信先（問い合わせ通知先） |
+
+### ローカル検証
+```bash
+npm run build      # astro build + pagefind インデックス生成
+npm run preview    # 検索・コメント（giscus）の確認
+npm run pages:dev  # 問い合わせ Functions の確認（http://localhost:8788/contact/）
+```
+
+> 初回の `npm run pages:dev` で wrangler の依存（workerd）のビルド承認を求められた場合は `npm approve-builds` を実行してください（`npm run build` / `npm test` には不要）。
+
 ## ライセンス
 
 Private

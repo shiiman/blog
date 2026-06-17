@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content'
 import PostLayout from '../layouts/PostLayout.astro'
 import PageLayout from '../layouts/PageLayout.astro'
+import ContactForm from '../components/ContactForm.astro'
 import { getPublishedPosts } from '../lib/posts'
 import type { GetStaticPaths } from 'astro'
 
@@ -50,5 +51,6 @@ const { Content, headings } = await render(props.entry)
 ) : (
   <PageLayout entry={props.entry}>
     <Content />
+    {props.entry.data.slug === 'contact' && <ContactForm slot="after-content" />}
   </PageLayout>
 )}

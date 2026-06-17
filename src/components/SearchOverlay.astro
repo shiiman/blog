@@ -1,0 +1,135 @@
+---
+// Pagefind を使うオーバーレイ検索。Header から呼び出す。
+---
+<div id="search-overlay" class="search-overlay" hidden role="dialog" aria-modal="true" aria-label="サイト内検索">
+  <div class="search-modal">
+    <button id="search-close" class="search-close" type="button" aria-label="検索を閉じる">×</button>
+    <input
+      id="search-input"
+      type="search"
+      autocomplete="off"
+      placeholder="記事を検索..."
+      aria-label="検索キーワード"
+    />
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
+
+<style>
+  .search-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 10vh 20px 20px;
+  }
+  .search-overlay[hidden] { display: none; }
+  .search-modal {
+    position: relative;
+    width: 100%; max-width: var(--max-width);
+    background: var(--bg); color: var(--text);
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px; max-height: 70vh; overflow-y: auto;
+  }
+  .search-close {
+    position: absolute; top: 10px; right: 12px;
+    background: none; border: none;
+    color: var(--text-muted); font-size: 1.4rem; cursor: pointer;
+    line-height: 1; padding: 0;
+  }
+  .search-close:hover { color: var(--text); }
+  #search-input {
+    width: 100%; font-size: 1rem; padding: 10px 12px;
+    background: var(--bg-subtle); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    font-family: var(--font-sans);
+  }
+  #search-input:focus { outline: 2px solid var(--accent); }
+  .search-results { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .search-results :global(a) {
+    display: block; padding: 10px 12px; border-radius: 8px;
+    border: 1px solid var(--border); color: var(--text);
+  }
+  .search-results :global(a:hover) { background: var(--bg-subtle); text-decoration: none; }
+  .search-results :global(strong) { display: block; color: var(--accent); }
+  .search-results :global(span) { display: block; font-size: 0.85rem; color: var(--text-muted); }
+  .search-results :global(p) { color: var(--text-muted); font-size: 0.9rem; }
+</style>
+
+<script is:inline>
+  ;(() => {
+    if (window.__searchOverlayInit) return
+    window.__searchOverlayInit = true
+
+    let pagefind = null
+    let timer = null
+    const overlay = document.getElementById('search-overlay')
+    const input = document.getElementById('search-input')
+    const results = document.getElementById('search-results')
+    const openBtn = document.getElementById('search-open')
+    const closeBtn = document.getElementById('search-close')
+
+    async function loadPagefind() {
+      if (pagefind) return pagefind
+      try {
+        // ビルド後に生成される動的 import
+        pagefind = await import('/pagefind/pagefind.js')
+      } catch {
+        results.replaceChildren()
+        const p = document.createElement('p')
+        p.textContent = '検索はビルド後（npm run build）に有効になります。'
+        results.appendChild(p)
+      }
+      return pagefind
+    }
+
+    function openOverlay() {
+      overlay.hidden = false
+      input.focus()
+      loadPagefind()
+    }
+    function closeOverlay() {
+      overlay.hidden = true
+      input.value = ''
+      results.replaceChildren()
+      openBtn?.focus()
+    }
+
+    openBtn?.addEventListener('click', openOverlay)
+    closeBtn?.addEventListener('click', closeOverlay)
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeOverlay() })
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !overlay.hidden) closeOverlay()
+    })
+
+    input.addEventListener('input', () => {
+      clearTimeout(timer)
+      timer = setTimeout(runSearch, 200)
+    })
+
+    async function runSearch() {
+      const q = input.value.trim()
+      results.replaceChildren()
+      if (!q) return
+      const pf = await loadPagefind()
+      if (!pf) return
+      const search = await pf.search(q)
+      const items = await Promise.all(search.results.slice(0, 10).map((r) => r.data()))
+      if (items.length === 0) {
+        const p = document.createElement('p')
+        p.textContent = '該当する記事がありません。'
+        results.appendChild(p)
+        return
+      }
+      for (const d of items) {
+        const a = document.createElement('a')
+        a.href = d.url
+        const strong = document.createElement('strong')
+        strong.textContent = d.meta?.title ?? ''
+        const span = document.createElement('span')
+        span.textContent = d.excerpt ?? ''
+        a.append(strong, span)
+        results.appendChild(a)
+      }
+    }
+  })()
+</script>

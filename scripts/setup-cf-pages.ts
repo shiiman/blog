@@ -23,7 +23,13 @@ const res = await fetch(
   },
 )
 
-const json = (await res.json()) as { success: boolean; errors: { message: string }[]; result?: { subdomain: string } }
+const text = await res.text()
+let json: { success: boolean; errors: { message: string }[]; result?: { subdomain: string } }
+try {
+  json = JSON.parse(text)
+} catch {
+  throw new Error(`Cloudflare API エラー: HTTP ${res.status}\n${text}`)
+}
 
 if (!json.success) {
   const msg = json.errors.map((e) => e.message).join(', ')

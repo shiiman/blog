@@ -27,13 +27,11 @@ function extractUrls(xml: string): string[] {
 
 /** URLパスを dist の静的ファイルパスへ変換して存在確認 */
 function existsInDist(urlPath: string): boolean {
-  // /foo/bar/ → dist/foo/bar/index.html
-  // /foo/bar  → dist/foo/bar/index.html または dist/foo/bar.html
   const clean = urlPath.replace(/^\//, '').replace(/\/$/, '')
+  if (clean === '') return existsSync(`${DIST_DIR}/index.html`)
   return (
     existsSync(`${DIST_DIR}/${clean}/index.html`) ||
-    existsSync(`${DIST_DIR}/${clean}.html`) ||
-    existsSync(`${DIST_DIR}/${clean}`)
+    existsSync(`${DIST_DIR}/${clean}.html`)
   )
 }
 
@@ -48,10 +46,9 @@ function parseRedirectRules(text: string): ParsedRule[] {
     .split('\n')
     .map((l) => l.trim())
     .filter((l) => l && !l.startsWith('#'))
-    .map((l) => {
-      const [from, to] = l.split(/\s+/)
-      return { from, to }
-    })
+    .map((l) => l.split(/\s+/))
+    .filter((parts) => parts.length >= 2)
+    .map(([from, to]) => ({ from, to }))
 }
 
 /**
@@ -72,7 +69,7 @@ function matchesRedirects(urlPath: string, rules: ParsedRule[]): boolean {
 
 async function main() {
   if (!existsSync(OLD_SITEMAP)) {
-    console.error(`${OLD_SITEMAP} が見つかりません。npm run fetch:old-sitemap を先に実行してください。`)
+    console.error(`${OLD_SITEMAP} が見つかりません。Phase 0 でコミット済みのはずです（git checkout を確認してください）。`)
     process.exit(1)
   }
   if (!existsSync(DIST_DIR)) {
@@ -91,7 +88,7 @@ async function main() {
 
   const missing: string[] = []
   for (const url of urls) {
-    const urlPath = new URL(url).pathname
+    const urlPath = new URL(url).pathname.replace(/%[0-9A-F]{2}/g, (m) => m.toLowerCase())
     if (!existsInDist(urlPath) && !matchesRedirects(urlPath, rules)) {
       missing.push(url)
     }

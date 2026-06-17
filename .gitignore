@@ -36,3 +36,4 @@ Thumbs.db
 .multi-agent-mcp/
 coverage.out
 tools/wp-cli/coverage.out
+node_modules/

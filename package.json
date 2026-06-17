@@ -1,0 +1,17 @@
+{
+  "name": "shiimanblog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "export:wp": "tsx scripts/export-wp-data.ts",
+    "localize:images": "tsx scripts/localize-images.ts",
+    "migrate:frontmatter": "tsx scripts/migrate-frontmatter.ts"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

@@ -30,7 +30,7 @@ eyecatch: ./assets/eyecatch.png
 \
 shiimanblog.com\
 \
-2021.08.31](https://shiimanblog.com/wordpress/conoha-wing/ "【2021年8月】初心者がConoHa WINGでWordpressを始めたので手順を1からまとめてみた")
+2021.08.31](/wordpress/conoha-wing/ "【2021年8月】初心者がConoHa WINGでWordpressを始めたので手順を1からまとめてみた")
 
 さてブログはとりあえず公開することができましたが、
 

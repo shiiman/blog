@@ -3,7 +3,6 @@
 ---
 <div id="search-overlay" class="search-overlay" hidden role="dialog" aria-modal="true" aria-label="サイト内検索">
   <div class="search-modal">
-    <button id="search-close" class="search-close" type="button" aria-label="検索を閉じる">×</button>
     <input
       id="search-input"
       type="search"
@@ -30,13 +29,6 @@
     border: 1px solid var(--border); border-radius: 12px;
     padding: 16px; max-height: 70vh; overflow-y: auto;
   }
-  .search-close {
-    position: absolute; top: 10px; right: 12px;
-    background: none; border: none;
-    color: var(--text-muted); font-size: 1.4rem; cursor: pointer;
-    line-height: 1; padding: 0;
-  }
-  .search-close:hover { color: var(--text); }
   #search-input {
     width: 100%; font-size: 1rem; padding: 10px 12px;
     background: var(--bg-subtle); color: var(--text);
@@ -66,7 +58,6 @@
     const input = document.getElementById('search-input')
     const results = document.getElementById('search-results')
     const openBtn = document.getElementById('search-open')
-    const closeBtn = document.getElementById('search-close')
 
     async function loadPagefind() {
       if (pagefind) return pagefind
@@ -95,7 +86,6 @@
     }
 
     openBtn?.addEventListener('click', openOverlay)
-    closeBtn?.addEventListener('click', closeOverlay)
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closeOverlay() })
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !overlay.hidden) closeOverlay()
@@ -126,7 +116,8 @@
         const strong = document.createElement('strong')
         strong.textContent = d.meta?.title ?? ''
         const span = document.createElement('span')
-        span.textContent = d.excerpt ?? ''
+        // pagefind の excerpt は <mark> 付きHTML。タグがそのまま見えないよう反映する
+        span.innerHTML = d.excerpt ?? ''
         a.append(strong, span)
         results.appendChild(a)
       }

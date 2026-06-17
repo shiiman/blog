@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getCategoryTree } from '../../lib/category-tree'
+
+const tree = await getCategoryTree()
+---
+<BaseLayout title="カテゴリ一覧 - しーまんブログ" description="カテゴリ別の記事一覧">
+  <h1 class="archive-title">カテゴリ一覧</h1>
+  <ul class="cat-tree">
+    {tree.map((p) => (
+      <li>
+        <div class="row parent">
+          <a href={`/category/${p.urlSlug}/`}>{p.name}</a>
+          <span class="count">{p.count}</span>
+        </div>
+        {p.children.length > 0 && (
+          <ul class="children">
+            {p.children.map((c) => (
+              <li class="row">
+                <a href={`/category/${c.urlSlug}/`}>{c.name}</a>
+                <span class="count">{c.count}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+  .archive-title { font-size: 1.5rem; margin: 1rem 0 1.5rem; }
+  .cat-tree, .children { list-style: none; margin: 0; padding: 0; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .cat-tree > li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .parent > a { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+  .children { margin: 10px 0 2px 14px; padding-left: 14px; border-left: 2px solid var(--border); }
+  .children .row { padding: 7px 0; }
+  .cat-tree a { color: var(--text); }
+  .cat-tree a:hover { color: var(--accent); text-decoration: none; }
+  .count {
+    flex: none; font-size: 0.78rem; color: var(--text-muted);
+    background: var(--bg-subtle); border-radius: 999px; padding: 2px 10px;
+  }
+</style>

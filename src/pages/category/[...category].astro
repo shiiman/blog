@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import PostCard from '../../components/PostCard.astro'
+import { getPublishedPosts, type PublishedPost } from '../../lib/posts'
+import { resolveCategory } from '../../lib/taxonomy'
+import type { GetStaticPaths } from 'astro'
+
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts()
+  // urlSlug（階層パス。子は「親/子」）でグルーピング
+  const groups = new Map<string, { name: string; posts: PublishedPost[] }>()
+  for (const post of posts) {
+    for (const stored of post.entry.data.categories) {
+      const { name, urlSlug } = resolveCategory(stored)
+      if (!groups.has(urlSlug)) groups.set(urlSlug, { name, posts: [] })
+      groups.get(urlSlug)!.posts.push(post)
+    }
+  }
+  return [...groups.entries()].map(([urlSlug, g]) => {
+    const parts = urlSlug.split('/')
+    // 子カテゴリは親情報を付与（パンくず表示用）
+    const parent = parts.length > 1 ? resolveCategory(parts[0]) : null
+    return {
+      params: { category: urlSlug },
+      props: {
+        name: g.name,
+        posts: g.posts,
+        parentName: parent?.name ?? null,
+        parentSlug: parts.length > 1 ? parts[0] : null,
+      },
+    }
+  })
+}) satisfies GetStaticPaths
+
+const { name, posts, parentName, parentSlug } = Astro.props
+const fullName = parentName ? `${parentName} › ${name}` : name
+---
+<BaseLayout title={`カテゴリ: ${fullName} - しーまんブログ`} description={`${name}の記事一覧`}>
+  <h1 class="archive-title">
+    カテゴリ: {parentName && (<Fragment><a href={`/category/${parentSlug}/`}>{parentName}</a> › </Fragment>)}{name}
+  </h1>
+  <div class="list">
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+</BaseLayout>
+
+<style>
+  .archive-title { font-size: 1.5rem; margin: 1rem 0 1.5rem; }
+</style>

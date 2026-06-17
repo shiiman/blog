@@ -28,11 +28,14 @@ export async function getPublishedPosts(): Promise<PublishedPost[]> {
     }
     const routeParam = decodeURIComponent(link.path.replace(/^\/+|\/+$/g, ''))
     const primarySlug = routeParam.split('/')[0]
+    // 記事カテゴリのうち最も具体的なもの(子カテゴリ)を優先。無ければURL先頭の親
+    const resolved = entry.data.categories.map((c) => resolveCategory(c))
+    const primaryCategory = resolved.find((c) => c.urlSlug.includes('/')) ?? resolveCategory(primarySlug)
     return {
       entry,
       path: link.path,
       routeParam,
-      primaryCategory: resolveCategory(primarySlug),
+      primaryCategory,
     }
   })
   enriched.sort((a, b) => (a.entry.data.date < b.entry.data.date ? 1 : -1))

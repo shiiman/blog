@@ -57,7 +57,7 @@ eyecatch: ./assets/eyecatch.png
 \
 shiimanblog.com\
 \
-2022.02.25](https://shiimanblog.com/engineering/shell/ "【mac】シェルをカスタマイズしてみた |【bash】【zsh】【fish】")
+2022.02.25](/engineering/shell/ "【mac】シェルをカスタマイズしてみた |【bash】【zsh】【fish】")
 
 ### アプリケーションのインストール
 
@@ -81,7 +81,7 @@ HomeBrewを使用してmacのアプリ導入を管理する方法を紹介しま
 \
 shiimanblog.com\
 \
-2022.02.11](https://shiimanblog.com/engineering/homebrew/ "【mac】HomeBrewでパッケージ管理|macの初期設定を毎回手動でやっている方必見！")
+2022.02.11](/engineering/homebrew/ "【mac】HomeBrewでパッケージ管理|macの初期設定を毎回手動でやっている方必見！")
 
 ### アプリケーションの設定
 

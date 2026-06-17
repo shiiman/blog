@@ -38,7 +38,7 @@ eyecatch: ./assets/eyecatch.png
 \
 shiimanblog.com\
 \
-2021.10.06](https://shiimanblog.com/fire/nisa-202110/ "【つみたてNISA】15ヶ月目の運用実績公開！| 2021年10月")
+2021.10.06](/fire/nisa-202110/ "【つみたてNISA】15ヶ月目の運用実績公開！| 2021年10月")
 
 ## 17ヶ月目の運用実績
 

@@ -24,7 +24,7 @@ const ogImage = eyecatch?.src
 ---
 <BaseLayout title={`${title} - shiimanblog`} description={excerpt} ogImage={ogImage} ogType="article">
   <div class="post-grid">
-    <article class="post">
+    <article class="post" data-pagefind-body>
       {eyecatch && <Image class="hero" src={eyecatch} alt={title} width={720} />}
       <h1>{title}</h1>
       <PostMeta category={primaryCategory} date={date} />
@@ -44,7 +44,7 @@ const ogImage = eyecatch?.src
 </BaseLayout>
 
 <style>
-  .post-grid { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 40px; align-items: start; }
+  .post-grid { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 40px; }
   .post { min-width: 0; }
   .hero { width: 100%; height: auto; border-radius: 10px; margin-bottom: 1.5rem; }
   .post h1 { font-size: 1.8rem; margin: 0 0 0.6rem; }
@@ -53,7 +53,7 @@ const ogImage = eyecatch?.src
   .content :global(h3) { margin-top: 1.6rem; }
   .content :global(img) { border-radius: 8px; }
   .sidebar { position: relative; }
-  .toc-sticky { position: sticky; top: 24px; }
+  .toc-sticky { position: sticky; top: 85px; }
   @media (max-width: 900px) {
     .post-grid { grid-template-columns: 1fr; }
     .sidebar { display: none; }

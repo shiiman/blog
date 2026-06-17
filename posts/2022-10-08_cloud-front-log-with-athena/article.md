@@ -33,7 +33,7 @@ AWSでApplication Loadbalancerのアクセスログをs3に保存し、Athenaで
 \
 shiimanblog.com\
 \
-2022.10.07](https://shiimanblog.com/engineering/alb-log-with-athena/ "【AWS】Application LoadbalancerのログをAthenaでクエリする方法")
+2022.10.07](/engineering/alb-log-with-athena/ "【AWS】Application LoadbalancerのログをAthenaでクエリする方法")
 
 さて今回はAthenaでログをクエリする紹介第2弾になります。前回はALBのログでしたが、今回は [Cloud Front](https://aws.amazon.com/jp/cloudfront/) のアクセスログを [Athena](https://aws.amazon.com/jp/athena) を使用してクエリしていこうと思います。
 

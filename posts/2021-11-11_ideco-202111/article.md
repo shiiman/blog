@@ -38,7 +38,7 @@ iDeCoを開始してから12ヶ月目の運用実績を公開致します。\
 \
 shiimanblog.com\
 \
-2021.10.07](https://shiimanblog.com/fire/ideco-202110/ "【iDeCo】12ヶ月目の運用実績公開！| 2021年10月")
+2021.10.07](/fire/ideco-202110/ "【iDeCo】12ヶ月目の運用実績公開！| 2021年10月")
 
 ### iDeCoのメリット
 

@@ -73,7 +73,8 @@
   },
   "52": {
     "name": "節約",
-    "slug": "%e7%af%80%e7%b4%84"
+    "slug": "%e7%af%80%e7%b4%84",
+    "enSlug": "savings"
   },
   "60": {
     "name": "Golang",

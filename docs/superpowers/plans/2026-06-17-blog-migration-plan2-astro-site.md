@@ -20,7 +20,7 @@
 - コミットメッセージは日本語1行（例 `feat: トップページの記事一覧を実装`）。`--no-verify` 禁止。
 - 確認済みの権威的事実（現行 WP REST）:
   - 記事 `/{カテゴリslug}/{記事slug}/`、固定ページ `/{slug}/`、カテゴリ `/category/{slug}/`、タグ `/tag/{slug}/`、トップ `/page/2/` 実在。
-  - フロントマター `date`（例 `2021-08-30T19:30:00.000Z`）は JST 壁時計（REST の `date`=19:30, `date_gmt`=10:30 と照合済）。
+  - フロントマター `date`/`modified` は**2形式が混在**: ①`2021-08-30T19:30:00.000Z`（80件・JST壁時計をZと誤記。REST の `date`=19:30, `date_gmt`=10:30 と照合済）②`'2026-01-03T00:00:00+09:00'`（5件・正しいJST, 全て00:00:00）。**両形式とも「文字列に書かれた暦時刻＝JST壁時計」**なので、tz指定子を無視して暦フィールドを読みJSTとして扱う（`new Date()` 経由は +09:00 で誤るため使わない）。pages 4件は全て `.000Z`。
   - 日本語カテゴリ/タグ slug は URL エンコード（例 節約=`%e7%af%80%e7%b4%84`）。記事 URL に出る primary カテゴリは全て英語 slug。
 
 ---
@@ -153,14 +153,21 @@ git commit -m "feat: Astroを導入し基本設定を追加"
 import { defineCollection, z } from 'astro:content'
 import { glob } from 'astro/loaders'
 
+// YAML は未引用の ISO 日時(...Z)を Date に自動変換するため、文字列/Date の両方を受け、
+// 保存値(JST壁時計を Z 表記)と同一の ISO 文字列へ正規化する。
+// Date.toISOString() は元の瞬時を同じ文字列に戻すため Task4 の日付ロジックは不変。
+const dateString = z
+  .union([z.string(), z.date()])
+  .transform((v) => (v instanceof Date ? v.toISOString() : v))
+
 const posts = defineCollection({
   loader: glob({ pattern: '*/article.md', base: './posts' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
       slug: z.string(),
-      date: z.string(),
-      modified: z.string().optional(),
+      date: dateString,
+      modified: dateString.optional(),
       excerpt: z.string().optional(),
       categories: z.array(z.string()).default([]),
       tags: z.array(z.string()).default([]),
@@ -175,8 +182,8 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     slug: z.string(),
-    date: z.string(),
-    modified: z.string().optional(),
+    date: dateString,
+    modified: dateString.optional(),
     excerpt: z.string().optional(),
     draft: z.boolean().default(false),
     id: z.number().optional(),
@@ -384,17 +391,26 @@ import { describe, it, expect } from 'vitest'
 import { formatJaDate, toUtcIso } from './date'
 
 describe('formatJaDate', () => {
-  it('JST壁時計の値を和文日付にする', () => {
+  it('Z形式(JST壁時計をZ誤記)を和文日付にする', () => {
     expect(formatJaDate('2021-08-30T19:30:00.000Z')).toBe('2021年8月30日')
   })
-  it('深夜でも日付が繰り上がらない(JST壁時計として読む)', () => {
+  it('+09:00形式(正しいJST)を和文日付にする', () => {
+    expect(formatJaDate('2026-01-03T00:00:00+09:00')).toBe('2026年1月3日')
+  })
+  it('暦フィールドをそのまま読む(深夜でも繰り上がらない)', () => {
     expect(formatJaDate('2022-01-01T00:30:00.000Z')).toBe('2022年1月1日')
+  })
+  it('想定外の形式はエラー', () => {
+    expect(() => formatJaDate('2021/08/30')).toThrow()
   })
 })
 
 describe('toUtcIso', () => {
-  it('JST壁時計を正しいUTC瞬時(-9h)に補正する', () => {
+  it('Z形式の暦時刻をJSTとみなし正しいUTC瞬時(-9h)にする', () => {
     expect(toUtcIso('2021-08-30T19:30:00.000Z')).toBe('2021-08-30T10:30:00.000Z')
+  })
+  it('+09:00形式も同じ規則で正しいUTC瞬時にする(日付跨ぎ)', () => {
+    expect(toUtcIso('2026-01-03T00:00:00+09:00')).toBe('2026-01-02T15:00:00.000Z')
   })
 })
 ```
@@ -407,21 +423,41 @@ Expected: FAIL（`date` モジュール未作成）
 - [ ] **Step 4: `src/lib/date.ts` を実装**
 
 ```ts
+// 保存値は2形式が混在する:
+//   - "2021-08-30T19:30:00.000Z"  … JST壁時計をZと誤記した値（移行由来, 80件）
+//   - "2026-01-03T00:00:00+09:00" … 正しいJST（タイムゾーン付き, 5件）
+// どちらも「文字列に書かれた暦時刻」がJST壁時計なので、tz指定子を無視して
+// 暦フィールド(年月日時分秒)を読み、JST(=UTC+9)として扱う。
+// （new Date() 経由だと +09:00 はオフセット解釈されて暦日がずれるため使わない）
+const DATE_RE = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/
 const JST_OFFSET_MS = 9 * 60 * 60 * 1000
 
-/**
- * 保存値（例 2021-08-30T19:30:00.000Z）は「JSTの壁時計時刻」をZ表記で持つ。
- * Zとして解釈した値の UTC 各フィールドがそのまま JST の年月日になる。
- */
+interface DateParts {
+  y: number
+  mo: number
+  d: number
+  h: number
+  mi: number
+  s: number
+}
+
+function parseParts(value: string): DateParts {
+  const m = DATE_RE.exec(value)
+  if (!m) throw new Error(`想定外の日付形式: ${value}`)
+  return { y: +m[1], mo: +m[2], d: +m[3], h: +m[4], mi: +m[5], s: +m[6] }
+}
+
+/** JST壁時計の暦日を和文で返す（例「2021年8月30日」） */
 export function formatJaDate(value: string): string {
-  const d = new Date(value)
-  return `${d.getUTCFullYear()}年${d.getUTCMonth() + 1}月${d.getUTCDate()}日`
+  const { y, mo, d } = parseParts(value)
+  return `${y}年${mo}月${d}日`
 }
 
 /** JST壁時計を正しいUTC瞬時(-9h)へ補正したISO文字列を返す（RSS/sitemap/<time>用） */
 export function toUtcIso(value: string): string {
-  const wallMs = new Date(value).getTime()
-  return new Date(wallMs - JST_OFFSET_MS).toISOString()
+  const { y, mo, d, h, mi, s } = parseParts(value)
+  const utcMs = Date.UTC(y, mo - 1, d, h, mi, s) - JST_OFFSET_MS
+  return new Date(utcMs).toISOString()
 }
 ```
 

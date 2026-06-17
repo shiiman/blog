@@ -1,14 +1,17 @@
 ---
-id: 1363
 title: 【2021年12月】スマホアプリ広告大手のASPであるZucksの登録方法
 slug: zucks
-status: publish
-date: 2021-12-14T19:30:00
-modified: 2021-12-10T11:31:25
+date: 2021-12-14T19:30:00.000Z
+categories:
+  - advertisement
+  - wordpress
+tags:
+  - zucks
+draft: false
+id: 1363
+modified: 2021-12-10T11:31:25.000Z
 excerpt: スマホアプリ案件数が国内最多級のアフィリエイトASP「Zucks」の特徴と登録方法を解説します。
-categories: [12, 3]
-tags: [88]
-featured_media: 1367
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。
@@ -43,21 +46,21 @@ featured_media: 1367
 
 新規アカウント登録画面に遷移しますので、必要事項を入力していきます。
 
-[![Zucks - 設定1](https://shiimanblog.com/wp-content/uploads/2021/12/zucks2-800x1122.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks2.png)[![Zucks - 設定2](https://shiimanblog.com/wp-content/uploads/2021/12/zucks3-800x909.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks3.png)![Zucks - 設定3](https://shiimanblog.com/wp-content/uploads/2021/12/zucks4-800x794.png)
+![Zucks - 設定1](./assets/zucks2.png)![Zucks - 設定2](./assets/zucks3.png)![Zucks - 設定3](./assets/zucks4.png)
 
 入力を終えてページ下部の「 **登録する**」ボタンを押すアンケートページに遷移します。
 
 アンケートなので回答しなくても良いですが、案件が減る可能性があると記載があるのでおとなしくアンケートに答えましょう。
 
-[![Zucks - 設定4](https://shiimanblog.com/wp-content/uploads/2021/12/zucks5-1-800x1194.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks5-1.png)
+![Zucks - 設定4](./assets/zucks5-1.png)
 
 アンケートの回答が終わると下記のようなメールが来ますので、審査を待ちましょう。
 
-[![Zucks - 設定5](https://shiimanblog.com/wp-content/uploads/2021/12/zucks6-800x475.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks6.png)
+![Zucks - 設定5](./assets/zucks6.png)
 
 アカウントの登録が完了すると下記のようなメールが届きます。
 
-[![Zucks - 設定6](https://shiimanblog.com/wp-content/uploads/2021/12/zucks7-1.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks7-1.png)
+![Zucks - 設定6](./assets/zucks7-1.png)
 
 ### 口座情報の登録
 
@@ -67,15 +70,15 @@ featured_media: 1367
 
 遷移先で「 **メディア向けTOPへ**」を選択。
 
-[![Zucks - 設定7](https://shiimanblog.com/wp-content/uploads/2021/12/zucks8-800x225.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks8.png)
+![Zucks - 設定7](./assets/zucks8.png)
 
 メニューの「 **口座情報の登録/変更**」から当座情報を入力して登録しましょう。
 
-[![Zucks - 設定8](https://shiimanblog.com/wp-content/uploads/2021/12/zucks9-800x403.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks9.png)
+![Zucks - 設定8](./assets/zucks9.png)
 
 確認画面が表示されますので、問題なければ「 **この内容で登録する**」ボタンを押します。
 
-[![Zucks - 設定9](https://shiimanblog.com/wp-content/uploads/2021/12/zucks10-800x590.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks10.png)[![Zucks - 設定10](https://shiimanblog.com/wp-content/uploads/2021/12/zucks11-800x158.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks11.png)
+![Zucks - 設定9](./assets/zucks10.png)![Zucks - 設定10](./assets/zucks11.png)
 
 ### メディア情報の登録
 
@@ -83,15 +86,15 @@ featured_media: 1367
 
 メールの「 **2\. メディア新規登録**」から遷移するかメニューの「 **メディアの管理**」を選択して遷移します。
 
-[![Zucks - 設定11](https://shiimanblog.com/wp-content/uploads/2021/12/zucks12-800x559.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks12.png)
+![Zucks - 設定11](./assets/zucks12.png)
 
 画面が遷移したら、ご自身のサイト情報を入力して「 **この内容で登録する**」を押しましょう。
 
-[![Zucks - 設定12](https://shiimanblog.com/wp-content/uploads/2021/12/zucks13-800x356.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks13.png)[![Zucks - 設定13](https://shiimanblog.com/wp-content/uploads/2021/12/zucks14-800x332.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks14.png)[![Zucks - 設定14](https://shiimanblog.com/wp-content/uploads/2021/12/zucks15-800x344.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks15.png)
+![Zucks - 設定12](./assets/zucks13.png)![Zucks - 設定13](./assets/zucks14.png)![Zucks - 設定14](./assets/zucks15.png)
 
 メディアの登録には審査があります。審査がおこなわれ、登録が完了すると下記のようなメールが届きます。
 
-[![Zucks - 設定15](https://shiimanblog.com/wp-content/uploads/2021/12/zucks16-800x398.png)](https://shiimanblog.com/wp-content/uploads/2021/12/zucks16.png)
+![Zucks - 設定15](./assets/zucks16.png)
 
 以上で登録は終わりになります。
 

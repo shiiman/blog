@@ -1,14 +1,16 @@
 ---
-id: 6
 title: ブログ、始めました！
 slug: start-blog
-status: publish
-date: 2021-08-30T19:30:00
-modified: 2021-08-30T19:22:28
+date: 2021-08-30T19:30:00.000Z
+categories:
+  - profile
+tags:
+  - wordpress
+draft: false
+id: 6
+modified: 2021-08-30T19:22:28.000Z
 excerpt: ゲーム開発エンジニアのしーまんがブログを始めた経緯と、技術情報・副業・投資について発信していく目標を紹介します。
-categories: [2]
-tags: [6]
-featured_media: 13
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 ## 始めのご挨拶

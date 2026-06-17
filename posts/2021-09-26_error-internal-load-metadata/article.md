@@ -1,14 +1,17 @@
 ---
-id: 859
-title: Dockerビルドエラー解決! | ERROR [internal] load metadata for …
+title: 'Dockerビルドエラー解決! | ERROR [internal] load metadata for …'
 slug: error-internal-load-metadata
-status: publish
-date: 2021-09-26T19:30:00
-modified: 2021-09-23T12:42:40
-excerpt: Docker buildで発生する「ERROR [internal] load metadata for ...」エラーの原因と解決方法を紹介します。
-categories: [18, 22]
-tags: [35]
-featured_media: 860
+date: 2021-09-26T19:30:00.000Z
+categories:
+  - engineering
+  - docker
+tags:
+  - docker
+draft: false
+id: 859
+modified: 2021-09-23T12:42:40.000Z
+excerpt: 'Docker buildで発生する「ERROR [internal] load metadata for ...」エラーの原因と解決方法を紹介します。'
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです！！
@@ -78,7 +81,7 @@ Docker Desktop有料化とかの影響を受けているのでしょうか。。
 
 右上のDockerアイコンをクリックし、「Preferences…」を選択します。
 
-[![docker - 設定1](https://shiimanblog.com/wp-content/uploads/2021/09/docker_preferences.jpg)](https://shiimanblog.com/wp-content/uploads/2021/09/docker_preferences.jpg)
+![docker - 設定1](./assets/docker_preferences.jpg)
 
 次に左メニューから「Docker Engine」を選択します。
 
@@ -92,7 +95,7 @@ Docker Desktop有料化とかの影響を受けているのでしょうか。。
 
 私の場合はイメージがpullできないドメインが docker.io でしたので、そちらを指定しました。違うドメインで同じエラーが出た場合はそのドメインを設定してください。
 
-[![docker - 設定2](https://shiimanblog.com/wp-content/uploads/2021/09/docker_setting-800x358.png)](https://shiimanblog.com/wp-content/uploads/2021/09/docker_setting.png)
+![docker - 設定2](./assets/docker_setting.png)
 
 上記の設定をするとDocker Desktopが再起動されます。
 

@@ -1,14 +1,20 @@
 ---
-id: 659
 title: 【WordPress】おすすめプラグイン part 6 〜 Copy Anything to Clipboard 〜
 slug: copy-anything-to-clipboard
-status: publish
-date: 2021-09-18T19:30:00
-modified: 2021-09-14T15:11:34
-excerpt: WordPress上でテキストやコードのワンクリックコピー機能を実現するプラグイン「Copy Anything to Clipboard」の設定方法を紹介します。
-categories: [10, 3]
-tags: [6, 45]
-featured_media: 660
+date: 2021-09-18T19:30:00.000Z
+categories:
+  - plugin
+  - wordpress
+tags:
+  - wordpress
+  - copy-anything-to-clipboard
+draft: false
+id: 659
+modified: 2021-09-14T15:11:34.000Z
+excerpt: >-
+  WordPress上でテキストやコードのワンクリックコピー機能を実現するプラグイン「Copy Anything to
+  Clipboard」の設定方法を紹介します。
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです！
@@ -35,7 +41,7 @@ featured_media: 660
 
 WordPressのメニュー「プラグイン」-> 「新規追加」から「Copy Anything to Clipboard」を検索します。すると下記のプラグインが表示されますので、今すぐインストール、有効化していきましょう。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard-800x366.png)](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard.png)
+![](./assets/copy_anything_to_clipboard.png)
 
 ### 確認
 
@@ -43,11 +49,11 @@ WordPressのメニュー「プラグイン」-> 「新規追加」から「Copy 
 
 コードブロックを作る方法は「“\`」とうって改行する方法と、ブロック挿入ツールから選択する方法があります。なれた方は「“\`」と打つ方が早いのでおすすめですが、分からない方はブロック挿入ツールでブロックを作ってみましょう。
 
-[![Copy Anything to Clipboard - 設定1](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting6.png)](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting6.png)
+![Copy Anything to Clipboard - 設定1](./assets/copy_anything_to_clipboard_setting6.png)
 
 実際にコードを入力してプレビューで確認すると以下のようにコードブロックの右に「コピー」ボタンがついているのが分かると思います。こちらを押して貰えればコピーがされるようになります。
 
-[![Copy Anything to Clipboard - 設定2](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting4-800x59.png)](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting4.png)
+![Copy Anything to Clipboard - 設定2](./assets/copy_anything_to_clipboard_setting4.png)
 
 しかし、このままだとなんだかダサいですよね。。
 
@@ -59,13 +65,13 @@ WordPressのメニュー「プラグイン」-> 「新規追加」から「Copy 
 
 まず、WordPressの設定に「Copy to Clipboard」というメニューが追加されていると思いますので、こちらを選択します。すると一つだけ「pre」を書かれた項目があると思います。こちらを選択します。
 
-[![Copy Anything to Clipboard - 設定3](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting-800x371.jpg)](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting.jpg)
+![Copy Anything to Clipboard - 設定3](./assets/copy_anything_to_clipboard_setting.jpg)
 
 すると編集画面が開きますので一箇所だけ変更します。
 
 名前が「style」の部分の値が「button」になっていると思いますので、これを「svg-icon」に変更します。変更できたら「保存」を押しましょう。
 
-[![Copy Anything to Clipboard - 設定4](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting2-800x397.jpg)](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting2.jpg)
+![Copy Anything to Clipboard - 設定4](./assets/copy_anything_to_clipboard_setting2.jpg)
 
 以上で、コピーアイコンの設定は完了です。
 
@@ -77,7 +83,7 @@ WordPressのメニュー「プラグイン」-> 「新規追加」から「Copy 
 
 こちらの方がスタイリッシュですよね！好みの問題もありますのでお好きな方を使用してください。
 
-[![Copy Anything to Clipboard - 設定5](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting5-800x57.png)](https://shiimanblog.com/wp-content/uploads/2021/09/copy_anything_to_clipboard_setting5.png)
+![Copy Anything to Clipboard - 設定5](./assets/copy_anything_to_clipboard_setting5.png)
 
 ## まとめ
 

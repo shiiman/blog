@@ -1,14 +1,18 @@
 ---
-id: 464
 title: 【docker】ローカルでWordPressを立ち上げる方法
 slug: wordpress
-status: publish
-date: 2021-09-09T19:30:00
-modified: 2021-09-11T03:32:18
+date: 2021-09-09T19:30:00.000Z
+categories:
+  - engineering
+  - docker
+tags:
+  - wordpress
+  - docker
+draft: false
+id: 464
+modified: 2021-09-11T03:32:18.000Z
 excerpt: Dockerを使ってWordPressのローカルテスト環境を構築する方法を紹介。プラグインやテーマの検証を安全に行えます。
-categories: [18, 22]
-tags: [6, 35]
-featured_media: 465
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 WordPressの設定やテーマを変えたり、新しいプラグインのインストールをした際に予想外の挙動を起こした経験はありませんでしょうか。
@@ -176,7 +180,7 @@ docker-compose up -d
 
 WordPressの初期登録画面が表示されれば成功です。
 
-[![wordpress - 初期設定画面](https://shiimanblog.com/wp-content/uploads/2021/09/wordpress-initial.png)](https://shiimanblog.com/wp-content/uploads/2021/09/wordpress-initial.png)
+![wordpress - 初期設定画面](./assets/wordpress-initial.png)
 
 ## おまけ
 

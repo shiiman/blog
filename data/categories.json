@@ -1,0 +1,102 @@
+{
+  "1": {
+    "name": "未分類",
+    "slug": "uncategorized"
+  },
+  "2": {
+    "name": "自己紹介",
+    "slug": "profile"
+  },
+  "3": {
+    "name": "WordPress",
+    "slug": "wordpress"
+  },
+  "4": {
+    "name": "初期設定",
+    "slug": "initialization"
+  },
+  "10": {
+    "name": "プラグイン",
+    "slug": "plugin"
+  },
+  "11": {
+    "name": "Cocoon",
+    "slug": "cocoon"
+  },
+  "12": {
+    "name": "広告",
+    "slug": "advertisement"
+  },
+  "13": {
+    "name": "Analytics",
+    "slug": "analytics"
+  },
+  "14": {
+    "name": "FIRE",
+    "slug": "fire"
+  },
+  "15": {
+    "name": "副業",
+    "slug": "side-business"
+  },
+  "16": {
+    "name": "投資",
+    "slug": "investment"
+  },
+  "17": {
+    "name": "書籍",
+    "slug": "book"
+  },
+  "18": {
+    "name": "技術",
+    "slug": "engineering"
+  },
+  "19": {
+    "name": "AWS",
+    "slug": "aws"
+  },
+  "20": {
+    "name": "GCP",
+    "slug": "gcp"
+  },
+  "21": {
+    "name": "Terraform",
+    "slug": "terraform"
+  },
+  "22": {
+    "name": "Docker",
+    "slug": "docker"
+  },
+  "40": {
+    "name": "Git",
+    "slug": "git-engineering"
+  },
+  "52": {
+    "name": "節約",
+    "slug": "%e7%af%80%e7%b4%84"
+  },
+  "60": {
+    "name": "Golang",
+    "slug": "golang"
+  },
+  "64": {
+    "name": "slack",
+    "slug": "slack-engineering"
+  },
+  "65": {
+    "name": "GAS",
+    "slug": "gas"
+  },
+  "77": {
+    "name": "Snowflake",
+    "slug": "snowflake"
+  },
+  "106": {
+    "name": "mac",
+    "slug": "mac"
+  },
+  "133": {
+    "name": "AI",
+    "slug": "ai"
+  }
+}

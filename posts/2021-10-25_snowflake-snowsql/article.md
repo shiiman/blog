@@ -1,14 +1,22 @@
 ---
-id: 1214
-title: '【Snowflake】Macでsnowsqlを設定してみた | 「Failed to initialize log. No logging is enabled: [Errno 13] Permission denied」の対処方法'
+title: >-
+  【Snowflake】Macでsnowsqlを設定してみた | 「Failed to initialize log. No logging is
+  enabled: [Errno 13] Permission denied」の対処方法
 slug: snowflake-snowsql
-status: publish
-date: 2021-10-25T19:30:00
-modified: 2021-10-22T12:40:03
-excerpt: MacでSnowflakeのCLIクライアント「SnowSQL」をインストール・設定する方法と、Permission deniedエラーの対処法を紹介します。
-categories: [18, 77]
-tags: [78, 80]
-featured_media: 1221
+date: 2021-10-25T19:30:00.000Z
+categories:
+  - engineering
+  - snowflake
+tags:
+  - snowflake
+  - snowsql
+draft: false
+id: 1214
+modified: 2021-10-22T12:40:03.000Z
+excerpt: >-
+  MacでSnowflakeのCLIクライアント「SnowSQL」をインストール・設定する方法と、Permission
+  deniedエラーの対処法を紹介します。
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

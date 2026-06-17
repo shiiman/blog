@@ -1,14 +1,17 @@
 ---
-id: 1329
 title: 【2021年12月】スマホアプリ広告大手のASPであるSmart-Cの登録方法
 slug: smartc
-status: publish
-date: 2021-12-13T19:30:00
-modified: 2021-12-09T19:32:52
+date: 2021-12-13T19:30:00.000Z
+categories:
+  - advertisement
+  - wordpress
+tags:
+  - smart-c
+draft: false
+id: 1329
+modified: 2021-12-09T19:32:52.000Z
 excerpt: スマートフォンアプリ広告に特化したアフィリエイトASP「Smart-C」の特徴と登録方法を解説します。
-categories: [12, 3]
-tags: [87]
-featured_media: 1331
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。
@@ -35,11 +38,11 @@ featured_media: 1331
 
 登録ページに遷移したら「 **メディア様登録**」をクリックします。
 
-[![Smart-C - 設定1](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c1-800x369.jpg)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c1.jpg)
+![Smart-C - 設定1](./assets/smart-c1.jpg)
 
 利用規約を確認して一番下のチェックボックスにチェックします。
 
-[![Smart-C - 設定2](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c2-800x453.jpg)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c2.jpg)
+![Smart-C - 設定2](./assets/smart-c2.jpg)
 
 ### メールアドレスの登録
 
@@ -47,11 +50,11 @@ featured_media: 1331
 
 ご自身のメールを入力して「 **送信する**」をクリックします。
 
-[![Smart-C - 設定3](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c3-800x261.jpg)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c3.jpg)[![Smart-C - 設定4](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c4-800x175.png)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c4.png)
+![Smart-C - 設定3](./assets/smart-c3.jpg)![Smart-C - 設定4](./assets/smart-c4.png)
 
 すると下記のようなメールが届きますので、「 **登録はこちら↓**」をクリックします。
 
-[![Smart-C - 設定5](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c5.png)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c5.png)
+![Smart-C - 設定5](./assets/smart-c5.png)
 
 ### 基本の登録
 
@@ -59,11 +62,11 @@ featured_media: 1331
 
 ここで必須項目を入力していきましょう。
 
-[![Smart-C - 設定6](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c6-800x624.jpg)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c6.jpg)[![Smart-C - 設定7](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c7-1-800x470.jpg)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c7-1.jpg)[![Smart-C - 設定8](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c8-800x537.jpg)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c8.jpg)
+![Smart-C - 設定6](./assets/smart-c6.jpg)![Smart-C - 設定7](./assets/smart-c7-1.jpg)![Smart-C - 設定8](./assets/smart-c8.jpg)
 
 入力を終えて、「 **確認画面へ**」を押すと確認画面が表示されますので、表示されている内容で問題ない場合は画面下部にある「 **送信**」ボタンを押しましょう！
 
-[![Smart-C - 設定9](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c9-800x120.png)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c9.png)[![Smart-C - 設定10](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c10-800x130.png)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c10.png)
+![Smart-C - 設定9](./assets/smart-c9.png)![Smart-C - 設定10](./assets/smart-c10.png)
 
 ### メディア情報登録
 
@@ -71,21 +74,21 @@ featured_media: 1331
 
 ブログなどのサイトURLを入力して「 **登録**」ボタンを押しましょう。
 
-[![Smart-C - 設定11](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c11-1-800x631.jpg)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c11-1.jpg)
+![Smart-C - 設定11](./assets/smart-c11-1.jpg)
 
 登録ボタンを押すと仮登録状態のメールが届きますので、2〜3日待ちましょう。
 
-[![Smart-C - 設定12](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c12.png)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c12.png)
+![Smart-C - 設定12](./assets/smart-c12.png)
 
 一応仮登録の状態でもログインは可能です。
 
-[![Smart-C - 設定13](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c13-800x401.jpg)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c13.jpg)
+![Smart-C - 設定13](./assets/smart-c13.jpg)
 
 「メディアの審査結果メール」と「本登録完了メール」はそれぞれ以下です。
 
 こちらが届けば登録完了になります！
 
-[![Smart-C - 設定14](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c14-1.png)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c14-1.png)[![Smart-C - 設定15](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c15.png)](https://shiimanblog.com/wp-content/uploads/2021/12/smart-c15.png)
+![Smart-C - 設定14](./assets/smart-c14-1.png)![Smart-C - 設定15](./assets/smart-c15.png)
 
 以上で、登録はおしまいです。
 

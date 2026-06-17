@@ -1,14 +1,19 @@
 ---
-id: 985
 title: 【2021年9月】初心者用 アフェリエイトASP大手 バリューコマースの登録方法
 slug: valuecommerce
-status: publish
-date: 2021-09-29T19:30:00
-modified: 2021-12-09T18:26:23
+date: 2021-09-29T19:30:00.000Z
+categories:
+  - advertisement
+  - wordpress
+tags:
+  - '%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88'
+  - asp
+  - '%e3%83%90%e3%83%aa%e3%83%a5%e3%83%bc%e3%82%b3%e3%83%9e%e3%83%bc%e3%82%b9'
+draft: false
+id: 985
+modified: 2021-12-09T18:26:23.000Z
 excerpt: 日本初のASPサービス「バリューコマース」の登録方法を紹介。大手企業案件が豊富なアフィリエイトASPです。
-categories: [12, 3]
-tags: [56, 57, 58]
-featured_media: 987
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。
@@ -21,7 +26,7 @@ featured_media: 987
 
 今回はそんなバリューコマースの登録手順を解説していきます。
 
- [![](//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3612105&pid=887393813)](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393813)
+ ![](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393813)
 
 ## バリューコマースとは
 
@@ -48,7 +53,7 @@ featured_media: 987
 
 登録ページに遷移したら「 **無料会員登録をしてアフェリエイトを始める**」をクリックします。
 
-[![バリューコマース - 登録1](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce1-800x466.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce1.png)
+![バリューコマース - 登録1](./assets/valuecommerce1.png)
 
 ### メールアドレスの登録
 
@@ -56,19 +61,19 @@ featured_media: 987
 
 メールアドレスを入力し、利用規約にチェックを入れて「 **次へ**」をクリックします。
 
-[![バリューコマース - 登録2](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce2-800x522.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce2.png)[![バリューコマース - 登録3](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce3-800x487.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce3.png)
+![バリューコマース - 登録2](./assets/valuecommerce2.png)![バリューコマース - 登録3](./assets/valuecommerce3.png)
 
 確認ページが表示されますので、問題なければ「 **送信**」をクリックします。
 
-[![バリューコマース - 登録4](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce4-1-800x401.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce4-1.png)
+![バリューコマース - 登録4](./assets/valuecommerce4-1.png)
 
 するとメール送信しました画面が表示されますので、ご自身のメールを確認しましょう！
 
-[![バリューコマース - 登録5](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce5-800x514.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce5.png)
+![バリューコマース - 登録5](./assets/valuecommerce5.png)
 
 下記のようなメールが届きますので、「 **登録用 URL**」をクリックし本登録に進みます。
 
-[![バリューコマース - 登録6](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce6.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce6.png)
+![バリューコマース - 登録6](./assets/valuecommerce6.png)
 
 ### 会員情報の登録&審査申請
 
@@ -84,11 +89,11 @@ featured_media: 987
 
 こちらを手を抜かずきちんと詳細を記載することが審査を通るポイントになります！
 
-[![バリューコマース - 登録7](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce7-1-800x1131.jpg)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce7-1.jpg)
+![バリューコマース - 登録7](./assets/valuecommerce7-1.jpg)
 
 入力に問題がなければ登録完了画面に遷移します。
 
-[![バリューコマース - 登録8](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce8-800x493.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce8.png)
+![バリューコマース - 登録8](./assets/valuecommerce8.png)
 
 ### パスワード設定
 
@@ -98,17 +103,17 @@ featured_media: 987
 
 メールに記載のある「 **ログイン手順**」のURLにアクセスしましょう。
 
-[![バリューコマース - 登録9](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce9-2.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce9-2.png)
+![バリューコマース - 登録9](./assets/valuecommerce9-2.png)
 
 すると「新しいパスワードを設定する」画面に遷移します。
 
 こちらで使用したいパスワードを入力して「 **保存**」しましょう。
 
-[![バリューコマース - 登録10](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce10-1-800x590.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce10-1.png)
+![バリューコマース - 登録10](./assets/valuecommerce10-1.png)
 
 問題がなければ下記のようにパスワードの設定が完了するはずです。
 
-[![バリューコマース - 登録11](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce11-800x260.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce11.png)
+![バリューコマース - 登録11](./assets/valuecommerce11.png)
 
 ### 審査通過の確認
 
@@ -120,7 +125,7 @@ featured_media: 987
 
 おめでとうございます！！！
 
-[![バリューコマース - 登録12](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce12.png)](https://shiimanblog.com/wp-content/uploads/2021/09/valuecommerce12.png)
+![バリューコマース - 登録12](./assets/valuecommerce12.png)
 
 ## まとめ
 

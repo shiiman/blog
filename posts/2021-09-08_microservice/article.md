@@ -1,14 +1,19 @@
 ---
-id: 437
 title: 【docker】ローカルでマイクロサービス開発する方法
 slug: microservice
-status: publish
-date: 2021-09-08T19:30:00
-modified: 2021-09-08T01:38:08
+date: 2021-09-08T19:30:00.000Z
+categories:
+  - engineering
+  - docker
+tags:
+  - docker
+  - microservice
+  - ingress
+draft: false
+id: 437
+modified: 2021-09-08T01:38:08.000Z
 excerpt: Dockerとnginxのリバースプロキシを使って、ローカル環境でマイクロサービスのURIパスルーティングを実現する方法を紹介します。
-categories: [18, 22]
-tags: [35, 36, 37]
-featured_media: 438
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 最近dockerやkubernetesなどといった技術が出てきたことにより、コンテナを使用してマイクロサービスでシステムを開発する手法が流行っています。
@@ -19,7 +24,7 @@ featured_media: 438
 
 マイクロサービスのアクセスパターンは「コンテナ間通信パターン」と「URIパスルーティングパターン」がありますが、今回紹介するのは「URIパスルーティングパターン」です。
 
-![マイクロサービスパターン](https://shiimanblog.com/wp-content/uploads/2021/09/microservice_pattern-800x529.png)
+![マイクロサービスパターン](./assets/microservice_pattern.png)
 
 複数のコンテナを扱いローカル開発を行う場合 docker-compose がよく利用されます。
 
@@ -79,7 +84,7 @@ go run main.go
 
 下記のように表示されたらOKです。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/service_a_accecc.png)](https://shiimanblog.com/wp-content/uploads/2021/09/service_a_accecc.png)
+![](./assets/service_a_accecc.png)
 
 サービスAのmain.goができたら続いてB, Cと作っていきましょう。
 

@@ -1,14 +1,21 @@
 ---
-id: 1543
 title: 【投資】お金に無知な同居人の投資までの流れを作ってみた|つみたてNISA
 slug: money-flow
-status: publish
-date: 2022-02-18T19:30:00
-modified: 2022-02-08T16:23:59
+date: 2022-02-18T19:30:00.000Z
+categories:
+  - investment
+  - fire
+tags:
+  - '%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa'
+  - '%e6%a5%bd%e5%a4%a9%e9%8a%80%e8%a1%8c'
+  - '%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8'
+  - '%e3%82%a4%e3%82%aa%e3%83%b3%e9%8a%80%e8%a1%8c'
+  - '%e3%81%82%e3%81%8a%e3%81%9e%e3%82%89%e9%8a%80%e8%a1%8c'
+draft: false
+id: 1543
+modified: 2022-02-08T16:23:59.000Z
 excerpt: お金に無知だった同居人に投資を始めてもらうまでの流れを紹介。銀行口座選びからつみたてNISA開始までのステップを解説します。
-categories: [16, 14]
-tags: [69, 102, 103, 104, 105]
-featured_media: 1553
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。
@@ -27,7 +34,7 @@ featured_media: 1553
 
 2020年に **金融広報中央委員会** が調査した結果は以下の表のようになっています。
 
-[![年代別平均貯蓄額](https://shiimanblog.com/wp-content/uploads/2022/01/c17621b3a782fe229fd061ff64db442a.jpg)](https://shiimanblog.com/wp-content/uploads/2022/01/c17621b3a782fe229fd061ff64db442a.jpg)
+![年代別平均貯蓄額](./assets/c17621b3a782fe229fd061ff64db442a.jpg)
 
 今回上げている表は **単身世帯** の調査結果になります。
 
@@ -77,7 +84,7 @@ featured_media: 1553
 
 上記のような日本の実態を把握出来たところで今回作ったお金の流れの全体像を先にみせておきます。
 
-[![お金の流れ](https://shiimanblog.com/wp-content/uploads/2022/01/e6e6d1a9351285a7ad432455bb59755f-800x450.png)](https://shiimanblog.com/wp-content/uploads/2022/01/e6e6d1a9351285a7ad432455bb59755f.png)
+![お金の流れ](./assets/e6e6d1a9351285a7ad432455bb59755f.png)
 
 上記の金額はあくまで **参考値** です。
 
@@ -165,7 +172,7 @@ featured_media: 1553
 
 つみたてNISAについて学びたい方はぜひこちらの記事を御覧ください。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/10/eyecatch_tumitate_nisa-320x180.png)\
+[![](./assets/eyecatch_tumitate_nisa.png)\
 \
 【つみたてNISA】15ヶ月目の運用実績公開！\| 2021年10月\
 \
@@ -230,7 +237,7 @@ shiimanblog.com\
 
 そんな状況の中、もし今からお金の流れを作りたいのであれば、以下のような構成がおすすめです。
 
-[![お金の流れ2](https://shiimanblog.com/wp-content/uploads/2022/02/5d316eebf0cde6486573364f94ee846e-800x517.jpg)](https://shiimanblog.com/wp-content/uploads/2022/02/5d316eebf0cde6486573364f94ee846e.jpg)
+![お金の流れ2](./assets/5d316eebf0cde6486573364f94ee846e.jpg)
 
 基本的には「楽天銀行」を「 **住信SBIネット銀行**」に、「楽天証券」を「 **SBI証券**」に置き換えるイメージです。
 

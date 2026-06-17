@@ -1,14 +1,17 @@
 ---
-id: 1834
 title: フリーランスになる前に検討したいお金の話8選！
 slug: post-1834
-status: publish
-date: 2023-01-05T19:30:00
-modified: 2023-01-05T19:06:34
+date: 2023-01-05T19:30:00.000Z
+categories:
+  - '%e7%af%80%e7%b4%84'
+tags:
+  - '%e5%80%8b%e4%ba%ba%e4%ba%8b%e6%a5%ad%e4%b8%bb'
+  - '%e3%83%95%e3%83%aa%e3%83%bc%e3%83%a9%e3%83%b3%e3%82%b9'
+draft: false
+id: 1834
+modified: 2023-01-05T19:06:34.000Z
 excerpt: フリーランスになる前に検討すべきお金の話8選。銀行口座・クレジットカード・保険など、会社員のうちに準備しておくべき項目を解説します。
-categories: [52]
-tags: [131, 132]
-featured_media: 1841
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 明けましておめでとうございます。

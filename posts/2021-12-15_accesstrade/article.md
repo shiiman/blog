@@ -1,14 +1,17 @@
 ---
-id: 1389
 title: 【2021年12月】大手のASPであるアクセストレードの登録方法
 slug: accesstrade
-status: publish
-date: 2021-12-15T19:30:00
-modified: 2021-12-10T14:07:37
+date: 2021-12-15T19:30:00.000Z
+categories:
+  - advertisement
+  - wordpress
+tags:
+  - '%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%83%89'
+draft: false
+id: 1389
+modified: 2021-12-10T14:07:37.000Z
 excerpt: 広告登録数約5000件を誇る大手アフィリエイトASP「アクセストレード」の特徴と登録方法を解説します。
-categories: [12, 3]
-tags: [89]
-featured_media: 1390
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。
@@ -43,11 +46,11 @@ featured_media: 1390
 
 ご自身の使用するメールアドレスを登録しましょう。
 
-[![アクセストレード - 設定2](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade2-800x933.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade2.png)[![アクセストレード - 設定3](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade3-800x920.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade3.png)
+![アクセストレード - 設定2](./assets/accesstrade2.png)![アクセストレード - 設定3](./assets/accesstrade3.png)
 
 メールアドレスの登録をすると登録したメールアドレス宛に下図のようなメールが届きます。
 
-[![アクセストレード - 設定4](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade4.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade4.png)
+![アクセストレード - 設定4](./assets/accesstrade4.png)
 
 ### 会員情報登録
 
@@ -55,9 +58,9 @@ featured_media: 1390
 
 必須項目を入力していきます。
 
-[![アクセストレード - 設定5](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade5-1-800x854.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade5-1.png)[![アクセストレード - 設定6](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade6-800x1007.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade6.png)
+![アクセストレード - 設定5](./assets/accesstrade5-1.png)![アクセストレード - 設定6](./assets/accesstrade6.png)
 
-[![アクセストレード - 設定7](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade7-800x825.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade7.png)
+![アクセストレード - 設定7](./assets/accesstrade7.png)
 
 ### 口座情報の登録
 
@@ -65,7 +68,7 @@ featured_media: 1390
 
 こちらも必須項目を入力していきましょう。
 
-[![アクセストレード - 設定8](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade8-1-800x1034.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade8-1.png)
+![アクセストレード - 設定8](./assets/accesstrade8-1.png)
 
 ### サイト情報の登録
 
@@ -73,17 +76,17 @@ featured_media: 1390
 
 広告を掲載するサイト情報を入力しましょう！
 
-[![アクセストレード - 設定9](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade9-800x826.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade9.png)[![アクセストレード - 設定10](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade10-800x872.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade10.png)
+![アクセストレード - 設定9](./assets/accesstrade9.png)![アクセストレード - 設定10](./assets/accesstrade10.png)
 
 全ての項目の入力・登録が終わったら「 **登録申請する**」を押します。
 
-[![アクセストレード - 設定11](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade11-800x503.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade11.png)[![アクセストレード - 設定12](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade12-800x785.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade12.png)
+![アクセストレード - 設定11](./assets/accesstrade11.png)![アクセストレード - 設定12](./assets/accesstrade12.png)
 
 すると会員登録受付メールが届きます。
 
 この後3営業日程度で審査が終わり、登録完了メール届きます。
 
-[![アクセストレード - 設定13](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade13-1.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade13-1.png)[![アクセストレード - 設定14](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade14.png)](https://shiimanblog.com/wp-content/uploads/2021/12/accesstrade14.png)
+![アクセストレード - 設定13](./assets/accesstrade13-1.png)![アクセストレード - 設定14](./assets/accesstrade14.png)
 
 こちらで登録は完了になります。
 

@@ -1,14 +1,20 @@
 ---
-id: 1759
 title: 【AWS】Cloud FrontのログをAthenaでクエリする方法
 slug: cloud-front-log-with-athena
-status: publish
-date: 2022-10-08T19:30:00
-modified: 2022-10-07T18:03:58
+date: 2022-10-08T19:30:00.000Z
+categories:
+  - aws
+  - engineering
+  - terraform
+tags:
+  - athena
+  - terraform
+  - cloud-front
+draft: false
+id: 1759
+modified: 2022-10-07T18:03:58.000Z
 excerpt: S3に保存されたCloudFrontのアクセスログをAthenaでクエリする方法を、テーブル作成からクエリ実行まで解説します。
-categories: [19, 18, 21]
-tags: [124, 125, 126]
-featured_media: 1760
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。
@@ -17,7 +23,7 @@ featured_media: 1760
 
 まだご覧になっていない方はぜひこちらも御覧ください。
 
- [![](https://shiimanblog.com/wp-content/uploads/2022/10/eyecatch_alb_log_with_athena-320x180.jpg)\
+ [![](./assets/eyecatch_alb_log_with_athena.jpg)\
 \
 【AWS】Application LoadbalancerのログをAthenaでクエリする方法\
 \

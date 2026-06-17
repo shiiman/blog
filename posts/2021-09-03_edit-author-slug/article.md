@@ -1,14 +1,19 @@
 ---
-id: 152
 title: 【WordPress】おすすめのプラグイン Part 3 〜 Edit Author Slug 〜
 slug: edit-author-slug
-status: publish
-date: 2021-09-03T19:30:00
-modified: 2021-09-02T14:23:19
+date: 2021-09-03T19:30:00.000Z
+categories:
+  - plugin
+  - wordpress
+tags:
+  - wordpress
+  - plugin
+  - edit-author-slug
+draft: false
+id: 152
+modified: 2021-09-02T14:23:19.000Z
 excerpt: WordPressのセキュリティ対策として、ユーザー名の漏洩を防ぐプラグイン「Edit Author Slug」の導入と設定方法を紹介します。
-categories: [10, 3]
-tags: [6, 23, 26]
-featured_media: 145
+eyecatch: ./assets/eyecatch.png
 ---
 
 WordPressを初めてセキュリティー対策としてプラグインを追加すると思いますが、
@@ -43,11 +48,11 @@ WordPressを立ち上げて直ぐにブラウザの入力欄に
 
 第三者でも簡単にユーザ名が分かってしまうというわけです。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/2-1.png)](https://shiimanblog.com/wp-content/uploads/2021/09/2-1.png)
+![](./assets/2-1.png)
 
 ↓↓ リダイレクトされる
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/3-1.png)](https://shiimanblog.com/wp-content/uploads/2021/09/3-1.png)
+![](./assets/3-1.png)
 
 というわけで、上記URLを入力されてもユーザ名がバレないように設定する必要があります。
 
@@ -63,7 +68,7 @@ WordPressを立ち上げて直ぐにブラウザの入力欄に
 
 インストールが終わったら忘れずに有効化しましょう！
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/1.png)](https://shiimanblog.com/wp-content/uploads/2021/09/1.png)
+![](./assets/1.png)
 
 ### Edit Author Slugの設定
 
@@ -71,7 +76,7 @@ WordPressを立ち上げて直ぐにブラウザの入力欄に
 
 入力が終わったらプロフィールを更新ボタンを押して設定を反映させましょう。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/Screenshot-1024x341.png)](https://shiimanblog.com/wp-content/uploads/2021/09/Screenshot.png)
+![](./assets/Screenshot.png)
 
 ### 設定が正しいか動作確認
 
@@ -81,7 +86,7 @@ WordPressを立ち上げて直ぐにブラウザの入力欄に
 
 するとリダイレクトされたURLが変更されたのが確認できます。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/7-1.png)](https://shiimanblog.com/wp-content/uploads/2021/09/7-1.png)
+![](./assets/7-1.png)
 
 ## もう一つ設定する項目
 
@@ -97,7 +102,7 @@ Edit Author Slug プラグインの設定は以上になります。
 
 こちらの表示の修正はプラグインを使用せずに修正が可能ですので、一緒に設定しておくと良いでしょう。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/5-2.png)](https://shiimanblog.com/wp-content/uploads/2021/09/5-2.png)
+![](./assets/5-2.png)
 
 こちらの設定変更も簡単です。
 
@@ -109,7 +114,7 @@ Edit Author Slug プラグインの設定は以上になります。
 
 そして設定したニックネームを「ブログ上の表示名」に設定すると設定完了です。
 
-[![](https://shiimanblog.com/wp-content/uploads/2021/09/Screenshot-1-1024x394.png)](https://shiimanblog.com/wp-content/uploads/2021/09/Screenshot-1.png)
+![](./assets/Screenshot-1.png)
 
 ## まとめ
 

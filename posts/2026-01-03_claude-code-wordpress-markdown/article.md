@@ -240,7 +240,7 @@ Claude: 下書きとして投稿しますか？それとも公開しますか？
 User: 下書き
 
 Claude: 投稿しました！
-        URL: https://shiimanblog.com/?p=1850
+        URL: /?p=1850
 ```
 
 ## メリットと今後の展望

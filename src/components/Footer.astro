@@ -1,9 +1,14 @@
 ---
-const year = new Date().getUTCFullYear()
 ---
 <footer class="site-footer">
-  <div class="container">
-    <p>&copy; {year} shiimanblog</p>
+  <div class="container footer-inner">
+    <nav class="footer-nav" aria-label="フッター">
+      <a href="/">ホーム</a>
+      <a href="/sitemap/">サイトマップ</a>
+      <a href="/contact/">お問い合わせ</a>
+      <a href="/privacy-policy/">プライバシーポリシー</a>
+    </nav>
+    <p class="copyright">Copyright &copy; 2021 しーまんブログ All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -15,4 +20,20 @@ const year = new Date().getUTCFullYear()
     color: var(--text-muted);
     font-size: 0.85rem;
   }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 20px;
+  }
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 20px;
+  }
+  .footer-nav a { color: var(--text-muted); }
+  .footer-nav a:hover { color: var(--accent); text-decoration: none; }
+  .copyright { margin: 0; }
 </style>

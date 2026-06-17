@@ -27,5 +27,40 @@ export function resolveTaxonomy(storedSlug: string, map: TaxonomyMap): ResolvedT
   return { name: storedSlug, urlSlug: storedSlug }
 }
 
-export const resolveCategory = (slug: string): ResolvedTaxonomy => resolveTaxonomy(slug, categories)
+// カテゴリの親子関係（WordPress時の階層URLを復元）。子enSlug -> 親enSlug
+const CATEGORY_PARENT: Record<string, string> = {
+  mac: 'engineering',
+  aws: 'engineering',
+  gcp: 'engineering',
+  terraform: 'engineering',
+  docker: 'engineering',
+  'git-engineering': 'engineering',
+  golang: 'engineering',
+  'slack-engineering': 'engineering',
+  gas: 'engineering',
+  snowflake: 'engineering',
+  investment: 'fire',
+  savings: 'fire',
+  initialization: 'wordpress',
+  plugin: 'wordpress',
+  cocoon: 'wordpress',
+  advertisement: 'wordpress',
+  analytics: 'wordpress',
+}
+
+/** カテゴリのURL用パス。子カテゴリは「親/子」の階層パスを返す */
+export function categoryUrlPath(enSlug: string): string {
+  const parent = CATEGORY_PARENT[enSlug]
+  return parent ? `${parent}/${enSlug}` : enSlug
+}
+
+/** カテゴリの親enSlug（子の場合）。親カテゴリ/未知は undefined */
+export function categoryParent(enSlug: string): string | undefined {
+  return CATEGORY_PARENT[enSlug]
+}
+
+export function resolveCategory(slug: string): ResolvedTaxonomy {
+  const base = resolveTaxonomy(slug, categories)
+  return { name: base.name, urlSlug: categoryUrlPath(base.urlSlug) }
+}
 export const resolveTag = (slug: string): ResolvedTaxonomy => resolveTaxonomy(slug, tags)

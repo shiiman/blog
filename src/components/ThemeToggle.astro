@@ -21,21 +21,13 @@
 </style>
 
 <script>
-  // 'light' | 'dark' | 'system' の3状態をトグル
-  const order = ['system', 'light', 'dark'] as const
-  type Mode = (typeof order)[number]
-
-  function apply(mode: Mode) {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const dark = mode === 'dark' || (mode === 'system' && prefersDark)
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light'
-  }
-
+  // ライト/ダークの2状態をトグル（必ず明暗が切り替わる）
+  // 初回表示のみ OS 設定に追従（BaseLayout の FOUC 回避スクリプト参照）
   const btn = document.getElementById('theme-toggle')!
   btn.addEventListener('click', () => {
-    const current = (localStorage.getItem('theme') as Mode) ?? 'system'
-    const next = order[(order.indexOf(current) + 1) % order.length]
+    const isDark = document.documentElement.dataset.theme === 'dark'
+    const next = isDark ? 'light' : 'dark'
     localStorage.setItem('theme', next)
-    apply(next)
+    document.documentElement.dataset.theme = next
   })
 </script>

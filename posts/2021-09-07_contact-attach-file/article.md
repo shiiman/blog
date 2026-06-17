@@ -33,7 +33,7 @@ WordPressのプラグインContact Form 7をしようして、お問合せフォ
 \
 shiimanblog.com\
 \
-2021.09.06](https://shiimanblog.com/wordpress/contact "【WordPress】Contact Form 7でお問い合わせフォームを作成しよう / 初心者でも簡単！ビジネスや広告をやる方は必須")
+2021.09.06](/wordpress/contact "【WordPress】Contact Form 7でお問い合わせフォームを作成しよう / 初心者でも簡単！ビジネスや広告をやる方は必須")
 
 しかし、バグ報告で画像を添付したり、データを送るためファイルを添付したいことがあると思います。今回はそんな時に、お問い合わせフォームに画像を添付させられる機能を追加でつけていきたいと思います。
 

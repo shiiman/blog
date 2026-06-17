@@ -1,5 +1,6 @@
 ---
 import { formatJaDate, toUtcIso } from '../lib/date'
+import { resolveCategory } from '../lib/taxonomy'
 import type { ResolvedTaxonomy } from '../lib/taxonomy'
 
 interface Props {
@@ -7,14 +8,24 @@ interface Props {
   date: string
 }
 const { category, date } = Astro.props
+// 子カテゴリなら親もパンくず表示
+const parts = category.urlSlug.split('/')
+const parent = parts.length > 1 ? resolveCategory(parts[0]) : null
 ---
 <div class="post-meta">
+  {parent && (
+    <Fragment>
+      <a class="cat" href={`/category/${parent.urlSlug}/`}>{parent.name}</a>
+      <span class="sep">›</span>
+    </Fragment>
+  )}
   <a class="cat" href={`/category/${category.urlSlug}/`}>{category.name}</a>
   <time datetime={toUtcIso(date)}>{formatJaDate(date)}</time>
 </div>
 
 <style>
-  .post-meta { display: flex; gap: 12px; align-items: center; font-size: 0.8rem; }
-  .cat { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
-  time { color: var(--text-muted); }
+  .post-meta { display: flex; gap: 6px; align-items: center; font-size: 0.8rem; flex-wrap: wrap; }
+  .cat { color: var(--accent); font-weight: 600; letter-spacing: 0.02em; }
+  .sep { color: var(--text-muted); }
+  time { color: var(--text-muted); margin-left: 6px; }
 </style>

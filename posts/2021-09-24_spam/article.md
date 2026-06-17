@@ -29,7 +29,7 @@ WordPressのプラグインContact Form 7をしようして、お問合せフォ
 \
 shiimanblog.com\
 \
-2021.09.06](https://shiimanblog.com/wordpress/contact/ "【WordPress】Contact Form 7でお問い合わせフォームを作成しよう / 初心者でも簡単！ビジネスや広告をやる方は必須")
+2021.09.06](/wordpress/contact/ "【WordPress】Contact Form 7でお問い合わせフォームを作成しよう / 初心者でも簡単！ビジネスや広告をやる方は必須")
 
 今回は Contact Form 7の自動返信メールが迷惑メールになってしまうことがあり、その解決方法を紹介したいと思います。
 

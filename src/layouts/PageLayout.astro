@@ -9,7 +9,7 @@ const { entry } = Astro.props
 const { title, excerpt } = entry.data
 ---
 <BaseLayout title={`${title} - shiimanblog`} description={excerpt}>
-  <article class="page">
+  <article class="page" data-pagefind-body>
     <h1>{title}</h1>
     <div class="content">
       <slot />

@@ -1,0 +1,125 @@
+---
+import { getPublishedPosts } from '../lib/posts'
+import { getCategoryTree } from '../lib/category-tree'
+
+const posts = await getPublishedPosts()
+const categoryTree = await getCategoryTree()
+
+// 月別に集計（新しい順。直近8ヶ月をサイドバーに表示）
+const monthMap = new Map<string, { label: string; count: number }>()
+for (const post of posts) {
+  const key = post.entry.data.date.slice(0, 7)
+  const [y, mo] = key.split('-')
+  const g = monthMap.get(key) ?? { label: `${+y}年${+mo}月`, count: 0 }
+  g.count++
+  monthMap.set(key, g)
+}
+const recentMonths = [...monthMap.entries()].slice(0, 8)
+
+// SNS リンク（元ブログのプロフィールウィジェット準拠）
+const sns = [
+  { key: 'home', label: 'ホーム', href: '/', color: 'var(--accent)' },
+  { key: 'x', label: 'X (旧Twitter)', href: 'https://twitter.com/shiiman425', color: 'var(--text)' },
+  { key: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/shiimanblog', color: '#1877F2' },
+  { key: 'github', label: 'GitHub', href: 'https://github.com/shiiman', color: 'var(--text)' },
+  { key: 'feedly', label: 'Feedly', href: 'https://feedly.com/i/discover/sources/search/feed/https%3A%2F%2Fshiimanblog.com', color: '#2BB24C' },
+  { key: 'rss', label: 'RSS', href: '/rss.xml', color: '#EE802F' },
+]
+---
+<aside class="sidebar">
+  <section class="widget profile-widget">
+    <h2 class="widget-title">プロフィール</h2>
+    <p class="role">SREエンジニア</p>
+    <img class="avatar" src="/media/profile/avatar.png" alt="しーまん" width="130" height="130" loading="lazy" />
+    <p class="pname"><a href="/profile/">しーまん</a></p>
+    <p class="bio">FIREを目指す30代のエンジニア。</p>
+    <p class="bio">このブログでは10年以上ゲーム業界にいるエンジニアが得た技術的なノウハウやスキルを紹介する技術ブログです!!</p>
+    <p class="bio">またFIREを目指すにあたり、実際に行動したこと(節約・投資・副業)も紹介していければと思っています!!!</p>
+    <nav class="sns" aria-label="SNS">
+      {sns.map((s) => (
+        <a href={s.href} aria-label={s.label} title={s.label} style={`color: ${s.color}`} rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined} target={s.href.startsWith('http') ? '_blank' : undefined}>
+          {s.key === 'home' && <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3z"/></svg>}
+          {s.key === 'x' && <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24H16.17l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25H8.08l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg>}
+          {s.key === 'facebook' && <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07z"/></svg>}
+          {s.key === 'github' && <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.21 3.44 9.63 8.2 11.19.6.1.82-.25.82-.56v-2c-3.34.71-4.04-1.58-4.04-1.58-.55-1.36-1.34-1.73-1.34-1.73-1.09-.73.08-.72.08-.72 1.2.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.1-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.23-3.17-.12-.3-.53-1.52.12-3.16 0 0 1-.32 3.3 1.21a11.5 11.5 0 016 0c2.3-1.53 3.3-1.21 3.3-1.21.65 1.64.24 2.86.12 3.16.77.83 1.23 1.88 1.23 3.17 0 4.54-2.81 5.53-5.49 5.83.43.37.81 1.1.81 2.22v3.29c0 .31.21.67.82.56A12.02 12.02 0 0024 12.29C24 5.78 18.63.5 12 .5z"/></svg>}
+          {s.key === 'feedly' && <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 1.5L2.5 11c-.7.7-.7 1.8 0 2.5l7 7c.7.7 1.8.7 2.5 0l9.5-9.5c.7-.7.7-1.8 0-2.5L14 1.5c-.55-.55-1.45-.55-2 0zM12 18.5l-1.2-1.2 1.2-1.2 1.2 1.2zm0-4l-3.2-3.2L12 8l3.2 3.3z"/></svg>}
+          {s.key === 'rss' && <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.18 17.82a2.18 2.18 0 100 4.36 2.18 2.18 0 000-4.36zM4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83C19.56 11.42 12.58 4.44 4 4.44zm0 5.66v2.83A6.06 6.06 0 0110.07 19h2.83A8.9 8.9 0 004 10.1z"/></svg>}
+        </a>
+      ))}
+    </nav>
+  </section>
+
+  <section class="widget">
+    <h2 class="widget-title">カテゴリー</h2>
+    <ul class="cat-tree">
+      {categoryTree.map((p) => (
+        <li class="row parent">
+          <a href={`/category/${p.urlSlug}/`}>{p.name}</a>
+          <span>{p.count}</span>
+        </li>
+      ))}
+    </ul>
+    <a class="more" href="/categories/">すべてのカテゴリー →</a>
+  </section>
+
+  <section class="widget">
+    <h2 class="widget-title">アーカイブ</h2>
+    <ul class="widget-list">
+      {recentMonths.map(([key, m]) => (
+        <li><a href={`/archive/#${key}`}>{m.label}</a><span>{m.count}</span></li>
+      ))}
+    </ul>
+    <a class="more" href="/archive/">すべてのアーカイブ →</a>
+  </section>
+</aside>
+
+<style>
+  .sidebar { display: flex; flex-direction: column; gap: 1.8rem; }
+  .widget-title {
+    font-size: 1rem; margin: 0 0 0.7rem;
+    padding-bottom: 0.4rem; border-bottom: 2px solid var(--accent);
+  }
+
+  /* プロフィールウィジェット */
+  .profile-widget { text-align: center; }
+  .role { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
+  .avatar {
+    width: 130px; height: 130px; margin: 10px auto;
+    border-radius: 8px; border: 1px solid var(--border); object-fit: cover;
+  }
+  .pname { font-weight: 700; margin: 4px 0 12px; }
+  .pname a { color: var(--accent); }
+  .bio {
+    font-size: 0.85rem; line-height: 1.7; text-align: left;
+    margin: 0 0 8px; color: var(--text);
+  }
+  .sns { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+  .sns a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid var(--border);
+  }
+  .sns a:hover { border-color: currentColor; text-decoration: none; }
+
+  /* カテゴリー階層 */
+  .cat-tree, .children { list-style: none; margin: 0; padding: 0; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 0.9rem; }
+  .cat-tree > li { padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .parent > a { font-weight: 700; color: var(--text); }
+  .children { margin: 4px 0 0 8px; padding-left: 10px; border-left: 2px solid var(--border); }
+  .children .row { padding: 4px 0; font-size: 0.85rem; }
+  .cat-tree a { color: var(--text); }
+  .cat-tree a:hover { color: var(--accent); text-decoration: none; }
+  .cat-tree span { color: var(--text-muted); font-size: 0.76rem; }
+
+  /* アーカイブ */
+  .widget-list { list-style: none; margin: 0 0 0.6rem; padding: 0; }
+  .widget-list li {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem;
+  }
+  .widget-list a { color: var(--text); }
+  .widget-list a:hover { color: var(--accent); text-decoration: none; }
+  .widget-list span { color: var(--text-muted); font-size: 0.78rem; }
+  .more { display: inline-block; font-size: 0.82rem; }
+</style>

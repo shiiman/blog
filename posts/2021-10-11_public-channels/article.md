@@ -45,7 +45,7 @@ Slackでボットの作成とGASでそのボットとの連携方法を紹介し
 \
 shiimanblog.com\
 \
-2021.10.04](https://shiimanblog.com/engineering/gas-for-slack-bot/ "【2021年】ボットを作成してSlack APIをGASから叩く方法 | SlackAppライブラリ未使用")
+2021.10.04](/engineering/gas-for-slack-bot/ "【2021年】ボットを作成してSlack APIをGASから叩く方法 | SlackAppライブラリ未使用")
 
 ## スプレッドシートとGASの連携
 

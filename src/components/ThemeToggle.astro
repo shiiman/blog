@@ -1,0 +1,41 @@
+---
+// ライト/ダーク/システム追従を切り替えるボタン
+---
+<button id="theme-toggle" type="button" aria-label="テーマ切替" title="テーマ切替">
+  <span aria-hidden="true">◐</span>
+</button>
+
+<style>
+  #theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+  }
+  #theme-toggle:hover { background: var(--bg-subtle); }
+</style>
+
+<script>
+  // 'light' | 'dark' | 'system' の3状態をトグル
+  const order = ['system', 'light', 'dark'] as const
+  type Mode = (typeof order)[number]
+
+  function apply(mode: Mode) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const dark = mode === 'dark' || (mode === 'system' && prefersDark)
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+  }
+
+  const btn = document.getElementById('theme-toggle')!
+  btn.addEventListener('click', () => {
+    const current = (localStorage.getItem('theme') as Mode) ?? 'system'
+    const next = order[(order.indexOf(current) + 1) % order.length]
+    localStorage.setItem('theme', next)
+    apply(next)
+  })
+</script>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  current: number
+  total: number
+}
+const { current, total } = Astro.props
+const href = (page: number) => (page === 1 ? '/' : `/page/${page}/`)
+const prev = current > 1 ? current - 1 : null
+const next = current < total ? current + 1 : null
+---
+{total > 1 && (
+  <nav class="pagination">
+    {prev ? <a href={href(prev)}>← 前へ</a> : <span class="disabled">← 前へ</span>}
+    <span class="status">{current} / {total}</span>
+    {next ? <a href={href(next)}>次へ →</a> : <span class="disabled">次へ →</span>}
+  </nav>
+)}
+
+<style>
+  .pagination { display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; font-size: 0.9rem; }
+  .disabled { color: var(--text-muted); opacity: 0.5; }
+  .status { color: var(--text-muted); }
+</style>

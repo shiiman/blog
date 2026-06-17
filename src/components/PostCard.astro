@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets'
+import PostMeta from './PostMeta.astro'
+import type { PublishedPost } from '../lib/posts'
+
+interface Props {
+  post: PublishedPost
+}
+const { post } = Astro.props
+const { entry, path, primaryCategory } = post
+const eyecatch = entry.data.eyecatch
+---
+<article class="card">
+  {eyecatch && (
+    <a href={path} class="thumb">
+      <Image src={eyecatch} alt={entry.data.title} width={120} height={84} />
+    </a>
+  )}
+  <div class="body">
+    <PostMeta category={primaryCategory} date={entry.data.date} />
+    <h2 class="title"><a href={path}>{entry.data.title}</a></h2>
+  </div>
+</article>
+
+<style>
+  .card { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .thumb { flex: none; }
+  .thumb :global(img) { width: 120px; height: 84px; object-fit: cover; border-radius: 6px; }
+  .body { display: flex; flex-direction: column; gap: 6px; }
+  .title { font-size: 1.05rem; margin: 0; }
+  .title a { color: var(--text); }
+  .title a:hover { color: var(--accent); text-decoration: none; }
+</style>

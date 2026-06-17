@@ -1,0 +1,28 @@
+---
+import { resolveTag } from '../lib/taxonomy'
+
+interface Props {
+  tags: string[]
+}
+const { tags } = Astro.props
+const resolved = tags.map((t) => resolveTag(t))
+---
+{resolved.length > 0 && (
+  <ul class="tag-list">
+    {resolved.map((t) => (
+      <li><a href={`/tag/${t.urlSlug}/`}>#{t.name}</a></li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .tag-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag-list a {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 10px;
+  }
+  .tag-list a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+</style>

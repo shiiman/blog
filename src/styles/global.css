@@ -1,5 +1,5 @@
 :root {
-  --max-width: 720px;
+  --max-width: 1100px;
   --font-sans: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN",
     "Noto Sans JP", Meiryo, sans-serif;
   --font-mono: "SF Mono", "Menlo", "Consolas", monospace;
@@ -27,6 +27,11 @@
 
 html { color-scheme: light dark; }
 
+/* スムーススクロール（上へ戻る・目次・アンカー）。動きを抑える設定の人は除外 */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -40,8 +45,20 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+main.container { padding-top: 2.5rem; padding-bottom: 2rem; }
+
+/* ホーム/記事一覧の2カラム（メイン + 右サイドバー） */
+.home-grid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 40px; align-items: start; }
+.home-grid .main { min-width: 0; }
+@media (max-width: 900px) {
+  .home-grid { grid-template-columns: 1fr; }
+}
 
 img { max-width: 100%; height: auto; }
+video, iframe { max-width: 100%; }
+video { height: auto; }
+figure { margin: 1.5rem 0; }
+figure img, figure video { display: block; }
 
 pre {
   padding: 16px;
@@ -59,4 +76,26 @@ pre {
 
 h1, h2, h3, h4 { line-height: 1.35; font-weight: 700; }
 
+/* 固定ヘッダーに隠れないよう、アンカー(目次/月別)ジャンプ先にオフセット */
+:where([id]) { scroll-margin-top: 80px; }
+
 hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+/* 表: 罫線・ヘッダー背景・ストライプ。広い表は横スクロール */
+table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+thead th { background: var(--bg-subtle); font-weight: 700; white-space: nowrap; }
+tbody tr:nth-child(even) { background: var(--bg-subtle); }
+table :not(pre) > code { white-space: nowrap; }

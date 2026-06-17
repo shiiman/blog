@@ -4,10 +4,14 @@ import SearchOverlay from './SearchOverlay.astro'
 ---
 <header class="site-header">
   <div class="container inner">
-    <a class="brand" href="/">shiimanblog</a>
+    <div class="brand-wrap">
+      <a class="brand" href="/">しーまんブログ</a>
+      <span class="brand-sub">〜楽をしたいエンジニアのブログ〜</span>
+    </div>
     <nav class="nav">
-      <a href="/">記事</a>
+      <a href="/">ホーム</a>
       <a href="/profile/">プロフィール</a>
+      <a href="/sitemap/">サイトマップ</a>
       <a href="/contact/">お問い合わせ</a>
       <button id="search-open" type="button" class="icon-btn" aria-label="検索" title="検索">🔍</button>
       <ThemeToggle />
@@ -17,10 +21,16 @@ import SearchOverlay from './SearchOverlay.astro'
 <SearchOverlay />
 
 <style>
-  .site-header { border-bottom: 1px solid var(--border); }
-  .inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+  .brand-wrap { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
   .brand { font-weight: 700; font-size: 1.1rem; color: var(--text); }
-  .nav { display: flex; align-items: center; gap: 18px; font-size: 0.9rem; }
+  .brand-sub { font-size: 0.7rem; color: var(--text-muted); font-weight: 400; }
+  .nav { display: flex; align-items: center; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; justify-content: flex-end; }
   .nav a { color: var(--text-muted); }
   .nav a:hover { color: var(--accent); text-decoration: none; }
   .icon-btn {

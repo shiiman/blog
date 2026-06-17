@@ -5,7 +5,7 @@ export interface PermalinkEntry {
 
 export type PermalinkMap = Record<string, PermalinkEntry>
 
-interface RestPost {
+export interface RestPost {
   id: number
   slug: string
   link: string

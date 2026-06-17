@@ -1,14 +1,8 @@
 import { writeFile, mkdir } from 'node:fs/promises'
-import { buildPermalinkMap } from './lib/permalinks'
+import { buildPermalinkMap, type RestPost } from './lib/permalinks'
 
 const SITE = 'https://shiimanblog.com'
 const DATA_DIR = 'data'
-
-interface RestPost {
-  id: number
-  slug: string
-  link: string
-}
 
 /** ページングしながら全記事の id/slug/link を取得する */
 async function fetchAllPosts(): Promise<RestPost[]> {

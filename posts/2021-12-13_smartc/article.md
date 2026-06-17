@@ -1,17 +1,17 @@
 ---
-id: 1329
 title: 【2021年12月】スマホアプリ広告大手のASPであるSmart-Cの登録方法
 slug: smartc
-status: publish
 date: 2021-12-13T19:30:00.000Z
+categories:
+  - advertisement
+  - wordpress
+tags:
+  - smart-c
+draft: false
+id: 1329
 modified: 2021-12-09T19:32:52.000Z
 excerpt: スマートフォンアプリ広告に特化したアフィリエイトASP「Smart-C」の特徴と登録方法を解説します。
-categories:
-  - 12
-  - 3
-tags:
-  - 87
-featured_media: 1331
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

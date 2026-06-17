@@ -1,20 +1,20 @@
 ---
-id: 740
 title: 【WordPress】おすすめプラグイン part 8 〜 Site Kit by Google 〜
 slug: site-kit
-status: publish
 date: 2021-09-22T19:30:00.000Z
+categories:
+  - plugin
+  - wordpress
+tags:
+  - wordpress
+  - site-kit
+draft: false
+id: 740
 modified: 2021-09-15T15:35:29.000Z
 excerpt: >-
   Google公式プラグイン「Site Kit」を使って、WordPressダッシュボード上でAnalyticsやSearch
   Consoleを一元管理する方法を紹介します。
-categories:
-  - 10
-  - 3
-tags:
-  - 6
-  - 49
-featured_media: 742
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです！

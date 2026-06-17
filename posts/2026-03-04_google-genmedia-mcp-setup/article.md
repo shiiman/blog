@@ -1,16 +1,17 @@
 ---
-id: 2244
 title: Google生成メディアAPIをMCPで統合。画像・動画・音声をAIから直接生成する
 slug: google-genmedia-mcp-setup
-status: publish
+date: 2026-03-04T19:27:41.000Z
+categories:
+  - ai
+tags: []
+draft: false
+id: 2244
+modified: 2026-03-04T19:27:41.000Z
 excerpt: >-
   GoogleのImagen・Veo・Chirp・LyriaをMCPサーバー経由でClaude
   CodeやCodexから直接利用できるPython製ツールを自作しました。導入方法とデモを紹介します。
-categories:
-  - 133
-featured_media: 2243
-date: 2026-03-04T19:27:41.000Z
-modified: 2026-03-04T19:27:41.000Z
+eyecatch: ./assets/eyecatch.png
 ---
 
 ## はじめに

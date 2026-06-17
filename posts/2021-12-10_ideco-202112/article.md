@@ -1,17 +1,17 @@
 ---
-id: 1324
 title: 【iDeCo】14ヶ月目の運用実績公開！| 2021年12月
 slug: ideco-202112
-status: publish
 date: 2021-12-10T19:30:00.000Z
+categories:
+  - investment
+  - fire
+tags:
+  - ideco
+draft: false
+id: 1324
 modified: 2021-12-09T17:57:28.000Z
 excerpt: iDeCo開始14ヶ月目の運用実績を公開。年末調整後の確定申告準備についても触れます。
-categories:
-  - 16
-  - 14
-tags:
-  - 70
-featured_media: 1325
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

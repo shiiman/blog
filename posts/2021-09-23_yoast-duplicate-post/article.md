@@ -1,19 +1,19 @@
 ---
-id: 766
 title: 【WordPress】おすすめプラグイン part 9 〜 Yoast Duplicate Post 〜
 slug: yoast-duplicate-post
-status: publish
 date: 2021-09-23T19:30:00.000Z
+categories:
+  - plugin
+  - wordpress
+tags:
+  - wordpress
+  - plugin
+  - yoast-duplicate-post
+draft: false
+id: 766
 modified: 2021-09-15T16:26:42.000Z
 excerpt: WordPressの記事複製プラグイン「Yoast Duplicate Post」の導入方法を紹介。テンプレート化して効率的に記事作成できます。
-categories:
-  - 10
-  - 3
-tags:
-  - 6
-  - 23
-  - 50
-featured_media: 767
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです！

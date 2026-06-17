@@ -1,19 +1,19 @@
 ---
-id: 671
 title: 【WordPress】おすすめプラグイン part7 〜 Jetpack 〜
 slug: jetpack
-status: publish
 date: 2021-09-19T19:30:00.000Z
+categories:
+  - plugin
+  - wordpress
+tags:
+  - wordpress
+  - plugin
+  - jetpack
+draft: false
+id: 671
 modified: 2021-09-14T17:30:50.000Z
 excerpt: WordPressの記事投稿時にSNSへ自動連携するプラグイン「Jetpack」の導入・設定方法を紹介します。
-categories:
-  - 10
-  - 3
-tags:
-  - 6
-  - 23
-  - 46
-featured_media: 672
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

@@ -1,17 +1,17 @@
 ---
-id: 859
 title: 'Dockerビルドエラー解決! | ERROR [internal] load metadata for …'
 slug: error-internal-load-metadata
-status: publish
 date: 2021-09-26T19:30:00.000Z
+categories:
+  - engineering
+  - docker
+tags:
+  - docker
+draft: false
+id: 859
 modified: 2021-09-23T12:42:40.000Z
 excerpt: 'Docker buildで発生する「ERROR [internal] load metadata for ...」エラーの原因と解決方法を紹介します。'
-categories:
-  - 18
-  - 22
-tags:
-  - 35
-featured_media: 860
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです！！

@@ -1,19 +1,19 @@
 ---
-id: 175
 title: 【WordPress】お問い合わせが迷惑メールに入ってしまう件を解決 | Contact Form 7 | ConoHa WING
 slug: spam
-status: publish
 date: 2021-09-24T19:30:00.000Z
+categories:
+  - initialization
+  - wordpress
+tags:
+  - wordpress
+  - conoha-wing
+  - '%e3%83%a1%e3%83%bc%e3%83%ab'
+draft: false
+id: 175
 modified: 2021-09-24T21:51:30.000Z
 excerpt: Contact Form 7のお問い合わせメールが迷惑メールフォルダに入る問題の原因と、ConoHa WINGでの解決方法を紹介します。
-categories:
-  - 4
-  - 3
-tags:
-  - 6
-  - 7
-  - 51
-featured_media: 805
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 WordPressでお問い合わせフォームを作成する場合「Contact Form 7」を使用している方が多いと思います。Contact Form 7の設定方法は下記の記事を参考にしてください。

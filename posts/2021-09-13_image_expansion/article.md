@@ -1,17 +1,17 @@
 ---
-id: 192
 title: 【Cocoon】3分でできる! クリック時画像を拡大させる方法
 slug: image-expansion
-status: publish
 date: 2021-09-13T19:30:00.000Z
+categories:
+  - cocoon
+  - wordpress
+tags:
+  - cocoon
+draft: false
+id: 192
 modified: 2021-09-12T18:21:43.000Z
 excerpt: Cocoonで画像クリック時にポップアップ拡大表示させる設定方法を、3分でできる簡単な手順で紹介します。
-categories:
-  - 11
-  - 3
-tags:
-  - 31
-featured_media: 570
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは！しーまんです。

@@ -1,19 +1,19 @@
 ---
-id: 1494
 title: 【Snowflake】snowpipeを使用して継続的にAWS S3からデータをロードする方法
 slug: snowflake-snowpipe
-status: publish
 date: 2022-01-28T19:30:00.000Z
+categories:
+  - engineering
+  - snowflake
+tags:
+  - snowflake
+  - s3
+  - snowpipe
+draft: false
+id: 1494
 modified: 2022-01-19T19:41:38.000Z
 excerpt: SnowflakeのSnowpipeを使ってAWS S3からデータを継続的に自動ロードする仕組みの構築方法を解説します。
-categories:
-  - 18
-  - 77
-tags:
-  - 78
-  - 79
-  - 97
-featured_media: 1496
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

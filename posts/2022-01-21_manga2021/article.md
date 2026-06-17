@@ -1,17 +1,17 @@
 ---
-id: 1459
 title: 【2021年】おすすめ異世界冒険マンガ21選!!
 slug: manga2021
-status: publish
 date: 2022-01-21T19:30:00.000Z
+categories:
+  - book
+tags:
+  - '%e3%83%9e%e3%83%b3%e3%82%ac'
+  - '%e7%95%b0%e4%b8%96%e7%95%8c'
+draft: false
+id: 1459
 modified: 2022-01-19T17:08:55.000Z
 excerpt: 2021年に読んだおすすめの異世界冒険マンガ21作品を、あらすじとともに一挙紹介します。
-categories:
-  - 17
-tags:
-  - 95
-  - 96
-featured_media: 1461
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

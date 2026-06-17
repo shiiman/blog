@@ -1,19 +1,19 @@
 ---
-id: 919
 title: 【2021年9月】初心者用 アフェリエイトASP大手 A8.netの登録方法
 slug: a8net
-status: publish
 date: 2021-09-28T19:30:00.000Z
+categories:
+  - advertisement
+  - wordpress
+tags:
+  - a8-net
+  - '%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88'
+  - asp
+draft: false
+id: 919
 modified: 2021-09-24T21:27:52.000Z
 excerpt: アフィリエイト初心者におすすめの最大手ASP「A8.net」の登録方法を、画像つきでわかりやすく解説します。
-categories:
-  - 12
-  - 3
-tags:
-  - 55
-  - 56
-  - 57
-featured_media: 921
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

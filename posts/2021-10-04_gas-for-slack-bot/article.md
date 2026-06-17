@@ -1,20 +1,20 @@
 ---
-id: 1049
 title: 【2021年】ボットを作成してSlack APIをGASから叩く方法 | SlackAppライブラリ未使用
 slug: gas-for-slack-bot
-status: publish
 date: 2021-10-04T19:30:00.000Z
+categories:
+  - engineering
+  - slack-engineering
+  - gas
+tags:
+  - slack
+  - bot
+  - gas
+draft: false
+id: 1049
 modified: 2021-10-01T19:22:16.000Z
 excerpt: Google Apps Script（GAS）からSlack APIを叩いてBotを作成する方法を、ライブラリ未使用で一から解説します。
-categories:
-  - 18
-  - 64
-  - 65
-tags:
-  - 66
-  - 67
-  - 68
-featured_media: 1051
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

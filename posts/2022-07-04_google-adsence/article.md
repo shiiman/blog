@@ -1,16 +1,16 @@
 ---
-id: 1692
 title: Google AdSence登録手順
 slug: google-adsence
-status: publish
 date: 2022-07-04T19:30:00.000Z
+categories:
+  - advertisement
+tags:
+  - google-adsence
+draft: false
+id: 1692
 modified: 2022-07-03T14:40:37.000Z
 excerpt: Google AdSenseの登録手順と審査に通るまでの経緯を紹介。半年ぶりの申請で審査通過した体験談です。
-categories:
-  - 12
-tags:
-  - 119
-featured_media: 1693
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

@@ -1,19 +1,19 @@
 ---
-id: 120
 title: 【WordPress】おすすめのプラグイン Part 2 〜 SiteGuard WP Plugin 〜
 slug: siteguard-wp-plugin
-status: publish
 date: 2021-09-02T19:30:00.000Z
+categories:
+  - plugin
+  - wordpress
+tags:
+  - wordpress
+  - plugin
+  - siteguard-wp-plugin
+draft: false
+id: 120
 modified: 2021-09-24T21:42:36.000Z
 excerpt: WordPress管理画面のセキュリティを強化するプラグイン「SiteGuard WP Plugin」の導入手順と設定方法を解説します。
-categories:
-  - 10
-  - 3
-tags:
-  - 6
-  - 23
-  - 25
-featured_media: 121
+eyecatch: ./assets/eyecatch.png
 ---
 
 みなさん自身のサイトのセキュリティー対策は万全でしょうか？

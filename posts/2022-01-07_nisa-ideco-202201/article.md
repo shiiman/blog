@@ -1,18 +1,18 @@
 ---
-id: 1426
 title: 【つみたてNISA】18ヶ月目【iDeCo】15ヶ月目の運用実績公開！| 2022年1月
 slug: nisa-ideco-202201
-status: publish
 date: 2022-01-07T19:30:00.000Z
+categories:
+  - investment
+  - fire
+tags:
+  - '%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa'
+  - ideco
+draft: false
+id: 1426
 modified: 2022-02-03T10:18:11.000Z
 excerpt: つみたてNISA18ヶ月目・iDeCo15ヶ月目の運用実績を公開。2022年初の積立状況を報告します。
-categories:
-  - 16
-  - 14
-tags:
-  - 69
-  - 70
-featured_media: 1427
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです！

@@ -1,18 +1,18 @@
 ---
-id: 1210
 title: 【Snowflake】AWS S3からデータをロードし操作する方法 | 初期設定
 slug: snowflake-s3
-status: publish
 date: 2021-10-26T19:30:00.000Z
+categories:
+  - engineering
+  - snowflake
+tags:
+  - snowflake
+  - s3
+draft: false
+id: 1210
 modified: 2021-10-22T14:36:50.000Z
 excerpt: AWS S3に配置されたCSVデータをSnowflakeにロードする方法を、外部ステージの設定からCOPYコマンドまで解説します。
-categories:
-  - 18
-  - 77
-tags:
-  - 78
-  - 79
-featured_media: 1215
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

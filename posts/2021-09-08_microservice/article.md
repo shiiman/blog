@@ -1,19 +1,19 @@
 ---
-id: 437
 title: 【docker】ローカルでマイクロサービス開発する方法
 slug: microservice
-status: publish
 date: 2021-09-08T19:30:00.000Z
+categories:
+  - engineering
+  - docker
+tags:
+  - docker
+  - microservice
+  - ingress
+draft: false
+id: 437
 modified: 2021-09-08T01:38:08.000Z
 excerpt: Dockerとnginxのリバースプロキシを使って、ローカル環境でマイクロサービスのURIパスルーティングを実現する方法を紹介します。
-categories:
-  - 18
-  - 22
-tags:
-  - 35
-  - 36
-  - 37
-featured_media: 438
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 最近dockerやkubernetesなどといった技術が出てきたことにより、コンテナを使用してマイクロサービスでシステムを開発する手法が流行っています。

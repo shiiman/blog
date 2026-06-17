@@ -1,21 +1,21 @@
 ---
-id: 1543
 title: 【投資】お金に無知な同居人の投資までの流れを作ってみた|つみたてNISA
 slug: money-flow
-status: publish
 date: 2022-02-18T19:30:00.000Z
+categories:
+  - investment
+  - fire
+tags:
+  - '%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa'
+  - '%e6%a5%bd%e5%a4%a9%e9%8a%80%e8%a1%8c'
+  - '%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8'
+  - '%e3%82%a4%e3%82%aa%e3%83%b3%e9%8a%80%e8%a1%8c'
+  - '%e3%81%82%e3%81%8a%e3%81%9e%e3%82%89%e9%8a%80%e8%a1%8c'
+draft: false
+id: 1543
 modified: 2022-02-08T16:23:59.000Z
 excerpt: お金に無知だった同居人に投資を始めてもらうまでの流れを紹介。銀行口座選びからつみたてNISA開始までのステップを解説します。
-categories:
-  - 16
-  - 14
-tags:
-  - 69
-  - 102
-  - 103
-  - 104
-  - 105
-featured_media: 1553
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

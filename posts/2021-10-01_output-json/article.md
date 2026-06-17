@@ -1,19 +1,19 @@
 ---
-id: 1034
 title: 【Golang】HTTPリクエストのレスポンスを構造体定義なしでjsonに吐き出す方法
 slug: output-json
-status: publish
 date: 2021-10-01T19:30:00.000Z
+categories:
+  - engineering
+  - golang
+tags:
+  - golang
+  - struct
+  - json
+draft: false
+id: 1034
 modified: 2021-10-01T13:29:14.000Z
 excerpt: GolangでHTTPレスポンスのJSONを構造体定義なしでファイルに出力する方法を紹介。JSON-to-Goの活用法も解説します。
-categories:
-  - 18
-  - 60
-tags:
-  - 59
-  - 61
-  - 62
-featured_media: 1035
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

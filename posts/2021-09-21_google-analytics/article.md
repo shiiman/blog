@@ -1,16 +1,16 @@
 ---
-id: 716
 title: 【2021年9月】初心者用 Google Analytics 登録と設定 | Cocoon
 slug: google-analytics
-status: publish
 date: 2021-09-21T19:30:00.000Z
+categories:
+  - analytics
+tags:
+  - google-analytics
+draft: false
+id: 716
 modified: 2021-09-15T01:50:28.000Z
 excerpt: Google Analyticsの登録からCocoonテーマへの設定方法まで、WordPressサイトのアクセス解析導入手順を紹介します。
-categories:
-  - 13
-tags:
-  - 48
-featured_media: 719
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです！

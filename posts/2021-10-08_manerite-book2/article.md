@@ -1,20 +1,20 @@
 ---
-id: 1137
 title: マネリテ学園の書籍が出たので読んでみた | 大河内 薫 (著)
 slug: manerite-book2
-status: publish
 date: 2021-10-08T19:30:00.000Z
+categories:
+  - book
+tags:
+  - ideco
+  - '%e3%83%9e%e3%83%8d%e3%83%aa%e3%83%86%e5%ad%a6%e5%9c%92'
+  - '%e5%a4%a7%e6%b2%b3%e5%86%85-%e8%96%ab'
+  - nisa
+  - '%e7%a8%8e%e9%87%91'
+draft: false
+id: 1137
 modified: 2021-10-07T20:13:57.000Z
 excerpt: 税理士・大河内薫氏の著書「マネリテ学園」の書評。お金の基礎知識をマンガ形式で学べる入門書を紹介します。
-categories:
-  - 17
-tags:
-  - 70
-  - 71
-  - 72
-  - 73
-  - 74
-featured_media: 1138
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

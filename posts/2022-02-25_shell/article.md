@@ -1,19 +1,19 @@
 ---
-id: 1594
 title: 【mac】シェルをカスタマイズしてみた |【bash】【zsh】【fish】
 slug: shell
-status: publish
 date: 2022-02-25T19:30:00.000Z
+categories:
+  - mac
+  - engineering
+tags:
+  - bash
+  - zsh
+  - fish
+draft: false
+id: 1594
 modified: 2022-02-17T15:46:42.000Z
 excerpt: macのシェルをbash・zsh・fishでカスタマイズする方法を紹介。ターミナルの見た目と使い勝手を改善します。
-categories:
-  - 106
-  - 18
-tags:
-  - 110
-  - 111
-  - 112
-featured_media: 1596
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

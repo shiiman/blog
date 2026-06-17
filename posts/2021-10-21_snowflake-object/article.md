@@ -1,17 +1,17 @@
 ---
-id: 1198
 title: 【Snowflake】アカウント内のオブジェクトと組織の概念について | 初期設定
 slug: snowflake-object
-status: publish
 date: 2021-10-21T19:30:00.000Z
+categories:
+  - engineering
+  - snowflake
+tags:
+  - snowflake
+draft: false
+id: 1198
 modified: 2021-10-22T11:32:20.000Z
 excerpt: Snowflakeのアカウント内オブジェクト構造と組織の概念を初心者向けに解説。データベース・スキーマ・テーブルの関係を紹介します。
-categories:
-  - 18
-  - 77
-tags:
-  - 78
-featured_media: 1201
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

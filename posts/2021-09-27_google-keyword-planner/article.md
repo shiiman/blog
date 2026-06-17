@@ -1,17 +1,18 @@
 ---
-id: 872
 title: 【2021年9月】初心者用 Googleキーワードプランナーの登録方法
 slug: google-keyword-planner
-status: publish
 date: 2021-09-27T19:30:00.000Z
+categories:
+  - analytics
+  - wordpress
+tags:
+  - >-
+    %e3%82%ad%e3%83%bc%e3%83%af%e3%83%bc%e3%83%89%e3%83%97%e3%83%a9%e3%83%b3%e3%83%8a%e3%83%bc
+draft: false
+id: 872
 modified: 2021-09-24T17:32:09.000Z
 excerpt: SEO対策に必須のGoogleキーワードプランナーの登録方法を、初心者向けに画像つきで解説します。
-categories:
-  - 13
-  - 3
-tags:
-  - 54
-featured_media: 873
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです！

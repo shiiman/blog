@@ -1,15 +1,15 @@
 ---
-id: 1639
 title: 今後のブログ更新に関して
 slug: blog-update-plan
-status: publish
 date: 2022-05-13T20:00:00.000Z
+categories:
+  - profile
+tags:
+  - wordpress
+draft: false
+id: 1639
 modified: 2022-05-13T12:39:11.000Z
 excerpt: ブログの更新頻度についてのお知らせ。定期更新をやめ、気が向いたタイミングで自由に投稿するスタイルに変更します。
-categories:
-  - 2
-tags:
-  - 6
 ---
 
 ## 今後の更新について

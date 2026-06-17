@@ -1,18 +1,18 @@
 ---
-id: 1287
 title: 【Golang】OAuth2.0を実装する方法/Google認証
 slug: golang-oauth2
-status: publish
 date: 2021-12-03T12:00:00.000Z
+categories:
+  - engineering
+  - golang
+tags:
+  - oauth2-0
+  - google%e8%aa%8d%e8%a8%bc
+draft: false
+id: 1287
 modified: 2022-11-04T17:41:25.000Z
 excerpt: GolangでGoogleのOAuth2.0認証を実装する方法をサンプルコード付きで解説。アドベントカレンダー2021の記事です。
-categories:
-  - 18
-  - 60
-tags:
-  - 85
-  - 86
-featured_media: 1290
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんにちは、しーまんです。

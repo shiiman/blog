@@ -1,19 +1,19 @@
 ---
-id: 4
 title: Cocoon設定 Forbidden Accessになる理由は〇〇だった!!
 slug: forbidden-error
-status: publish
 date: 2021-09-12T19:30:00.000Z
+categories:
+  - cocoon
+  - wordpress
+tags:
+  - wordpress
+  - conoha-wing
+  - cocoon
+draft: false
+id: 4
 modified: 2021-09-24T21:49:11.000Z
 excerpt: CocoonのWordPress設定保存時に発生する「Forbidden Access」エラーの原因と解決方法を紹介します。
-categories:
-  - 11
-  - 3
-tags:
-  - 6
-  - 7
-  - 31
-featured_media: 555
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 私はWordPressのテーマ設定でCocoonを使用しています。

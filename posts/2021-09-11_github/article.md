@@ -1,17 +1,17 @@
 ---
-id: 509
 title: 【2021年9月】GitHubの登録方法 – 2段階認証の設定まで画像つきでしっかり解説！
 slug: github
-status: publish
 date: 2021-09-11T19:30:00.000Z
+categories:
+  - engineering
+  - git-engineering
+tags:
+  - github
+draft: false
+id: 509
 modified: 2021-09-09T15:42:33.000Z
 excerpt: GitHubアカウントの新規登録方法を、二段階認証の設定まで画像つきで初心者にもわかりやすく解説します。
-categories:
-  - 18
-  - 40
-tags:
-  - 41
-featured_media: 511
+eyecatch: ./assets/eyecatch.png
 ---
 
 プログラムなどをバージョン管理するGithubはもはやエンジニアだけのツールではありません。

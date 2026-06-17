@@ -1,17 +1,17 @@
 ---
-id: 1318
 title: 【つみたてNISA】17ヶ月目の運用実績公開！| 2021年12月
 slug: nisa-202112
-status: publish
 date: 2021-12-09T19:30:00.000Z
+categories:
+  - investment
+  - fire
+tags:
+  - '%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa'
+draft: false
+id: 1318
 modified: 2021-12-09T17:27:02.000Z
 excerpt: つみたてNISA開始17ヶ月目の運用実績を公開。2021年最後の積立投資の成果を報告します。
-categories:
-  - 16
-  - 14
-tags:
-  - 69
-featured_media: 1319
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです！

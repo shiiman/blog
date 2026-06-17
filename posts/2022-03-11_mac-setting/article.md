@@ -1,18 +1,18 @@
 ---
-id: 1626
 title: 【mac】Macの初期設定をワンライナーで完結させてみた
 slug: mac-setting
-status: publish
 date: 2022-03-11T19:30:00.000Z
+categories:
+  - mac
+  - engineering
+tags:
+  - mac
+  - dotfiles
+draft: false
+id: 1626
 modified: 2022-03-09T15:02:12.000Z
 excerpt: Macの初期設定をシェルスクリプトで自動化する方法を紹介。Homebrewとdefaultsコマンドでワンライナー完結を実現します。
-categories:
-  - 106
-  - 18
-tags:
-  - 113
-  - 114
-featured_media: 1628
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

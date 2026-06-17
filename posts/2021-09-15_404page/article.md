@@ -1,19 +1,19 @@
 ---
-id: 597
 title: 【WordPress】Cocoonで404ページを作成する方法
 slug: 404page
-status: publish
 date: 2021-09-15T00:01:00.000Z
+categories:
+  - cocoon
+  - wordpress
+tags:
+  - wordpress
+  - cocoon
+  - '404'
+draft: false
+id: 597
 modified: 2021-09-13T01:25:22.000Z
 excerpt: Cocoonを使ったWordPressの404エラーページのカスタマイズ方法を紹介。ユーザーを適切に誘導するページを作成します。
-categories:
-  - 11
-  - 3
-tags:
-  - 6
-  - 31
-  - 43
-featured_media: 599
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです！

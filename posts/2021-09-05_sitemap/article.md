@@ -1,20 +1,20 @@
 ---
-id: 144
 title: 【Cocoon】サイトマップをヘッダー・フッターに追加する方法 / 初心者でも簡単！5分でサイトマップ完成
 slug: sitemap
-status: publish
 date: 2021-09-05T19:30:00.000Z
+categories:
+  - initialization
+  - cocoon
+  - wordpress
+tags:
+  - wordpress
+  - sitemap
+  - cocoon
+draft: false
+id: 144
 modified: 2021-09-02T18:15:20.000Z
 excerpt: Cocoonを使用してWordPressにサイトマップを作成し、ヘッダーやフッターに設置する方法を初心者向けに解説します。
-categories:
-  - 4
-  - 11
-  - 3
-tags:
-  - 6
-  - 27
-  - 31
-featured_media: 247
+eyecatch: ./assets/eyecatch.png
 ---
 
 WordPressでブログを書いていると最初のうちは記事数も少ないのでいいですが、

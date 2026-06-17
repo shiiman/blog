@@ -1,19 +1,19 @@
 ---
-id: 985
 title: 【2021年9月】初心者用 アフェリエイトASP大手 バリューコマースの登録方法
 slug: valuecommerce
-status: publish
 date: 2021-09-29T19:30:00.000Z
+categories:
+  - advertisement
+  - wordpress
+tags:
+  - '%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88'
+  - asp
+  - '%e3%83%90%e3%83%aa%e3%83%a5%e3%83%bc%e3%82%b3%e3%83%9e%e3%83%bc%e3%82%b9'
+draft: false
+id: 985
 modified: 2021-12-09T18:26:23.000Z
 excerpt: 日本初のASPサービス「バリューコマース」の登録方法を紹介。大手企業案件が豊富なアフィリエイトASPです。
-categories:
-  - 12
-  - 3
-tags:
-  - 56
-  - 57
-  - 58
-featured_media: 987
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

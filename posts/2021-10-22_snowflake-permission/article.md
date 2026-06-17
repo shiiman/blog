@@ -1,17 +1,17 @@
 ---
-id: 1190
 title: 【Snowflake】ユーザの作成からロール権限設定までまとめてみた | 初期設定
 slug: snowflake-permission
-status: publish
 date: 2021-10-22T19:30:00.000Z
+categories:
+  - engineering
+  - snowflake
+tags:
+  - snowflake
+draft: false
+id: 1190
 modified: 2021-10-22T01:04:14.000Z
 excerpt: Snowflakeのユーザー作成からロール・権限設定まで、アクセス制御の基本をわかりやすく解説します。
-categories:
-  - 18
-  - 77
-tags:
-  - 78
-featured_media: 1191
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

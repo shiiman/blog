@@ -1,19 +1,19 @@
 ---
-id: 1521
 title: 【AWS】Firelensを使用してS3にログをリアルタイムで出力する方法 | 【Fluentbit】【Kinesis Data Firehose】
 slug: firelens-s3
-status: publish
 date: 2022-01-24T19:30:00.000Z
+categories:
+  - aws
+  - engineering
+tags:
+  - firelens
+  - fluentbit
+  - firehose
+draft: false
+id: 1521
 modified: 2022-01-21T17:31:34.000Z
 excerpt: AWSのFireLensとFluentbit、Kinesis Data Firehoseを使って、コンテナログをS3にリアルタイム出力する方法を解説します。
-categories:
-  - 19
-  - 18
-tags:
-  - 98
-  - 99
-  - 100
-featured_media: 1524
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです。

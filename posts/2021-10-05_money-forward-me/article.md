@@ -1,17 +1,17 @@
 ---
-id: 854
 title: 【FIREへの道】無料家計簿管理アプリ マネーフォワードME | まずは収支の把握から始めよう！
 slug: money-forward-me
-status: publish
 date: 2021-10-05T19:30:00.000Z
+categories:
+  - '%e7%af%80%e7%b4%84'
+  - fire
+tags:
+  - '%e3%83%9e%e3%83%8d%e3%83%bc%e3%83%95%e3%82%a9%e3%83%af%e3%83%bc%e3%83%89me'
+draft: false
+id: 854
 modified: 2021-10-04T14:43:18.000Z
 excerpt: 家計簿管理アプリ「マネーフォワードME」の活用方法を紹介。収支の見える化がFIREへの第一歩です。
-categories:
-  - 52
-  - 14
-tags:
-  - 53
-featured_media: 855
+eyecatch: ./assets/eyecatch.jpg
 ---
 
 こんばんは、しーまんです！

@@ -1,21 +1,21 @@
 ---
-id: 1154
 title: 【slack】GASを使ってslackのpublicチャンネル一覧をスプレッドシートに出力する方法
 slug: public-channels
-status: publish
 date: 2021-10-11T19:30:00.000Z
+categories:
+  - engineering
+  - slack-engineering
+  - gas
+tags:
+  - slack
+  - bot
+  - gas
+  - spreadsheet
+draft: false
+id: 1154
 modified: 2022-06-30T18:00:20.000Z
 excerpt: GASとSlack APIを使って、Slackのpublicチャンネル一覧をスプレッドシートに出力する方法を紹介します。
-categories:
-  - 18
-  - 64
-  - 65
-tags:
-  - 66
-  - 67
-  - 68
-  - 75
-featured_media: 1156
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

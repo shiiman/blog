@@ -1,17 +1,17 @@
 ---
-id: 1123
 title: 【iDeCo】12ヶ月目の運用実績公開！| 2021年10月
 slug: ideco-202110
-status: publish
 date: 2021-10-07T19:30:00.000Z
+categories:
+  - investment
+  - fire
+tags:
+  - ideco
+draft: false
+id: 1123
 modified: 2022-10-07T14:14:12.000Z
 excerpt: iDeCo開始12ヶ月目の運用実績を公開。節税効果とともに1年間の運用成績を振り返ります。
-categories:
-  - 16
-  - 14
-tags:
-  - 70
-featured_media: 1125
+eyecatch: ./assets/eyecatch.png
 ---
 
 こんばんは、しーまんです。

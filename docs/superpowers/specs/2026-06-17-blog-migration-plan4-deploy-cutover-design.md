@@ -4,6 +4,7 @@
 - 親設計書: [2026-06-17-blog-migration-astro-cloudflare-design.md](./2026-06-17-blog-migration-astro-cloudflare-design.md)（§6 移行パイプライン / §9 SEO / §10 リスク / §12 オープン事項）
 - 前提設計書: [計画2](./2026-06-17-blog-migration-plan2-astro-site-design.md)・[計画3](./2026-06-17-blog-migration-plan3-dynamic-features-design.md)
 - 位置づけ: 移行プロジェクトの「計画4（最終フェーズ）」。計画1（データ移行）・計画2（Astro静的サイト）・計画3（検索/コメント/問い合わせ）はすべて `main` にマージ済み。本計画で **本番デプロイ → DNS切替 → 旧環境（ConoHa）解約** を完遂する
+- 前提条件: 本計画の着手前に **「移行前ビジュアルQA計画」（新Astroサイトの全ページ見た目確認＋不具合修正）の完了を必須**とする。実施順は 計画1/2/3 → 移行前ビジュアルQA → 計画4。QAで既知の不具合（例: 記事TOCが追従しない）を解消してから本番へ出す（別計画として切り出し済み）
 - 対象サイト: shiimanblog.com
 
 ---

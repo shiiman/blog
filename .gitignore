@@ -32,6 +32,7 @@ Thumbs.db
 .claude/settings.local.json
 
 .playwright-mcp/
+.superpowers/
 .claude/tmp/
 .multi-agent-mcp/
 coverage.out

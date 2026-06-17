@@ -28,6 +28,12 @@ describe('validateContact', () => {
     if (!r.ok) expect(r.errors).toContain('token')
   })
 
+  it('Turnstile トークンが空白のみなら拒否する', () => {
+    const r = validateContact({ ...valid, token: '   ' })
+    expect(r.ok).toBe(false)
+    if (!r.ok) expect(r.errors).toContain('token')
+  })
+
   it('文字列以外の型は拒否する', () => {
     const r = validateContact({ ...valid, message: 12345 })
     expect(r.ok).toBe(false)
@@ -62,6 +68,7 @@ describe('buildResendPayload', () => {
     expect(p.reply_to).toBe('a@example.com')
     expect(p.subject).toBe('[お問い合わせ] 件名')
     expect(p.text).toContain('山田')
+    expect(p.text).toContain('a@example.com')
     expect(p.text).toContain('本文')
   })
 })

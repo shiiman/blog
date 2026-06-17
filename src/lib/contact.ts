@@ -45,7 +45,7 @@ export function validateContact(input: ContactInput): ValidationResult {
   const email = asString(input.email)
   const subject = asString(input.subject)
   const message = asString(input.message)
-  const token = typeof input.token === 'string' ? input.token : ''
+  const token = asString(input.token)
 
   if (!name || name.length > 100) errors.push('name')
   if (!email || email.length > 200 || !EMAIL_RE.test(email)) errors.push('email')

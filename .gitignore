@@ -27,6 +27,10 @@ Thumbs.db
 *.log
 *.tmp
 
+# Astro ビルド成果物
+.astro/
+dist/
+
 # プラン
 .claude/plans/
 .claude/settings.local.json

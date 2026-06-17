@@ -1,0 +1,54 @@
+---
+// giscus（GitHub Discussions）コメント欄。PUBLIC_GISCUS_* が揃った時のみ描画。
+const giscus = {
+  repo: import.meta.env.PUBLIC_GISCUS_REPO,
+  repoId: import.meta.env.PUBLIC_GISCUS_REPO_ID,
+  category: import.meta.env.PUBLIC_GISCUS_CATEGORY,
+  categoryId: import.meta.env.PUBLIC_GISCUS_CATEGORY_ID,
+}
+const enabled = Boolean(giscus.repo && giscus.repoId && giscus.category && giscus.categoryId)
+---
+{enabled && (
+  <section class="comments" aria-label="コメント">
+    <h2>コメント</h2>
+    <div id="giscus-container"></div>
+  </section>
+  <script define:vars={{ giscus }}>
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+    const s = document.createElement('script')
+    s.src = 'https://giscus.app/client.js'
+    s.async = true
+    s.crossOrigin = 'anonymous'
+    s.setAttribute('data-repo', giscus.repo)
+    s.setAttribute('data-repo-id', giscus.repoId)
+    s.setAttribute('data-category', giscus.category)
+    s.setAttribute('data-category-id', giscus.categoryId)
+    s.setAttribute('data-mapping', 'pathname')
+    s.setAttribute('data-strict', '0')
+    s.setAttribute('data-reactions-enabled', '1')
+    s.setAttribute('data-emit-metadata', '0')
+    s.setAttribute('data-input-position', 'top')
+    s.setAttribute('data-theme', theme)
+    s.setAttribute('data-lang', 'ja')
+    s.setAttribute('data-loading', 'lazy')
+    document.getElementById('giscus-container').appendChild(s)
+
+    // テーマ連動: data-theme の変化を giscus iframe に伝える
+    const observer = new MutationObserver(() => {
+      const t = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
+      const iframe = document.querySelector('iframe.giscus-frame')
+      if (iframe) {
+        iframe.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: t } } },
+          'https://giscus.app'
+        )
+      }
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+  </script>
+)}
+
+<style>
+  .comments { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .comments h2 { font-size: 1.2rem; margin: 0 0 1rem; }
+</style>

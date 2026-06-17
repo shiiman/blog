@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PostCard from '../components/PostCard.astro'
+import Pagination from '../components/Pagination.astro'
+import { getPublishedPosts } from '../lib/posts'
+import { PAGE_SIZE, pageSlice, totalPages } from '../lib/pagination'
+
+const posts = await getPublishedPosts()
+const total = totalPages(posts.length, PAGE_SIZE)
+const items = pageSlice(posts, 1, PAGE_SIZE)
+---
+<BaseLayout title="shiimanblog" description="ゲーム開発エンジニアしーまんの技術・副業・投資ブログ">
+  <div class="list">
+    {items.map((post) => <PostCard post={post} />)}
+  </div>
+  <Pagination current={1} total={total} />
+</BaseLayout>

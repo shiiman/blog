@@ -45,6 +45,15 @@ describe('validateContact', () => {
     expect(r.ok).toBe(false)
     if (!r.ok) expect(r.errors).toContain('subject')
   })
+
+  it('subject の改行を除去する（メールヘッダインジェクション対策）', () => {
+    const r = validateContact({ ...valid, subject: '件名\r\nBcc: evil@example.com' })
+    expect(r.ok).toBe(true)
+    if (r.ok) {
+      expect(r.value.subject).not.toMatch(/[\r\n]/)
+      expect(r.value.subject).toBe('件名 Bcc: evil@example.com')
+    }
+  })
 })
 
 describe('isTurnstileSuccess', () => {

@@ -1,0 +1,54 @@
+---
+import { getCollection, render } from 'astro:content'
+import PostLayout from '../layouts/PostLayout.astro'
+import PageLayout from '../layouts/PageLayout.astro'
+import { getPublishedPosts } from '../lib/posts'
+import type { GetStaticPaths } from 'astro'
+
+export const getStaticPaths = (async () => {
+  const RESERVED = new Set(['category', 'tag', 'page', 'rss.xml', '404'])
+
+  const posts = await getPublishedPosts()
+
+  // 記事: permalinks の routeParam を slug に。前後記事も配列順で確定
+  const postPaths = posts.map((post, i) => ({
+    params: { slug: post.routeParam },
+    props: {
+      kind: 'post' as const,
+      entry: post.entry,
+      primaryCategory: post.primaryCategory,
+      prev: i > 0 ? { path: posts[i - 1].path, title: posts[i - 1].entry.data.title } : null,
+      next: i < posts.length - 1 ? { path: posts[i + 1].path, title: posts[i + 1].entry.data.title } : null,
+    },
+  }))
+
+  // 固定ページ: /{slug}/。予約語と衝突したらビルド失敗
+  const pages = await getCollection('pages', (p) => !p.data.draft)
+  const pagePaths = pages.map((entry) => {
+    if (RESERVED.has(entry.data.slug)) {
+      throw new Error(`固定ページの slug が予約語と衝突: ${entry.data.slug}`)
+    }
+    return { params: { slug: entry.data.slug }, props: { kind: 'page' as const, entry } }
+  })
+
+  return [...postPaths, ...pagePaths]
+}) satisfies GetStaticPaths
+
+const props = Astro.props
+const { Content, headings } = await render(props.entry)
+---
+{props.kind === 'post' ? (
+  <PostLayout
+    entry={props.entry}
+    primaryCategory={props.primaryCategory}
+    headings={headings}
+    prev={props.prev}
+    next={props.next}
+  >
+    <Content />
+  </PostLayout>
+) : (
+  <PageLayout entry={props.entry}>
+    <Content />
+  </PageLayout>
+)}

@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets'
+import BaseLayout from './BaseLayout.astro'
+import PostMeta from '../components/PostMeta.astro'
+import TagList from '../components/TagList.astro'
+import TableOfContents from '../components/TableOfContents.astro'
+import PrevNext from '../components/PrevNext.astro'
+import type { MarkdownHeading } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import type { ResolvedTaxonomy } from '../lib/taxonomy'
+
+interface Link { path: string; title: string }
+interface Props {
+  entry: CollectionEntry<'posts'>
+  primaryCategory: ResolvedTaxonomy
+  headings: MarkdownHeading[]
+  prev: Link | null
+  next: Link | null
+}
+const { entry, primaryCategory, headings, prev, next } = Astro.props
+const { title, excerpt, eyecatch, date, tags } = entry.data
+const ogImage = eyecatch?.src
+---
+<BaseLayout title={`${title} - shiimanblog`} description={excerpt} ogImage={ogImage} ogType="article">
+  <div class="post-grid">
+    <article class="post">
+      {eyecatch && <Image class="hero" src={eyecatch} alt={title} width={720} />}
+      <h1>{title}</h1>
+      <PostMeta category={primaryCategory} date={date} />
+      <div class="content">
+        <slot />
+      </div>
+      <TagList tags={tags} />
+      <PrevNext prev={prev} next={next} />
+    </article>
+    <aside class="sidebar">
+      <div class="toc-sticky">
+        <TableOfContents headings={headings} />
+      </div>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .post-grid { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 40px; align-items: start; }
+  .post { min-width: 0; }
+  .hero { width: 100%; height: auto; border-radius: 10px; margin-bottom: 1.5rem; }
+  .post h1 { font-size: 1.8rem; margin: 0 0 0.6rem; }
+  .content { margin-top: 1.5rem; }
+  .content :global(h2) { margin-top: 2.2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  .content :global(h3) { margin-top: 1.6rem; }
+  .content :global(img) { border-radius: 8px; }
+  .sidebar { position: relative; }
+  .toc-sticky { position: sticky; top: 24px; }
+  @media (max-width: 900px) {
+    .post-grid { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+  }
+</style>

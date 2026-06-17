@@ -1,0 +1,24 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  entry: CollectionEntry<'pages'>
+}
+const { entry } = Astro.props
+const { title, excerpt } = entry.data
+---
+<BaseLayout title={`${title} - shiimanblog`} description={excerpt}>
+  <article class="page">
+    <h1>{title}</h1>
+    <div class="content">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .page h1 { font-size: 1.8rem; margin: 0 0 1.5rem; }
+  .content :global(h2) { margin-top: 2rem; }
+  .content :global(img) { border-radius: 8px; }
+</style>

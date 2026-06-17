@@ -26,7 +26,7 @@ export async function getPublishedPosts(): Promise<PublishedPost[]> {
     if (!link) {
       throw new Error(`permalinks.json に id=${id}（slug=${entry.data.slug}）のパスがありません`)
     }
-    const routeParam = link.path.replace(/^\/+|\/+$/g, '')
+    const routeParam = decodeURIComponent(link.path.replace(/^\/+|\/+$/g, ''))
     const primarySlug = routeParam.split('/')[0]
     return {
       entry,

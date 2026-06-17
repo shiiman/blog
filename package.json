@@ -13,6 +13,8 @@
     "localize:images": "tsx scripts/localize-images.ts",
     "migrate:frontmatter": "tsx scripts/migrate-frontmatter.ts",
     "cleanup:tracking": "tsx scripts/cleanup-tracking-images.ts",
+    "build:redirects": "tsx scripts/build-redirects.ts",
+    "verify:redirects": "tsx scripts/verify-redirects.ts",
     "pages:dev": "wrangler pages dev dist"
   },
   "devDependencies": {

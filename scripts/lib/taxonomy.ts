@@ -5,6 +5,14 @@ export interface TaxonomyTerm {
 
 export type TaxonomyMap = Record<string, TaxonomyTerm>
 
+export interface TermDictEntry {
+  name: string
+  slug: string
+  enSlug?: string
+}
+
+export type TermDict = Record<string, TermDictEntry>
+
 interface RestTerm {
   id: number
   name: string

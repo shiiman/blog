@@ -43,7 +43,8 @@ export function validateContact(input: ContactInput): ValidationResult {
   const errors: string[] = []
   const name = asString(input.name)
   const email = asString(input.email)
-  const subject = asString(input.subject)
+  // 件名はメールヘッダに入るため、改行（CR/LF）をスペースに置換しヘッダインジェクションを防ぐ
+  const subject = asString(input.subject).replace(/[\r\n]+/g, ' ')
   const message = asString(input.message)
   const token = asString(input.token)
 

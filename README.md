@@ -303,13 +303,69 @@ Error: connection refused / timeout
 - サイトが稼働中か確認: `curl -I https://shiimanblog.com`
 - WordPress REST API が有効か確認: `curl https://shiimanblog.com/wp-json/wp/v2/posts`
 
+## 計画4: 本番デプロイ・DNS切替（Cloudflare Pages）
+
+### リダイレクト生成・検証
+
+```bash
+# public/_redirects を生成（カテゴリ/タグの日本語slug → enSlug + feed系）
+npm run build:redirects
+
+# 旧sitemap-1.xmlの全URLが新サイトでカバーされているか検証（要 npm run build）
+npm run verify:redirects
+```
+
+- `public/_redirects` は git 管理対象（生成後コミット）
+- カテゴリ/タグを追加・変更した場合は再生成してコミットする
+
+### Cloudflare Pages 環境変数（本番投入）
+
+Cloudflare Pages のダッシュボードで直接入力する（コード・ドキュメントに実値をハードコードしない）。
+
+#### 公開値（ビルド時埋め込み、Production 環境に設定後に再ビルド必要）
+
+| キー | 用途 |
+| --- | --- |
+| `PUBLIC_TURNSTILE_SITE_KEY` | Turnstile ウィジェット（問い合わせ） |
+| `PUBLIC_GISCUS_REPO` | giscus 対象リポジトリ（例 `shiiman/blog`） |
+| `PUBLIC_GISCUS_REPO_ID` | giscus リポジトリID |
+| `PUBLIC_GISCUS_CATEGORY` | giscus カテゴリ名 |
+| `PUBLIC_GISCUS_CATEGORY_ID` | giscus カテゴリID |
+
+#### 秘密値（Functions 実行時参照、暗号化扱い）
+
+| キー | 用途 |
+| --- | --- |
+| `TURNSTILE_SECRET_KEY` | Turnstile サーバー検証 |
+| `RESEND_API_KEY` | Resend メール送信 |
+| `CONTACT_FROM_EMAIL` | 送信元（Resend 独自ドメイン認証後 `noreply@shiimanblog.com`） |
+| `CONTACT_TO_EMAIL` | 受信先（問い合わせ通知先） |
+
+### 切替 runbook（概要）
+
+| Phase | 内容 | 担当 |
+| --- | --- | --- |
+| 0 | 旧 sitemap-1.xml 取得 → `data/` 保存（完了済み） | 完了 |
+| A | `_redirects` 生成・テスト・ローカル検証（完了済み） | 完了 |
+| B | Cloudflare Pages 作成・GitHub 連携 → プレビューURL発行 | shiiman |
+| C | 本番環境変数を Cloudflare ダッシュボードで投入 → 再ビルド | shiiman |
+| D | プレビューURL で全機能・リダイレクト検証 | shiiman+Claude |
+| E1 | NS を ConoHa → Cloudflare へ切替（Aレコードは旧WPのまま） | shiiman |
+| E2 | Resend で独自ドメイン認証（SPF/DKIM/DMARC） | shiiman |
+| E3 | Turnstile 許可ホストに `shiimanblog.com` を追加 | shiiman |
+| E4 | Pages にカスタムドメイン割当 → **この瞬間に新サイトへ切替** | shiiman |
+| F | 本番検証（全URL/リダイレクト/問い合わせ実送信） | shiiman+Claude |
+| G | Search Console に新サイトマップ再送信 | shiiman |
+| H | ドメイン移管 → 約2週間モニタ → ConoHa 解約（不可逆・最後） | shiiman |
+
 ## 環境変数（計画3: 動的機能）
 
-`.env`（公開値）と `.dev.vars`（秘密値・ローカル wrangler 用）はいずれも **手動作成**します（gitignore 済み）。本番値の Cloudflare 投入は計画4。
+`.env`（公開値）と `.dev.vars`（秘密値・ローカル wrangler 用）はいずれも **手動作成**します（gitignore 済み）。本番値の投入は上記「計画4」を参照。
 
 ### 公開値（`.env`、ビルドに埋め込まれる）
+
 | キー | 用途 |
-|---|---|
+| --- | --- |
 | `PUBLIC_TURNSTILE_SITE_KEY` | Turnstile ウィジェット（問い合わせ） |
 | `PUBLIC_GISCUS_REPO` | giscus 対象リポジトリ（例 `shiiman/blog`） |
 | `PUBLIC_GISCUS_REPO_ID` | giscus リポジトリID |
@@ -317,8 +373,9 @@ Error: connection refused / timeout
 | `PUBLIC_GISCUS_CATEGORY_ID` | giscus カテゴリID |
 
 ### 秘密値（`.dev.vars`、Functions のみ参照）
+
 | キー | 用途 |
-|---|---|
+| --- | --- |
 | `TURNSTILE_SECRET_KEY` | Turnstile サーバー検証 |
 | `RESEND_API_KEY` | Resend メール送信 |
 | `CONTACT_FROM_EMAIL` | 送信元（例 `noreply@shiimanblog.com`） |

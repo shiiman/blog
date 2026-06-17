@@ -91,6 +91,14 @@ featured_media: 456        # Eyecatch image media ID
 ---
 ```
 
+## Cloudflare Pages (Plan 4: Deploy & Cutover)
+
+- `npm run build:redirects` — generates `public/_redirects` (commit after running)
+- `npm run verify:redirects` — verifies all old URLs are covered (requires `npm run build` first)
+- `data/old-sitemap-1.xml` — old WordPress sitemap captured in Phase 0 (do not delete)
+- Cloudflare Pages secrets must be entered directly in the dashboard — never hardcode them
+- See `docs/superpowers/specs/2026-06-17-blog-migration-plan4-deploy-cutover-design.md` for full runbook
+
 ## Git Commit Guidelines
 
 - Write commit messages in Japanese, concise and descriptive in **one line**

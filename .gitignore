@@ -3,6 +3,7 @@
 .env.local
 .env.*.local
 .dev.vars
+.prd.vars
 
 # Go
 *.exe

@@ -16,13 +16,13 @@ eyecatch: ./assets/eyecatch.png
 
 こんばんは、しーまんです。
 
-大手のアフェリエイトASPの一つである [アクセストレード![](https://h.accesstrade.net/sp/rr?rk=01001aqe00lqea)](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) はご存知でしょうか。
+大手のアフェリエイトASPの一つである [アクセストレード](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) はご存知でしょうか。
 
-今回は広告登録数約5000、アフィリエイトサイト登録数約50万サイトを抱える大手ASPである [アクセストレード![](https://h.accesstrade.net/sp/rr?rk=01001aqe00lqea)](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) の登録方法を紹介致します。
+今回は広告登録数約5000、アフィリエイトサイト登録数約50万サイトを抱える大手ASPである [アクセストレード](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) の登録方法を紹介致します。
 
 ## アクセストレードとは
 
-[アクセストレード![](https://h.accesstrade.net/sp/rr?rk=01001aqe00lqea)](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) とはインタースペースが2001年3月にサービスを開始したASPです。
+[アクセストレード](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) とはインタースペースが2001年3月にサービスを開始したASPです。
 
 特徴として、担当者が付きやすいとか、報酬の最低支払金額が1000円からといったメリットがあります。
 
@@ -34,11 +34,11 @@ eyecatch: ./assets/eyecatch.png
 
 では早速登録手順を見て行きましょう。
 
-まずは下記から [アクセストレード![](https://h.accesstrade.net/sp/rr?rk=01001aqe00lqea)](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) の登録ページにアクセスします。
+まずは下記から [アクセストレード](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) の登録ページにアクセスします。
 
 \\大手アフェリエイトASP！無料で登録して始めよう！！/
 
-[アクセストレード![](https://h.accesstrade.net/sp/rr?rk=01001aqe00lqea)](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea)
+[アクセストレード](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea)
 
 ### メールアドレスの登録
 
@@ -94,9 +94,9 @@ eyecatch: ./assets/eyecatch.png
 
 ## まとめ
 
-今回は大手アフェリエイトASPである [アクセストレード![](https://h.accesstrade.net/sp/rr?rk=01001aqe00lqea)](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) の登録手順について紹介しました。
+今回は大手アフェリエイトASPである [アクセストレード](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) の登録手順について紹介しました。
 
-ASPの大手といえば「A8.net」や「バリューコマース」などが有名ですが、そこに存在しない広告や、同じ商品広告でも報酬が違ったりすることがあるので、 [アクセストレード![](https://h.accesstrade.net/sp/rr?rk=01001aqe00lqea)](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) でも検索して比較することがあるかと思います。
+ASPの大手といえば「A8.net」や「バリューコマース」などが有名ですが、そこに存在しない広告や、同じ商品広告でも報酬が違ったりすることがあるので、 [アクセストレード](https://h.accesstrade.net/sp/cc?rk=01001aqe00lqea) でも検索して比較することがあるかと思います。
 
 ぜひこちらも登録して、比較してみてください。
 

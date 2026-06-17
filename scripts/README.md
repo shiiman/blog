@@ -29,3 +29,15 @@ WordPress 前提の記事を Astro が読める形（ローカル画像＋Git LF
 | `verify-migration.ts` | 受け入れ検証 |
 
 `lib/` 配下の純粋関数は `*.test.ts` で vitest テスト済み（`npm test`）。
+
+## 計画2（Astroサイト構築）で追加のスクリプト
+
+| ファイル | 役割 |
+|---|---|
+| `lib/permalinks.ts` | 記事 canonical URL の link→path 変換（純粋関数） |
+| `export-permalinks.ts` | 全記事 canonical URL を `data/permalinks.json` に出力（I/O・WP稼働中のみ） |
+| `lib/cleanup-tracking.ts` | 本文の不可視トラッキング画像除去（純粋関数） |
+| `cleanup-tracking-images.ts` | 上記を全本文へ適用（I/O・冪等） |
+
+- `npm run export:permalinks` — URL保持の要。**ConoHa 稼働中に必ず実行・コミット**。
+- `npm run cleanup:tracking` — A8/valuecommerce/accesstrade の計測画像を除去（冪等）。

@@ -1,0 +1,23 @@
+---
+import ThemeToggle from './ThemeToggle.astro'
+---
+<header class="site-header">
+  <div class="container inner">
+    <a class="brand" href="/">shiimanblog</a>
+    <nav class="nav">
+      <a href="/">記事</a>
+      <a href="/profile/">プロフィール</a>
+      <a href="/contact/">お問い合わせ</a>
+      <ThemeToggle />
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header { border-bottom: 1px solid var(--border); }
+  .inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .brand { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+  .nav { display: flex; align-items: center; gap: 18px; font-size: 0.9rem; }
+  .nav a { color: var(--text-muted); }
+  .nav a:hover { color: var(--accent); text-decoration: none; }
+</style>

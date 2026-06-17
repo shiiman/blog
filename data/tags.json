@@ -105,15 +105,18 @@
   },
   "51": {
     "name": "メール",
-    "slug": "%e3%83%a1%e3%83%bc%e3%83%ab"
+    "slug": "%e3%83%a1%e3%83%bc%e3%83%ab",
+    "enSlug": "mail"
   },
   "53": {
     "name": "マネーフォワードME",
-    "slug": "%e3%83%9e%e3%83%8d%e3%83%bc%e3%83%95%e3%82%a9%e3%83%af%e3%83%bc%e3%83%89me"
+    "slug": "%e3%83%9e%e3%83%8d%e3%83%bc%e3%83%95%e3%82%a9%e3%83%af%e3%83%bc%e3%83%89me",
+    "enSlug": "moneyforward-me"
   },
   "54": {
     "name": "キーワードプランナー",
-    "slug": "%e3%82%ad%e3%83%bc%e3%83%af%e3%83%bc%e3%83%89%e3%83%97%e3%83%a9%e3%83%b3%e3%83%8a%e3%83%bc"
+    "slug": "%e3%82%ad%e3%83%bc%e3%83%af%e3%83%bc%e3%83%89%e3%83%97%e3%83%a9%e3%83%b3%e3%83%8a%e3%83%bc",
+    "enSlug": "keyword-planner"
   },
   "55": {
     "name": "A8.net",
@@ -121,7 +124,8 @@
   },
   "56": {
     "name": "アフェリエイト",
-    "slug": "%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88"
+    "slug": "%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88",
+    "enSlug": "affiliate"
   },
   "57": {
     "name": "ASP",
@@ -129,7 +133,8 @@
   },
   "58": {
     "name": "バリューコマース",
-    "slug": "%e3%83%90%e3%83%aa%e3%83%a5%e3%83%bc%e3%82%b3%e3%83%9e%e3%83%bc%e3%82%b9"
+    "slug": "%e3%83%90%e3%83%aa%e3%83%a5%e3%83%bc%e3%82%b3%e3%83%9e%e3%83%bc%e3%82%b9",
+    "enSlug": "valuecommerce"
   },
   "59": {
     "name": "golang",
@@ -157,7 +162,8 @@
   },
   "69": {
     "name": "つみたてNISA",
-    "slug": "%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa"
+    "slug": "%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa",
+    "enSlug": "tsumitate-nisa"
   },
   "70": {
     "name": "ideco",
@@ -165,11 +171,13 @@
   },
   "71": {
     "name": "マネリテ学園",
-    "slug": "%e3%83%9e%e3%83%8d%e3%83%aa%e3%83%86%e5%ad%a6%e5%9c%92"
+    "slug": "%e3%83%9e%e3%83%8d%e3%83%aa%e3%83%86%e5%ad%a6%e5%9c%92",
+    "enSlug": "manerite-gakuen"
   },
   "72": {
     "name": "大河内 薫",
-    "slug": "%e5%a4%a7%e6%b2%b3%e5%86%85-%e8%96%ab"
+    "slug": "%e5%a4%a7%e6%b2%b3%e5%86%85-%e8%96%ab",
+    "enSlug": "ohkouchi-kaoru"
   },
   "73": {
     "name": "NISA",
@@ -177,7 +185,8 @@
   },
   "74": {
     "name": "税金",
-    "slug": "%e7%a8%8e%e9%87%91"
+    "slug": "%e7%a8%8e%e9%87%91",
+    "enSlug": "tax"
   },
   "75": {
     "name": "spreadsheet",
@@ -221,7 +230,8 @@
   },
   "86": {
     "name": "Google認証",
-    "slug": "google%e8%aa%8d%e8%a8%bc"
+    "slug": "google%e8%aa%8d%e8%a8%bc",
+    "enSlug": "google-auth"
   },
   "87": {
     "name": "Smart-C",
@@ -233,15 +243,18 @@
   },
   "89": {
     "name": "アクセストレード",
-    "slug": "%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%83%89"
+    "slug": "%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%83%89",
+    "enSlug": "accesstrade"
   },
   "90": {
     "name": "新年",
-    "slug": "%e6%96%b0%e5%b9%b4"
+    "slug": "%e6%96%b0%e5%b9%b4",
+    "enSlug": "new-year"
   },
   "91": {
     "name": "目標設定",
-    "slug": "%e7%9b%ae%e6%a8%99%e8%a8%ad%e5%ae%9a"
+    "slug": "%e7%9b%ae%e6%a8%99%e8%a8%ad%e5%ae%9a",
+    "enSlug": "goal-setting"
   },
   "92": {
     "name": "egg",
@@ -257,11 +270,13 @@
   },
   "95": {
     "name": "マンガ",
-    "slug": "%e3%83%9e%e3%83%b3%e3%82%ac"
+    "slug": "%e3%83%9e%e3%83%b3%e3%82%ac",
+    "enSlug": "manga"
   },
   "96": {
     "name": "異世界",
-    "slug": "%e7%95%b0%e4%b8%96%e7%95%8c"
+    "slug": "%e7%95%b0%e4%b8%96%e7%95%8c",
+    "enSlug": "isekai"
   },
   "97": {
     "name": "snowpipe",
@@ -281,19 +296,23 @@
   },
   "102": {
     "name": "楽天銀行",
-    "slug": "%e6%a5%bd%e5%a4%a9%e9%8a%80%e8%a1%8c"
+    "slug": "%e6%a5%bd%e5%a4%a9%e9%8a%80%e8%a1%8c",
+    "enSlug": "rakuten-bank"
   },
   "103": {
     "name": "楽天証券",
-    "slug": "%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8"
+    "slug": "%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8",
+    "enSlug": "rakuten-securities"
   },
   "104": {
     "name": "イオン銀行",
-    "slug": "%e3%82%a4%e3%82%aa%e3%83%b3%e9%8a%80%e8%a1%8c"
+    "slug": "%e3%82%a4%e3%82%aa%e3%83%b3%e9%8a%80%e8%a1%8c",
+    "enSlug": "aeon-bank"
   },
   "105": {
     "name": "あおぞら銀行",
-    "slug": "%e3%81%82%e3%81%8a%e3%81%9e%e3%82%89%e9%8a%80%e8%a1%8c"
+    "slug": "%e3%81%82%e3%81%8a%e3%81%9e%e3%82%89%e9%8a%80%e8%a1%8c",
+    "enSlug": "aozora-bank"
   },
   "107": {
     "name": "homebrew",
@@ -393,10 +412,12 @@
   },
   "131": {
     "name": "個人事業主",
-    "slug": "%e5%80%8b%e4%ba%ba%e4%ba%8b%e6%a5%ad%e4%b8%bb"
+    "slug": "%e5%80%8b%e4%ba%ba%e4%ba%8b%e6%a5%ad%e4%b8%bb",
+    "enSlug": "sole-proprietor"
   },
   "132": {
     "name": "フリーランス",
-    "slug": "%e3%83%95%e3%83%aa%e3%83%bc%e3%83%a9%e3%83%b3%e3%82%b9"
+    "slug": "%e3%83%95%e3%83%aa%e3%83%bc%e3%83%a9%e3%83%b3%e3%82%b9",
+    "enSlug": "freelance"
   }
 }

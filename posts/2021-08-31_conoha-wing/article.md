@@ -19,7 +19,7 @@ eyecatch: ./assets/eyecatch.png
 
 最初は自前でサーバを立てようかなと思ったのですが、 [ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM) で管理するのが圧倒的に楽そうだったので [ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM) で始めることにしました。
 
- ![](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SNCY9) 
+  
 
 ## ConoHa WINGとは
 

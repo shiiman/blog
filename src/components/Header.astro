@@ -8,14 +8,24 @@ import SearchOverlay from './SearchOverlay.astro'
       <a class="brand" href="/">しーまんブログ</a>
       <span class="brand-sub">〜楽をしたいエンジニアのブログ〜</span>
     </div>
-    <nav class="nav">
+    <nav class="nav" id="site-nav">
       <a href="/">ホーム</a>
       <a href="/profile/">プロフィール</a>
       <a href="/sitemap/">サイトマップ</a>
       <a href="/contact/">お問い合わせ</a>
+    </nav>
+    <div class="header-actions">
       <button id="search-open" type="button" class="icon-btn" aria-label="検索" title="検索">🔍</button>
       <ThemeToggle />
-    </nav>
+      <button
+        id="nav-toggle"
+        type="button"
+        class="icon-btn nav-toggle"
+        aria-label="メニュー"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >☰</button>
+    </div>
   </div>
 </header>
 <SearchOverlay />
@@ -26,17 +36,60 @@ import SearchOverlay from './SearchOverlay.astro'
     background: var(--bg);
     border-bottom: 1px solid var(--border);
   }
-  .inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
-  .brand-wrap { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+  .inner { display: flex; align-items: center; height: 60px; gap: 16px; }
+  .brand-wrap { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; margin-right: auto; }
   .brand { font-weight: 700; font-size: 1.1rem; color: var(--text); }
   .brand-sub { font-size: 0.7rem; color: var(--text-muted); font-weight: 400; }
-  .nav { display: flex; align-items: center; gap: 16px; font-size: 0.9rem; flex-wrap: wrap; justify-content: flex-end; }
+  .nav { display: flex; align-items: center; gap: 16px; font-size: 0.9rem; }
   .nav a { color: var(--text-muted); }
   .nav a:hover { color: var(--accent); text-decoration: none; }
+  .header-actions { display: flex; align-items: center; gap: 10px; }
   .icon-btn {
     background: none; border: 1px solid var(--border); color: var(--text);
     border-radius: 6px; width: 34px; height: 34px; cursor: pointer;
-    font-size: 14px; line-height: 1;
+    font-size: 14px; line-height: 1; display: inline-flex; align-items: center; justify-content: center;
   }
   .icon-btn:hover { background: var(--bg-subtle); }
+  .nav-toggle { display: none; font-size: 18px; }
+
+  /* モバイル: ナビをハンバーガーのドロップダウンに集約（PC表示は据え置き） */
+  @media (max-width: 768px) {
+    .brand-sub { display: none; }
+    .nav-toggle { display: inline-flex; }
+    .nav {
+      display: none;
+      position: absolute; top: 60px; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 4px 20px 8px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+    .nav.open { display: flex; }
+    .nav a { padding: 13px 4px; border-bottom: 1px solid var(--border); }
+    .nav a:last-child { border-bottom: none; }
+  }
 </style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle')
+  const nav = document.getElementById('site-nav')
+  if (toggle && nav) {
+    const close = () => {
+      nav.classList.remove('open')
+      toggle.setAttribute('aria-expanded', 'false')
+    }
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open')
+      toggle.setAttribute('aria-expanded', String(open))
+    })
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close))
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close()
+    })
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node
+      if (nav.classList.contains('open') && !nav.contains(target) && !toggle.contains(target)) close()
+    })
+  }
+</script>

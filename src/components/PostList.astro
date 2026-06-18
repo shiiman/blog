@@ -2,7 +2,7 @@
 import PostCard from './PostCard.astro'
 import AdUnit from './AdUnit.astro'
 import { insertInfeedAds, type AdListItem } from '../lib/ad-insert'
-import { AD_SLOT_INFEED, AD_INFEED_LAYOUT_KEY } from '../consts'
+import { AD_SLOT_DISPLAY } from '../consts'
 import type { PublishedPost } from '../lib/posts'
 
 interface Props {
@@ -10,18 +10,15 @@ interface Props {
   adEvery?: number
 }
 const { posts, adEvery = 5 } = Astro.props
-// インフィード広告は data-ad-layout-key が必須。未設定時は広告を挿入しない。
-const items: AdListItem<PublishedPost>[] =
-  AD_INFEED_LAYOUT_KEY !== ''
-    ? insertInfeedAds(posts, adEvery)
-    : posts.map((post) => ({ kind: 'post', post }))
+// カード adEvery 件ごとにレスポンシブ・ディスプレイ広告を挿入（末尾には挿入しない）
+const items: AdListItem<PublishedPost>[] = insertInfeedAds(posts, adEvery)
 ---
 <div class="list">
   {items.map((item) =>
     item.kind === 'post' ? (
       <PostCard post={item.post} />
     ) : (
-      <AdUnit slot={AD_SLOT_INFEED} format="fluid" layoutKey={AD_INFEED_LAYOUT_KEY} className="ad-infeed" />
+      <AdUnit slot={AD_SLOT_DISPLAY} className="ad-infeed" />
     ),
   )}
 </div>

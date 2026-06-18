@@ -1,5 +1,5 @@
 ---
-title: Google AdSence登録手順
+title: Google AdSense登録手順
 slug: google-adsence
 date: 2022-07-04T19:30:00.000Z
 categories:
@@ -15,15 +15,15 @@ eyecatch: ./assets/eyecatch.png
 
 こんばんは、しーまんです。
 
-皆さんは [Google AdSence](https://www.google.com/intl/ja_jp/adsense/start/) の審査に通っておりますでしょうか？
+皆さんは [Google AdSense](https://www.google.com/intl/ja_jp/adsense/start/) の審査に通っておりますでしょうか？
 
 私は去年ブログ開設時に登録申請4回ほどして、すべてお祈りメールが来たので結構諦めておりました。しかし、今回半年ぶりに申請してみたら、表示抜けするほど簡単に **審査が通った** ので、その経緯や登録方法について解説致します。
 
-## Google AdSenceとは
+## Google AdSenseとは
 
-まずは簡単に [Google AdSence](https://www.google.com/intl/ja_jp/adsense/start/) についての説明です。
+まずは簡単に [Google AdSense](https://www.google.com/intl/ja_jp/adsense/start/) についての説明です。
 
-Google AdSenceとはその名の通りGoogleが提供する、ご自身のサイトに広告を掲載するための仕組みです。Google AdSenceの **登録には審査があり**、こちらの審査を通ることが、サイト運営者の最初のハードルになると言われています。
+Google AdSenseとはその名の通りGoogleが提供する、ご自身のサイトに広告を掲載するための仕組みです。Google AdSenseの **登録には審査があり**、こちらの審査を通ることが、サイト運営者の最初のハードルになると言われています。
 
 審査基準とかは正確には公表されていないのですが、最低でも **10記事以上** の投稿があり、 **有意義な情報を載せている** と認められたサイトのみ審査が通るらしいです。
 
@@ -45,35 +45,35 @@ Google AdSenceとはその名の通りGoogleが提供する、ご自身のサイ
 
 こちらでアカウントの作成は完了です。
 
-## Word Pressへ設定(Cocooの場合)
+## WordPressへ設定(Cocoonの場合)
 
 アカウントが作成できたら、ここから審査の申込みになります。
 
-ご自身のサイトに「AdSenceコード」を埋め込み審査登録します。
+ご自身のサイトに「AdSenseコード」を埋め込み審査登録します。
 
-私の場合は **Word Press** でサイトを作成し、 **Cocoo** をテーマとしていますので、こちらの設定例をみていきます！
+私の場合は **WordPress** でサイトを作成し、 **Cocoon** をテーマとしていますので、こちらの設定例をみていきます！
 
-まずAdSenceのHPからAdSenceコードをコピーします。
+まずAdSenseのHPからAdSenseコードをコピーします。
 
 こちらで取得したコードをご自身のサイトに埋め込みますので、控えておきましょう。
 
 ![登録 - 5](./assets/adsence_registration5-1.jpg)
 
-次にご自身のWord PressのCocoo設定画面に移ります。
+次にご自身のWordPressのCocoon設定画面に移ります。
 
-「 **アクセス解析・認証**」タブの「 **ヘッド用コード**」欄に先程コピーしたAdSenceコードを貼り付けて保存します。
+「 **アクセス解析・認証**」タブの「 **ヘッド用コード**」欄に先程コピーしたAdSenseコードを貼り付けて保存します。
 
 保存時にエラーになる場合はファイヤーウォール設定などをご確認ください。
 
-私の場合は **[ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM)** でWord Pressを実行しているので、そのWAFが原因でエラーになります。そこで設定を行う際は一時的にWAFをOFFにします。
+私の場合は **[ConoHa WING](https://px.a8.net/svt/ejp?a8mat=3HKUB1+DBVECY+50+5SI7RM)** でWordPressを実行しているので、そのWAFが原因でエラーになります。そこで設定を行う際は一時的にWAFをOFFにします。
 
 ![登録 - 6](./assets/adsence_registration6.png)
 
-サイトにコードが埋め込めたらAdSence画面に戻り、「サイトコードを貼り付けました」にチェックを入れて「完了」をクリックします。
+サイトにコードが埋め込めたらAdSense画面に戻り、「サイトコードを貼り付けました」にチェックを入れて「完了」をクリックします。
 
 ![登録 - 7](./assets/adsence_registration7.png)
 
-正しくコードが埋め込めていたら、AdSence画面で「 **コードが見つかりました**」と表示されます。
+正しくコードが埋め込めていたら、AdSense画面で「 **コードが見つかりました**」と表示されます。
 
 ![登録 - 8](./assets/adsence_registration8.png)
 
@@ -107,9 +107,9 @@ Google AdSenceとはその名の通りGoogleが提供する、ご自身のサイ
 
 ## まとめ
 
-ということで今回は、私が **Google AdSence** の登録をして、審査に通るまでの流れについて説明しました。
+ということで今回は、私が **Google AdSense** の登録をして、審査に通るまでの流れについて説明しました。
 
-ブログを始めたばかりの人にとってはAdSenceの審査を通過することは一つの壁になっています。ですので、その壁を乗り越える参考に少しでもなればいいなと思います。
+ブログを始めたばかりの人にとってはAdSenseの審査を通過することは一つの壁になっています。ですので、その壁を乗り越える参考に少しでもなればいいなと思います。
 
 どうしても最初はアクセスが少ないので、何回やっても審査には通らないです。ですが諦めず記事を上げ続ければ、半年もしないうちに審査基準をクリアすることはできます。ぜひ諦めずにチャレンジしてみてください。
 

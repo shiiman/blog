@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import PostMeta from './PostMeta.astro'
+import TagList from './TagList.astro'
 import type { PublishedPost } from '../lib/posts'
 
 interface Props {
@@ -19,6 +20,7 @@ const eyecatch = entry.data.eyecatch
   <div class="body">
     <PostMeta category={primaryCategory} date={entry.data.date} />
     <h2 class="title"><a href={path}>{entry.data.title}</a></h2>
+    <TagList tags={entry.data.tags} />
   </div>
 </article>
 
@@ -27,6 +29,8 @@ const eyecatch = entry.data.eyecatch
   .thumb { flex: none; }
   .thumb :global(img) { width: 120px; height: 84px; object-fit: cover; border-radius: 6px; }
   .body { display: flex; flex-direction: column; gap: 6px; }
+  /* TagList の ul 既定マージンを打ち消し、カードの gap で間隔を制御する（詳細ページには影響させない） */
+  .body :global(.tag-list) { margin: 0; }
   .title { font-size: 1.05rem; margin: 0; }
   .title a { color: var(--text); }
   .title a:hover { color: var(--accent); text-decoration: none; }

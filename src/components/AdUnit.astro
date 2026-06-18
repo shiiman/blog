@@ -1,0 +1,34 @@
+---
+import { ADSENSE_CLIENT } from '../consts'
+
+interface Props {
+  slot: string
+  // 'auto'（ディスプレイ）または 'fluid'（インフィード）
+  format?: string
+  // インフィード広告で必須の data-ad-layout-key
+  layoutKey?: string
+  // ラベル（任意。広告枠の余白制御用クラス付与）
+  className?: string
+}
+const { slot, format = 'auto', layoutKey, className } = Astro.props
+// 広告は本番ビルド時のみ出力（dev では枠を出さない）
+const isProd = import.meta.env.PROD
+---
+{isProd && (
+  <div class:list={['ad-unit', className]}>
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={ADSENSE_CLIENT}
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-ad-layout-key={layoutKey}
+      data-full-width-responsive={format === 'auto' ? 'true' : undefined}
+    ></ins>
+    <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({})</script>
+  </div>
+)}
+
+<style>
+  .ad-unit { margin: 2rem 0; text-align: center; overflow: hidden; }
+</style>

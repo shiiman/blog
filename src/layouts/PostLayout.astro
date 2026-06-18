@@ -6,6 +6,8 @@ import TagList from '../components/TagList.astro'
 import TableOfContents from '../components/TableOfContents.astro'
 import PrevNext from '../components/PrevNext.astro'
 import Comments from '../components/Comments.astro'
+import AdUnit from '../components/AdUnit.astro'
+import { AD_SLOT_DISPLAY } from '../consts'
 import type { MarkdownHeading } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 import type { ResolvedTaxonomy } from '../lib/taxonomy'
@@ -31,6 +33,7 @@ const ogImage = eyecatch?.src
       <div class="content">
         <slot />
       </div>
+      <AdUnit slot={AD_SLOT_DISPLAY} />
       <TagList tags={tags} />
       <PrevNext prev={prev} next={next} />
       <Comments />

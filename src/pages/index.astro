@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import PostCard from '../components/PostCard.astro'
+import PostList from '../components/PostList.astro'
 import Pagination from '../components/Pagination.astro'
 import Sidebar from '../components/Sidebar.astro'
 import { getPublishedPosts } from '../lib/posts'
@@ -13,9 +13,7 @@ const items = pageSlice(posts, 1, PAGE_SIZE)
 <BaseLayout title="しーまんブログ" description="ゲーム開発エンジニアしーまんの技術・副業・投資ブログ">
   <div class="home-grid">
     <div class="main">
-      <div class="list">
-        {items.map((post) => <PostCard post={post} />)}
-      </div>
+      <PostList posts={items} />
       <Pagination current={1} total={total} />
     </div>
     <Sidebar />

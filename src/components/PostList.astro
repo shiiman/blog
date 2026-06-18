@@ -2,7 +2,7 @@
 import PostCard from './PostCard.astro'
 import AdUnit from './AdUnit.astro'
 import { insertInfeedAds, type AdListItem } from '../lib/ad-insert'
-import { AD_SLOT_DISPLAY } from '../consts'
+import { AD_SLOT_INFEED, AD_INFEED_LAYOUT_KEY } from '../consts'
 import type { PublishedPost } from '../lib/posts'
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
   adEvery?: number
 }
 const { posts, adEvery = 5 } = Astro.props
-// カード adEvery 件ごとにレスポンシブ・ディスプレイ広告を挿入（末尾には挿入しない）
+// カード adEvery 件ごとにインフィード広告を挿入（末尾には挿入しない）
 const items: AdListItem<PublishedPost>[] = insertInfeedAds(posts, adEvery)
 ---
 <div class="list">
@@ -18,7 +18,7 @@ const items: AdListItem<PublishedPost>[] = insertInfeedAds(posts, adEvery)
     item.kind === 'post' ? (
       <PostCard post={item.post} />
     ) : (
-      <AdUnit slot={AD_SLOT_DISPLAY} className="ad-infeed" />
+      <AdUnit slot={AD_SLOT_INFEED} format="fluid" layoutKey={AD_INFEED_LAYOUT_KEY} className="ad-infeed" />
     ),
   )}
 </div>

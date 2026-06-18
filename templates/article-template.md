@@ -1,13 +1,13 @@
 ---
-title: "記事タイトル（50文字以内推奨）"
-excerpt: "記事の要約文。メタディスクリプションとして使用されます。読者が記事を読むかどうかを判断する重要な文章です。（120文字程度）"
-categories: [1]
-tags: []
+title: "記事タイトル（70文字以内推奨）"
 slug: "url-slug-here"
-status: draft
-# date: "YYYY-MM-DDTHH:MM:SS"  # 公開日時（指定する場合のみ）
-# featured_media: 0   # アイキャッチ画像のメディアID（publishスキル実行時にアイキャッチ画像が自動アップロードされ、featured_mediaが設定される）
-# id: 0               # WordPress投稿ID（投稿後に自動設定）
+date: 2026-01-03T12:00:00.000Z
+excerpt: "記事の要約文。メタディスクリプションとして使用されます。読者が記事を読むかどうかを判断する重要な文章です。（120文字程度）"
+categories: [uncategorized]      # 文字列slugの配列（data/categories.json 参照）
+tags: []                          # 文字列slugの配列（data/tags.json 参照）
+eyecatch: ./assets/eyecatch.png   # アイキャッチ画像の相対パス（任意）
+draft: true                       # 公開時は false に変更（git push で自動デプロイ）
+# modified: 2026-01-04T09:00:00.000Z   # 更新日時（任意）
 ---
 
 ## はじめに

@@ -15,4 +15,4 @@ description: ブログ記事のアイキャッチ画像を生成する
 5. 記事ディレクトリ配下に `assets/` を作成し、生成画像を `assets/eyecatch.png` として保存します。
 6. 生成結果を確認し、必要に応じてプロンプトを調整して再生成します。
 
-※ `wp-cli post` / `wp-cli update` は `assets/eyecatch.png` が存在する場合、自動で WordPress にアップロードしてアイキャッチへ設定します。既存画像を差し替える場合は `wp-cli update <file> --force-eyecatch` を使用します。
+※ このワークフローの役割は `assets/eyecatch.png` を生成・配置することのみです。記事の Front Matter に `eyecatch: ./assets/eyecatch.png`（相対パス）を設定し、`main` に git push すれば GitHub Actions のビルドで画像ごとデプロイされます（別途アップロード操作は不要）。

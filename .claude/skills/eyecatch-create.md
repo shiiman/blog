@@ -91,11 +91,11 @@ mv .google-genmedia-mcp/output/[生成画像ファイル名] [記事ディレク
 
 ユーザーに以下を報告:
 - 生成された画像のパス
-- `/blog-publish` や `/blog-update` での wp-cli 自動アップロードについて案内
+- Front Matter の `eyecatch: ./assets/eyecatch.png` で記事に紐付くこと（画像は git push で記事ごとデプロイされるため、別途アップロード操作は不要）
 
 ## 重要な注意事項
 
-- `wp-cli post` や `wp-cli update` コマンドは、`assets/eyecatch.png` が存在する場合、自動的に WordPress にアップロードしてアイキャッチに設定する
-- 既に `featured_media` が設定済みの記事で画像を差し替える場合は、`wp-cli update <file> --force-eyecatch` を使用する
+- このスキルの役割は `assets/eyecatch.png` を生成して記事ディレクトリに配置することのみ。画像は記事を `main` に git push すれば GitHub Actions のビルドでそのままデプロイされる
+- 記事の Front Matter に `eyecatch: ./assets/eyecatch.png`（相対パス）を設定すればアイキャッチとして表示される
 - 画像が気に入らない場合は、再度このスキルを実行して再生成可能
 - プロンプトは必ず英語で作成する（画像生成の品質向上のため）

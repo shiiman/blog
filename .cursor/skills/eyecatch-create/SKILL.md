@@ -72,10 +72,10 @@ mv assets/eyecatch.png [記事ディレクトリ]/assets/eyecatch.png
 
 ユーザーに以下を報告:
 - 生成された画像のパス
-- wp-cli での自動アップロードについて案内
+- Front Matter の `eyecatch: ./assets/eyecatch.png` で記事に紐付くこと（画像は git push で記事ごとデプロイされるため、別途アップロード操作は不要）
 
 ## 注意事項
 
-- `wp-cli post` や `wp-cli update` コマンドは、`assets/eyecatch.png` が存在する場合、自動的に WordPress にアップロードしてアイキャッチに設定します
-- 既に `featured_media` が設定済みの記事で画像を差し替える場合は、`wp-cli update <file> --force-eyecatch` を使用してください
+- このスキルの役割は `assets/eyecatch.png` を生成して記事ディレクトリに配置することのみです。画像は記事を `main` に git push すれば GitHub Actions のビルドでそのままデプロイされます
+- 記事の Front Matter に `eyecatch: ./assets/eyecatch.png`（相対パス）を設定すればアイキャッチとして表示されます
 - 画像が気に入らない場合は、再度このスキルを実行して再生成可能です

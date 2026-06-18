@@ -333,10 +333,14 @@
   },
   "2231": {
     "slug": "multi-agent-mcp-workflow",
-    "path": "/uncategorized/multi-agent-mcp-workflow/"
+    "path": "/engineering/ai/multi-agent-mcp-workflow/"
   },
   "2244": {
     "slug": "google-genmedia-mcp-setup",
     "path": "/engineering/ai/google-genmedia-mcp-setup/"
+  },
+  "2245": {
+    "slug": "wordpress-to-astro-cloudflare-pages",
+    "path": "/engineering/wordpress-to-astro-cloudflare-pages/"
   }
 }

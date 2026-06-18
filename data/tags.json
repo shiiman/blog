@@ -419,5 +419,9 @@
     "name": "フリーランス",
     "slug": "%e3%83%95%e3%83%aa%e3%83%bc%e3%83%a9%e3%83%b3%e3%82%b9",
     "enSlug": "freelance"
+  },
+  "133": {
+    "name": "AI",
+    "slug": "ai"
   }
 }

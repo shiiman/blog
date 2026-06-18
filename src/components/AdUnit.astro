@@ -4,7 +4,7 @@ import { ADSENSE_CLIENT } from '../consts'
 interface Props {
   slot: string
   // 'auto'（ディスプレイ）または 'fluid'（インフィード）
-  format?: string
+  format?: 'auto' | 'fluid'
   // インフィード広告で必須の data-ad-layout-key
   layoutKey?: string
   // ラベル（任意。広告枠の余白制御用クラス付与）

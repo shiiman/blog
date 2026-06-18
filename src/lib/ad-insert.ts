@@ -6,6 +6,9 @@ export type AdListItem<T> = { kind: 'post'; post: T } | { kind: 'ad'; key: numbe
  * 末尾（最後の記事の直後）には挿入しない。
  */
 export function insertInfeedAds<T>(posts: T[], every: number): AdListItem<T>[] {
+  if (!Number.isInteger(every) || every < 1) {
+    throw new Error(`insertInfeedAds: every は1以上の整数である必要があります (received: ${every})`)
+  }
   const result: AdListItem<T>[] = []
   let adKey = 0
   posts.forEach((post, i) => {

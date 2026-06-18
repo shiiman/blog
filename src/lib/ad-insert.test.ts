@@ -37,6 +37,15 @@ describe('insertInfeedAds', () => {
     ])
   })
 
+  it('every が 1 未満なら例外を投げる', () => {
+    expect(() => insertInfeedAds(posts(3), 0)).toThrow()
+    expect(() => insertInfeedAds(posts(3), -1)).toThrow()
+  })
+
+  it('every が整数でなければ例外を投げる', () => {
+    expect(() => insertInfeedAds(posts(3), 1.5)).toThrow()
+  })
+
   it('12件なら5件ごとに広告を2つ挿入し、末尾には挿入しない', () => {
     const result = insertInfeedAds(posts(12), 5)
     const ads = result.filter((x) => x.kind === 'ad')

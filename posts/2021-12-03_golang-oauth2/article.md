@@ -143,7 +143,7 @@ func Auth() error {
 	// stateをsessionなどに保存.
 
 	// リダイレクトURL作成.
-	redirectURL := conf.AuthCodeURL(state, oauth2.AccessTypeOffline, oauth2.ApprovalForce),
+	redirectURL := conf.AuthCodeURL(state, oauth2.AccessTypeOffline, oauth2.ApprovalForce)
 
 	// redirectURLをクライアントに返す.
 }
@@ -152,7 +152,7 @@ func Auth() error {
 googleの認可サーバにリダイレクトするURLは実際には以下のような感じで作成されます。
 
 ```
-https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id={client_id}prompt=consent&redirect_uri={redirect_uri}&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets.readonly&state={state}
+https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id={client_id}&prompt=consent&redirect_uri={redirect_uri}&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets.readonly&state={state}
 ```
 
 ### ステップ3\. ユーザの承認&リダイレクト
@@ -235,7 +235,7 @@ func SpreadsheetSheetGet() error {
 
 	// クライアントから取得したいスプレッドシートIDを受け取る.
 	spreadsheetID := `スプレッドシートID`
-	readRange : = `読み込み範囲`
+	readRange := `読み込み範囲`
 
 	// クライアント取得.
 	ctx := context.Background()

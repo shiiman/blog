@@ -151,11 +151,13 @@ AWSではログファイルや、分析情報などをS3に保存することは
 
 ### ストレージ料金
 
-ストレージクラスストレージ料金**S3 標準**最初の 50 TB/月　0.025USD/GB
+| ストレージクラス | ストレージ料金 |
+| --- | --- |
+| S3 標準 | 最初の 50 TB/月　0.025USD/GB<br>次の 450 TB/月　0.024USD/GB<br>500 TB/月以上　0.023USD/GB |
+| S3 Glacier Flexible Retrieval (旧 S3 Glacier) | 0.0045USD/GB |
+| S3 Glacier Deep Archive | 0.002USD/GB |
 
-次の 450 TB/月　 0.024USD/GB
-
-500 TB/月以上　 0.023USD/GB**S3 Glacier Flexible Retrieval (旧 S3 Glacier)**0.0045USD/GB**S3 Glacier Deep Archive**0.002USD/GBここに表示しているのは東京リージョンの料金です(2022年12月現在)。またストレージクラスは一部しか載せておりません。
+ここに表示しているのは東京リージョンの料金です(2022年12月現在)。またストレージクラスは一部しか載せておりません。
 
 ストレージ料金は上記のような設定になってみます。
 

@@ -1,5 +1,5 @@
 ---
-title: 【mac】OSをCatalinaからMontereyにアップデートしたらとんでもないことに&#8230;
+title: 【mac】OSをCatalinaからMontereyにアップデートしたらとんでもないことに…
 slug: monterey
 date: 2022-07-03T19:30:00.000Z
 categories:

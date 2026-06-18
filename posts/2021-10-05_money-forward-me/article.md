@@ -202,7 +202,7 @@ Money Forward, Inc.無料posted with [アプリーチ](https://mama-hack.com/app
 
 私が連携している通販
 
-- Amazo.co.jp
+- Amazon.co.jp
 - 楽天市場
 
 * * *

@@ -40,7 +40,7 @@ WordPressを立ち上げて直ぐにブラウザの入力欄に
 
 `https://xxx.com/?author=1` と入力すると
 
-`https://xxx.com/authhor/[ユーザ名]`
+`https://xxx.com/author/[ユーザ名]`
 
 というURLにリダイレクトされてしまいます。
 

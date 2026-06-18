@@ -46,7 +46,7 @@ eyecatch: ./assets/eyecatch.png
 
 まずは下記から [バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810) の登録ページにアクセスします。
 
-\\Yahoo!ショッピングなど初心者でも簡単な広告を提供！無料で登録して始めよう！！/
+Yahoo!ショッピングなど初心者でも簡単な広告を提供！無料で登録して始めよう！！
 
 [バリューコマース](//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3612105&pid=887393810)
 

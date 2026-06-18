@@ -200,7 +200,7 @@ proxy\_passに設定しているURLは http://\[コンテナ名\]:8080 となり
 
 confファイルの作成が終わりましたら、docker-compose.ymlにプロキシコンテナのサービスを追記していきます。
 
-先程作成したconfファイルを /etx/nginx/vhost.d にアタッチします。
+先程作成したconfファイルを /etc/nginx/vhost.d にアタッチします。
 
 ```
 nginx-proxy:

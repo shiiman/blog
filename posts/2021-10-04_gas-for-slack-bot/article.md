@@ -44,21 +44,21 @@ SlackのAPIに関してはとても数が多いので、今回の記事だけで
 
 - incoming webhook
 
-  -\> 手軽にslackと連携が出来るが、webhookの管理や管理者自体の管理が煩雑になるので現在非推奨です。よって今回も扱いません
+  -> 手軽にslackと連携が出来るが、webhookの管理や管理者自体の管理が煩雑になるので現在非推奨です。よって今回も扱いません
 
 - Interactive Message
 
-  -\> 対話的なボットの作成に使用するInteractive Messageですが今回はGASからの片方向通信で作成します。よくGASをpublicで公開するような記事を見かけますが、こちらはちゃんと作らないとセキュリティーリスクになりますので、今回は扱いません。
+  -> 対話的なボットの作成に使用するInteractive Messageですが今回はGASからの片方向通信で作成します。よくGASをpublicで公開するような記事を見かけますが、こちらはちゃんと作らないとセキュリティーリスクになりますので、今回は扱いません。
 
 ▼ GAS
 
 - SlackAppライブラリの使用
 
-  -\> 使用できるAPIが少なすぎるため今回は扱いません。
+  -> 使用できるAPIが少なすぎるため今回は扱いません。
 
 - スプレッドシードとの連携
 
-  -\> 本来GASはスプレッドシートと連携してこそ力を発揮しますが、今回はSlack APIを叩くために使用しますので、今回は扱いません。
+  -> 本来GASはスプレッドシートと連携してこそ力を発揮しますが、今回はSlack APIを叩くために使用しますので、今回は扱いません。
 
 ということで前提条件を設定できましたので、実際に作成してきましょう。
 
@@ -110,7 +110,7 @@ api.slack.com](https://api.slack.com/apps "Slack API: Applications | Slack")
 
 APIに必要な権限は公式のドキュメントを確認しましょう。
 
-「 [users.list](https://api.slack.com/methods/users.list)」「 [conversations.open](//api.slack.com/methods/conversations.open)」 「 [chat.postMessage](https://api.slack.com/methods/chat.postMessage)」
+「 [users.list](https://api.slack.com/methods/users.list)」「 [conversations.open](https://api.slack.com/methods/conversations.open)」 「 [chat.postMessage](https://api.slack.com/methods/chat.postMessage)」
 
 ![slackbot -設定5](./assets/slackbot5-1.png)
 

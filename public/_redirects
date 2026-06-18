@@ -32,6 +32,8 @@
 /tag/%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E4%B8%BB/ /tag/sole-proprietor/ 301
 /tag/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9/ /tag/freelance/ 301
 
-# 個別記事のカテゴリ変更に伴うリダイレクト（手動管理）
+# 個別記事のslug/カテゴリ変更に伴うリダイレクト（手動管理）
 # 注意: `npm run build:redirects` で再生成すると消えるため、再生成時はここを再追加すること
 /uncategorized/multi-agent-mcp-workflow/ /engineering/ai/multi-agent-mcp-workflow/ 301
+/wordpress/advertisement/google-adsence/ /wordpress/advertisement/google-adsense/ 301
+/tag/google-adsence/ /tag/google-adsense/ 301

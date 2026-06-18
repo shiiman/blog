@@ -99,7 +99,7 @@ ui := uint(i)
 ### uintからint
 
 ```
-var ui int = 123
+var ui uint = 123
 i := int(ui)
 ```
 
@@ -120,7 +120,7 @@ f32 := float32(i)
 ### float64からint
 
 ```
-var f64 float = 123.456
+var f64 float64 = 123.456
 i := int(f64)     // 123
 ```
 
@@ -129,7 +129,7 @@ i := int(f64)     // 123
 ### float32からint
 
 ```
-var f32 float = 123.456
+var f32 float32 = 123.456
 i := int(f32)     // 123
 ```
 

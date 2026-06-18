@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
+import rehypeLinkCard from './src/lib/rehype-link-card.mjs'
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,4 +10,7 @@ export default defineConfig({
   trailingSlash: 'always',
   build: { format: 'directory' },
   integrations: [sitemap()],
+  markdown: {
+    rehypePlugins: [rehypeLinkCard],
+  },
 })

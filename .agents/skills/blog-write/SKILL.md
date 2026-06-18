@@ -42,30 +42,32 @@ mkdir -p drafts/$(date +%Y-%m-%d)_slug
 ### 5. 次のステップ案内
 
 記事作成後、以下を案内:
-- `/blog-publish` で WordPressに公開
+- 公開は記事を `posts/<YYYY-MM-DD_slug>/article.md` に移動し、`main` に git push すると GitHub Actions が自動でビルド・デプロイ
 - Codex の `blog-write` ではアイキャッチ画像を自動生成しない（必要に応じて手動で `assets/eyecatch.png` を配置）
 - Cursor/Gemini で作業する場合は `blog-write` 内で自動生成、再生成時のみ `/eyecatch-create` を使用
 - 記事内容の確認・編集方法
-- カテゴリ・タグIDの確認方法（`wp-cli categories`, `wp-cli tags`）
+- カテゴリ・タグslugの確認方法（`data/categories.json` / `data/tags.json`）
 
 ## Front Matter形式
 
 ```yaml
 ---
 title: "記事タイトル"
-excerpt: "記事の要約（120文字程度）"
-categories: [1]  # カテゴリID
-tags: [10, 20]   # タグID
 slug: "url-slug"
-status: draft
+date: 2026-01-03T12:00:00.000Z
+excerpt: "記事の要約（120文字程度）"
+categories: [savings]  # 文字列slugの配列（data/categories.json 参照）
+tags: [mail]           # 文字列slugの配列（data/tags.json 参照）
+eyecatch: ./assets/eyecatch.png  # 任意（相対パス）
+draft: true            # true で非公開。公開時は false
 ---
 ```
 
 ## 重要な注意事項
 
 - 記事タイトルは SEO を意識（50文字以内推奨）
-- Front Matter の categories/tags は ID で指定
+- Front Matter の categories/tags は文字列slugの配列で指定（`data/categories.json` / `data/tags.json` の `slug` を使う）
 - コードブロックには言語を明示（```python など）
 - 画像は `drafts/YYYY-MM-DD_slug/assets/` に配置
 - Codex ではアイキャッチ画像は手動配置（自動生成は Gemini/Cursor 側の `blog-write`）
-- `blog-write` は下書き作成専用（公開は `blog-publish` を使う）
+- `blog-write` は下書き作成専用。公開は記事を `posts/<YYYY-MM-DD_slug>/article.md` に移動して `main` に git push（GitHub Actions が自動デプロイ）

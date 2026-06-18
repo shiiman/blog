@@ -81,10 +81,10 @@ cp <selected_image_from_.google-genmedia-mcp/output> <article_dir>/assets/eyecat
 
 ## 重要な注意事項
 
+- このスキルの役割は `assets/eyecatch.png` を生成して記事ディレクトリに配置することのみ
 - 既存の `assets/eyecatch.png` は再生成時に上書きする
 - 画像生成が失敗しても記事本文は変更しない
-- 公開/更新時は `wp-cli` が `assets/eyecatch.png` を自動アップロードする
-- 既存 `featured_media` を差し替える場合は `wp-cli update <file> --force-eyecatch` を使用する
+- 記事の Front Matter に `eyecatch: ./assets/eyecatch.png`（相対パス）を設定し、`main` に git push すれば GitHub Actions のビルドで画像ごとデプロイされる（別途アップロード操作は不要）
 
 ## 失敗時の扱い
 

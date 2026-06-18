@@ -5,12 +5,16 @@
 - **ALWAYS respond to the user in Japanese.** (ユーザーへの応答は常に日本語で行ってください。)
 - **ALWAYS generate implementation plans and task lists in Japanese.** (プランやタスクリストなどのアーティファクトも全て日本語で作成してください。)
 
-See `CLAUDE.md` for full project documentation (directory structure, workflow, article guidelines, front matter format, CLI tool usage).
+See `CLAUDE.md` for full project documentation (directory structure, workflow, article guidelines, front matter format).
+
+## Project Overview
+
+Astro blog deployed to Cloudflare Pages. Publishing = push to `main` → GitHub Actions builds and deploys. There is NO WordPress publish/update step (migrated away from WordPress/ConoHa).
 
 ## Security
 
-- NEVER read or expose `.env` file contents
-- Application passwords should be managed via environment variables
+- NEVER read or expose `.env`, `.dev.vars`, or `.prd.vars` contents
+- Cloudflare Pages secrets must be set in the dashboard or via `npm run setup:cf-secrets` — never hardcode them
 - `blog-write` always creates draft posts in `drafts/`
 
 ## Image Management (Git LFS)

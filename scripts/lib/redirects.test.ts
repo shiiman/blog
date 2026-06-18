@@ -38,20 +38,20 @@ describe('buildRedirects', () => {
     expect(text).toContain('/rss.xml')
   })
 
-  it('カテゴリの enSlug リダイレクト行を生成する', () => {
+  it('カテゴリの enSlug リダイレクト行を大文字パーセントエンコードで生成する', () => {
     const text = buildRedirects({
       categories: [{ slug: '%e7%af%80%e7%b4%84', enSlug: 'savings' }],
       tags: [],
     })
-    expect(text).toContain('/category/%e7%af%80%e7%b4%84/ /category/savings/ 301')
+    expect(text).toContain('/category/%E7%AF%80%E7%B4%84/ /category/savings/ 301')
   })
 
-  it('タグの enSlug リダイレクト行を生成する', () => {
+  it('タグの enSlug リダイレクト行を大文字パーセントエンコードで生成する', () => {
     const text = buildRedirects({
       categories: [],
       tags: [{ slug: '%e3%83%a1%e3%83%bc%e3%83%ab', enSlug: 'mail' }],
     })
-    expect(text).toContain('/tag/%e3%83%a1%e3%83%bc%e3%83%ab/ /tag/mail/ 301')
+    expect(text).toContain('/tag/%E3%83%A1%E3%83%BC%E3%83%AB/ /tag/mail/ 301')
   })
 
   it('各リダイレクト行が <from> <to> <status> 形式で出力される', () => {

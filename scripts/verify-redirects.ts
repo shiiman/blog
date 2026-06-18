@@ -88,7 +88,7 @@ async function main() {
 
   const missing: string[] = []
   for (const url of urls) {
-    const urlPath = new URL(url).pathname.replace(/%[0-9A-F]{2}/g, (m) => m.toLowerCase())
+    const urlPath = new URL(url).pathname.replace(/%[0-9a-f]{2}/gi, (m) => m.toUpperCase())
     if (!existsInDist(urlPath) && !matchesRedirects(urlPath, rules)) {
       missing.push(url)
     }

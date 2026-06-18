@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import PostCard from '../../components/PostCard.astro'
+import PostList from '../../components/PostList.astro'
 import { getPublishedPosts, type PublishedPost } from '../../lib/posts'
 import { resolveCategory } from '../../lib/taxonomy'
 import type { GetStaticPaths } from 'astro'
@@ -39,9 +39,7 @@ const fullName = parentName ? `${parentName} › ${name}` : name
   <h1 class="archive-title">
     カテゴリ: {parentName && (<Fragment><a href={`/category/${parentSlug}/`}>{parentName}</a> › </Fragment>)}{name}
   </h1>
-  <div class="list">
-    {posts.map((post) => <PostCard post={post} />)}
-  </div>
+  <PostList posts={posts} />
 </BaseLayout>
 
 <style>

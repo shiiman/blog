@@ -4,8 +4,12 @@ slug: multi-agent-mcp-workflow
 date: '2026-02-08T00:00:00+09:00'
 categories:
   - ai
+  - engineering
 tags:
   - ai
+  - mcp
+  - claude-code
+  - codex
 draft: false
 id: 2231
 modified: '2026-02-08T00:00:00+09:00'

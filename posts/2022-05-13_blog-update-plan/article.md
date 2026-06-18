@@ -5,7 +5,7 @@ date: 2022-05-13T20:00:00.000Z
 categories:
   - profile
 tags:
-  - wordpress
+  - blog-management
 draft: false
 id: 1639
 modified: 2022-05-13T12:39:11.000Z

@@ -4,9 +4,10 @@ slug: zucks
 date: 2021-12-14T19:30:00.000Z
 categories:
   - advertisement
-  - wordpress
 tags:
   - zucks
+  - asp
+  - '%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88'
 draft: false
 id: 1363
 modified: 2021-12-10T11:31:25.000Z

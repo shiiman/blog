@@ -4,9 +4,10 @@ slug: accesstrade
 date: 2021-12-15T19:30:00.000Z
 categories:
   - advertisement
-  - wordpress
 tags:
   - '%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%83%89'
+  - asp
+  - '%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88'
 draft: false
 id: 1389
 modified: 2021-12-10T14:07:37.000Z

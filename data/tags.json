@@ -67,10 +67,6 @@
     "name": "github",
     "slug": "github"
   },
-  "42": {
-    "name": "worfpress",
-    "slug": "worfpress"
-  },
   "43": {
     "name": "404",
     "slug": "404"
@@ -123,7 +119,7 @@
     "slug": "a8-net"
   },
   "56": {
-    "name": "アフェリエイト",
+    "name": "アフィリエイト",
     "slug": "%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88",
     "enSlug": "affiliate"
   },
@@ -395,8 +391,8 @@
     "slug": "cloud-front"
   },
   "127": {
-    "name": "API Gatewat",
-    "slug": "api-gatewat"
+    "name": "API Gateway",
+    "slug": "api-gateway"
   },
   "128": {
     "name": "spot pod",
@@ -423,5 +419,41 @@
   "133": {
     "name": "AI",
     "slug": "ai"
+  },
+  "134": {
+    "name": "Claude Code",
+    "slug": "claude-code"
+  },
+  "135": {
+    "name": "Cursor",
+    "slug": "cursor"
+  },
+  "136": {
+    "name": "Antigravity",
+    "slug": "antigravity"
+  },
+  "137": {
+    "name": "Gemini",
+    "slug": "gemini"
+  },
+  "138": {
+    "name": "MCP",
+    "slug": "mcp"
+  },
+  "139": {
+    "name": "Codex",
+    "slug": "codex"
+  },
+  "140": {
+    "name": "Astro",
+    "slug": "astro"
+  },
+  "141": {
+    "name": "Cloudflare",
+    "slug": "cloudflare"
+  },
+  "142": {
+    "name": "ブログ運営",
+    "slug": "blog-management"
   }
 }

@@ -4,10 +4,8 @@ slug: google-keyword-planner
 date: 2021-09-27T19:30:00.000Z
 categories:
   - analytics
-  - wordpress
 tags:
-  - >-
-    %e3%82%ad%e3%83%bc%e3%83%af%e3%83%bc%e3%83%89%e3%83%97%e3%83%a9%e3%83%b3%e3%83%8a%e3%83%bc
+  - '%e3%82%ad%e3%83%bc%e3%83%af%e3%83%bc%e3%83%89%e3%83%97%e3%83%a9%e3%83%b3%e3%83%8a%e3%83%bc'
 draft: false
 id: 872
 modified: 2021-09-24T17:32:09.000Z

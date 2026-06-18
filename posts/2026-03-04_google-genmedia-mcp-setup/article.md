@@ -4,7 +4,10 @@ slug: google-genmedia-mcp-setup
 date: 2026-03-04T19:27:41.000Z
 categories:
   - ai
-tags: []
+  - engineering
+tags:
+  - mcp
+  - gemini
 draft: false
 id: 2244
 modified: 2026-03-04T19:27:41.000Z

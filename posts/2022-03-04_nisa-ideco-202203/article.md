@@ -8,6 +8,7 @@ categories:
 tags:
   - '%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa'
   - ideco
+  - '%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8'
 draft: false
 id: 1616
 modified: 2022-03-03T14:25:17.000Z

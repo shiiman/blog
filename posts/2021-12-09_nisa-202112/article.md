@@ -7,6 +7,7 @@ categories:
   - fire
 tags:
   - '%e3%81%a4%e3%81%bf%e3%81%9f%e3%81%a6nisa'
+  - '%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8'
 draft: false
 id: 1318
 modified: 2021-12-09T17:27:02.000Z

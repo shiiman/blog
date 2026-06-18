@@ -10,6 +10,8 @@ categories:
 tags:
   - snowflake
   - snowsql
+  - mac
+  - homebrew
 draft: false
 id: 1214
 modified: 2021-10-22T12:40:03.000Z

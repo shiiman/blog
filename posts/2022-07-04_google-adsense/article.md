@@ -6,6 +6,8 @@ categories:
   - advertisement
 tags:
   - google-adsense
+  - wordpress
+  - cocoon
 draft: false
 id: 1692
 modified: 2022-07-03T14:40:37.000Z

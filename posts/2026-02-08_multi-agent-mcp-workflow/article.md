@@ -3,7 +3,7 @@ title: マルチエージェントMCPを作ってみた
 slug: multi-agent-mcp-workflow
 date: '2026-02-08T00:00:00+09:00'
 categories:
-  - uncategorized
+  - ai
 tags:
   - wordpress
 draft: false

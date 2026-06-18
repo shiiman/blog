@@ -33,6 +33,11 @@ export function selectRedirectTerms(dict: TermDict, usedSlugs: Set<string>): Red
   return result
 }
 
+/** パーセントエンコードを大文字に正規化（RFC 3986 準拠・Cloudflare の実際のリクエスト形式に合わせる） */
+function toUpperPercent(slug: string): string {
+  return slug.replace(/%[0-9a-f]{2}/gi, (m) => m.toUpperCase())
+}
+
 /** カテゴリ・タグの enSlug リダイレクトと静的ルールから _redirects テキストを生成する */
 export function buildRedirects(input: RedirectsInput): string {
   const lines: string[] = []
@@ -44,7 +49,7 @@ export function buildRedirects(input: RedirectsInput): string {
     lines.push('')
     lines.push('# Category（日本語slug → enSlug）')
     for (const { slug, enSlug } of input.categories) {
-      lines.push(`/category/${slug}/ /category/${enSlug}/ 301`)
+      lines.push(`/category/${toUpperPercent(slug)}/ /category/${enSlug}/ 301`)
     }
   }
 
@@ -52,7 +57,7 @@ export function buildRedirects(input: RedirectsInput): string {
     lines.push('')
     lines.push('# Tag（日本語slug → enSlug）')
     for (const { slug, enSlug } of input.tags) {
-      lines.push(`/tag/${slug}/ /tag/${enSlug}/ 301`)
+      lines.push(`/tag/${toUpperPercent(slug)}/ /tag/${enSlug}/ 301`)
     }
   }
 

@@ -30,6 +30,28 @@ import SearchOverlay from './SearchOverlay.astro'
 </header>
 <SearchOverlay />
 
+<noscript>
+  <!-- JS無効時のフォールバック: モバイルでもナビを常時表示し、☰ を隠す（遷移不能を防ぐ） -->
+  <style>
+    @media (max-width: 768px) {
+      .site-header .inner { height: auto; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+      .site-header .nav {
+        display: flex !important;
+        position: static !important;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        background: none;
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+      }
+      .site-header .nav a { border: 0 !important; padding: 4px 0 !important; }
+      .site-header .nav-toggle { display: none !important; }
+    }
+  </style>
+</noscript>
+
 <style>
   .site-header {
     position: sticky; top: 0; z-index: 50;
@@ -76,6 +98,8 @@ import SearchOverlay from './SearchOverlay.astro'
   const nav = document.getElementById('site-nav')
   if (toggle && nav) {
     const close = () => {
+      // フォーカスがナビ内に残ったまま非表示になるのを防ぐ（キーボード可用性）
+      if (nav.contains(document.activeElement)) (toggle as HTMLElement).focus()
       nav.classList.remove('open')
       toggle.setAttribute('aria-expanded', 'false')
     }

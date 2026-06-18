@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { glob } from 'node:fs/promises'
 import matter from 'gray-matter'
 import type { TermDict } from './lib/taxonomy'
+import { categoryUrlPath } from '../src/lib/taxonomy'
 import { selectRedirectTerms, buildRedirects } from './lib/redirects'
 
 const CATEGORIES_JSON = 'data/categories.json'
@@ -34,7 +35,10 @@ async function main() {
 
   const { cats, tags } = await collectUsedSlugs()
 
-  const categories = selectRedirectTerms(catDict, cats)
+  const categories = selectRedirectTerms(catDict, cats).map(({ slug, enSlug }) => ({
+    slug,
+    enSlug: categoryUrlPath(enSlug),
+  }))
   const tagTerms = selectRedirectTerms(tagDict, tags)
 
   const text = buildRedirects({ categories, tags: tagTerms })

@@ -7,7 +7,7 @@
 /*/feed/           /rss.xml   301
 
 # Category（日本語slug → enSlug）
-/category/%E7%AF%80%E7%B4%84/ /category/savings/ 301
+/category/%E7%AF%80%E7%B4%84/ /category/fire/savings/ 301
 
 # Tag（日本語slug → enSlug）
 /tag/%E3%83%A1%E3%83%BC%E3%83%AB/ /tag/mail/ 301

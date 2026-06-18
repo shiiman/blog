@@ -63,3 +63,13 @@ export function buildRedirects(input: RedirectsInput): string {
 
   return lines.join('\n') + '\n'
 }
+
+/**
+ * 自動生成したリダイレクトテキストに、手動管理のリダイレクト定義を末尾結合する。
+ * `npm run build:redirects` で再生成しても手動分が消えないようにするためのもの。
+ */
+export function appendManualRedirects(generated: string, manual: string): string {
+  const manualTrimmed = manual.trim()
+  if (!manualTrimmed) return generated
+  return generated.replace(/\n+$/, '') + '\n\n' + manualTrimmed + '\n'
+}

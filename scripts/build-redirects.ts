@@ -1,12 +1,14 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { glob } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import matter from 'gray-matter'
 import type { TermDict } from './lib/taxonomy'
 import { categoryUrlPath } from '../src/lib/taxonomy'
-import { selectRedirectTerms, buildRedirects } from './lib/redirects'
+import { selectRedirectTerms, buildRedirects, appendManualRedirects } from './lib/redirects'
 
 const CATEGORIES_JSON = 'data/categories.json'
 const TAGS_JSON = 'data/tags.json'
+const MANUAL_REDIRECTS = 'data/manual-redirects.txt'
 const POSTS_DIR = 'posts'
 const OUTPUT = 'public/_redirects'
 
@@ -41,10 +43,23 @@ async function main() {
   }))
   const tagTerms = selectRedirectTerms(tagDict, tags)
 
-  const text = buildRedirects({ categories, tags: tagTerms })
+  let text = buildRedirects({ categories, tags: tagTerms })
+
+  // 自動生成できない手動リダイレクト（個別記事の slug 変更等）を末尾へ結合する。
+  // 再生成しても消えないよう、定義は data/manual-redirects.txt に分離している。
+  let manualCount = 0
+  if (existsSync(MANUAL_REDIRECTS)) {
+    const manual = await readFile(MANUAL_REDIRECTS, 'utf-8')
+    manualCount = manual
+      .split('\n')
+      .filter((l) => l.trim() && !l.trim().startsWith('#')).length
+    text = appendManualRedirects(text, manual)
+  }
   await writeFile(OUTPUT, text)
 
-  console.log(`public/_redirects を生成しました（カテゴリ: ${categories.length}件、タグ: ${tagTerms.length}件）`)
+  console.log(
+    `public/_redirects を生成しました（カテゴリ: ${categories.length}件、タグ: ${tagTerms.length}件、手動: ${manualCount}件）`,
+  )
 }
 
 main().catch((e) => {

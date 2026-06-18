@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { selectRedirectTerms, buildRedirects } from './redirects'
+import { selectRedirectTerms, buildRedirects, appendManualRedirects } from './redirects'
 import type { TermDict } from './taxonomy'
 
 describe('selectRedirectTerms', () => {
@@ -71,5 +71,26 @@ describe('buildRedirects', () => {
     const text = buildRedirects({ categories: [], tags: [] })
     const ruleLines = text.split('\n').filter((l) => l.trim() && !l.startsWith('#'))
     expect(ruleLines.length).toBeGreaterThanOrEqual(3)
+  })
+})
+
+describe('appendManualRedirects', () => {
+  it('手動リダイレクトを生成テキストの末尾へ結合する（順序保持）', () => {
+    const generated = '# Feeds → RSS\n/feed /rss.xml 301\n'
+    const manual = '# 手動\n/old-path/ /new-path/ 301\n'
+    const out = appendManualRedirects(generated, manual)
+    expect(out).toContain('/feed /rss.xml 301')
+    expect(out).toContain('/old-path/ /new-path/ 301')
+    expect(out.indexOf('/old-path/')).toBeGreaterThan(out.indexOf('/feed'))
+  })
+
+  it('生成分と手動分の間に空行を入れて結合する', () => {
+    const out = appendManualRedirects('/feed /rss.xml 301\n', '/old/ /new/ 301\n')
+    expect(out).toBe('/feed /rss.xml 301\n\n/old/ /new/ 301\n')
+  })
+
+  it('手動リダイレクトが空（空白のみ）なら生成テキストをそのまま返す', () => {
+    const generated = '/feed /rss.xml 301\n'
+    expect(appendManualRedirects(generated, '   \n  ')).toBe(generated)
   })
 })

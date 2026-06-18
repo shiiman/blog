@@ -1,0 +1,7 @@
+# 手動管理のリダイレクト（個別記事の slug/カテゴリ変更などで自動生成できないもの）
+# このファイルの内容は `npm run build:redirects` 実行時に public/_redirects の末尾へ自動結合される。
+# 形式: <from> <to> <status>
+/uncategorized/multi-agent-mcp-workflow/ /engineering/ai/multi-agent-mcp-workflow/ 301
+/wordpress/advertisement/google-adsence/ /wordpress/advertisement/google-adsense/ 301
+/tag/google-adsence/ /tag/google-adsense/ 301
+/fire/%E7%AF%80%E7%B4%84/post-1834/ /fire/savings/post-1834/ 301

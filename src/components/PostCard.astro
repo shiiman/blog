@@ -30,7 +30,7 @@ const eyecatch = entry.data.eyecatch
   .thumb :global(img) { width: 120px; height: 84px; object-fit: cover; border-radius: 6px; }
   .body { display: flex; flex-direction: column; gap: 6px; }
   /* TagList の ul 既定マージンを打ち消し、カードの gap で間隔を制御する（詳細ページには影響させない） */
-  .body :global(.tag-list) { margin: 2px 0 0; }
+  .body :global(.tag-list) { margin: 0; }
   .title { font-size: 1.05rem; margin: 0; }
   .title a { color: var(--text); }
   .title a:hover { color: var(--accent); text-decoration: none; }

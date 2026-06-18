@@ -5,7 +5,7 @@ date: 2021-08-30T19:30:00.000Z
 categories:
   - profile
 tags:
-  - wordpress
+  - blog-management
 draft: false
 id: 6
 modified: 2021-08-30T19:22:28.000Z

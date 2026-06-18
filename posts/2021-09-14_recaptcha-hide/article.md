@@ -4,9 +4,11 @@ slug: recaptcha-hide
 date: 2021-09-14T19:30:00.000Z
 categories:
   - wordpress
+  - plugin
 tags:
   - invisible-recaptcha
-  - worfpress
+  - wordpress
+  - cocoon
 draft: false
 id: 171
 modified: 2021-09-12T23:59:37.000Z

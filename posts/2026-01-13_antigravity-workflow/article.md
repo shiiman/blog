@@ -7,6 +7,8 @@ categories:
   - ai
 tags:
   - wordpress
+  - antigravity
+  - gemini
 draft: false
 id: 2205
 modified: '2026-01-13T00:00:00+09:00'

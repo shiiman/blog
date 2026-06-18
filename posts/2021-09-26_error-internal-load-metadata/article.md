@@ -7,6 +7,7 @@ categories:
   - docker
 tags:
   - docker
+  - mac
 draft: false
 id: 859
 modified: 2021-09-23T12:42:40.000Z

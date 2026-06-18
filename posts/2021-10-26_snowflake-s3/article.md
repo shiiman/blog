@@ -8,6 +8,7 @@ categories:
 tags:
   - snowflake
   - s3
+  - aws
 draft: false
 id: 1210
 modified: 2021-10-22T14:36:50.000Z

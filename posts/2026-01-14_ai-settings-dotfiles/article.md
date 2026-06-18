@@ -7,6 +7,9 @@ categories:
   - ai
 tags:
   - dotfiles
+  - claude-code
+  - cursor
+  - mac
 draft: false
 id: 2213
 modified: '2026-01-14T00:00:00+09:00'

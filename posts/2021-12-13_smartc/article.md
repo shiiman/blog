@@ -4,9 +4,10 @@ slug: smartc
 date: 2021-12-13T19:30:00.000Z
 categories:
   - advertisement
-  - wordpress
 tags:
   - smart-c
+  - asp
+  - '%e3%82%a2%e3%83%95%e3%82%a7%e3%83%aa%e3%82%a8%e3%82%a4%e3%83%88'
 draft: false
 id: 1329
 modified: 2021-12-09T19:32:52.000Z

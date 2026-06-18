@@ -9,6 +9,8 @@ tags:
   - wordpress
   - conoha-wing
   - github
+  - astro
+  - cloudflare
 draft: false
 id: 2245
 excerpt: ConoHa WING上のWordPressブログをAstro + Cloudflare Pagesの静的サイトへ移行した実体験の記録です。旧URLの維持、プラグイン機能の再実装、CI/CD構築、そして正直なハマりどころまでまとめました。

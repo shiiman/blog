@@ -7,6 +7,8 @@ categories:
   - fire
 tags:
   - ideco
+  - '%e6%a5%bd%e5%a4%a9%e8%a8%bc%e5%88%b8'
+  - '%e7%a8%8e%e9%87%91'
 draft: false
 id: 1123
 modified: 2022-10-07T14:14:12.000Z

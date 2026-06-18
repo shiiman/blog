@@ -86,7 +86,13 @@ brew tap Homebrew/bundle
 
 管理するアプリの対象により管理するコマンドが違いますので、こちらもインストールしておくと便利です。以下が各コマンドと管理するアプリの大まかな枠組みです。
 
-ツール管理対象HomebrewCUIアプリHomebrew CaskGUIアプリmas-cliMac App Storeアプリ※ Homebrew Caskとmas-cliは同アプリが含まれている場合があります。
+| ツール | 管理対象 |
+| --- | --- |
+| Homebrew | CUIアプリ |
+| Homebrew Cask | GUIアプリ |
+| mas-cli | Mac App Storeアプリ |
+
+※ Homebrew Caskとmas-cliは同アプリが含まれている場合があります。
 
 ということで、masのインストールは以下になります。
 

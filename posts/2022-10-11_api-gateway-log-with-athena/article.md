@@ -9,7 +9,7 @@ categories:
 tags:
   - athena
   - terraform
-  - api-gatewat
+  - api-gateway
 draft: false
 id: 1772
 modified: 2022-10-11T11:27:40.000Z

@@ -5,3 +5,4 @@
 /wordpress/advertisement/google-adsence/ /wordpress/advertisement/google-adsense/ 301
 /tag/google-adsence/ /tag/google-adsense/ 301
 /fire/%E7%AF%80%E7%B4%84/post-1834/ /fire/savings/post-1834/ 301
+/tag/api-gatewat/ /tag/api-gateway/ 301

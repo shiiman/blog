@@ -1,6 +1,6 @@
 import { readdir } from 'node:fs/promises'
 
-/** 変換対象のコンテンツルート。future-sites/ は含めない（スコープ外） */
+/** 変換対象のコンテンツルート。 */
 export const CONTENT_ROOTS = [
   { base: 'posts', file: 'article.md' },
   { base: 'pages', file: 'page.md' },

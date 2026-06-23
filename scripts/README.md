@@ -22,7 +22,7 @@ WordPress 前提の記事を Astro が読める形（ローカル画像＋Git LF
 | `lib/taxonomy.ts` | カテゴリ/タグ ID → slug 変換（純粋関数） |
 | `lib/frontmatter.ts` | WP → Astro フロントマター変換（純粋関数） |
 | `lib/images.ts` | 本文画像URLの抽出・正規化・ローカル名生成・置換（純粋関数） |
-| `lib/content-roots.ts` | 変換対象（`posts/`・`pages/`）の列挙。`future-sites/` は対象外 |
+| `lib/content-roots.ts` | 変換対象（`posts/`・`pages/`）の列挙 |
 | `export-wp-data.ts` | REST エクスポート（I/O） |
 | `localize-images.ts` | 画像DL＋本文書き換え（I/O） |
 | `migrate-frontmatter.ts` | フロントマター一括変換（I/O） |

@@ -12,7 +12,7 @@ tags:
 draft: false
 id: 2250
 excerpt: 個人開発アプリをストアに出すために用意した公式サイト・ドメイン・メール・OAuth・バックエンドの記録です。リダイレクトの末尾スラッシュで招待トークンが消える話、apexのCNAMEでメールを壊しかけた話、API未有効化で連携が動かなかった話、OAuth機密スコープ検証の差し戻し理由、Quota上限が実現不可能だった話など実測で踏んだ罠を全部載せています。
-# eyecatch: ./assets/eyecatch.png
+eyecatch: ./assets/eyecatch.png
 ---
 
 ## はじめに
@@ -21,7 +21,7 @@ excerpt: 個人開発アプリをストアに出すために用意した公式�
 
 **ストアに出すには、アプリ本体のほかに「事業者としての面」が必要になります。** ここも実装とは関係ないのに、**アプリが直接開く URL があるので後から変えられない**という厄介さがあります。
 
-そして厄介なのが、**この領域はほぼ全部「推測で外した」**ことです。リダイレクトの書き方、メールの制約、設定を API でやってよいかどうか——**実測しないと分からないものばかり**でした。
+そして厄介なのが、<strong>この領域はほぼ全部「推測で外した」</strong>ことです。リダイレクトの書き方、メールの制約、設定を API でやってよいかどうか——**実測しないと分からないものばかり**でした。
 
 > **ストア側の手順は別記事です。** [App Store Connect 編](/engineering/app/app-store-connect-review-submission-notes/) / [Google Play Console 編](/engineering/app/google-play-console-review-submission-notes/) / [事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) / [全工程まとめ](/engineering/app/personal-app-cross-store-release-full-journey/)
 
@@ -201,7 +201,7 @@ App Links の対象パスは、**アプリが入っていない人がブラウ�
 - ⚠️ **自動リダイレクトを付けない。** URL が内容を決めるので、**ストアの各ロケールに固定 URL を登録できる**（`ja` の申告に `/privacy`、`en-US` の申告に `/en/privacy`）
 - `hreflang` + `x-default`
 - ⚠️ **英語の法務ページには「日本語版が正文」の注記**を入れた（⚠️ **個人開発で翻訳の完全性を保証できないため**）
-- ⚠️ **そもそも英訳するかどうかも判断が要ります。** 私は**米国配信があるので「審査担当者が読める英語版が必要」**と判断し、法務ページだけでなく**サイトの全ページを英語化**しました
+- ⚠️ **そもそも英訳するかどうかも判断が要ります。** 私は<strong>米国配信があるので「審査担当者が読める英語版が必要」</strong>と判断し、法務ページだけでなく**サイトの全ページを英語化**しました
 
 ⚠️ **着地ページだけは `/en` を持てません。** アプリが発行する招待 URL に言語情報が無いためです。→ **1 ページ内で日英併記**にしました。
 
@@ -442,7 +442,7 @@ Firebase の設定ファイルを配置したものの、⚠️ **Google サイ�
 
 ここで 2 つ学びがありました。
 
-- ⚠️ **当初はスコープが足りず、連携が機能していませんでした。** カレンダー一覧の取得と専用カレンダーの作成に必要なスコープを要求していなかったためです。⚠️ **「認可は通るのに機能しない」**という状態になります
+- ⚠️ **当初はスコープが足りず、連携が機能していませんでした。** カレンダー一覧の取得と専用カレンダーの作成に必要なスコープを要求していなかったためです。⚠️ <strong>「認可は通るのに機能しない」</strong>という状態になります
 - ⚠️ **機密の `spreadsheets` を、非機密の `drive.file` に置き換えました。** アプリは**自分で新規作成したファイルにしか書かない**ので、per-file 権限で足ります。**機密スコープを 1 つ減らすと審査の範囲が狭くなる**ので、要求前に「本当にその広さが必要か」を確認する価値があります
 
 ⚠️ **「テスト中」のままだと refresh token が 7 日で失効**します（ユーザー数の上限もある）。**本番公開は避けられません。**
@@ -549,7 +549,7 @@ dig +short TXT example.com | grep google-site-verification
 
 これは一番危なかった話です。
 
-ストレージのアクセス制御のテストが 7 件失敗していて、私は**「エミュレータの環境要因」だと判断しました。** 実際は**実バグ**でした。
+ストレージのアクセス制御のテストが 7 件失敗していて、私は<strong>「エミュレータの環境要因」だと判断しました。</strong> 実際は**実バグ**でした。
 
 そして最悪なことに、
 
@@ -591,7 +591,7 @@ dig +short TXT example.com | grep google-site-verification
 
 ⚠️ **「計測のみ」モードは「強制しないが計測する」ので、強制にする前に判定できます。** 一方、完全な OFF は**計測もしません**。私は最初これを混同して、「トークンが付いていない」と誤診しました（**実際は計測していなかっただけ**）。
 
-⚠️ **強制化のタイミングは「エミュレータが必要な検証を全部終えた後」**にしました。強制にすると**Play 配信版を載せたエミュレータが締め出される**からです（デバッグ用のトークンは debug ビルド専用）。
+⚠️ <strong>強制化のタイミングは「エミュレータが必要な検証を全部終えた後」</strong>にしました。強制にすると**Play 配信版を載せたエミュレータが締め出される**からです（デバッグ用のトークンは debug ビルド専用）。
 
 ## コスト防御で踏んだ GCP の落とし穴
 
@@ -733,7 +733,40 @@ dig +short TXT example.com | grep google-site-verification
 
 ## 関連記事
 
-- **App Store Connect 編**: [個人開発アプリをApp Store審査に出すまでにやったこと・ハマったこと全部](/engineering/app/app-store-connect-review-submission-notes/)
-- **Google Play Console 編**: [個人開発アプリをGoogle Play審査に出すまでにやったこと・ハマったこと全部](/engineering/app/google-play-console-review-submission-notes/)
-- **事務手続き編**: [個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）](/engineering/app/indie-app-store-registration-paperwork/)
-- **全工程まとめ**: [個人開発アプリをApp StoreとGoogle Playに同時提出するまでの全工程](/engineering/app/personal-app-cross-store-release-full-journey/)
+このシリーズの他の記事です。
+
+<a class="link-card" href="/engineering/app/indie-app-store-registration-paperwork/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-store-registration-paperwork.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">① 個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）</span>
+<span class="link-card__excerpt">屋号の決定から屋号入り開業届の取り直し、D-U-N-S の 3 ルート比較まで。依存が一本道で並行できない工程の記録です。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/app-store-connect-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/app-store-connect-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">Individual 加入・W-8BEN・署名・TestFlight の 3 段・IAP 登録・年齢レーティング・審査ノート・提出まで。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/google-play-console-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/google-play-console-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">組織アカウントの本人確認・15% 手数料・署名鍵 3 種・アプリのセットアップ 11 項目・データセーフティ・課金テスト。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/personal-app-cross-store-release-full-journey/">
+<span class="link-card__thumb"><img src="/eyecatch/personal-app-cross-store-release-full-journey.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程</span>
+<span class="link-card__excerpt">3 週間のタイムライン、審査のために追加実装した機能、検証環境の作り分け、繰り返し踏んだ 9 つのメタな罠。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>

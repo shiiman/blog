@@ -17,7 +17,7 @@ tags:
 draft: false
 id: 2248
 excerpt: 個人開発のiOS/Androidアプリ「Bucket List Commit」を両ストアへ同時提出するまでの全工程まとめです。3週間のタイムライン、審査のために追加実装することになった機能、検証環境の作り分け、そして繰り返し踏んだ7つのメタな罠を記録しました。
-# eyecatch: ./assets/eyecatch.png
+eyecatch: ./assets/eyecatch.png
 ---
 
 ## はじめに
@@ -503,7 +503,7 @@ GeometryReader { proxy in
 | `Executed N tests, with 0 failures` と出る | リトライで 2 回目に通るため |
 | なのに `** TEST FAILED **` | 初回の kill が run 全体を落とす |
 
-⚠️⚠️ **決定的な切り分けは「自分のツリーに存在しないテストクラスが失敗一覧に出ていないか」**でした。別の作業ツリーにしか無いクラス名が出て一発で分かりました。⚠️ **`xcresult` の `failureText` が `Test crashed with signal kill.` ならこれです。**
+⚠️⚠️ <strong>決定的な切り分けは「自分のツリーに存在しないテストクラスが失敗一覧に出ていないか」</strong>でした。別の作業ツリーにしか無いクラス名が出て一発で分かりました。⚠️ **`xcresult` の `failureText` が `Test crashed with signal kill.` ならこれです。**
 
 対策は**シミュレータをプール化してロックを取る**ことにしました。⚠️ **全部埋まっているときは失敗させず待つ**（失敗させると並行作業側のビルドを壊すため）。
 
@@ -554,7 +554,7 @@ CLI だけで完結しますが、**前提が 3 つあり、どれも自動化�
 
 ### ⚠️⚠️ ローカルが正なので、サーバだけ消しても戻ってくる
 
-このアプリは**ローカル DB を正（source of truth）**にしてサーバへ同期する設計です。つまり、
+このアプリは<strong>ローカル DB を正（source of truth）</strong>にしてサーバへ同期する設計です。つまり、
 
 ⚠️ **サーバのデータだけ消しても、端末が次の同期で再び publish します。**
 
@@ -602,7 +602,7 @@ CLI だけで完結しますが、**前提が 3 つあり、どれも自動化�
 
 掃除の対象を「恒久データだから残す」と説明しかけて、**それが誤りだった**という例があります。
 
-私は退会記録（tombstone）や課金の紐付けレコードを「**恒久的に残す設計**」だと説明しました。⚠️ **正しくは「恒久なのは仕組みで、入っていた行は全部この 1 か月の検証残骸」**でした。ユーザーの「データはリセットされてるんじゃないの？」という指摘のほうが正しかったわけです。
+私は退会記録（tombstone）や課金の紐付けレコードを「**恒久的に残す設計**」だと説明しました。⚠️ <strong>正しくは「恒久なのは仕組みで、入っていた行は全部この 1 か月の検証残骸」</strong>でした。ユーザーの「データはリセットされてるんじゃないの？」という指摘のほうが正しかったわけです。
 
 実測して分かった各データの実際の寿命はこうでした。
 
@@ -612,13 +612,13 @@ CLI だけで完結しますが、**前提が 3 つあり、どれも自動化�
 | 課金レシートの保管 | ⚠️ **次回の検証で端末から再構築される**ので消せる |
 | 統計カウンタ | 個人に紐づかない実採用値 = **消すと画面が空になるので残す** |
 
-⚠️ **消す前に「そのデータは今も何かを守っているか」を実測しました。** そして tombstone の削除には**「1 時間以内のものがあれば中止する」ガードを入れて**実行しました。**「設計上の役割」と「今この行が持っている意味」は別物です。**
+⚠️ **消す前に「そのデータは今も何かを守っているか」を実測しました。** そして tombstone の削除には<strong>「1 時間以内のものがあれば中止する」ガードを入れて</strong>実行しました。**「設計上の役割」と「今この行が持っている意味」は別物です。**
 
 ---
 
 ## 提出前のレビューをどう組んだか
 
-**実装が終わってから提出までに、レビューを 4 段階やりました。** 個別のバグは記事の対象外なので、**やり方と、そこで分かった「レビューの組み方の失敗」**だけ書きます。
+**実装が終わってから提出までに、レビューを 4 段階やりました。** 個別のバグは記事の対象外なので、<strong>やり方と、そこで分かった「レビューの組み方の失敗」</strong>だけ書きます。
 
 | 段 | 目的 | 結果 |
 |---|---|---|
@@ -1022,7 +1022,40 @@ UGC を扱うなら報告とブロックは避けられません。課金があ�
 
 ## 関連記事
 
-- **① 事務手続き編**: [個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）](/engineering/app/indie-app-store-registration-paperwork/)
-- **② 周辺インフラ編**: [個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）](/engineering/app/indie-app-domain-site-email-oauth-setup/)
-- **③ App Store Connect 編**: [個人開発アプリをApp Store審査に出すまでにやったこと・ハマったこと全部](/engineering/app/app-store-connect-review-submission-notes/)
-- **④ Google Play Console 編**: [個人開発アプリをGoogle Play審査に出すまでにやったこと・ハマったこと全部](/engineering/app/google-play-console-review-submission-notes/)
+このシリーズの他の記事です。
+
+<a class="link-card" href="/engineering/app/indie-app-store-registration-paperwork/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-store-registration-paperwork.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">① 個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）</span>
+<span class="link-card__excerpt">屋号の決定から屋号入り開業届の取り直し、D-U-N-S の 3 ルート比較まで。依存が一本道で並行できない工程の記録です。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/indie-app-domain-site-email-oauth-setup/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-domain-site-email-oauth-setup.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">② 個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）</span>
+<span class="link-card__excerpt">リダイレクトの末尾スラッシュで招待トークンが消える話、転送メールが返信できない話、OAuth 機密スコープ検証の差し戻し理由など。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/app-store-connect-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/app-store-connect-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">Individual 加入・W-8BEN・署名・TestFlight の 3 段・IAP 登録・年齢レーティング・審査ノート・提出まで。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/google-play-console-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/google-play-console-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">組織アカウントの本人確認・15% 手数料・署名鍵 3 種・アプリのセットアップ 11 項目・データセーフティ・課金テスト。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>

@@ -12,16 +12,16 @@ tags:
 draft: false
 id: 2249
 excerpt: 個人開発アプリをApp StoreとGoogle Playに出すまでの「アプリ開発と関係ない事務手続き」の記録です。屋号の決定・屋号入り開業届の取り直し（税務署）・D-U-N-Sの3ルート比較と反映確認・黒塗りが透ける話・契約が両ストアで2つあった話・名義の可逆性・2FAまで、依存関係と踏んだ罠を全部載せています。
-# eyecatch: ./assets/eyecatch.png
+eyecatch: ./assets/eyecatch.png
 ---
 
 ## はじめに
 
-個人開発の iOS / Android アプリ **Bucket List Commit** を App Store と Google Play へ同時提出しました。この記事はその**一番最初にやった「アプリ開発とまったく関係ない事務手続き」**の記録です。
+個人開発の iOS / Android アプリ **Bucket List Commit** を App Store と Google Play へ同時提出しました。この記事はその<strong>一番最初にやった「アプリ開発とまったく関係ない事務手続き」</strong>の記録です。
 
 **アプリ開発とまったく関係ないのに、一番リードタイムが長いのがここです。** しかも依存が一本道で、並行できません。
 
-私はここで、**「並行できると思っていたものが直列だった」「無料ルートの存在に気づかず有料コースを勧めた」「黒塗りが透けていた」**という 3 種類の失敗をしました。同じ道を通る個人事業主が同じ穴に落ちないように残します。
+私はここで、<strong>「並行できると思っていたものが直列だった」「無料ルートの存在に気づかず有料コースを勧めた」「黒塗りが透けていた」</strong>という 3 種類の失敗をしました。同じ道を通る個人事業主が同じ穴に落ちないように残します。
 
 > **この記事は「ストアに登録する前」だけを扱います。** ストア側の手順は [App Store Connect 編](/engineering/app/app-store-connect-review-submission-notes/) / [Google Play Console 編](/engineering/app/google-play-console-review-submission-notes/) に、全体像は[全工程まとめ](/engineering/app/personal-app-cross-store-release-full-journey/)にあります。
 
@@ -101,13 +101,13 @@ excerpt: 個人開発アプリをApp StoreとGoogle Playに出すまでの「ア
 
 ## 2. 屋号入りの開業届を取り直す（税務署に行く話）
 
-**なぜ必要か**: D-U-N-S の必要書類が**すべて「屋号の記載のあるもの」**だからです。
+**なぜ必要か**: D-U-N-S の必要書類が<strong>すべて「屋号の記載のあるもの」</strong>だからです。
 
 > 開業届の控え / 確定申告書 / 営業許可証 / 公共料金請求書 / 屋号名義の通帳 のいずれか
 
 私の開業届は**屋号欄が空白**でした。この状態では 1 つも要件を満たしません。
 
-⚠️ **代替書類はどれも「既に屋号で事業をしている証拠」**なので、屋号を新しく決めた場合は**どれも持っていません**。だから開業届の出し直しが最短になります。
+⚠️ <strong>代替書類はどれも「既に屋号で事業をしている証拠」</strong>なので、屋号を新しく決めた場合は**どれも持っていません**。だから開業届の出し直しが最短になります。
 
 | 代替になる書類 | 屋号を新規に決めた場合 |
 |---|---|
@@ -310,7 +310,7 @@ D&B のデータが反映されると、Apple から**こういうメールが�
 
 そして実害が出ました。
 
-⚠️ **Apple の有料アプリ契約が「有効」にならないと、iOS のアプリ内課金商品は 1 つも作れず、Sandbox の課金テストもできません。** 私は API で商品が 0 件・グループが 0 件なのを見て**「API の使い方が悪いのか」と疑って時間を使いました。** 原因はこれでした。
+⚠️ **Apple の有料アプリ契約が「有効」にならないと、iOS のアプリ内課金商品は 1 つも作れず、Sandbox の課金テストもできません。** 私は API で商品が 0 件・グループが 0 件なのを見て<strong>「API の使い方が悪いのか」と疑って時間を使いました。</strong> 原因はこれでした。
 
 ⚠️ **つまり「課金の検証はストア登録と並行できる」という前提も成立していませんでした。**
 
@@ -362,7 +362,7 @@ D&B のデータが反映されると、Apple から**こういうメールが�
 
 本文も「〜以降に**個人アカウント**を作成したデベロッパーは…」と書いていて、**組織アカウントへの言及がありません。**
 
-⚠️⚠️ **つまり「アカウント種別の選択が、クリティカルパスそのものを消せる」**という構造でした。私は最初の比較で「期間」「費用」「公開範囲」を並べたのに、**「種別によって要件自体が消える」という依存を見落としていました。**
+⚠️⚠️ <strong>つまり「アカウント種別の選択が、クリティカルパスそのものを消せる」</strong>という構造でした。私は最初の比較で「期間」「費用」「公開範囲」を並べたのに、**「種別によって要件自体が消える」という依存を見落としていました。**
 
 > **⚠️ 教訓: 選択肢を比較するときは「その選択で消える要件はないか」を軸に入れる。**
 > コストや期間の比較表を作ると、**その表に無い次元（要件の有無）を見落とします。**
@@ -425,7 +425,7 @@ Play のヘルプは組織アカウントの公開項目を「デベロッパー
 
 公開する住所は「最新であること」がポリシー要件です。⚠️ **放置するとポリシー違反でアカウント停止のリスク**があります。
 
-⚠️ **順序は「身分証の住所変更 → お支払いプロファイルの更新」**です。逆順にすると、確認のために出す身分証と登録住所が食い違います。
+⚠️ <strong>順序は「身分証の住所変更 → お支払いプロファイルの更新」</strong>です。逆順にすると、確認のために出す身分証と登録住所が食い違います。
 
 ## 9. 2FA と復旧手段 — ここを失うと全部失う
 
@@ -537,11 +537,44 @@ Play のヘルプは組織アカウントの公開項目を「デベロッパー
 □ 重要な通知が来るメールのフィルタを、申請より先に作る
 ```
 
-この工程で一番の学びは、**「無料ルートや代替措置の存在を確認してから動く」**ことでした。D-U-N-S も、収受日付印の代替も、どちらも「調べれば分かるのに、調べる前に動いて遠回りした」ものです。
+この工程で一番の学びは、<strong>「無料ルートや代替措置の存在を確認してから動く」</strong>ことでした。D-U-N-S も、収受日付印の代替も、どちらも「調べれば分かるのに、調べる前に動いて遠回りした」ものです。
 
 ## 関連記事
 
-- **App Store Connect 編**: [個人開発アプリをApp Store審査に出すまでにやったこと・ハマったこと全部](/engineering/app/app-store-connect-review-submission-notes/)
-- **Google Play Console 編**: [個人開発アプリをGoogle Play審査に出すまでにやったこと・ハマったこと全部](/engineering/app/google-play-console-review-submission-notes/)
-- **公式サイト・ドメイン・メール・OAuth 編**: [個人開発アプリの周辺インフラを用意して踏んだ罠](/engineering/app/indie-app-domain-site-email-oauth-setup/)
-- **全工程まとめ**: [個人開発アプリをApp StoreとGoogle Playに同時提出するまでの全工程](/engineering/app/personal-app-cross-store-release-full-journey/)
+このシリーズの他の記事です。
+
+<a class="link-card" href="/engineering/app/indie-app-domain-site-email-oauth-setup/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-domain-site-email-oauth-setup.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">② 個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）</span>
+<span class="link-card__excerpt">リダイレクトの末尾スラッシュで招待トークンが消える話、転送メールが返信できない話、OAuth 機密スコープ検証の差し戻し理由など。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/app-store-connect-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/app-store-connect-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">Individual 加入・W-8BEN・署名・TestFlight の 3 段・IAP 登録・年齢レーティング・審査ノート・提出まで。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/google-play-console-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/google-play-console-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">組織アカウントの本人確認・15% 手数料・署名鍵 3 種・アプリのセットアップ 11 項目・データセーフティ・課金テスト。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/personal-app-cross-store-release-full-journey/">
+<span class="link-card__thumb"><img src="/eyecatch/personal-app-cross-store-release-full-journey.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程</span>
+<span class="link-card__excerpt">3 週間のタイムライン、審査のために追加実装した機能、検証環境の作り分け、繰り返し踏んだ 9 つのメタな罠。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>

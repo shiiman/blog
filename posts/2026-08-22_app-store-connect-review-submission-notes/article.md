@@ -16,7 +16,7 @@ tags:
 draft: false
 id: 2246
 excerpt: 個人開発のiOSアプリ「Bucket List Commit」をApp Store審査に提出するまでの全工程を記録しました。Individual加入・D-U-N-S・W-8BEN・署名・TestFlight・IAP登録・年齢レーティング・審査ノート・提出まで、実際に踏んだ罠を全部載せています。
-# eyecatch: ./assets/eyecatch.png
+eyecatch: ./assets/eyecatch.png
 ---
 
 ## はじめに
@@ -596,7 +596,7 @@ ITMS-90626: Invalid Siri Support - App Intent description
 → ⚠️ 最新の 3384 が入っていない。そもそも「最新10件」ですらない（昇順でも降順でもない）
 ```
 
-⚠️ **`sort=-version` / `sort=-uploadedDate` は HTTP 400（`PARAMETER_ERROR`）**なので、「新しい順に取る」ことができません。
+⚠️ <strong>`sort=-version` / `sort=-uploadedDate` は HTTP 400（`PARAMETER_ERROR`）</strong>なので、「新しい順に取る」ことができません。
 
 正しい引き方はこれです。
 
@@ -1229,13 +1229,46 @@ GeometryReader { proxy in
 □ 提出直前チェックを 1 コマンドのゲートに落とす
 ```
 
-Apple 側で一番の学びは、**「成功レスポンスと画面表示のどちらも信用できない」**ということでした。`UPLOAD SUCCEEDED` は受理ではなく、`VALID` は配信ではなく、サブスクの `MISSING_METADATA` は不備ではない。**判定は必ず「その工程の実データ」で行う**——これが唯一まともに機能した方針です。
+Apple 側で一番の学びは、<strong>「成功レスポンスと画面表示のどちらも信用できない」</strong>ということでした。`UPLOAD SUCCEEDED` は受理ではなく、`VALID` は配信ではなく、サブスクの `MISSING_METADATA` は不備ではない。**判定は必ず「その工程の実データ」で行う**——これが唯一まともに機能した方針です。
 
 Google Play 側は、また別の種類の罠がありました。そちらは次の記事にまとめています。
 
 ## 関連記事
 
-- **事務手続き編**: [個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）](/engineering/app/indie-app-store-registration-paperwork/)
-- **周辺インフラ編**: [個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）](/engineering/app/indie-app-domain-site-email-oauth-setup/)
-- **Google Play Console 編**: [個人開発アプリをGoogle Play審査に出すまでにやったこと・ハマったこと全部](/engineering/app/google-play-console-review-submission-notes/)
-- **全工程まとめ（審査のために追加実装した機能を含む）**: [個人開発アプリをApp StoreとGoogle Playに同時提出するまでの全工程](/engineering/app/personal-app-cross-store-release-full-journey/)
+このシリーズの他の記事です。
+
+<a class="link-card" href="/engineering/app/indie-app-store-registration-paperwork/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-store-registration-paperwork.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">① 個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）</span>
+<span class="link-card__excerpt">屋号の決定から屋号入り開業届の取り直し、D-U-N-S の 3 ルート比較まで。依存が一本道で並行できない工程の記録です。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/indie-app-domain-site-email-oauth-setup/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-domain-site-email-oauth-setup.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">② 個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）</span>
+<span class="link-card__excerpt">リダイレクトの末尾スラッシュで招待トークンが消える話、転送メールが返信できない話、OAuth 機密スコープ検証の差し戻し理由など。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/google-play-console-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/google-play-console-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">組織アカウントの本人確認・15% 手数料・署名鍵 3 種・アプリのセットアップ 11 項目・データセーフティ・課金テスト。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/personal-app-cross-store-release-full-journey/">
+<span class="link-card__thumb"><img src="/eyecatch/personal-app-cross-store-release-full-journey.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程</span>
+<span class="link-card__excerpt">3 週間のタイムライン、審査のために追加実装した機能、検証環境の作り分け、繰り返し踏んだ 9 つのメタな罠。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>

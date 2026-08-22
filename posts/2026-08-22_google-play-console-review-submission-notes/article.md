@@ -15,7 +15,7 @@ tags:
 draft: false
 id: 2247
 excerpt: 個人開発のAndroidアプリ「Bucket List Commit」をGoogle Play審査に提出するまでの全工程を記録しました。組織アカウントの本人確認・W-8BEN・15%手数料・署名鍵3種・アプリのセットアップ11項目・IARC・データセーフティ・課金テスト・提出まで、実際に踏んだ罠を全部載せています。
-# eyecatch: ./assets/eyecatch.png
+eyecatch: ./assets/eyecatch.png
 ---
 
 ## はじめに
@@ -32,7 +32,7 @@ Apple は「成功レスポンスが嘘をつく」タイプの罠が多かっ�
 - **「アプリのセットアップ」に、チェックリストに現れない必須項目がある**
 - **API が返す成功レスポンスと実際の状態が違う**（これは Apple と同じ）
 
-という構成です。特に**本人確認**と**「アプリのセットアップ」の完了漏れ**は、個人開発者が高確率で詰まる場所だと思います。
+という構成です。特に**本人確認**と<strong>「アプリのセットアップ」の完了漏れ</strong>は、個人開発者が高確率で詰まる場所だと思います。
 
 > **アプリの実装やバグ修正の話は含みません。** ストア審査のためだけに追加で実装が必要になった機能については、[全工程まとめの記事](/engineering/app/personal-app-cross-store-release-full-journey/)で扱います。
 
@@ -121,7 +121,7 @@ Play には**期限つきの技術要件**があります。⚠️ **満たし�
 
 ⚠️ **この要件が適用されるのは「ある時期以降に作成した個人アカウント」だけ**です。公式ヘルプのタイトル自体が「**新しい個人用デベロッパー アカウント向け**のアプリテスト要件」で、本文も「〜以降に**個人アカウント**を作成したデベロッパーは…」と限定しており、**組織アカウントへの言及がありません。**
 
-⚠️⚠️ **つまり「アカウント種別の選択がクリティカルパスそのものを消せる」**ということです。私は最初の比較でこの依存関係を見落としていて、「12人×14日は避けられない最長経路」として扱っていました。
+⚠️⚠️ <strong>つまり「アカウント種別の選択がクリティカルパスそのものを消せる」</strong>ということです。私は最初の比較でこの依存関係を見落としていて、「12人×14日は避けられない最長経路」として扱っていました。
 
 ⚠️ **組織化のコスト見積もりは、D-U-N-S の取得ルートで大きく変わります。** ⚠️⚠️ **D-U-N-S は Apple の専用ページから無料・数日で取得でき**（書類提出なし）、⚠️ **事業体に 1 つの識別番号で用途に紐づかないので、Apple 経由で取っても Play で使えます。** これを知らないと日本の窓口の有料コース（16,500円）や無料コース（30営業日）を前提に考えることになり、**組織化の期間コストを大きく見誤ります**（私はそれで一度 A → B → C と判断をやり直しました）。
 
@@ -240,7 +240,7 @@ Web 調査で複数の先行事例が一致しました。
 
 ここで私は「納税証明書を取ってきてください」と案内しました。**これは誤りでした**（まだ納税していないので実質空になるうえ、そもそも不要）。
 
-**2025 年 1 月に税務署の収受日付印（受付印）が全国一律で廃止されました。** その代替措置として、国税庁が窓口で**リーフレット『申告書等の提出について』**を交付しています。
+**2025 年 1 月に税務署の収受日付印（受付印）が全国一律で廃止されました。** その代替措置として、国税庁が窓口で<strong>リーフレット『申告書等の提出について』</strong>を交付しています。
 
 - 「**（本日）、書面で提出された申告書等を受け付けました。**」と大きく表記されている
 - ⚠️ **日付・税務署名の記載欄がある**（窓口で記入して交付される）
@@ -269,7 +269,7 @@ Web 調査で複数の先行事例が一致しました。
 
 私は画像処理ツールが入っていない環境だったので、**PDF に埋め込まれた画像を直接取り出して、拡大縮小せず原寸のまま白いキャンバスに縦に並べる**方式にしました。そして、
 
-⚠️ **判読性は「帯ごとの輝度統計」＋「原寸で切り出した部分の目視」で検証**しました。**全体を縮小表示して「読めるっぽい」で判断すると、提出後に却下されて試行回数を 1 つ失います。**明るい場所で真上から・フラッシュなし・四隅を入れる。
+⚠️ **判読性は「帯ごとの輝度統計」＋「原寸で切り出した部分の目視」で検証**しました。<strong>全体を縮小表示して「読めるっぽい」で判断すると、提出後に却下されて試行回数を 1 つ失います。</strong>明るい場所で真上から・フラッシュなし・四隅を入れる。
 
 ### 承認は即時だった
 
@@ -529,7 +529,7 @@ Cloud プロジェクト: example-project（Firebase と同一）
 androidpublisher.googleapis.com を有効化
 ```
 
-⚠️ **Play Console の「API アクセス」ページはもう存在しません。** サービスアカウントは**「ユーザーと権限」から人間と同じように招待**します（2026 年時点）。Cloud プロジェクトのリンクは不要でした。
+⚠️ **Play Console の「API アクセス」ページはもう存在しません。** サービスアカウントは<strong>「ユーザーと権限」から人間と同じように招待</strong>します（2026 年時点）。Cloud プロジェクトのリンクは不要でした。
 
 ### ⚠️ Play Console のナビは移動しまくる → 画面を探すな、API で取れ
 
@@ -585,7 +585,7 @@ state の変更は**専用メソッド**でしかできません。
 
 ### ⚠️ API で作った定期購入の Grace Period は `P0D` だった
 
-`gracePeriodDuration` が **`P0D`（0 日）**になっていました。**Play の既定である 3 日ですらありません。**
+`gracePeriodDuration` が <strong>`P0D`（0 日）</strong>になっていました。**Play の既定である 3 日ですらありません。**
 
 修正するには ⚠️ **`basePlans` を丸ごと patch する**しかないので、**read-modify-write** で行い、**地域別価格の件数と `state=ACTIVE` が保持されていること**を再取得で確認します（作り直すと価格が消えます）。
 
@@ -728,7 +728,7 @@ bundle { language { enableSplit = false } }   // ⚠️ AAB 配信時のみ効�
 
 ### ⚠️ ダッシュボードが `1/11 完了` と言っていた
 
-これは完全な追跡漏れでした。私のトラッキング Issue は 11 項目のうち**「コンテンツのレーティング」1 件しか追えていませんでした。** ダッシュボードが `1/11 完了` と表示していることを指摘されて発覚しました。
+これは完全な追跡漏れでした。私のトラッキング Issue は 11 項目のうち<strong>「コンテンツのレーティング」1 件しか追えていませんでした。</strong> ダッシュボードが `1/11 完了` と表示していることを指摘されて発覚しました。
 
 ⚠️ **11 項目すべてが公開の前提条件です。**
 
@@ -1087,7 +1087,7 @@ Callable request verification failed: AppCheck token was rejected.   WARNING
 
 そして逃げ道がありませんでした。⚠️ **エミュレータで通すためのデバッグ用トークンは debug ビルド専用**で、⚠️ **release ビルドは debug プロバイダを持たない**ので、**Play 配信の release 版を載せたエミュレータでは使えません。**
 
-→ **順序は「課金の実機 E2E が全部通ってから、強制モードに切り替える」**にしました。⚠️ **逆順だと「購入検証が失敗しているのは課金の実装のせいか、認証のせいか」を切り分けられません。**
+→ <strong>順序は「課金の実機 E2E が全部通ってから、強制モードに切り替える」</strong>にしました。⚠️ **逆順だと「購入検証が失敗しているのは課金の実装のせいか、認証のせいか」を切り分けられません。**
 
 ### ⚠️⚠️ 「Play 配信で検証した」を名乗る前に installerPackageName を見る
 
@@ -1248,11 +1248,44 @@ Play の提出は API だけでは完結しませんでした。
 □ ⚠️ 初回リリースは「承認 = 自動公開」ではない。公開操作が別にある
 ```
 
-Play 側で一番の学びは、**「公式ヘルプに書かれていない前提と中間ステップがある」**ことでした。15% 手数料のバナーも、本人確認の必要書類も、依存関係の一本道も、ヘルプ記事だけでは辿り着けません。**画面に出ていない = 自分の操作が悪い、とは限らない**——ここで消耗しないだけでかなり楽になります。
+Play 側で一番の学びは、<strong>「公式ヘルプに書かれていない前提と中間ステップがある」</strong>ことでした。15% 手数料のバナーも、本人確認の必要書類も、依存関係の一本道も、ヘルプ記事だけでは辿り着けません。**画面に出ていない = 自分の操作が悪い、とは限らない**——ここで消耗しないだけでかなり楽になります。
 
 ## 関連記事
 
-- **事務手続き編**: [個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）](/engineering/app/indie-app-store-registration-paperwork/)
-- **周辺インフラ編**: [個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）](/engineering/app/indie-app-domain-site-email-oauth-setup/)
-- **App Store Connect 編**: [個人開発アプリをApp Store審査に出すまでにやったこと・ハマったこと全部](/engineering/app/app-store-connect-review-submission-notes/)
-- **全工程まとめ（審査のために追加実装した機能を含む）**: [個人開発アプリをApp StoreとGoogle Playに同時提出するまでの全工程](/engineering/app/personal-app-cross-store-release-full-journey/)
+このシリーズの他の記事です。
+
+<a class="link-card" href="/engineering/app/indie-app-store-registration-paperwork/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-store-registration-paperwork.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">① 個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）</span>
+<span class="link-card__excerpt">屋号の決定から屋号入り開業届の取り直し、D-U-N-S の 3 ルート比較まで。依存が一本道で並行できない工程の記録です。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/indie-app-domain-site-email-oauth-setup/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-domain-site-email-oauth-setup.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">② 個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）</span>
+<span class="link-card__excerpt">リダイレクトの末尾スラッシュで招待トークンが消える話、転送メールが返信できない話、OAuth 機密スコープ検証の差し戻し理由など。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/app-store-connect-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/app-store-connect-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">Individual 加入・W-8BEN・署名・TestFlight の 3 段・IAP 登録・年齢レーティング・審査ノート・提出まで。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/personal-app-cross-store-release-full-journey/">
+<span class="link-card__thumb"><img src="/eyecatch/personal-app-cross-store-release-full-journey.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程</span>
+<span class="link-card__excerpt">3 週間のタイムライン、審査のために追加実装した機能、検証環境の作り分け、繰り返し踏んだ 9 つのメタな罠。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>

@@ -342,5 +342,25 @@
   "2245": {
     "slug": "wordpress-to-astro-cloudflare-pages",
     "path": "/engineering/wordpress-to-astro-cloudflare-pages/"
+  },
+  "2246": {
+    "slug": "app-store-connect-review-submission-notes",
+    "path": "/engineering/app/app-store-connect-review-submission-notes/"
+  },
+  "2247": {
+    "slug": "google-play-console-review-submission-notes",
+    "path": "/engineering/app/google-play-console-review-submission-notes/"
+  },
+  "2248": {
+    "slug": "personal-app-cross-store-release-full-journey",
+    "path": "/engineering/app/personal-app-cross-store-release-full-journey/"
+  },
+  "2249": {
+    "slug": "indie-app-store-registration-paperwork",
+    "path": "/engineering/app/indie-app-store-registration-paperwork/"
+  },
+  "2250": {
+    "slug": "indie-app-domain-site-email-oauth-setup",
+    "path": "/engineering/app/indie-app-domain-site-email-oauth-setup/"
   }
 }

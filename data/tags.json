@@ -455,5 +455,45 @@
   "142": {
     "name": "ブログ運営",
     "slug": "blog-management"
+  },
+  "143": {
+    "name": "App Store Connect",
+    "slug": "app-store-connect"
+  },
+  "144": {
+    "name": "Google Play Console",
+    "slug": "google-play-console"
+  },
+  "145": {
+    "name": "TestFlight",
+    "slug": "testflight"
+  },
+  "146": {
+    "name": "Xcode",
+    "slug": "xcode"
+  },
+  "147": {
+    "name": "Swift",
+    "slug": "swift"
+  },
+  "148": {
+    "name": "Kotlin",
+    "slug": "kotlin"
+  },
+  "149": {
+    "name": "Firebase",
+    "slug": "firebase"
+  },
+  "150": {
+    "name": "アプリ内課金",
+    "slug": "in-app-purchase"
+  },
+  "151": {
+    "name": "ストア審査",
+    "slug": "store-review"
+  },
+  "152": {
+    "name": "D-U-N-S",
+    "slug": "duns"
   }
 }

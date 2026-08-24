@@ -9,7 +9,7 @@ tags:
   - app-store-connect
   - google-play-console
   - in-app-purchase
-draft: false
+draft: true
 id: 2251
 excerpt: 個人開発アプリをApp StoreとGoogle Playに申請してから公開するまでの記録です。Appleは初回審査でGuideline 2.1（Information Needed）に落ち、実機収録と審査ノートの書き直しで再提出して通りました。却下理由の全文、審査にかかった時間、対応の中身、初回リリース特有の提出の制約、承認メールに書かれたリリースの前提、届いたメールと使ったURLをまとめています。Playは審査中なので結果と公開操作は追記します。
 eyecatch: ./assets/eyecatch.png

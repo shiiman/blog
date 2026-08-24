@@ -48,7 +48,7 @@ eyecatch: ./assets/eyecatch.png
 | `ABCDE12345` | Team ID |
 | `review@example.com` | 審査用アカウント |
 
-アプリ名 `Bucket List Commit` と公式サイト `blc.shiiman.dev` は実名です。
+アプリ名 `Bucket List Commit` のみ実名です。公式サイトのドメインは `example.com` に置き換えています。
 
 ### 前提
 
@@ -204,7 +204,7 @@ App Group ID は全 Apple Developer アカウントを通じてグローバル�
 
 有効化は規約のダイアログを読んで同意するだけです。**添付ファイル（Exhibits）も規約の一部**なので、ここでダウンロードして保存しておくといいと思います。
 
-![App Store Connect の「有料アプリ契約」ダイアログ。利用規約の本文と「添付ファイル」の折りたたみが表示され、下部に「上記の利用規約を読み、それに同意します」のチェックボックスがある](./assets/asc-paid-apps-agreement.png)
+![App Store Connect の「有料アプリ契約」ダイアログ。利用規約の本文（契約条文なのでマスク）と「添付ファイル」の折りたたみが表示され、下部に「上記の利用規約を読み、それに同意します」のチェックボックスがある](./assets/asc-paid-apps-agreement.png)
 
 ### 場所が分かりにくい
 
@@ -1253,7 +1253,7 @@ GeometryReader { proxy in
 □ App Store Connect → 「ビジネス」で有料アプリ契約を有効化（IAP はこれが前提）
 □ W-8BEN: Line 10 は空欄 / 6a に Foreign TIN / Line 8 は MM-DD-YYYY
 □ 銀行口座: 国の既定を直す / 口座名義は銀行の表記どおり / 種類は「普通」
-□ 配信地域を絞って EU DSA 申告を回避（availableInNewTerritories = false）
+□ 配信地域を日本 + 米国に絞る（EU を含めないので DSA のトレーダー申告が発生しない / availableInNewTerritories = false）
 
 【アプリレコード】
 □ Web UI でアプリを作成（API では不可）→ 名前が予約される

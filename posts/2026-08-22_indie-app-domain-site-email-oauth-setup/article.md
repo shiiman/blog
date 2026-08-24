@@ -29,7 +29,7 @@ eyecatch: ./assets/eyecatch.png
 
 ### この記事の表記について
 
-ドメインは `example.com` に置き換えています。アプリ名 `Bucket List Commit` と公式サイト `blc.shiiman.dev` は実名です。
+ドメインは `example.com` に置き換えています。アプリ名 `Bucket List Commit` のみ実名です。
 
 ### 前提
 

@@ -52,7 +52,7 @@ Apple は「成功レスポンスが嘘をつく」タイプの罠が多かっ�
 | `example-project` | Firebase / GCP プロジェクト ID |
 | `review@example.com` | 審査用アカウント |
 
-アプリ名 `Bucket List Commit` と公式サイト `blc.shiiman.dev` は実名です。
+アプリ名 `Bucket List Commit` のみ実名です。公式サイトのドメインは `example.com` に置き換えています。
 
 ### 前提
 

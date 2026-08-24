@@ -51,7 +51,7 @@ eyecatch: ./assets/eyecatch.png
 
 ### この記事の表記について
 
-固有の識別子は伏せています（`com.example.app` / `example-project` など）。アプリ名 `Bucket List Commit` と公式サイト `blc.shiiman.dev` は実名です。
+固有の識別子は伏せています（`com.example.app` / `example-project` / ドメインは `example.com` など）。アプリ名 `Bucket List Commit` のみ実名です。
 
 ---
 

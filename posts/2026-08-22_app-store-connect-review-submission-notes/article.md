@@ -204,6 +204,12 @@ App Group ID は全 Apple Developer アカウントを通じてグローバル�
 
 App Store Connect → 「ビジネス」です（旧称「契約/税金/口座情報」）。直リンクは `https://appstoreconnect.apple.com/business`。**メニュー名が改名されていて見つけにくい**うえ、アカウント所有者でサインインする必要があります。
 
+未整備の状態はこう見えます。契約 / 銀行口座 / 納税フォームの 3 ブロックが縦に並び、上部にバナーが出ます。
+
+![App Store Connect の「ビジネス」ページ。上部に EU のトレーダーステータスを求める赤いバナーと、銀行口座・納税フォームの追加を促す青いバナーが並び、その下に契約・銀行口座・納税フォームの 3 ブロックが縦に並んでいる](./assets/asc-business-page.png)
+
+一番上の赤いバナーが EU の**トレーダーステータス申告**です。「有料アプリ契約」のステータスが「ユーザ情報を保留中」のままだと、この後の課金商品を 1 つも作れません。
+
 揃うとこうなります。
 
 ```
@@ -229,6 +235,10 @@ App Store Connect → 「ビジネス」です（旧称「契約/税金/口座�
 
 > **Line 10**: Complete this item only if you are eligible to claim any applicable treaty benefits that require you to meet conditions not covered by the representation on line 9. It is expected that Line 10 would not normally be applicable.
 > **Line 5 and 6**: A U.S. TIN or Foreign TIN is required in order to receive any applicable benefit of the reduced tax treaty rate.
+
+実際の入力画面がこれです。Line 9 のチェックだけ入れて、Line 10 の 2 つの入力欄は `Optional` のまま空にしておくのが正解でした。
+
+![W-8BEN の Part II: Claim of Tax Treaty Benefits。Line 9 の居住国のチェックだけが入り、Line 10 の Article と paragraph、税率の入力欄はどちらも Optional のまま空になっている](./assets/asc-w8ben-treaty.png)
 
 Line 9（居住者証明）+ Line 6a（外国 TIN）が揃えば、Apple が条約表から標準税率を適用します。日本の使用料は日米租税条約 第12条第1項で標準 0%。**空欄が 0% 適用の正規ルート**です。
 
@@ -745,6 +755,12 @@ POST /v1/inAppPurchaseAvailabilities     # 価格より先
 | サブスク | 永遠に `MISSING_METADATA` | 「提出準備中」+「審査用に追加」ボタン有効 |
 
 UI が正で、API の `state` はサブスクでは当てになりません。これを知らずに「まだ何か足りない」と探し続けました（実際には何も足りていなかった）。
+
+UI ではこう見えます。「下書き」の中に全商品が並び、ステータスが黄色い「提出準備中」で揃った状態が**正常**です。
+
+![App Store Connect のアプリ内購入一覧。「下書き（6）」の中に非消費型の商品 6 件が並び、ステータスがすべて黄色い「提出準備中」になっている](./assets/asc-iap-waiting.png)
+
+「提出準備中」は不備ではなく、**初回は新しいアプリバージョンと一緒に提出する**ためにこの状態で待つのが仕様です。
 
 時間を置けば変わる、でもありません。540 回ポーリングしても不変でした。Sandbox 購入が通っている = 実体は完成しています。
 

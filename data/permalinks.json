@@ -362,5 +362,9 @@
   "2250": {
     "slug": "indie-app-domain-site-email-oauth-setup",
     "path": "/engineering/app/indie-app-domain-site-email-oauth-setup/"
+  },
+  "2251": {
+    "slug": "indie-app-store-review-rejection-and-approval",
+    "path": "/engineering/app/indie-app-store-review-rejection-and-approval/"
   }
 }

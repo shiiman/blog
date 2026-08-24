@@ -1,6 +1,6 @@
 ---
-title: ストア審査に1回落ちて通すまでの記録（Guideline 2.1・実機収録・再提出）
-slug: indie-app-store-review-rejection-and-approval
+title: App Store と Google Play の申請からリリースまで（審査・却下対応・公開操作）
+slug: indie-app-submission-to-release
 date: '2026-08-24T10:00:00+09:00'
 categories:
   - app
@@ -9,19 +9,19 @@ tags:
   - app-store-connect
   - google-play-console
   - in-app-purchase
-draft: true
+draft: false
 id: 2251
-excerpt: 個人開発アプリを両ストアに提出したあとの記録です。Apple は初回審査で Guideline 2.1（Information Needed）で却下され、実機収録と審査ノートの書き直しで再提出して通りました。却下理由の全文、審査にかかった時間、対応の中身、再提出でつまずいた初回リリース特有の制約、届いたメール、実際に使ったURLをまとめています。
+excerpt: 個人開発アプリをApp StoreとGoogle Playに申請してから公開するまでの記録です。Appleは初回審査でGuideline 2.1（Information Needed）に落ち、実機収録と審査ノートの書き直しで再提出して通りました。却下理由の全文、審査にかかった時間、対応の中身、初回リリース特有の提出の制約、承認メールに書かれたリリースの前提、届いたメールと使ったURLをまとめています。Playは審査中なので結果と公開操作は追記します。
 eyecatch: ./assets/eyecatch.png
 ---
 
 ## はじめに
 
-個人開発の iOS / Android アプリ **Bucket List Commit** を App Store と Google Play へ同時提出しました。この記事は**提出したあとの記録**です。
+個人開発の iOS / Android アプリ **Bucket List Commit** を App Store と Google Play へ同時提出しました。この記事は**申請してから公開するまで**の記録です。提出までにやったことは別記事にしたので、ここは審査に出したあとの話だけを扱います。
 
-Apple は初回審査で 1 回落ちました。指摘は **Guideline 2.1 – Information Needed** の 1 件だけで、コードの不具合はゼロでした。それでも対応には丸 1 日かかり、その過程で実在のバグを 1 件見つけ、さらに初回リリース特有の提出の制約でつまずきました。
+Apple は初回審査で 1 回落ちました。指摘は **Guideline 2.1 – Information Needed** の 1 件だけで、コードの不具合はゼロでした。それでも対応には丸 1 日かかり、その過程で実在のバグを 1 件見つけ、さらに初回リリース特有の提出の制約でつまずきました。最終的に再提出で通って、いまは公開操作を待つ状態です。
 
-Google Play はこの記事を書いている時点でまだ審査中です。結果が出たら**この記事に追記**します。
+Google Play はこの記事を書いている時点でまだ審査中です。結果と、両ストアの公開操作については**この記事に追記**します。
 
 > 提出までの手順は別記事です。[App Store Connect 編](/engineering/app/app-store-connect-review-submission-notes/) / [Google Play Console 編](/engineering/app/google-play-console-review-submission-notes/) / [事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) / [周辺インフラ編](/engineering/app/indie-app-domain-site-email-oauth-setup/) / [全工程まとめ](/engineering/app/personal-app-cross-store-release-full-journey/)
 
@@ -40,17 +40,31 @@ Google Play はこの記事を書いている時点でまだ審査中です。�
 
 ## Apple のタイムライン
 
-| 日時（JST） | 出来事 | 経過 |
-|---|---|---|
-| 08-21 19:06 | 審査に提出（build 3581） | — |
-| 08-21 19:07 | `Thank You for Submitting Your App` 受信 | 1 分 |
-| 08-22 09:26 | **却下**。`Your App Review Feedback` 受信 | 提出から **14 時間 20 分** |
-| 08-22 10:00 頃 | 審査ノートの書き直し・返信文の作成 | |
-| 08-22 11:42–11:50 | 実機で画面収録（7 分 46 秒） | |
-| 08-22 深夜 | 収録で見つけたバグを修正（build 3583） | |
-| 08-23 00:15 | **誤操作でバージョン単独が飛ぶ**（後述） | |
-| 08-23 02:08 | 正しい構成で再提出（10 項目 1 本） | 却下から **16 時間 40 分** |
-| 08-24 09:55 | **承認**。`PENDING_DEVELOPER_RELEASE` を確認 | 再提出から **約 32 時間** |
+最初の提出を起点にした経過時間で並べます。
+
+| 提出からの経過 | 出来事 |
+|---|---|
+| 0 | 審査に提出（build 3581） |
+| +1 分 | `Thank You for Submitting Your App` 受信 |
+| **+14 時間 20 分** | **却下**。`Your App Review Feedback` 受信 |
+| +15 時間 | 審査ノートの書き直し・返信文の作成 |
+| +16 時間 40 分 | 実機で画面収録（7 分 46 秒） |
+| +17 時間 40 分 | 収録で見つけたバグを直して build 3583 を上げる |
+| +29 時間 | **誤操作でバージョン単独が飛ぶ**（後述） |
+| **+31 時間** | 正しい構成で再提出（10 項目 1 本） |
+| **+62 時間 40 分** | **承認**。`Review of your ... submission is complete.` 受信 |
+| +63 時間 | `Welcome to the App Store` 受信 |
+| +64 時間 | 使用許諾契約に同意（後述） |
+| 未了 | 公開操作（Play の承認と揃えて手動リリース） |
+
+区間ごとの所要はこうです。
+
+| 区間 | 所要 |
+|---|---|
+| 提出 → 1 回目の結果 | **14 時間 20 分** |
+| 却下 → 再提出（対応にかかった時間） | **16 時間 40 分** |
+| 再提出 → 2 回目の結果 | **31 時間 36 分** |
+| 提出 → 承認（合計） | **2 日 14 時間 40 分** |
 
 初回審査が 14 時間、再審査が 32 時間でした。**再審査のほうが長い**のは意外でした。「軽微な修正だから早いだろう」という想定は当たりませんでした。
 
@@ -306,7 +320,7 @@ POST /v1/reviewSubmissionItems
 STATE_ERROR.ITEM_PART_OF_ANOTHER_SUBMISSION
 ```
 
-ここで**やってはいけない操作**を踏みました。バージョンページ右上の「App Review に再提出」を押すと、**確認ダイアログなしでバージョン単独が飛びます**。課金商品は置き去りになります。00:15 にこれで 1 件だけ提出されてしまい、やり直しになりました。
+ここで**やってはいけない操作**を踏みました。バージョンページ右上の「App Review に再提出」を押すと、**確認ダイアログなしでバージョン単独が飛びます**。課金商品は置き去りになります。これで 1 件だけ提出されてしまい、やり直しになりました。
 
 ### 正しい手順
 
@@ -364,6 +378,24 @@ echo '<itemId>' | base64 -d
 
 **課金商品を同じ提出物に入れた判断は正解でした。** 入れていなければ、アプリだけ承認されて本番では何も買えない状態になっていました（審査ノートで購入手順を案内しているのに、です）。
 
+承認は**メールが 2 通**来ます。先に事務的な通知、その 23 分後にお祝いのほうが届きました。
+
+```
+1 通目  Review of your〈アプリ名〉(iOS) submission is complete.
+        → "Review of your submission has been completed.
+           It is now eligible for distribution."  + Submission ID
+
+2 通目  Welcome to the App Store
+        → "Congratulations! ... has been approved for distribution."
+```
+
+後者に**リリースの前提が 2 つ**書かれています。
+
+> Please note that it can take up to 24 hours for apps to become available on the App Store after release.
+> **If your contracts are not yet in effect, your app cannot be distributed.**
+
+公開操作をしてから実際にストアに出るまで最大 24 時間かかること、そして**契約が有効でないと配信されない**ことです。後者は次の警告に直結します。
+
 アプリ一覧の表示はこうなります。「デベロッパによるリリース待ち」で止まっていて、**承認だけでは公開されません**。
 
 ![App Store Connect のアプリ一覧。Apple Developer Program 使用許諾契約の更新・EU のトレーダーステータス・年齢制限のソーシャルメディア新質問の 3 つのバナーが並び、その下にアプリが「iOS 1.0 デベロッパによるリリース待ち」と表示されている](./assets/asc-pending-developer-release.png)
@@ -374,9 +406,11 @@ echo '<itemId>' | base64 -d
 
 | 警告 | 判定 |
 |---|---|
-| Apple Developer Program 使用許諾契約が更新されました | **これだけ対応が必要**。Account Holder 本人が同意する（無料・即時）。API に契約状態のエンドポイントは無く、承認済みバージョンのリリースを塞ぐかは未確認です（測るには実際にリリースするしかないので測っていません） |
+| Apple Developer Program 使用許諾契約が更新されました | **これだけ対応が必要**。承認メールの「契約が有効でないと配信されない」がまさにこれを指します。Account Holder 本人が同意する（無料・即時）。API に契約状態のエンドポイントは無いので、同意したかどうかは `Agreement signed: Apple Developer Program License Agreement` のメールで確認しました |
 | EU のトレーダーステータス | **無関係**。配信 ON は日本と米国の 2 か国だけ |
 | 年齢制限のソーシャルメディア新質問 | **既に回答済み**。未設定はキッズカテゴリ用の項目と任意項目だけ |
+
+契約の同意は承認の 1 時間半後に済ませました。つまり**承認された時点では契約が有効でなかった**わけで、これを放置したままリリースを押すと配信されなかったはずです。承認メールを読まずに画面のバナーだけ見ていたら「あとで見るか」で流していたと思います。
 
 配信地域の確認で 1 回誤読しました。`/v1/apps/{id}/availableTerritories` は 404（関係が存在しない）で、正しくは次の順に辿ります。
 
@@ -408,15 +442,18 @@ echo '<itemId>' | base64 -d
 | 件名 | 送信元 | 届くタイミング |
 |---|---|---|
 | Thank You for Submitting Your App | `no_reply@email.apple.com` | 審査に提出した直後（1 分後） |
-| **Your App Review Feedback** | `no_reply@email.apple.com` | 審査結果が出た時。**却下理由の本文が入っているのはこちら** |
+| **Your App Review Feedback** | `no_reply@email.apple.com` | 却下された時。**却下理由の本文が入っているのはこちら** |
 | There's an issue with your〈アプリ名〉(iOS) submission. | `no_reply@email.apple.com` | 上と同時（4 秒差）。内容は同じ |
-| 〈アプリ名〉1.0.0 (〈ビルド番号〉) for iOS is now available to test. | `testflight_no_reply@email.apple.com` | 収録用にビルドを入れ直すたび |
+| 〈アプリ名〉1.0.0 (〈ビルド番号〉) for iOS is now available to test. | `testflight_no_reply@email.apple.com` | ビルドを上げるたび |
+| **Review of your〈アプリ名〉(iOS) submission is complete.** | `no_reply@email.apple.com` | **承認された時**。`eligible for distribution` と Submission ID だけの短い通知 |
+| **Welcome to the App Store** | `no_reply@email.apple.com` | 承認の 23 分後。**リリース後に最大 24 時間かかること、契約が有効でないと配信されないことが書かれている** |
+| Agreement signed: Apple Developer Program License Agreement | `developer@email.apple.com` | 使用許諾契約に同意した時 |
 
 読み方の注意です。
 
-- **却下は 2 通同時に来ます。** 件名が違うので別件かと思いましたが、中身は同じでした
-- **理由の本文はメールにしか無い**（前述のとおり API には無い）ので、**このメールを消さない**でください
-- 承認時にも通知メールが届きます。ただし私は API で状態を確認したので、件名は記録できていません。API で確実に判定できます（`appStoreVersions.appStoreState`）
+- **却下も承認も 2 通ずつ来ます。** 件名が違うので別件かと思いましたが、却下の 2 通は中身が同じでした。承認の 2 通は違う内容で、**リリースの前提が書いてあるのは 2 通目**です
+- **却下理由の本文はメールにしか無い**（前述のとおり API には無い）ので、**このメールを消さない**でください
+- 承認は API でも判定できます（`appStoreVersions.appStoreState = PENDING_DEVELOPER_RELEASE`）。ただし**契約の状態は API に無い**ので、そこはメールでしか確認できません
 
 ---
 
@@ -453,22 +490,51 @@ App Review ページと Resolution Center は App Store Connect のアプリ配�
 
 `status = completed` は**公開済みという意味ではありません**。これはロールアウト割合の状態で、100% を指しています。設定漏れではなく Google の審査待ちです。ここは一度読み間違えて「承認と同時に配信開始」と書いてしまい、後から覆しました。**Play の状態を API の値から推論しない**ほうがいいです。
 
-初回アプリの審査は数日かかることがあるとされています。結果が出たら、次の内容をこの章に追記します。
+初回アプリの審査は数日かかることがあるとされています。Play 側の通知メールも、この記事を書いている時点では 1 通も来ていません（審査結果のメールを送信元で検索して 0 件でした）。
+
+結果が出たら、次の内容をこの章に追記します。
 
 - 審査にかかった日数
 - 通ったか、落ちたか（落ちた場合は指摘内容と対応）
 - 届いたメールの件名と送信元
-- 公開操作（「Google Play にアプリを公開する」）の実際の挙動
+- Apple 側との所要時間の比較
 
 ---
 
-## まとめ（Apple 分）
+## リリース（公開操作）
 
-Apple 側で得たものを 4 つだけ。
+まだやっていません。両ストアの承認が揃ってから押します。
+
+現時点で分かっていることを先に書いておきます。
+
+| ストア | 公開の設定 | 押す場所 |
+|---|---|---|
+| App Store | `releaseType = MANUAL`（自動公開しない） | App Store Connect のバージョンページ |
+| Google Play | 管理対象の公開: オン | Play Console の「Google Play にアプリを公開する」 |
+
+**どちらも「承認 = 公開」ではありません。** Apple は `PENDING_DEVELOPER_RELEASE` で止まり、Play は初回リリースだとチェックリストに公開ステップが別に並びます。2 つ押すだけで同時公開になります。
+
+Apple の承認メールによれば、**リリースしてからストアに出るまで最大 24 時間**かかります。「同時公開」といっても、実際に両方のストアで見えるタイミングは揃わない可能性があります。
+
+公開後にやる予定のことも決めてあります。
+
+- 審査用アカウントへの権利付与を解除する
+- 審査ノートが参照していた見せ用データを消す（ノートの該当記述も外す）
+- 公式サイトのストアリンクを有効化する（**公開までストアページは 404 なので、死んだリンクを踏ませないため後回しにしています**）
+- 課金レシート検証の本番疎通をもう一度確認する
+
+ここも実際に押したあとで追記します。
+
+---
+
+## まとめ（Apple 分・暫定）
+
+Apple 側で得たものを 5 つだけ。
 
 1. **課金と UGC があるなら、初回提出から実機の画面収録を添える。** Guideline 2.1 の情報要求は、後から 1 往復（実質 2 日）を足します
 2. **却下理由は API では取れない。** メールが唯一の情報源なので、通知の経路を先に確保しておく
 3. **初回リリースは、課金商品をアプリバージョンと同じ提出物に入れる。** 明文は API の 409 だけです。UI の警告文は要領を得ません
 4. **審査ノートを書く前に、自分の申告値を読む。** ノートと申告が食い違うと、それ自体が虚偽申告になります
+5. **承認メールは 2 通目まで読む。** リリースの前提（契約が有効であること・最大 24 時間かかること）は 2 通目にしか書かれていません
 
-Play の結果が出たら追記します。同じところで消耗する人が 1 人でも減れば幸いです。
+Play の結果と公開操作が済んだら追記します。同じところで消耗する人が 1 人でも減れば幸いです。

@@ -527,5 +527,21 @@
   "160": {
     "name": "個人開発",
     "slug": "indie-dev"
+  },
+  "161": {
+    "name": "Firestore",
+    "slug": "firestore"
+  },
+  "162": {
+    "name": "Security Rules",
+    "slug": "security-rules"
+  },
+  "163": {
+    "name": "テスト",
+    "slug": "testing"
+  },
+  "164": {
+    "name": "i18n",
+    "slug": "i18n"
   }
 }

@@ -283,7 +283,7 @@ Room のエンティティは SwiftData のモデルを **1 対 1 でミラー**
 
 ## 関連記事
 
-このシリーズの他の記事です。
+**このシリーズ（アプリの中身と実装）**
 
 <a class="link-card" href="/engineering/app/indie-bucket-list-app-overview/">
 <span class="link-card__thumb"><img src="/eyecatch/indie-bucket-list-app-overview.png" alt="" loading="lazy" width="160" height="100"></span>
@@ -321,51 +321,46 @@ Room のエンティティは SwiftData のモデルを **1 対 1 でミラー**
 </span>
 </a>
 
-### ストアに出すまでの記録
-
-手続き・審査・リリースは別のシリーズにまとめました。
-
-<a class="link-card" href="/engineering/app/indie-app-store-registration-paperwork/">
-<span class="link-card__thumb"><img src="/eyecatch/indie-app-store-registration-paperwork.png" alt="" loading="lazy" width="160" height="100"></span>
+<a class="link-card" href="/engineering/app/firestore-security-rules-production-only-bugs/">
+<span class="link-card__thumb"><img src="/eyecatch/firestore-security-rules-production-only-bugs.png" alt="" loading="lazy" width="160" height="100"></span>
 <span class="link-card__body">
-<span class="link-card__title">① 個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）</span>
-<span class="link-card__excerpt">屋号の決定から屋号入り開業届の取り直し、D-U-N-S の 3 ルート比較まで。依存が一本道で並行できない工程の記録です。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+<span class="link-card__title">⑥ Security Rules が本番だけ壊れる（エミュレータでは再現しない話）</span>
+<span class="link-card__excerpt">request.resource は create / update だけ。372 件のエミュレータテストが green のまま本番のバックアップ復元が一度も成功していませんでした。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
 </span>
 </a>
 
-<a class="link-card" href="/engineering/app/indie-app-domain-site-email-oauth-setup/">
-<span class="link-card__thumb"><img src="/eyecatch/indie-app-domain-site-email-oauth-setup.png" alt="" loading="lazy" width="160" height="100"></span>
+<a class="link-card" href="/engineering/app/proving-it-works-device-and-production-verification/">
+<span class="link-card__thumb"><img src="/eyecatch/proving-it-works-device-and-production-verification.png" alt="" loading="lazy" width="160" height="100"></span>
 <span class="link-card__body">
-<span class="link-card__title">② 個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）</span>
-<span class="link-card__excerpt">リダイレクトの末尾スラッシュで招待トークンが消える話、転送メールが返信できない話、OAuth 機密スコープ検証の差し戻し理由など。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+<span class="link-card__title">⑦ 「動いている」を証明する方法（実機・本番・計測の作法）</span>
+<span class="link-card__excerpt">HTTP 200 は反映の証拠にならない、Storage の 403 は実体がなくても返る、実機の状態は plist 回収で測れる、断定の前に代替軸を 1 つ潰す。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
 </span>
 </a>
 
-<a class="link-card" href="/engineering/app/app-store-connect-review-submission-notes/">
-<span class="link-card__thumb"><img src="/eyecatch/app-store-connect-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<a class="link-card" href="/engineering/app/ios-android-string-catalog-i18n/">
+<span class="link-card__thumb"><img src="/eyecatch/ios-android-string-catalog-i18n.png" alt="" loading="lazy" width="160" height="100"></span>
 <span class="link-card__body">
-<span class="link-card__title">③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部</span>
-<span class="link-card__excerpt">Individual 加入・W-8BEN・署名・TestFlight の 3 段・IAP 登録・年齢レーティング・審査ノート・提出まで。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+<span class="link-card__title">⑧ iOS と Android を日英対応にした運用（String Catalog と values-en）</span>
+<span class="link-card__excerpt">キーが日本語原文なので検出スクリプトはゼロにならない、カタログが 3 つある、文言の一致は機械照合しないと目視では見つからない。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
 </span>
 </a>
 
-<a class="link-card" href="/engineering/app/google-play-console-review-submission-notes/">
-<span class="link-card__thumb"><img src="/eyecatch/google-play-console-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<a class="link-card" href="/engineering/app/solo-dev-with-ai-agent-workflow/">
+<span class="link-card__thumb"><img src="/eyecatch/solo-dev-with-ai-agent-workflow.png" alt="" loading="lazy" width="160" height="100"></span>
 <span class="link-card__body">
-<span class="link-card__title">④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部</span>
-<span class="link-card__excerpt">組織アカウントの本人確認・15% 手数料・署名鍵 3 種・アプリのセットアップ 11 項目・データセーフティ・課金テスト。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+<span class="link-card__title">⑨ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）</span>
+<span class="link-card__excerpt">仕様書 15 章を正典にする、1 issue = 1 worktree = 1 PR、構造ガード 30 本、そして「任せると壊れる場所」の型。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
 </span>
 </a>
 
-<a class="link-card" href="/engineering/app/personal-app-cross-store-release-full-journey/">
-<span class="link-card__thumb"><img src="/eyecatch/personal-app-cross-store-release-full-journey.png" alt="" loading="lazy" width="160" height="100"></span>
-<span class="link-card__body">
-<span class="link-card__title">⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程</span>
-<span class="link-card__excerpt">3 週間のタイムライン、審査のために追加実装した機能、検証環境の作り分け、繰り返し踏んだ 9 つのメタな罠。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
-</span>
-</a>
+### もうひとつのシリーズ（ストアに出すまで）
+
+- [① 個人開発でストアに登録する前の事務手続き](/engineering/app/indie-app-store-registration-paperwork/)
+- [② 個人開発アプリの周辺インフラを用意して踏んだ罠](/engineering/app/indie-app-domain-site-email-oauth-setup/)
+- [③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部](/engineering/app/app-store-connect-review-submission-notes/)
+- [④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部](/engineering/app/google-play-console-review-submission-notes/)
+- [⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程](/engineering/app/personal-app-cross-store-release-full-journey/)

@@ -386,5 +386,21 @@
   "2256": {
     "slug": "android-compose-room-billing-pitfalls",
     "path": "/engineering/app/android-compose-room-billing-pitfalls/"
+  },
+  "2257": {
+    "slug": "firestore-security-rules-production-only-bugs",
+    "path": "/engineering/app/firestore-security-rules-production-only-bugs/"
+  },
+  "2258": {
+    "slug": "proving-it-works-device-and-production-verification",
+    "path": "/engineering/app/proving-it-works-device-and-production-verification/"
+  },
+  "2259": {
+    "slug": "ios-android-string-catalog-i18n",
+    "path": "/engineering/app/ios-android-string-catalog-i18n/"
+  },
+  "2260": {
+    "slug": "solo-dev-with-ai-agent-workflow",
+    "path": "/engineering/app/solo-dev-with-ai-agent-workflow/"
   }
 }

@@ -200,6 +200,10 @@ App Group ID は全 Apple Developer アカウントを通じてグローバル�
 
 ここが有効になるまで IAP は 1 つも作れず、Sandbox 課金テストもできません。App Store Connect の API で `inAppPurchasesV2` が 0 件・`subscriptionGroups` が 0 件だったのを「API の使い方が悪いのか」と疑って時間を使いましたが、原因はこれでした。
 
+有効化は規約のダイアログを読んで同意するだけです。**添付ファイル（Exhibits）も規約の一部**なので、ここでダウンロードして保存しておくといいと思います。
+
+![App Store Connect の「有料アプリ契約」ダイアログ。利用規約の本文と「添付ファイル」の折りたたみが表示され、下部に「上記の利用規約を読み、それに同意します」のチェックボックスがある](./assets/asc-paid-apps-agreement.png)
+
 ### 場所が分かりにくい
 
 App Store Connect → 「ビジネス」です（旧称「契約/税金/口座情報」）。直リンクは `https://appstoreconnect.apple.com/business`。**メニュー名が改名されていて見つけにくい**うえ、アカウント所有者でサインインする必要があります。
@@ -633,6 +637,10 @@ UPLOAD SUCCEEDED → 「API に未出現」×30分 → タイムアウト → ma
 ### 第3段: 受理されてもテスターには配信されない
 
 `processingState=VALID` まで通っても、TestFlight アプリにビルドは出てきません。ベータグループへの割当が別 API で、そこが自動化されていませんでした。
+
+グループの画面は「テスター / ビルド / 設定」の 3 タブに分かれていて、**ビルドの割当はこの「ビルド」タブの中**です。アップロードした一覧とは別管理になっています。
+
+![App Store Connect の TestFlight 内部テストグループの画面。テスター / ビルド / 設定 の 3 タブが並び、設定タブにグループ名や「Apple シリコン搭載 Mac で iPhone および iPad アプリをテストする」「ビルドの配信」の項目が表示されている](./assets/asc-testflight-internal.png)
 
 ```
 build 3268  VALID    ← Apple は受理している

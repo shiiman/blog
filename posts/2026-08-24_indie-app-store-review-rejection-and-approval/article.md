@@ -9,7 +9,7 @@ tags:
   - app-store-connect
   - google-play-console
   - in-app-purchase
-draft: false
+draft: true
 id: 2251
 excerpt: 個人開発アプリを両ストアに提出したあとの記録です。Apple は初回審査で Guideline 2.1（Information Needed）で却下され、実機収録と審査ノートの書き直しで再提出して通りました。却下理由の全文、審査にかかった時間、対応の中身、再提出でつまずいた初回リリース特有の制約、届いたメール、実際に使ったURLをまとめています。
 eyecatch: ./assets/eyecatch.png

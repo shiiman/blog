@@ -1,7 +1,7 @@
 ---
 title: 個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）
 slug: indie-app-store-registration-paperwork
-date: '2026-08-22T12:00:00+09:00'
+date: '2026-08-22T14:00:00+09:00'
 categories:
   - app
 tags:
@@ -23,6 +23,8 @@ eyecatch: ./assets/eyecatch.png
 
 私はここで、「並行できると思っていたものが直列だった」「無料ルートの存在に気づかず有料コースを勧めた」「黒塗りが透けていた」という 3 種類の失敗をしました。同じ道を通る個人事業主が同じ穴に落ちないように残します。
 
+> シリーズ「ストアに出すまで」全 5 本の 1 本目です。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
+>
 > この記事は「ストアに登録する前」だけを扱います。ストア側の手順は [App Store Connect 編](/engineering/app/app-store-connect-review-submission-notes/) / [Google Play Console 編](/engineering/app/google-play-console-review-submission-notes/) に、全体像は[全工程まとめ](/engineering/app/personal-app-cross-store-release-full-journey/)にあります。
 
 ### この記事の表記について

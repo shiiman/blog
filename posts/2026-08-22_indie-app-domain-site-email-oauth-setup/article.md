@@ -23,6 +23,8 @@ eyecatch: ./assets/eyecatch.png
 
 さらに厄介なのが、この領域はほぼ全部「推測で外した」ことです。リダイレクトの書き方、メールの制約、設定を API でやってよいかどうか——**実測しないと分からないものばかり**でした。
 
+> シリーズ「ストアに出すまで」全 5 本の 2 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
+>
 > ストア側の手順は別記事です。[App Store Connect 編](/engineering/app/app-store-connect-review-submission-notes/) / [Google Play Console 編](/engineering/app/google-play-console-review-submission-notes/) / [事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) / [全工程まとめ](/engineering/app/personal-app-cross-store-release-full-journey/)
 
 ### この記事の表記について

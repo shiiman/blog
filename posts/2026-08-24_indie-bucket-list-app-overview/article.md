@@ -1,7 +1,7 @@
 ---
 title: バケットリストアプリを個人開発した記録（動機・画面・機能・4か月の内訳）
 slug: indie-bucket-list-app-overview
-date: '2026-08-24T11:00:00+09:00'
+date: '2026-08-24T23:00:00+09:00'
 categories:
   - app
 tags:
@@ -21,9 +21,9 @@ eyecatch: ./assets/eyecatch.png
 
 この記事は**何を作ったか**の記録です。動機、画面、機能、規模を並べます。技術的な中身と、実装で踏んだ罠は別記事に分けました。
 
-> このシリーズの他の記事です。[技術構成](/engineering/app/indie-app-technical-architecture/) / [SwiftUI と SwiftData の罠](/engineering/app/ios-swiftui-swiftdata-pitfalls/) / [iOS の課金とストア連携の罠](/engineering/app/ios-storekit-widget-pitfalls/) / [Android 版で踏んだ罠](/engineering/app/android-compose-room-billing-pitfalls/)
 >
-> ストアに出すまでの手続きは別シリーズです。[事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) / [周辺インフラ編](/engineering/app/indie-app-domain-site-email-oauth-setup/) / [App Store Connect 編](/engineering/app/app-store-connect-review-submission-notes/) / [Google Play Console 編](/engineering/app/google-play-console-review-submission-notes/) / [全工程まとめ](/engineering/app/personal-app-cross-store-release-full-journey/)
+
+> シリーズ「アプリの中身と実装」全 13 本の 1 本目です。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ---
 
@@ -224,14 +224,22 @@ issue と PR の通し番号は **2,189 まで**進みました。1 つの機能
 
 ### このシリーズの他の記事
 
+#### 実装で踏んだ罠
+
 - [③ SwiftUI と SwiftData で踏んだ罠（落ちる・効かない・反映されない）](/engineering/app/ios-swiftui-swiftdata-pitfalls/)
 - [④ iOS の課金・ウィジェット・App Check で踏んだ罠（Debug では一度も通らない経路）](/engineering/app/ios-storekit-widget-pitfalls/)
 - [⑤ Android 版で踏んだ罠（Compose・Glance・Play Billing・エミュレータ検証）](/engineering/app/android-compose-room-billing-pitfalls/)
 - [⑥ Security Rules が本番だけ壊れる（エミュレータでは再現しない話）](/engineering/app/firestore-security-rules-production-only-bugs/)
+
+#### 仕様と設計の判断
+
 - [⑦ 個人開発アプリの課金とプラン設計（上限・買い切り・解約戻り・キルスイッチ）](/engineering/app/indie-app-pricing-and-entitlement-design/)
 - [⑧ iOS と Android を往復できるようにした（アカウントリンクと単一端末リース）](/engineering/app/cross-platform-account-migration-ios-android/)
 - [⑨ 報告とブロックを後から入れた話（ストアのUGCポリシー対応）](/engineering/app/adding-ugc-report-block-for-store-policy/)
 - [⑩ iPad 対応を段階的に入れた（2ペイン化の判断とやらなかったこと）](/engineering/app/ipad-two-pane-staged-support/)
+
+#### 運用と検証
+
 - [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
 - [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
 - [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)

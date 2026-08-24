@@ -1,7 +1,7 @@
 ---
 title: Security Rules が本番だけ壊れる（エミュレータでは再現しない話）
 slug: firestore-security-rules-production-only-bugs
-date: '2026-08-24T16:00:00+09:00'
+date: '2026-08-24T18:00:00+09:00'
 categories:
   - app
 tags:
@@ -22,6 +22,8 @@ eyecatch: ./assets/eyecatch.png
 このアプリは Cloud Functions をほとんど使わず、**アクセス制御のほぼ全部を Security Rules に寄せています**（[技術構成](/engineering/app/indie-app-technical-architecture/)に書きました）。運用を個人で背負わないための選択でしたが、そのぶん Rules の間違いが直接ユーザーの機能を殺します。
 
 そして実際に殺しました。**エミュレータのテストが 372 件通ったまま、本番のバックアップ復元が一度も成功していませんでした。**
+
+> シリーズ「アプリの中身と実装」全 13 本の 6 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ---
 
@@ -241,13 +243,21 @@ Rules に寄せる設計そのものは、いまも正解だったと思って�
 
 ### このシリーズの他の記事
 
+#### 実装で踏んだ罠
+
 - [③ SwiftUI と SwiftData で踏んだ罠（落ちる・効かない・反映されない）](/engineering/app/ios-swiftui-swiftdata-pitfalls/)
 - [④ iOS の課金・ウィジェット・App Check で踏んだ罠（Debug では一度も通らない経路）](/engineering/app/ios-storekit-widget-pitfalls/)
 - [⑤ Android 版で踏んだ罠（Compose・Glance・Play Billing・エミュレータ検証）](/engineering/app/android-compose-room-billing-pitfalls/)
+
+#### 仕様と設計の判断
+
 - [⑦ 個人開発アプリの課金とプラン設計（上限・買い切り・解約戻り・キルスイッチ）](/engineering/app/indie-app-pricing-and-entitlement-design/)
 - [⑧ iOS と Android を往復できるようにした（アカウントリンクと単一端末リース）](/engineering/app/cross-platform-account-migration-ios-android/)
 - [⑨ 報告とブロックを後から入れた話（ストアのUGCポリシー対応）](/engineering/app/adding-ugc-report-block-for-store-policy/)
 - [⑩ iPad 対応を段階的に入れた（2ペイン化の判断とやらなかったこと）](/engineering/app/ipad-two-pane-staged-support/)
+
+#### 運用と検証
+
 - [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
 - [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
 - [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)

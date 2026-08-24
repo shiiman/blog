@@ -1,7 +1,7 @@
 ---
 title: 個人開発アプリをApp StoreとGoogle Playに同時提出するまでの全工程
 slug: personal-app-cross-store-release-full-journey
-date: '2026-08-22T14:00:00+09:00'
+date: '2026-08-22T10:00:00+09:00'
 categories:
   - app
   - ios
@@ -32,6 +32,8 @@ eyecatch: ./assets/eyecatch.png
 - **提出直前の本番データの掃除**
 - **工程をまたいで繰り返し踏んだ「メタな罠」**
 - これから出す人向けの順序つきチェックリスト
+
+> シリーズ「ストアに出すまで」全 5 本の 5 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
 
 ## シリーズ構成
 

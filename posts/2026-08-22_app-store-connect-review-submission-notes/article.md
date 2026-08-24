@@ -1,7 +1,7 @@
 ---
 title: 個人開発アプリをApp Store審査に出すまでにやったこと・ハマったこと全部
 slug: app-store-connect-review-submission-notes
-date: '2026-08-22T10:00:00+09:00'
+date: '2026-08-22T12:00:00+09:00'
 categories:
   - app
   - ios
@@ -33,6 +33,8 @@ eyecatch: ./assets/eyecatch.png
 
 この記事は、同じ道を通る個人開発者が同じ穴に落ちないことだけを目的に書いています。手順の紹介より「事前に知っていれば消耗しなかった点」に重みを置いています。
 
+> シリーズ「ストアに出すまで」全 5 本の 3 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
+>
 > アプリの実装やバグ修正の話は含みません。ストア審査のためだけに追加で実装が必要になった機能については、[全工程まとめの記事](/engineering/app/personal-app-cross-store-release-full-journey/)で扱います。
 
 ### この記事の表記について

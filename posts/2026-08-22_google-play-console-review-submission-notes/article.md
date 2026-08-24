@@ -34,6 +34,8 @@ Apple は「成功レスポンスが嘘をつく」タイプの罠が多かっ�
 
 特に**本人確認**と**アプリのセットアップの完了漏れ**は、個人開発者が高確率で詰まる場所だと思います。
 
+> シリーズ「ストアに出すまで」全 5 本の 4 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
+>
 > アプリの実装やバグ修正の話は含みません。ストア審査のためだけに追加で実装が必要になった機能については、[全工程まとめの記事](/engineering/app/personal-app-cross-store-release-full-journey/)で扱います。
 
 ### この記事の表記について

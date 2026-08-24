@@ -1,7 +1,7 @@
 ---
 title: App Store と Google Play の申請からリリースまで（審査・却下対応・公開操作）
 slug: indie-app-submission-to-release
-date: '2026-08-24T10:00:00+09:00'
+date: '2026-08-22T09:00:00+09:00'
 categories:
   - app
 tags:
@@ -23,6 +23,8 @@ Apple は初回審査で 1 回落ちました。指摘は **Guideline 2.1 – In
 
 Google Play はこの記事を書いている時点でまだ審査中です。結果と、両ストアの公開操作については**この記事に追記**します。
 
+> シリーズ「ストアに出すまで」全 5 本の続編です。提出までの手順は [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から始まる 5 本にまとめました。
+>
 > 提出までの手順は別記事です。[App Store Connect 編](/engineering/app/app-store-connect-review-submission-notes/) / [Google Play Console 編](/engineering/app/google-play-console-review-submission-notes/) / [事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) / [周辺インフラ編](/engineering/app/indie-app-domain-site-email-oauth-setup/) / [全工程まとめ](/engineering/app/personal-app-cross-store-release-full-journey/)
 
 ### この記事の表記について

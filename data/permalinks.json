@@ -402,5 +402,21 @@
   "2260": {
     "slug": "solo-dev-with-ai-agent-workflow",
     "path": "/engineering/app/solo-dev-with-ai-agent-workflow/"
+  },
+  "2261": {
+    "slug": "indie-app-pricing-and-entitlement-design",
+    "path": "/engineering/app/indie-app-pricing-and-entitlement-design/"
+  },
+  "2262": {
+    "slug": "cross-platform-account-migration-ios-android",
+    "path": "/engineering/app/cross-platform-account-migration-ios-android/"
+  },
+  "2263": {
+    "slug": "adding-ugc-report-block-for-store-policy",
+    "path": "/engineering/app/adding-ugc-report-block-for-store-policy/"
+  },
+  "2264": {
+    "slug": "ipad-two-pane-staged-support",
+    "path": "/engineering/app/ipad-two-pane-staged-support/"
   }
 }

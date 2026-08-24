@@ -525,3 +525,68 @@ Apple 側で得たものを 5 つだけ。
 5. **承認メールは 2 通目まで読む。** リリースの前提（契約が有効であること・最大 24 時間かかること）は 2 通目にしか書かれていません
 
 Play の結果と公開操作が済んだら追記します。同じところで消耗する人が 1 人でも減れば幸いです。
+
+## 関連記事
+
+**ストアに出すまでのシリーズ**
+
+<a class="link-card" href="/engineering/app/indie-app-store-registration-paperwork/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-store-registration-paperwork.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">① 個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）</span>
+<span class="link-card__excerpt">屋号の決定から屋号入り開業届の取り直し、D-U-N-S の 3 ルート比較まで。依存が一本道で並行できない工程の記録です。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/indie-app-domain-site-email-oauth-setup/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-domain-site-email-oauth-setup.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">② 個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）</span>
+<span class="link-card__excerpt">リダイレクトの末尾スラッシュで招待トークンが消える話、転送メールが返信できない話、OAuth 機密スコープ検証の差し戻し理由など。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/app-store-connect-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/app-store-connect-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">Individual 加入・W-8BEN・署名・TestFlight の 3 段・IAP 登録・年齢レーティング・審査ノート・提出まで。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/google-play-console-review-submission-notes/">
+<span class="link-card__thumb"><img src="/eyecatch/google-play-console-review-submission-notes.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部</span>
+<span class="link-card__excerpt">組織アカウントの本人確認・15% 手数料・署名鍵 3 種・アプリのセットアップ 11 項目・データセーフティ・課金テスト。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/personal-app-cross-store-release-full-journey/">
+<span class="link-card__thumb"><img src="/eyecatch/personal-app-cross-store-release-full-journey.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程</span>
+<span class="link-card__excerpt">3 週間のタイムライン、審査のために追加実装した機能、検証環境の作り分け、繰り返し踏んだ 9 つのメタな罠。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+### アプリの中身と実装のシリーズ
+
+- [① バケットリストアプリを個人開発した記録（動機・画面・機能・4か月の内訳）](/engineering/app/indie-bucket-list-app-overview/)
+- [② 個人開発アプリの技術構成（3層データ・認証・課金・双方向同期）](/engineering/app/indie-app-technical-architecture/)
+- [③ SwiftUI と SwiftData で踏んだ罠（落ちる・効かない・反映されない）](/engineering/app/ios-swiftui-swiftdata-pitfalls/)
+- [④ iOS の課金・ウィジェット・App Check で踏んだ罠（Debug では一度も通らない経路）](/engineering/app/ios-storekit-widget-pitfalls/)
+- [⑤ Android 版で踏んだ罠（Compose・Glance・Play Billing・エミュレータ検証）](/engineering/app/android-compose-room-billing-pitfalls/)
+- [⑥ Security Rules が本番だけ壊れる（エミュレータでは再現しない話）](/engineering/app/firestore-security-rules-production-only-bugs/)
+- [⑦ 個人開発アプリの課金とプラン設計（上限・買い切り・解約戻り・キルスイッチ）](/engineering/app/indie-app-pricing-and-entitlement-design/)
+- [⑧ iOS と Android を往復できるようにした（アカウントリンクと単一端末リース）](/engineering/app/cross-platform-account-migration-ios-android/)
+- [⑨ 報告とブロックを後から入れた話（ストアのUGCポリシー対応）](/engineering/app/adding-ugc-report-block-for-store-policy/)
+- [⑩ iPad 対応を段階的に入れた（2ペイン化の判断とやらなかったこと）](/engineering/app/ipad-two-pane-staged-support/)
+- [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
+- [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
+- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)

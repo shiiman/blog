@@ -1331,14 +1331,18 @@ Google Play 側は、また別の種類の罠がありました。そちらは�
 </span>
 </a>
 
-### もうひとつのシリーズ（アプリの中身と実装）
+### アプリの中身と実装のシリーズ
 
-- [① バケットリストアプリを個人開発した記録](/engineering/app/indie-bucket-list-app-overview/)
-- [② 個人開発アプリの技術構成](/engineering/app/indie-app-technical-architecture/)
-- [③ SwiftUI と SwiftData で踏んだ罠](/engineering/app/ios-swiftui-swiftdata-pitfalls/)
-- [④ iOS の課金・ウィジェット・App Check で踏んだ罠](/engineering/app/ios-storekit-widget-pitfalls/)
-- [⑤ Android 版で踏んだ罠](/engineering/app/android-compose-room-billing-pitfalls/)
-- [⑥ Security Rules が本番だけ壊れる](/engineering/app/firestore-security-rules-production-only-bugs/)
-- [⑦ 「動いている」を証明する方法](/engineering/app/proving-it-works-device-and-production-verification/)
-- [⑧ iOS と Android を日英対応にした運用](/engineering/app/ios-android-string-catalog-i18n/)
-- [⑨ AI エージェントとひとりで両OSアプリを作った運用](/engineering/app/solo-dev-with-ai-agent-workflow/)
+- [① バケットリストアプリを個人開発した記録（動機・画面・機能・4か月の内訳）](/engineering/app/indie-bucket-list-app-overview/)
+- [② 個人開発アプリの技術構成（3層データ・認証・課金・双方向同期）](/engineering/app/indie-app-technical-architecture/)
+- [③ SwiftUI と SwiftData で踏んだ罠（落ちる・効かない・反映されない）](/engineering/app/ios-swiftui-swiftdata-pitfalls/)
+- [④ iOS の課金・ウィジェット・App Check で踏んだ罠（Debug では一度も通らない経路）](/engineering/app/ios-storekit-widget-pitfalls/)
+- [⑤ Android 版で踏んだ罠（Compose・Glance・Play Billing・エミュレータ検証）](/engineering/app/android-compose-room-billing-pitfalls/)
+- [⑥ Security Rules が本番だけ壊れる（エミュレータでは再現しない話）](/engineering/app/firestore-security-rules-production-only-bugs/)
+- [⑦ 個人開発アプリの課金とプラン設計（上限・買い切り・解約戻り・キルスイッチ）](/engineering/app/indie-app-pricing-and-entitlement-design/)
+- [⑧ iOS と Android を往復できるようにした（アカウントリンクと単一端末リース）](/engineering/app/cross-platform-account-migration-ios-android/)
+- [⑨ 報告とブロックを後から入れた話（ストアのUGCポリシー対応）](/engineering/app/adding-ugc-report-block-for-store-policy/)
+- [⑩ iPad 対応を段階的に入れた（2ペイン化の判断とやらなかったこと）](/engineering/app/ipad-two-pane-staged-support/)
+- [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
+- [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
+- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)

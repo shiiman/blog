@@ -298,7 +298,7 @@ Android 版を移植して分かったことを 4 つ。
 
 ## 関連記事
 
-**このシリーズ（アプリの中身と実装）**
+**このシリーズの入口**
 
 <a class="link-card" href="/engineering/app/indie-bucket-list-app-overview/">
 <span class="link-card__thumb"><img src="/eyecatch/indie-bucket-list-app-overview.png" alt="" loading="lazy" width="160" height="100"></span>
@@ -318,64 +318,23 @@ Android 版を移植して分かったことを 4 つ。
 </span>
 </a>
 
-<a class="link-card" href="/engineering/app/ios-swiftui-swiftdata-pitfalls/">
-<span class="link-card__thumb"><img src="/eyecatch/ios-swiftui-swiftdata-pitfalls.png" alt="" loading="lazy" width="160" height="100"></span>
-<span class="link-card__body">
-<span class="link-card__title">③ SwiftUI と SwiftData で踏んだ罠（落ちる・効かない・反映されない）</span>
-<span class="link-card__excerpt">Menu に .tint で SIGSEGV、@Environment の書き方で SIGTRAP、NavigationLink が行内ボタンを吸う、増分ビルドの型情報が古いまま落ちる。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
-</span>
-</a>
+### このシリーズの他の記事
 
-<a class="link-card" href="/engineering/app/ios-storekit-widget-pitfalls/">
-<span class="link-card__thumb"><img src="/eyecatch/ios-storekit-widget-pitfalls.png" alt="" loading="lazy" width="160" height="100"></span>
-<span class="link-card__body">
-<span class="link-card__title">④ iOS の課金・ウィジェット・App Check で踏んだ罠（Debug では一度も通らない経路）</span>
-<span class="link-card__excerpt">App Check が 3 か月間トークンを出していなかった話、Release の実機で初めて落ちた 2 件、アップロードが必ず失敗していた話。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
-</span>
-</a>
+- [③ SwiftUI と SwiftData で踏んだ罠（落ちる・効かない・反映されない）](/engineering/app/ios-swiftui-swiftdata-pitfalls/)
+- [④ iOS の課金・ウィジェット・App Check で踏んだ罠（Debug では一度も通らない経路）](/engineering/app/ios-storekit-widget-pitfalls/)
+- [⑥ Security Rules が本番だけ壊れる（エミュレータでは再現しない話）](/engineering/app/firestore-security-rules-production-only-bugs/)
+- [⑦ 個人開発アプリの課金とプラン設計（上限・買い切り・解約戻り・キルスイッチ）](/engineering/app/indie-app-pricing-and-entitlement-design/)
+- [⑧ iOS と Android を往復できるようにした（アカウントリンクと単一端末リース）](/engineering/app/cross-platform-account-migration-ios-android/)
+- [⑨ 報告とブロックを後から入れた話（ストアのUGCポリシー対応）](/engineering/app/adding-ugc-report-block-for-store-policy/)
+- [⑩ iPad 対応を段階的に入れた（2ペイン化の判断とやらなかったこと）](/engineering/app/ipad-two-pane-staged-support/)
+- [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
+- [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
+- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)
 
-<a class="link-card" href="/engineering/app/firestore-security-rules-production-only-bugs/">
-<span class="link-card__thumb"><img src="/eyecatch/firestore-security-rules-production-only-bugs.png" alt="" loading="lazy" width="160" height="100"></span>
-<span class="link-card__body">
-<span class="link-card__title">⑥ Security Rules が本番だけ壊れる（エミュレータでは再現しない話）</span>
-<span class="link-card__excerpt">request.resource は create / update だけ。372 件のエミュレータテストが green のまま本番のバックアップ復元が一度も成功していませんでした。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
-</span>
-</a>
+### ストアに出すまでのシリーズ
 
-<a class="link-card" href="/engineering/app/proving-it-works-device-and-production-verification/">
-<span class="link-card__thumb"><img src="/eyecatch/proving-it-works-device-and-production-verification.png" alt="" loading="lazy" width="160" height="100"></span>
-<span class="link-card__body">
-<span class="link-card__title">⑦ 「動いている」を証明する方法（実機・本番・計測の作法）</span>
-<span class="link-card__excerpt">HTTP 200 は反映の証拠にならない、Storage の 403 は実体がなくても返る、実機の状態は plist 回収で測れる、断定の前に代替軸を 1 つ潰す。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
-</span>
-</a>
-
-<a class="link-card" href="/engineering/app/ios-android-string-catalog-i18n/">
-<span class="link-card__thumb"><img src="/eyecatch/ios-android-string-catalog-i18n.png" alt="" loading="lazy" width="160" height="100"></span>
-<span class="link-card__body">
-<span class="link-card__title">⑧ iOS と Android を日英対応にした運用（String Catalog と values-en）</span>
-<span class="link-card__excerpt">キーが日本語原文なので検出スクリプトはゼロにならない、カタログが 3 つある、文言の一致は機械照合しないと目視では見つからない。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
-</span>
-</a>
-
-<a class="link-card" href="/engineering/app/solo-dev-with-ai-agent-workflow/">
-<span class="link-card__thumb"><img src="/eyecatch/solo-dev-with-ai-agent-workflow.png" alt="" loading="lazy" width="160" height="100"></span>
-<span class="link-card__body">
-<span class="link-card__title">⑨ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）</span>
-<span class="link-card__excerpt">仕様書 15 章を正典にする、1 issue = 1 worktree = 1 PR、構造ガード 30 本、そして「任せると壊れる場所」の型。</span>
-<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
-</span>
-</a>
-
-### もうひとつのシリーズ（ストアに出すまで）
-
-- [① 個人開発でストアに登録する前の事務手続き](/engineering/app/indie-app-store-registration-paperwork/)
-- [② 個人開発アプリの周辺インフラを用意して踏んだ罠](/engineering/app/indie-app-domain-site-email-oauth-setup/)
+- [① 個人開発でストアに登録する前の事務手続き（屋号・開業届・D-U-N-S）](/engineering/app/indie-app-store-registration-paperwork/)
+- [② 個人開発アプリの周辺インフラを用意して踏んだ罠（サイト・メール・OAuth・バックエンド）](/engineering/app/indie-app-domain-site-email-oauth-setup/)
 - [③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部](/engineering/app/app-store-connect-review-submission-notes/)
 - [④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部](/engineering/app/google-play-console-review-submission-notes/)
 - [⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程](/engineering/app/personal-app-cross-store-release-full-journey/)

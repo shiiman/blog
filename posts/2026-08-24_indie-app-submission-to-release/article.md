@@ -9,7 +9,7 @@ tags:
   - app-store-connect
   - google-play-console
   - in-app-purchase
-draft: true
+draft: false
 id: 2251
 excerpt: 個人開発アプリをApp StoreとGoogle Playに申請してから公開するまでの記録です。Appleは初回審査でGuideline 2.1（Information Needed）に落ち、実機収録と審査ノートの書き直しで再提出して通りました。却下理由の全文、審査にかかった時間、対応の中身、初回リリース特有の提出の制約、承認メールに書かれたリリースの前提、届いたメールと使ったURLをまとめています。Playは審査中なので結果と公開操作は追記します。
 eyecatch: ./assets/eyecatch.png
@@ -336,13 +336,9 @@ STATE_ERROR.ITEM_PART_OF_ANOTHER_SUBMISSION
 
 最終形は **10 項目 1 本**でした（バージョン 1 + 買い切り 6 + サブスク 2 + サブスクグループ 1）。
 
-### 誤診しかけた罠
+### 空の下書きは API では消せない
 
-`reviewSubmissions.platform` は、**項目が揃うまで `MAC_OS` を返します**。サブスクグループとテーマ 7 件だけの状態では `MAC_OS` で、iOS バージョンの追加が `ENTITY_ERROR.RELATIONSHIP.INVALID.NOT_ALLOWED` で拒否されました。
-
-これを「macOS の箱ができてしまったから詰んだ」と誤診して、ユーザーが作った 7 件を消させるところでした。実際は**サブスク 2 件を足した瞬間に `IOS` に変わりました**。UI は最初から一貫して iOS と表示していました。
-
-もう 1 つ。`reviewSubmissions` は DELETE に対応しておらず、`canceled: true` も「提出済みのもの」しか受けません。空の下書きを API で作ると消せなくなります（バージョンを提出するとき App Store Connect が自動で片付けてくれます）。
+`reviewSubmissions` は DELETE に対応しておらず、`canceled: true` も「提出済みのもの」しか受けません。空の下書きを API で作ると消せなくなります（バージョンを提出するとき App Store Connect が自動で片付けてくれます）。
 
 ### 提出物の中身は base64 から読める
 

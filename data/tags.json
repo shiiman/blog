@@ -495,5 +495,37 @@
   "152": {
     "name": "D-U-N-S",
     "slug": "duns"
+  },
+  "153": {
+    "name": "SwiftUI",
+    "slug": "swiftui"
+  },
+  "154": {
+    "name": "SwiftData",
+    "slug": "swiftdata"
+  },
+  "155": {
+    "name": "Jetpack Compose",
+    "slug": "jetpack-compose"
+  },
+  "156": {
+    "name": "StoreKit",
+    "slug": "storekit"
+  },
+  "157": {
+    "name": "Room",
+    "slug": "room"
+  },
+  "158": {
+    "name": "iOS",
+    "slug": "ios"
+  },
+  "159": {
+    "name": "Android",
+    "slug": "android"
+  },
+  "160": {
+    "name": "個人開発",
+    "slug": "indie-dev"
   }
 }

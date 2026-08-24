@@ -623,3 +623,52 @@ Play のヘルプは組織アカウントの公開項目を「デベロッパー
 <span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
 </span>
 </a>
+
+## アプリそのものについて
+
+作ったアプリの中身と、実装で踏んだ罠は別のシリーズにまとめました。
+
+<a class="link-card" href="/engineering/app/indie-bucket-list-app-overview/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-bucket-list-app-overview.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">① バケットリストアプリを個人開発した記録（動機・画面・機能・4か月の内訳）</span>
+<span class="link-card__excerpt">既存アプリへの 6 つの不満から何を作ると決めたか、画面と機能の全体像、約 4 か月・3,585 コミット・24 万行の内訳。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/indie-app-technical-architecture/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-technical-architecture.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">② 個人開発アプリの技術構成（3層データ・認証・課金・双方向同期）</span>
+<span class="link-card__excerpt">ローカルを正とする 3 層データ、OS ごとに非対称にした認証、サーバー権威の課金判定、GitHub への双方向同期キューの設計。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/ios-swiftui-swiftdata-pitfalls/">
+<span class="link-card__thumb"><img src="/eyecatch/ios-swiftui-swiftdata-pitfalls.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">③ SwiftUI と SwiftData で踏んだ罠（落ちる・効かない・反映されない）</span>
+<span class="link-card__excerpt">Menu に .tint で SIGSEGV、@Environment の書き方で SIGTRAP、NavigationLink が行内ボタンを吸う、増分ビルドの型情報が古いまま落ちる。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/ios-storekit-widget-pitfalls/">
+<span class="link-card__thumb"><img src="/eyecatch/ios-storekit-widget-pitfalls.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">④ iOS の課金・ウィジェット・App Check で踏んだ罠（Debug では一度も通らない経路）</span>
+<span class="link-card__excerpt">App Check が 3 か月間トークンを出していなかった話、Release の実機で初めて落ちた 2 件、アップロードが必ず失敗していた話。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/android-compose-room-billing-pitfalls/">
+<span class="link-card__thumb"><img src="/eyecatch/android-compose-room-billing-pitfalls.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑤ Android 版で踏んだ罠（Compose・Glance・Play Billing・エミュレータ検証）</span>
+<span class="link-card__excerpt">Glance がセッション中データを読み直さない、キーボードでウィンドウがリサイズされない、Play 配信で検証したつもりがサイドロード版だった。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.24</span>
+</span>
+</a>

@@ -42,7 +42,7 @@ eyecatch: ./assets/eyecatch.png
 | 記事内の表記 | 実際は |
 |---|---|
 | `com.example.app` | Bundle ID |
-| `1234567890` | Apple の App ID（App Store Connect のアプリ ID）|
+| `1234567890` | Apple の App ID（App Store Connect のアプリ ID） |
 | `ABCDE12345` | Team ID |
 | `review@example.com` | 審査用アカウント |
 
@@ -85,7 +85,7 @@ Step 10  課金商品の登録 → 実機・クロス OS 検証 → 提出
 |---|---|---|
 | D-U-N-S 番号の発行 | 数日〜30営業日 | Apple 経由なら無料・数日で出た |
 | D&B グローバルデータへの反映 | 数日〜2週間 | 反映前に Play へ入力すると弾かれる |
-| Google Play の本人確認 | 数時間〜数日 | 一度却下されるとやり直し（試行回数に上限あり）|
+| Google Play の本人確認 | 数時間〜数日 | 一度却下されるとやり直し（試行回数に上限あり） |
 | Google OAuth の機密スコープ検証 | 数日〜数週間 | Calendar / Sheets を使う場合 |
 | Apple Developer Program のアクティベーション | 数時間 | 私の場合は支払いから約11時間 |
 
@@ -99,10 +99,10 @@ Step 10  課金商品の登録 → 実機・クロス OS 検証 → 提出
 
 | 要件 | 期限 | 性質 |
 |---|---|---|
-| Xcode / SDK の最低バージョン | 毎年更新される（私のときは「以降は最新メジャーの Xcode + SDK 必須」）| 提出ブロック |
+| Xcode / SDK の最低バージョン | 毎年更新される（私のときは「以降は最新メジャーの Xcode + SDK 必須」） | 提出ブロック |
 | 年齢レーティング質問票の新フィールド | 未回答だと新規提出もアップデートもブロックされる | 提出ブロック |
-| プライバシーマニフェスト | 必須（required-reason API の申告を含む）| 提出ブロック |
-| アクセシビリティの情報表示 | 現時点では任意（「将来必須化」と言うだけで期限は示されていない）| 任意 |
+| プライバシーマニフェスト | 必須（required-reason API の申告を含む） | 提出ブロック |
+| アクセシビリティの情報表示 | 現時点では任意（「将来必須化」と言うだけで期限は示されていない） | 任意 |
 
 年齢レーティングの質問票は途中で項目が増えます。私が確認したときは新しいフィールドが 10 個ほど追加されていて（健康や医療の話題を扱うか / 暴力表現の程度 / メッセージ機能 / ペアレンタルコントロール / 年齢保証 / ルートボックス / 年齢制限のあるソーシャル機能 / 無制限のウェブアクセス など）、未回答のままだと提出できません。
 
@@ -119,7 +119,7 @@ Step 10  課金商品の登録 → 実機・クロス OS 検証 → 提出
 
 ### Apple は Individual か Organization か
 
-| | Individual（個人）| Organization（組織）|
+|  | Individual（個人） | Organization（組織） |
 |---|---|---|
 | D-U-N-S | 不要 | 必須 |
 | デベロッパー表示名 | 本名固定・変更不可 | 法人名・屋号 |
@@ -240,9 +240,9 @@ Line 9（居住者証明）+ Line 6a（外国 TIN）が揃えば、Apple が条�
 
 | 欄 | 値 |
 |---|---|
-| 5. U.S. TIN | 空欄（EIN / SSN のラジオも選ばない）|
-| 6.a. Foreign TIN | マイナンバー 12 桁（必須）|
-| 7. Reference Number(s) | 空欄（Individual なので屋号は不要）|
+| 5. U.S. TIN | 空欄（EIN / SSN のラジオも選ばない） |
+| 6.a. Foreign TIN | マイナンバー 12 桁（必須） |
+| 7. Reference Number(s) | 空欄（Individual なので屋号は不要） |
 | 8. Date of Birth | `MM-DD-YYYY` 形式 |
 | ○9. | チェック |
 | 10. | 完全に空欄・ラジオも未選択 |
@@ -327,9 +327,9 @@ Guideline 5.1.1(v) の**アプリ内でのアカウント削除**は避けられ
 
 | 残るもの | 理由 |
 |---|---|
-| 相手側から自分へ向いている関係のデータ | アクセス制御上、自分だけでは消せない（相手側の掃除に委ねる）|
+| 相手側から自分へ向いている関係のデータ | アクセス制御上、自分だけでは消せない（相手側の掃除に委ねる） |
 | 他人の受信箱に入った、自分が送った通知 | 受信者だけが削除できる |
-| 外部サービス側のデータ（連携先のリポジトリなど）| 本人の所有物なので削除せず、連携解除だけ行う |
+| 外部サービス側のデータ（連携先のリポジトリなど） | 本人の所有物なので削除せず、連携解除だけ行う |
 
 これを公開ページの「アカウント削除について」にも書きました。「削除します」とだけ書いて実際は残る部分があると、ストアの申告とも実装とも食い違います。「いいねの参照は匿名で残る」「削除してもサブスクリプションは自動解約されない」まで明記しました。
 
@@ -365,7 +365,7 @@ App Store のアプリ名は先着制で、App Store Connect でアプリレコ�
 | 調査先 | 結果 |
 |---|---|
 | App Store 既存アプリ | iTunes Search API で日本・米国とも完全一致を確認できる |
-| 米国 USPTO | Justia / uspto.report は 403。`https://tsdr.uspto.gov/statusview/sn{serial}` は curl で 200 が取れる（本家・唯一の機械的経路）|
+| 米国 USPTO | Justia / uspto.report は 403。`https://tsdr.uspto.gov/statusview/sn{serial}` は curl で 200 が取れる（本家・唯一の機械的経路） |
 | 日本 J-PlatPat | SPA で API 照会不可 = 手作業必須。商標検索の `称呼（単純文字列検索）` が最も網が広い（英字商標にも称呼が付く）。3欄は AND なので 1 欄だけ埋める |
 
 第9類（ソフトウェア）に同名の登録があっても、指定商品が重ならなければ効力は及びません。私が見つけた同名登録は指定商品がアイウェア専門（類似群 10B01 / 23B01）で、ソフトウェアの 11C01 を含んでいませんでした。「区分だけ見て諦める」のは早計です。
@@ -412,11 +412,11 @@ xcodebuild -exportArchive -archivePath <dir>/MyApp.xcarchive \
 
 | キー | 値 | 意味 |
 |---|---|---|
-| `method` | `app-store-connect` | |
-| `teamID` | `ABCDE12345` | |
-| `signingStyle` | `automatic` | |
+| `method` | `app-store-connect` |  |
+| `teamID` | `ABCDE12345` |  |
+| `signingStyle` | `automatic` |  |
 | `destination` | `export` | App Store へ送らず発行だけで止める |
-| `uploadSymbols` | `true` | |
+| `uploadSymbols` | `true` |  |
 | `manageAppVersionAndBuildNumber` | `false` | 番号を Xcode に触らせない |
 
 ### 配布証明書が作られるのは archive ではなく export の時点
@@ -498,8 +498,8 @@ xcodebuild -exportArchive -archivePath <dir>/MyApp.xcarchive \
 | 検証 | 結果 |
 |---|---|
 | `#if DEBUG` コードの混入 | ○構造的に不可能。`xcodebuild -showBuildSettings` で確認すると Release は `SWIFT_ACTIVE_COMPILATION_CONDITIONS` が未設定（Debug だけ `DEBUG`）= コンパイルすらされない |
-| デバッグ用ログ | ○`print(` / `NSLog` が 0 件（`#if` のネストを追跡して全ソースを走査）|
-| Debug 画面の文言残存 | ○0 件（Debug 画面のソースから抽出した 8 文言を Release バイナリ内で検索）|
+| デバッグ用ログ | ○`print(` / `NSLog` が 0 件（`#if` のネストを追跡して全ソースを走査） |
+| Debug 画面の文言残存 | ○0 件（Debug 画面のソースから抽出した 8 文言を Release バイナリ内で検索） |
 | 最適化 | ○`-O` / `wholemodule` / `ENABLE_TESTABILITY = NO` / dSYM 生成 |
 
 **ここが一番大事**でした。
@@ -510,10 +510,10 @@ xcodebuild -exportArchive -archivePath <dir>/MyApp.xcarchive \
 
 iOS と Android で保証の強さが違う点も押さえておくべきでした。
 
-| | 仕組み | 強さ |
+|  | 仕組み | 強さ |
 |---|---|---|
-| iOS | `#if DEBUG` のコンパイル時除去 | 構造的保証（そもそもバイナリに存在しない）|
-| Android | R8 の到達不能コード削除 | 最適化への依存（到達可能と判断されれば残る）|
+| iOS | `#if DEBUG` のコンパイル時除去 | 構造的保証（そもそもバイナリに存在しない） |
+| Android | R8 の到達不能コード削除 | 最適化への依存（到達可能と判断されれば残る） |
 
 ### Release 実機だけで出る不具合は「ログが読めるか」で調査時間が変わる
 
@@ -535,7 +535,7 @@ Release の実機でしか再現しない不具合が複数出ました（起動
 
 ここは個人開発で最もハマると思います。3 段それぞれで別の罠を踏みました。
 
-| | 転送 | 受理 | 配信 |
+|  | 転送 | 受理 | 配信 |
 |---|---|---|---|
 | 判定 | `UPLOAD SUCCEEDED` | `processingState=VALID` | ベータグループの `builds` に載る |
 | 何が起きる | ipa が Apple に届く | Apple が中身を検査して受理 | TestFlight のテスターに見える |
@@ -575,8 +575,8 @@ App Intent の説明文に "siri" という語を含められないという制�
 | 段階 | 結果 |
 |---|---|
 | `make build` / `archive` | ○通る |
-| `--validate-app`（ローカルゲート）| 通ってしまう（この検査を含まない）|
-| `--upload-app` 後の Apple 側処理（ITMS-*）| ×ここで落ちる |
+| `--validate-app`（ローカルゲート） | 通ってしまう（この検査を含まない） |
+| `--upload-app` 後の Apple 側処理（ITMS-*） | ×ここで落ちる |
 
 API のビルド一覧がいつまでも 0 件だった真因がこれで、Apple の通知メールを読んで初めて分かりました。`UPLOAD SUCCEEDED` の後は、API にビルドが出現して `processingState` が確定するまで追う必要があります。
 
@@ -675,9 +675,9 @@ POST /v1/betaGroups/<groupId>/relationships/builds
 
 両 OS で番号を共有する構成にしました。
 
-| | 値 |
+|  | 値 |
 |---|---|
-| marketing version | `1.0.0`（3桁・両 OS 共通）|
+| marketing version | `1.0.0`（3桁・両 OS 共通） |
 | build 番号 | `git rev-list --count HEAD`（コミット数）を両 OS 共有 |
 
 この方式に至った理由です。
@@ -705,10 +705,10 @@ XcodeGen で生成していると、拡張ターゲット（Widget / AppIntents�
 
 ### 登録内容と不可逆な選択
 
-| | 商品 | 価格 |
+|  | 商品 | 価格 |
 |---|---|---|
 | 非消費型 6 | `theme.*` | ¥250 / $1.99 |
-| サブスク 2 | `pro.yearly`（groupLevel 1）/ `pro.monthly`（groupLevel 2）| ¥2,800・¥280 / $17.99・$1.99 |
+| サブスク 2 | `pro.yearly`（groupLevel 1）/ `pro.monthly`（groupLevel 2） | ¥2,800・¥280 / $17.99・$1.99 |
 
 - ファミリー共有は全商品オフにした。有効化は後からできるが**無効には戻せない**
 - 年額を groupLevel 1 にすると、月額 → 年額が即時アップグレード（日割り精算）、逆は次回更新時になる
@@ -739,9 +739,9 @@ POST /v1/inAppPurchaseAvailabilities     # 価格より先
 
 これも実害のあった誤読です。
 
-| | API の `state` | ASC の UI |
+|  | API の `state` | ASC の UI |
 |---|---|---|
-| 非消費型 | 埋めれば `READY_TO_SUBMIT` になる | 「提出準備中」|
+| 非消費型 | 埋めれば `READY_TO_SUBMIT` になる | 「提出準備中」 |
 | サブスク | 永遠に `MISSING_METADATA` | 「提出準備中」+「審査用に追加」ボタン有効 |
 
 UI が正で、API の `state` はサブスクでは当てになりません。これを知らずに「まだ何か足りない」と探し続けました（実際には何も足りていなかった）。
@@ -803,7 +803,7 @@ Expected one of: 'THREE_DAYS', 'SIXTEEN_DAYS', 'TWENTY_EIGHT_DAYS'
 
 私のタスクリストには長く「Grace Period を 7 日に設定」と書かれていました。上の手法で実際に確認した結果がこれです。
 
-| 属性 | 有効値（実際に確認したもの）|
+| 属性 | 有効値（実際に確認したもの） |
 |---|---|
 | `duration` | `THREE_DAYS` / `SIXTEEN_DAYS` / `TWENTY_EIGHT_DAYS` |
 | `renewalType` | `ALL_RENEWALS` / `PAID_TO_PAID_ONLY` |
@@ -943,9 +943,9 @@ SEVENTEEN_PLUS → FOUR_PLUS
 
 | 分類 | 種別 |
 |---|---|
-| 関連付けあり（7種）| 名前 / メールアドレス / 写真またはビデオ / その他のユーザコンテンツ / ユーザ ID / デバイス ID / 購入 |
-| 関連付けなし（2種）| 製品の操作（アナリティクス）/ クラッシュデータ |
-| トラッキング | 全 9 種で「なし」|
+| 関連付けあり（7種） | 名前 / メールアドレス / 写真またはビデオ / その他のユーザコンテンツ / ユーザ ID / デバイス ID / 購入 |
+| 関連付けなし（2種） | 製品の操作（アナリティクス）/ クラッシュデータ |
+| トラッキング | 全 9 種で「なし」 |
 
 判断の根拠を試した結果作った点がポイントです。
 
@@ -988,12 +988,12 @@ GET  /v1/appStoreVersions/{id}/appStoreReviewDetail   # 反映を検証
 
 | # | 節 | 何を書くか |
 |---|---|---|
-| 1 | サインイン | 認証方法と、デモアカウントが不要である理由（`demoAccountRequired: false` と整合させる）|
+| 1 | サインイン | 認証方法と、デモアカウントが不要である理由（`demoAccountRequired: false` と整合させる） |
 | 2 | 特殊な仕様の先出し | レビュアーが「バグ」と誤解しうる挙動（私は単一端末リース）を先に説明して「意図した動作」と明記 |
-| 3 | UGC の安全機能（Guideline 1.2）| 規約同意 / 報告 / ブロックの具体的な導線と、1 アカウントで確認できる経路 |
+| 3 | UGC の安全機能（Guideline 1.2） | 規約同意 / 報告 / ブロックの具体的な導線と、1 アカウントで確認できる経路 |
 | 4 | ソーシャル機能 | 何が 1 アカウントでできて、何に 2 アカウントが必要かを切り分けて書く |
-| 5 | 課金 | 商品名・期間・価格・上限の変化。「Pro に含まれないもの」も明記（別売りの買い切りがある場合）|
-| 6 | 任意の外部連携 | 「審査に不要」と明記（連携しないと機能が確認できないと誤解されないように）|
+| 5 | 課金 | 商品名・期間・価格・上限の変化。「Pro に含まれないもの」も明記（別売りの買い切りがある場合） |
+| 6 | 任意の外部連携 | 「審査に不要」と明記（連携しないと機能が確認できないと誤解されないように） |
 | 7 | 通知 | ローカル通知とリモート通知の区別。起動時に許可を求めない設計であること |
 | 8 | ウィジェット / ショートカット | 何が動いて、何が非対応か |
 | 9 | データとプライバシー | 保存先とアップロード範囲、削除機能の場所、規約・ポリシーへの導線 |
@@ -1057,10 +1057,10 @@ POST  /v1/appPriceSchedules      無料（baseTerritory=JPN + customerPrice=0 �
 | 項目 | 期待値 |
 |---|---|
 | 署名 | `Apple Distribution: …` |
-| `get-task-allow` | `False`（デバッガをアタッチできない）|
+| `get-task-allow` | `False`（デバッガをアタッチできない） |
 | `aps-environment` | `production` |
-| クラウドコンテナの環境 | `Production`（Development のまま出すと本番データが見えない）|
-| `ProvisionedDevices` | 0 件（配布用プロファイル）|
+| クラウドコンテナの環境 | `Production`（Development のまま出すと本番データが見えない） |
+| `ProvisionedDevices` | 0 件（配布用プロファイル） |
 | ビルド番号 / 表示名 | 意図した値 |
 
 クラウド同期の環境（`icloud-container-environment`）は特に注意が必要でした。entitlements に明示していないと**署名に従って決まる**ので、手元の開発用署名で入れた実機では Development、TestFlight 配布では Production になります。本番のクラウド同期は TestFlight でしか検証できません。
@@ -1069,7 +1069,7 @@ POST  /v1/appPriceSchedules      無料（baseTerritory=JPN + customerPrice=0 �
 
 両ストアを同日に公開したかったので、**承認されても自動で公開されない**設定にしました。
 
-| | 公開の抑止 |
+|  | 公開の抑止 |
 |---|---|
 | iOS | `releaseType = MANUAL` |
 | Play | 「管理対象の公開」を ON |
@@ -1101,7 +1101,7 @@ xcrun simctl ui <device> content_size accessibility-extra-extra-extra-large
 | 画面 | 症状 |
 |---|---|
 | 規約同意シート | 素の `VStack` + `Spacer()` で CTA が画面外。`.interactiveDismissDisabled(true)` なのでアプリが完全に詰む |
-| 端末ロック画面 | 同型（root ごと差し替えなので逃げ道なし）|
+| 端末ロック画面 | 同型（root ごと差し替えなので逃げ道なし） |
 | オンボーディングの規約ページ | 下部確保が固定 pt で本文が CTA の下に潜る |
 | Paywall | すでに `ScrollView` を持っていて無傷 |
 
@@ -1157,6 +1157,52 @@ GeometryReader { proxy in
 1. **審査導線に必要な本番データ**（上記の公開投稿）
 2. **審査アカウントへの権利付与の設定**（外すと「有料コンテンツも審査できる」という申告が偽になる）
 3. **審査アカウントで端末にサインインしない**（リースが移ってレビュアーがロック画面に当たる）
+
+---
+
+## Apple から届くメール一覧
+
+「いま何が終わったのか」はメールでしか分からない場面が多いので、提出までに実際に届いたものを順番に並べておきます。判定に使えるものと、無視してよいものが混ざっています。
+
+| 順 | 件名 | 送信元 | 届くタイミング |
+|---|---|---|---|
+| 1 | ご注文ありがとうございます（+ 注文番号） | `order_acknowledgment@orders.apple.com` | Developer Program の支払い直後。**加入完了ではありません** |
+| 2 | Apple Developer Programへようこそ | `developer@email.apple.com` | 加入がアクティベートされた時 |
+| 3 | Welcome to App Store Connect. | `no_reply@email.apple.com` | 2 と同時。**この 2 通が揃って初めて有効な有料メンバーシップ** |
+| 4 | App Store Connect API Access Request Approved | `no_reply@email.apple.com` | API キーの利用申請が通った時 |
+| 5 | Apple Duns Update | `noreply-appledev@email.apple.com` | D&B のデータが Apple 側に反映された時 |
+| 6 | Action needed: The uploaded build for〈アプリ名〉has one or more issues. | `no_reply@email.apple.com` | **アップロードは成功したのに処理で弾かれた時** |
+| 7 | 〈アプリ名〉1.0.0 (〈ビルド番号〉) for iOS is now available to test. | `testflight_no_reply@email.apple.com` | TestFlight に配信された時。ビルドごとに 1 通 |
+| 8 | Thank You for Submitting Your App | `no_reply@email.apple.com` | 審査に提出した直後 |
+
+読み方で注意した点が 3 つあります。
+
+- **1 は加入完了ではありません。** 注文確認だけで、2 と 3 が来るまでメンバーシップは有効になりません。私は 1 を見て「入れた」と判断しかけました
+- **6 が「アップロード失敗」と紛らわしいです。** `altool` は `UPLOAD SUCCEEDED` を返していて、転送は本当に成功しています。その後の処理で弾かれたことがメールでしか通知されません。API のビルド一覧が 0 件のままだった真因はこれでした
+- **7 はビルド番号が入っているので、どの版が配信されたかの判定に使えます。** Console の表示より確実です
+
+審査に出した後は 8 が届きます。その先の審査結果メールについては、結果が出たので別記事にまとめます。
+
+---
+
+## 参考リンク
+
+画面名で探すと迷うものが多かったので、実際に使った入口を置いておきます。**すべて公開時点で開けることを確認しました**（コンソール系はサインインへリダイレクトされます）。
+
+| 用途 | URL |
+|---|---|
+| 「ビジネス」（有料アプリ契約 / 税務情報 / 銀行口座） | <https://appstoreconnect.apple.com/business> |
+| API キーの発行（Integrations → App Store Connect API） | <https://appstoreconnect.apple.com/access/integrations/api> |
+| 配布証明書の一覧 | <https://developer.apple.com/account/resources/certificates/list> |
+| Identifiers（App ID / App Group / iCloud Container） | <https://developer.apple.com/account/resources/identifiers/list> |
+| デバイスの登録（実機の UDID） | <https://developer.apple.com/account/resources/devices/add> |
+| 年齢レーティングの各値の定義 | <https://developer.apple.com/help/app-store-connect/reference/app-information/age-ratings-values-and-definitions/> |
+| 配信する国や地域の管理 | <https://developer.apple.com/help/app-store-connect/manage-your-apps-availability/manage-availability-for-your-app/> |
+| アプリ内課金を審査に提出する | <https://developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-in-app-purchase> |
+| プライバシーマニフェスト | <https://developer.apple.com/documentation/bundleresources/privacy-manifest-files> |
+| App Store Review Guidelines | <https://developer.apple.com/app-store/review/guidelines/> |
+| Apple Developer Program の加入 | <https://developer.apple.com/programs/enroll/> |
+| D-U-N-S を無料で取る専用ページ | <https://developer.apple.com/enroll/duns-lookup/> |
 
 ---
 

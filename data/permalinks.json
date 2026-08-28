@@ -342,5 +342,81 @@
   "2245": {
     "slug": "wordpress-to-astro-cloudflare-pages",
     "path": "/engineering/wordpress-to-astro-cloudflare-pages/"
+  },
+  "2246": {
+    "slug": "app-store-connect-review-submission-notes",
+    "path": "/engineering/app/app-store-connect-review-submission-notes/"
+  },
+  "2247": {
+    "slug": "google-play-console-review-submission-notes",
+    "path": "/engineering/app/google-play-console-review-submission-notes/"
+  },
+  "2248": {
+    "slug": "personal-app-cross-store-release-full-journey",
+    "path": "/engineering/app/personal-app-cross-store-release-full-journey/"
+  },
+  "2249": {
+    "slug": "indie-app-store-registration-paperwork",
+    "path": "/engineering/app/indie-app-store-registration-paperwork/"
+  },
+  "2250": {
+    "slug": "indie-app-domain-site-email-oauth-setup",
+    "path": "/engineering/app/indie-app-domain-site-email-oauth-setup/"
+  },
+  "2251": {
+    "slug": "indie-app-submission-to-release",
+    "path": "/engineering/app/indie-app-submission-to-release/"
+  },
+  "2252": {
+    "slug": "indie-bucket-list-app-overview",
+    "path": "/engineering/app/indie-bucket-list-app-overview/"
+  },
+  "2253": {
+    "slug": "indie-app-technical-architecture",
+    "path": "/engineering/app/indie-app-technical-architecture/"
+  },
+  "2254": {
+    "slug": "ios-swiftui-swiftdata-pitfalls",
+    "path": "/engineering/app/ios-swiftui-swiftdata-pitfalls/"
+  },
+  "2255": {
+    "slug": "ios-storekit-widget-pitfalls",
+    "path": "/engineering/app/ios-storekit-widget-pitfalls/"
+  },
+  "2256": {
+    "slug": "android-compose-room-billing-pitfalls",
+    "path": "/engineering/app/android-compose-room-billing-pitfalls/"
+  },
+  "2257": {
+    "slug": "firestore-security-rules-production-only-bugs",
+    "path": "/engineering/app/firestore-security-rules-production-only-bugs/"
+  },
+  "2258": {
+    "slug": "proving-it-works-device-and-production-verification",
+    "path": "/engineering/app/proving-it-works-device-and-production-verification/"
+  },
+  "2259": {
+    "slug": "ios-android-string-catalog-i18n",
+    "path": "/engineering/app/ios-android-string-catalog-i18n/"
+  },
+  "2260": {
+    "slug": "solo-dev-with-ai-agent-workflow",
+    "path": "/engineering/app/solo-dev-with-ai-agent-workflow/"
+  },
+  "2261": {
+    "slug": "indie-app-pricing-and-entitlement-design",
+    "path": "/engineering/app/indie-app-pricing-and-entitlement-design/"
+  },
+  "2262": {
+    "slug": "cross-platform-account-migration-ios-android",
+    "path": "/engineering/app/cross-platform-account-migration-ios-android/"
+  },
+  "2263": {
+    "slug": "adding-ugc-report-block-for-store-policy",
+    "path": "/engineering/app/adding-ugc-report-block-for-store-policy/"
+  },
+  "2264": {
+    "slug": "ipad-two-pane-staged-support",
+    "path": "/engineering/app/ipad-two-pane-staged-support/"
   }
 }

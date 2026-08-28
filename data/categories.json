@@ -99,5 +99,17 @@
   "133": {
     "name": "AI",
     "slug": "ai"
+  },
+  "134": {
+    "name": "App",
+    "slug": "app"
+  },
+  "135": {
+    "name": "iOS",
+    "slug": "ios"
+  },
+  "136": {
+    "name": "Android",
+    "slug": "android"
   }
 }

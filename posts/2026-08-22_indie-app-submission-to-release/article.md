@@ -9,7 +9,7 @@ tags:
   - app-store-connect
   - google-play-console
   - in-app-purchase
-draft: false
+draft: true
 id: 2251
 excerpt: 個人開発アプリをApp StoreとGoogle Playに同じ時刻に申請した記録です。AppleはGuideline 2.1（Information Needed）で1回落ちてから2日14時間で承認、Playは指摘ゼロの一発承認でしたが6日18時間かかり、しかも審査完了のメールが1通も来ませんでした。却下理由の全文、両ストアの審査時間の比較、Playの審査状態を測る唯一の方法、初回リリース特有の提出の制約、届いたメールと使ったURLをまとめています。
 eyecatch: ./assets/eyecatch.png

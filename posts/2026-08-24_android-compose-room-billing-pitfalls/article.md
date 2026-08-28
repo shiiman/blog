@@ -345,3 +345,4 @@ Android 版を移植して分かったことを 4 つ。
 - [③ 個人開発アプリを App Store 審査に出すまでにやったこと・ハマったこと全部](/engineering/app/app-store-connect-review-submission-notes/)
 - [④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部](/engineering/app/google-play-console-review-submission-notes/)
 - [⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程](/engineering/app/personal-app-cross-store-release-full-journey/)
+- [⑥ App Store と Google Play の申請からリリースまで（審査・却下対応・公開操作）](/engineering/app/indie-app-submission-to-release/)

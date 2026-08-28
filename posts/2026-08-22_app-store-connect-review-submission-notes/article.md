@@ -33,7 +33,7 @@ eyecatch: ./assets/eyecatch.png
 
 この記事は、同じ道を通る個人開発者が同じ穴に落ちないことだけを目的に書いています。手順の紹介より「事前に知っていれば消耗しなかった点」に重みを置いています。
 
-> シリーズ「ストアに出すまで」全 5 本の 3 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
+> シリーズ「ストアに出すまで」全 6 本の 3 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
 >
 > アプリの実装やバグ修正の話は含みません。ストア審査のためだけに追加で実装が必要になった機能については、[全工程まとめの記事](/engineering/app/personal-app-cross-store-release-full-journey/)で扱います。
 
@@ -1329,6 +1329,15 @@ Google Play 側は、また別の種類の罠がありました。そちらは�
 <span class="link-card__body">
 <span class="link-card__title">⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程</span>
 <span class="link-card__excerpt">3 週間のタイムライン、審査のために追加実装した機能、検証環境の作り分け、繰り返し踏んだ 9 つのメタな罠。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/indie-app-submission-to-release/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-submission-to-release.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑥ App Store と Google Play の申請からリリースまで（審査・却下対応・公開操作）</span>
+<span class="link-card__excerpt">Apple は Guideline 2.1 で 1 回却下。両ストアの審査時間の比較、Play の状態を測る唯一の方法、公開ボタンを押したあとに何が起きたか。</span>
 <span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
 </span>
 </a>

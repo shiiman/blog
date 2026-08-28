@@ -33,7 +33,7 @@ eyecatch: ./assets/eyecatch.png
 - **工程をまたいで繰り返し踏んだ「メタな罠」**
 - これから出す人向けの順序つきチェックリスト
 
-> シリーズ「ストアに出すまで」全 5 本の 5 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
+> シリーズ「ストアに出すまで」全 6 本の 5 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
 
 ## シリーズ構成
 
@@ -47,7 +47,7 @@ eyecatch: ./assets/eyecatch.png
 
 **読む順番は ①→②→③④→⑤** が実際の作業順です。①と②が外部待ちを含むので先に着火します。
 
-> 審査結果はまだ出ていません。この記事は「**提出まで**」の記録です。審査で何を言われたかは、結果が出てから別途書きます。
+> この記事は「**提出まで**」の記録です。審査で何を言われたか、公開ボタンを押したら何が起きたかは[⑥ 申請からリリースまで](/engineering/app/indie-app-submission-to-release/)に分けて書きました。
 
 ### この記事の表記について
 
@@ -1012,7 +1012,7 @@ CLI だけで完結しますが、前提が 3 つあり、どれも自動化で�
 
 UGC を扱うなら報告とブロックは避けられません。課金があるなら審査アカウントで有料機能を触れる状態を作らないといけません。従量課金のバックエンドを使うならコスト防御が要ります。これらは「リリース作業」ではなく「機能開発」なので、その分の時間を最初から取っておくべきでした。
 
-審査結果はまだ出ていません。何を言われたか、リジェクトされたなら何が原因だったかは、結果が出てから追記または別記事にします。
+審査で何を言われたか、そこからどう通したか、公開ボタンを押したあと何が起きたかは[⑥ 申請からリリースまで](/engineering/app/indie-app-submission-to-release/)にまとめました。
 
 これから両ストアに出す方の、消耗ポイントを 1 つでも減らせれば幸いです。
 
@@ -1052,6 +1052,15 @@ UGC を扱うなら報告とブロックは避けられません。課金があ�
 <span class="link-card__body">
 <span class="link-card__title">④ 個人開発アプリを Google Play 審査に出すまでにやったこと・ハマったこと全部</span>
 <span class="link-card__excerpt">組織アカウントの本人確認・15% 手数料・署名鍵 3 種・アプリのセットアップ 11 項目・データセーフティ・課金テスト。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/indie-app-submission-to-release/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-submission-to-release.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑥ App Store と Google Play の申請からリリースまで（審査・却下対応・公開操作）</span>
+<span class="link-card__excerpt">Apple は Guideline 2.1 で 1 回却下。両ストアの審査時間の比較、Play の状態を測る唯一の方法、公開ボタンを押したあとに何が起きたか。</span>
 <span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
 </span>
 </a>

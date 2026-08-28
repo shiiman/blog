@@ -23,7 +23,7 @@ eyecatch: ./assets/eyecatch.png
 
 さらに厄介なのが、この領域はほぼ全部「推測で外した」ことです。リダイレクトの書き方、メールの制約、設定を API でやってよいかどうか——**実測しないと分からないものばかり**でした。
 
-> シリーズ「ストアに出すまで」全 5 本の 2 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
+> シリーズ「ストアに出すまで」全 6 本の 2 本目です。最初から読むなら [① 事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) から。アプリの中身と実装は[別シリーズ](/engineering/app/indie-bucket-list-app-overview/)にまとめました。
 >
 > ストア側の手順は別記事です。[App Store Connect 編](/engineering/app/app-store-connect-review-submission-notes/) / [Google Play Console 編](/engineering/app/google-play-console-review-submission-notes/) / [事務手続き編](/engineering/app/indie-app-store-registration-paperwork/) / [全工程まとめ](/engineering/app/personal-app-cross-store-release-full-journey/)
 
@@ -829,6 +829,15 @@ OAuth の検証センターは Cloud コンソールの中にあり、プロジ�
 <span class="link-card__body">
 <span class="link-card__title">⑤ 個人開発アプリを App Store と Google Play に同時提出するまでの全工程</span>
 <span class="link-card__excerpt">3 週間のタイムライン、審査のために追加実装した機能、検証環境の作り分け、繰り返し踏んだ 9 つのメタな罠。</span>
+<span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
+</span>
+</a>
+
+<a class="link-card" href="/engineering/app/indie-app-submission-to-release/">
+<span class="link-card__thumb"><img src="/eyecatch/indie-app-submission-to-release.png" alt="" loading="lazy" width="160" height="100"></span>
+<span class="link-card__body">
+<span class="link-card__title">⑥ App Store と Google Play の申請からリリースまで（審査・却下対応・公開操作）</span>
+<span class="link-card__excerpt">Apple は Guideline 2.1 で 1 回却下。両ストアの審査時間の比較、Play の状態を測る唯一の方法、公開ボタンを押したあとに何が起きたか。</span>
 <span class="link-card__meta">shiimanblog.com · 2026.08.22</span>
 </span>
 </a>

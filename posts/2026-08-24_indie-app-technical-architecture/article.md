@@ -21,7 +21,7 @@ eyecatch: ./assets/eyecatch.png
 
 何を作ったかは[前の記事](/engineering/app/indie-bucket-list-app-overview/)に、実装で踏んだ罠は iOS 編（[SwiftUI と SwiftData](/engineering/app/ios-swiftui-swiftdata-pitfalls/) / [課金とストア連携](/engineering/app/ios-storekit-widget-pitfalls/)）と [Android 編](/engineering/app/android-compose-room-billing-pitfalls/)に分けました。この記事は**どう組んだか**だけを書きます。
 
-> シリーズ「アプリの中身と実装」全 13 本の 2 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
+> シリーズ「アプリの中身と実装」全 12 本の 2 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ### この記事の表記について
 
@@ -316,7 +316,6 @@ Room のエンティティは SwiftData のモデルを **1 対 1 でミラー**
 
 - [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
 - [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
-- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)
 
 ### ストアに出すまでのシリーズ
 

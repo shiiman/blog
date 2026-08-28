@@ -21,7 +21,7 @@ eyecatch: ./assets/eyecatch.png
 
 並べてみて共通していたのは、**ビルドも SwiftLint も通ること**でした。型は存在して補完も効くのに、その画面を実際に表示した瞬間だけ落ちる。あるいは落ちずに、ボタンが押せない・値が反映されないという形で出ます。**静的に気づけない**のが質でした。
 
-> シリーズ「アプリの中身と実装」全 13 本の 3 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
+> シリーズ「アプリの中身と実装」全 12 本の 3 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ---
 
@@ -327,7 +327,6 @@ SwiftUI と SwiftData で踏んだ罠に共通していたのは 3 つでした�
 
 - [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
 - [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
-- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)
 
 ### ストアに出すまでのシリーズ
 

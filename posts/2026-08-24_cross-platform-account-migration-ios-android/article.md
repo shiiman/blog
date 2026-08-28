@@ -21,7 +21,7 @@ eyecatch: ./assets/eyecatch.png
 
 やってみて分かったのは、難しいのはデータの運搬ではなく、**いま正しい端末はどれかを決めるところ**だったということでした。
 
-> シリーズ「アプリの中身と実装」全 13 本の 8 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
+> シリーズ「アプリの中身と実装」全 12 本の 8 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ---
 
@@ -248,7 +248,6 @@ iOS はミラーがあるので再インストール後も同じ値に落ち着�
 
 - [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
 - [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
-- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)
 
 ### ストアに出すまでのシリーズ
 

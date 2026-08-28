@@ -23,7 +23,7 @@ eyecatch: ./assets/eyecatch.png
 
 >
 
-> シリーズ「アプリの中身と実装」全 13 本の 1 本目です。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
+> シリーズ「アプリの中身と実装」全 12 本の 1 本目です。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ---
 
@@ -242,7 +242,6 @@ issue と PR の通し番号は **2,189 まで**進みました。1 つの機能
 
 - [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
 - [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
-- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)
 
 ### ストアに出すまでのシリーズ
 

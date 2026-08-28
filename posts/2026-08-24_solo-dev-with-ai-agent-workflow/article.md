@@ -10,7 +10,7 @@ tags:
   - indie-dev
   - ai
   - testing
-draft: false
+draft: true
 id: 2260
 excerpt: 個人開発でiOSとAndroidの両方を約4か月・3,585コミットで作るあいだ、AIコーディングエージェントとどう分担したかの運用記録です。仕様書15章を正典にする、1 issue = 1 worktree = 1 PR、構造ガードを30本以上置く、判断の誤りを記憶に残す、そして「エージェントに任せると壊れる場所」の型をまとめました。
 eyecatch: ./assets/eyecatch.png
@@ -22,7 +22,7 @@ eyecatch: ./assets/eyecatch.png
 
 この記事は、そのあいだに固まった運用の記録です。プロンプトの書き方の話ではなく、**何を人間側の資産として持っておくと壊れないか**の話が中心になります。
 
-> シリーズ「アプリの中身と実装」全 13 本の 13 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
+> シリーズ「アプリの中身と実装」の関連記事です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ---
 

@@ -21,7 +21,7 @@ eyecatch: ./assets/eyecatch.png
 
 やってみて分かったのは、**翻訳そのものより運用のほうが厄介**だということでした。とくに「何をもって未翻訳ゼロと言うか」を決めるところで一度つまずいています。
 
-> シリーズ「アプリの中身と実装」全 13 本の 12 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
+> シリーズ「アプリの中身と実装」全 12 本の 12 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ---
 
@@ -328,7 +328,6 @@ json.dumps(catalog, ensure_ascii=False, indent=2) + "\n"
 #### 運用と検証
 
 - [⑪ 「動いている」を証明する方法（実機・本番・計測の作法）](/engineering/app/proving-it-works-device-and-production-verification/)
-- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)
 
 ### ストアに出すまでのシリーズ
 

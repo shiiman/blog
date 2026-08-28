@@ -23,7 +23,7 @@ eyecatch: ./assets/eyecatch.png
 
 この記事はその作法をまとめたものです。個別の不具合は [SwiftUI と SwiftData の罠](/engineering/app/ios-swiftui-swiftdata-pitfalls/) / [iOS の課金とストア連携](/engineering/app/ios-storekit-widget-pitfalls/) / [Android 版](/engineering/app/android-compose-room-billing-pitfalls/) / [Security Rules](/engineering/app/firestore-security-rules-production-only-bugs/) に分けて書きました。
 
-> シリーズ「アプリの中身と実装」全 13 本の 11 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
+> シリーズ「アプリの中身と実装」全 12 本の 11 本目です。最初から読むなら [① アプリの概要](/engineering/app/indie-bucket-list-app-overview/) から。ストアに出すまでの手続きは[別シリーズ](/engineering/app/personal-app-cross-store-release-full-journey/)にまとめました。
 
 ---
 
@@ -286,7 +286,6 @@ Android のウィジェットが「常に 1 手前の内容を描く」不具合
 #### 運用と検証
 
 - [⑫ iOS と Android を日英対応にした運用（String Catalog と values-en）](/engineering/app/ios-android-string-catalog-i18n/)
-- [⑬ AI エージェントとひとりで両OSアプリを作った運用（仕様書・issue・構造ガード・記憶）](/engineering/app/solo-dev-with-ai-agent-workflow/)
 
 ### ストアに出すまでのシリーズ
 

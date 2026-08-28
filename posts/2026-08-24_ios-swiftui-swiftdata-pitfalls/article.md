@@ -115,7 +115,7 @@ HStack<TupleView<(
 
 リストの行に複数のボタン（達成チェック / 追加 / いいね）を置いていて、行全体をタップしたら詳細に飛ばしたい、という要件でした。
 
-素直に `NavigationLink { Detail } label: { RowWithButtons }` にすると、**ラベル領域全体が NavigationLink のタップターゲットになって、中のボタンが反応しません**。「ハートが押せない」「追加ボタンが押せない」とユーザーから指摘されました。`.buttonStyle(.borderless)` を足しても完全には直りません。
+素直に `NavigationLink { Detail } label: { RowWithButtons }` にすると、**ラベル領域全体が NavigationLink のタップターゲットになって、中のボタンが反応しません**。実機で触ると「ハートが押せない」「追加ボタンが押せない」という状態でした。`.buttonStyle(.borderless)` を足しても完全には直りません。
 
 行に内側のボタンがあるときは、NavigationLink を使わずにこうしました。
 

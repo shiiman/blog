@@ -418,5 +418,9 @@
   "2264": {
     "slug": "ipad-two-pane-staged-support",
     "path": "/engineering/app/ipad-two-pane-staged-support/"
+  },
+  "2265": {
+    "slug": "indie-app-update-store-review-times",
+    "path": "/engineering/app/indie-app-update-store-review-times/"
   }
 }

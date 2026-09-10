@@ -12,6 +12,7 @@ tags:
 draft: false
 id: 2265
 excerpt: Bucket List Commitを初回公開したあと、アップデートを3回出しました。Playの更新審査は約30〜40分。Appleの審査待ちは毎回約11時間で、最初の更新だけ審査中が約3日ありました。落ちた理由は別で、公開後のApp Store反映は約1時間遅れました。
+eyecatch: ./assets/eyecatch.png
 ---
 
 ## はじめに

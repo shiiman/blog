@@ -6,10 +6,10 @@ interface Props {
   entry: CollectionEntry<'pages'>
 }
 const { entry } = Astro.props
-const { title, excerpt } = entry.data
+const { title, excerpt, slug } = entry.data
 ---
 <BaseLayout title={`${title} - shiimanblog`} description={excerpt}>
-  <article class="page" data-pagefind-body>
+  <article class:list={['page', slug === 'profile' && 'page--profile']} data-pagefind-body>
     <h1>{title}</h1>
     <div class="content">
       <slot />
@@ -22,4 +22,8 @@ const { title, excerpt } = entry.data
   .page h1 { font-size: 1.8rem; margin: 0 0 1.5rem; }
   .content :global(h2) { margin-top: 2rem; }
   .content :global(img) { border-radius: 8px; }
+  .page--profile .content :global(img[alt="Bucket List Commit のアプリアイコン"]) {
+    width: 72px;
+    height: 72px;
+  }
 </style>

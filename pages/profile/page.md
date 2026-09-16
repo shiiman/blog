@@ -107,7 +107,7 @@ FIREについてはまた後ほど記事を書こうと思っておりますが�
 
 ### Bucket List Commit
 
-[![Bucket List Commit のアプリアイコン](./assets/blc-icon.png)](https://blc.shiiman.dev/download/)
+[![Bucket List Commit のアプリアイコン](./assets/blc-icon.png) 公式サイト](https://blc.shiiman.dev/download/)
 
 「やりたいことを、一生のリストに」がキャッチコピーの、人生でやりたいことを記録・管理するアプリです。iPhone / iPad と Android の両OS向けに個人で開発しています。
 
@@ -119,8 +119,6 @@ FIREについてはまた後ほど記事を書こうと思っておりますが�
 | --- | --- |
 | 初回公開 | 2026年8月28日（App Store と Google Play で同時公開） |
 | 配信地域 | 日本 / 米国 / カナダ / ニュージーランド |
-
-[公式サイト](https://blc.shiiman.dev/download/)
 
 #### このブログでの関連記事
 

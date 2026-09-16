@@ -105,8 +105,6 @@ FIREについてはまた後ほど記事を書こうと思っておりますが�
 
 ## 個人開発アプリ
 
-2026年から、個人でスマホアプリを作っています。いま公開しているのは Bucket List Commit です。
-
 ### Bucket List Commit
 
 [![Bucket List Commit のアプリアイコン](./assets/blc-icon.png)](https://blc.shiiman.dev/download/)

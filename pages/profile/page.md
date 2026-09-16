@@ -109,32 +109,20 @@ FIREについてはまた後ほど記事を書こうと思っておりますが�
 
 ### Bucket List Commit
 
+[![Bucket List Commit のアプリアイコン](./assets/blc-icon.png)](https://blc.shiiman.dev/download/)
+
 「やりたいことを、一生のリストに」がキャッチコピーの、人生でやりたいことを記録・管理するアプリです。iPhone / iPad と Android の両方を、ひとりで書いています。
 
 やりたいことをリストにして、期限や達成日、写真やメモとあわせて残せます。達成は Google カレンダーへ書き出せます。リストは任意で自分の GitHub リポジトリと双方向同期でき、アプリを離れても Markdown のまま読めます。
-
-無料で使えます。件数やフレンド数などを広げる Pro プラン（月額 280円 / 年額 2,800円）と、テーマの買い切りもあります。
 
 #### 開発・リリース状況
 
 | 項目 | 内容 |
 | --- | --- |
 | 初回公開 | 2026年8月28日（App Store と Google Play で同時公開） |
-| 最新バージョン | 1.5.0（2026年9月15日） |
-| 対応環境 | iOS 17 以降 / Android 8.0 以降 |
 | 配信地域 | 日本 / 米国 / カナダ / ニュージーランド |
-| いまのフェーズ | 公開後の保守。破壊的な変更はせず、使い勝手と定番データの改善を続けています |
 
-約4か月かけて初版を作り、公開後も短い間隔でアップデートを出しています。開発の経緯やストア提出までの記録は、このブログの記事にまとめています。
-
-#### リンク
-
-- [公式サイト](https://blc.shiiman.dev/)
-- [アプリを入手する（ダウンロード）](https://blc.shiiman.dev/download/)
-- [リリース情報](https://blc.shiiman.dev/releases/)
-- [できること](https://blc.shiiman.dev/features/)
-- [App Store](https://apps.apple.com/app/id6796603923)
-- [Google Play](https://play.google.com/store/apps/details?id=dev.shiiman.blc)
+[公式サイト](https://blc.shiiman.dev/download/)
 
 #### このブログでの関連記事
 
